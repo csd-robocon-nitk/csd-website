@@ -7,7 +7,7 @@ export default async function Home() {
       throw new Error('Token not found in environment variables.');
     }
 
-    const res = await fetch(`${process.env.STRAPI_API_URL}/articles/`, {
+    const res = await fetch(`${process.env.STRAPI_API_URL}/items?publicationState=preview`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -20,7 +20,7 @@ export default async function Home() {
     const articles = await res.json();
     console.log(articles);
     const articles_data=articles.data
-    console.log(articles_data)
+    console.log(articles_data[0].attributes.rich)
 
 
     return (
@@ -32,7 +32,7 @@ export default async function Home() {
               {articles_data.map(article=>(
                 <li key={articles.id}>
                   <h3>
-                    {article.article_name}
+                    {article.id}
                   </h3>
                 </li>
               ))}
