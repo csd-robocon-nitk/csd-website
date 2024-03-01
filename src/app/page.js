@@ -1,13 +1,13 @@
 
 export default async function Home() {
   try {
-    const token = '336f4ffc88cf379ac3c3220b010291361737e1b9843d88f8b7e472c87381c866c51f38c184a1f73f5e9ebe279f632cb6652ee683b2fc3e9ecd546b39811a8b09ab7938134ba78d25f87f1091a5a35b164eb321fb6951e6e51770e939345885694fef286770be68b02b10bd38ea44c868beda3d0f6af44b9ac4f2464be39f9000'; // Assuming your token variable is named TOKEN in your environment file
+    const token = process.env.TOKEN;
 
     if (!token) {
       throw new Error('Token not found in environment variables.');
     }
 
-    const res = await fetch(`http://127.0.0.1:1337/api/articles`, {
+    const res = await fetch(`${process.env.STRAPI_API_URL}/articles/`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
