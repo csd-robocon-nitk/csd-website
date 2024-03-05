@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .cover-heading {
-    text-shadow: 1px 1px 10px #00000088;
+    text-shadow: 2px 2px 5px #aaaaaa44;
 }
