@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cover-heading {
+    text-shadow: 1px 1px 10px #00000088;
+}
