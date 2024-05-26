@@ -3,7 +3,6 @@ import React from 'react'
 export default function EventsCard({event}) {
 
    const startDateTime = new Date(event.attributes.start)
-   console.log(startDateTime)
    const endDateTime = new Date(event.attributes.end) 
 
   return (

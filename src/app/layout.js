@@ -1,6 +1,7 @@
 import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
+import Footer from '@/components/footer'
 
 const monsterrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] })
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
 			<body className={`${monsterrat.className} text-slate-700`}>
                 <Header />
                 {children}
+				<Footer />
             </body>
 		</html>
 	)

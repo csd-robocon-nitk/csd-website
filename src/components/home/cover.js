@@ -11,7 +11,7 @@ export default function CoverSection () {
         //     </div>
         // </div>
         <div className="cover h-screen w-full flex flex-col gap-8 justify-center items-center px-60">
-            <div className="main text-8xl">CENTRE FOR SYSTEM DESIGN</div>
+            <div className="main text-8xl">CENTER FOR SYSTEM DESIGN</div>
             <div className="main text-8xl">NITK</div>
             <div className="text-6xl">A Centre of Excellence at NITK Surathkal</div>
         </div>
