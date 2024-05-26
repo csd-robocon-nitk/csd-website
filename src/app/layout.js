@@ -1,8 +1,8 @@
-import { Roboto } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
 
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700', '900'] })
+const monsterrat = Montserrat({ subsets: ['latin'], weight: ['400', '700', '900'] })
 
 export const metadata = {
 	title: 'Center for System Design',
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={`${roboto.className} text-slate-700`}>
+			<body className={`${monsterrat.className} text-slate-700`}>
                 <Header />
                 {children}
             </body>
