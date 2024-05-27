@@ -10,10 +10,10 @@ export default function CoverSection () {
         //         <h1 className="text-6xl font-black text-center leading-tight text-zinc-300 drop-shadow-2xl shadow-black cover-heading">CENTER FOR SYSTEM DESIGN<br />NITK</h1>
         //     </div>
         // </div>
-        <div className="cover h-screen w-full flex flex-col gap-8 justify-center items-center px-60">
-            <div className="main text-8xl">CENTER FOR SYSTEM DESIGN</div>
-            <div className="main text-8xl">NITK</div>
-            <div className="text-6xl">A Centre of Excellence at NITK Surathkal</div>
+        <div className="cover h-screen w-full flex flex-col gap-8 justify-center items-center">
+            <div className="main xl:text-8xl lg:text-7xl sm:text-5xl text-3xl">CENTRE FOR SYSTEM DESIGN</div>
+            <div className="main xl:text-8xl lg:text-7xl sm:text-5xl text-3xl">NITK</div>
+            <div className="xl:text-6xl lg:text-4xl sm:text-2xl text-lg">A Centre of Excellence at NITK Surathkal</div>
         </div>
     )
 }

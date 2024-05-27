@@ -1,37 +1,37 @@
-import UpdateCard from "./updateCard"
+import UpdateCard from "./updateCard";
 
-    
+export default async function UpdatesSection() {
+  const token = process.env.TOKEN;
+  if (!token) {
+    throw new Error("Token not found!");
+  }
 
-export default async function UpdatesSection () {
-
-    const token = process.env.TOKEN;
-    if (!token) {
-        throw new Error('Token not found!');
+  const res = await fetch(
+    `${process.env.STRAPI_API_URL}/api/updates?populate=*`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
+  );
 
-    const res = await fetch(`${process.env.STRAPI_API_URL}/api/updates?populate=*`, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
+  }
 
-    if (!res.ok) {
-        throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
-    }
+  const updates = await res.json();
+  const updates_data = updates.data;
 
-    const updates = await res.json();
-    const updates_data = updates.data;
-
-    return (
-        <div className="bg-[#e0e0e0] text-black w-full flex flex-col items-center px-60 gap-8 p-10">
-            <div className="text-4xl font-bold">Updates</div>
-            <div className=" flex flex-wrap justify-evenly items-stretch">
-                {
-                    updates_data.map((update,id) => (
-                        <UpdateCard key={id} update={update} />
-                    ))
-                }
-            </div>
+  return (
+    <div className="bg-[#e0e0e0] text-black w-full flex flex-col items-center">
+      <div className="flex flex-col items-center gap-8 bg-white rounded-2xl py-5 my-5">
+        <div className="text-4xl font-bold">Updates</div>
+        <div className=" flex flex-wrap justify-evenly items-stretch gap-2">
+          {updates_data.map((update, id) => (
+            <UpdateCard key={id} update={update} />
+          ))}
         </div>
-    )
+      </div>
+    </div>
+  );
 }
