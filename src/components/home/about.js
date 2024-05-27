@@ -1,6 +1,6 @@
 export default function AboutSection() {
 	return (
-		<div className="bg-[#e0e0e0] text-black flex flex-col justify-evenly px-10 items-center py-10 gap-2">
+		<div className="bg-[#e0e0e0] text-black flex flex-col justify-center lg:px-60 px-10 items-center py-10 gap-2 min-h-screen">
 			<div className="flex justify-evenly items-center w-full gap-4 bg-slate-50 rounded-t-2xl rounded-b-sm shadow-md px-10 py-5">
 					<div className="flex flex-col text-xl text-wrap text-justify md:w-3/4 w-full rounded-md gap-4">
 						<div className="text-4xl md:text-start text-center font-extrabold">About Us</div>
