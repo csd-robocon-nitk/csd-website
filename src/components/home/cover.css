@@ -1,12 +1,3 @@
-@font-face {
-    font-family: 'deacon-bold';
-    src: url("../../../public/fonts/deacon/DeaconCondensedTest-Bold-BF63c8afdda0cc7.otf");
-}
-@font-face {
-    font-family: 'deacon';
-    src: url("../../../public/fonts/deacon/DeaconCondensedTest-Light-BF63c8afdd389e2.otf");
-}
-
 .cover {
     color: white;
     font-family: 'deacon', sans-serif;

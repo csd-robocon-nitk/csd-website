@@ -11,9 +11,9 @@ export default function CoverSection () {
         //     </div>
         // </div>
         <div className="cover h-screen w-full flex flex-col gap-8 justify-center items-center">
-            <div className="main xl:text-8xl lg:text-7xl sm:text-5xl text-3xl">CENTRE FOR SYSTEM DESIGN</div>
-            <div className="main xl:text-8xl lg:text-7xl sm:text-5xl text-3xl">NITK</div>
-            <div className="xl:text-6xl lg:text-4xl sm:text-2xl text-lg">A Centre of Excellence at NITK Surathkal</div>
+            <div className="xl:text-9xl lg:text-7xl sm:text-5xl text-3xl font-extrabold tracking-tighter">Center for System Design</div>
+            <div className="xl:text-8xl lg:text-7xl sm:text-5xl text-3xl font-extrabold tracking-tighter">NITK</div>
+            <div className="xl:text-6xl lg:text-4xl sm:text-2xl text-lg font-bold tracking-tighter">A Centre of Excellence at NITK Surathkal</div>
         </div>
     )
 }

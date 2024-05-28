@@ -25,10 +25,10 @@ export default async function PeoplePage() {
     const associated_staff = people_data.filter(item => item.attributes.type === "associated_staff");
 
     return (
-        <div className="px-60 py-10 mt-20 bg-[#e0e0e0] flex flex-col items-center">
+        <div className="px-60 py-10 mt-20 bg-bg-light flex flex-col items-center">
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-black font-bold text-4xl">Associated Faculty</h1>
-                <div className="grid grid-cols-4 items-center p-10 justify-center space-x-8">
+                <div className="flex flex-wrap items-center p-10 justify-center gap-8">
                     {
                         associated_faculty.map((faculty,index) => (
 
@@ -40,7 +40,7 @@ export default async function PeoplePage() {
             </div>
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-black font-bold text-4xl">Associated Research Scholars</h1>
-                <div className="grid grid-cols-4 items-center p-10 justify-center space-x-8">
+                <div className="flex flex-wrap items-center p-10 justify-center space-x-8">
                     {
                         associated_research_scholars.map((faculty,index) => (
 
@@ -52,7 +52,7 @@ export default async function PeoplePage() {
             </div>
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-black font-bold text-4xl">Associated Staff</h1>
-                <div className="grid grid-cols-4 items-center p-10 justify-center space-x-8">
+                <div className="flex flex-wrap items-center p-10 justify-center space-x-8">
                     {
                         associated_staff.map((faculty,index) => (
 

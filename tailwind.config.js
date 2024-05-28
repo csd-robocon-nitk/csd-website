@@ -10,6 +10,16 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         "about-section": "1fr 3fr"
+      },
+      colors: {
+        "page-white" : "#f2f0ef",
+        "page-black" : "#252525", 
+        "page-accent" : "#6a89a7",
+        "page-accent-light" : "#bdddfc",
+        "bg-light": "#c9c8c7",
+        "bg-dark" : "#252525",
+        "card-bg" : "#ffffff",
+        "card-bg-light" : "#ffffff",
       }
     },
   },

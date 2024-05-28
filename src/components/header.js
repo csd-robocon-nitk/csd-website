@@ -39,29 +39,29 @@ export default function Header () {
       <div
         className={
           navTransparency
-            ? ("flex flex-wrap fixed items-center justify-center z-50 w-full h-20 top-0 " + (open ? " bg-[#161616]" : ""))
-            : ("flex flex-wrap fixed items-center justify-center z-50 w-full h-20 top-0 " + (open ? "bg-[#161616]" : "bg-gradient-to-r from-[#353e43] to-[#161616]"))
+            ? ("flex flex-wrap fixed items-center justify-center z-50 w-full h-20 top-0 " + (open ? " bg-bg-dark" : ""))
+            : "flex flex-wrap fixed items-center justify-center z-50 w-full h-20 top-0 bg-bg-dark"
         }
       >
-        <div className="pt-3 flex items-center md:gap-8 justify-evenly w-full">
+        <div className="py-3 flex items-center md:gap-8 justify-evenly w-full">
           <img src="/logo.png" className={"xl:h-16 w-auto md:h-12 h-6"} alt="" />
           <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-white lg:uppercase">
-            <li className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
               <Link href="/">Home</Link>
             </li>
-            <li className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
               <Link href="/people">People</Link>
             </li>
-            <li className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+            <li className="hover:bg-page-accent-light  p-2 rounded-xl hover:text-black">
               <Link href="/blog">Blog</Link>
             </li>
-            <li className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
               <Link href="/resources">Resources</Link>
             </li>
-            <li className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
               <Link href="/events">Events</Link>
             </li>
-            <li className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+            <li className="hover:bg-page-accent-light  p-2 rounded-xl hover:text-black">
               <Link href="/contact">Contact</Link>
             </li>
           </ul>
@@ -74,22 +74,22 @@ export default function Header () {
           {
             open ? (
               <ul className="flex p-20 flex-col justify-evenly bg-[#161616] h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
-                <li onClick={handleClick} className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
                   <Link href="/">Home</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
                   <Link href="/people">People</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
                   <Link href="/blog">Blog</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
                   <Link href="/resources">Resources</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
                   <Link href="/events">Events</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
                   <Link href="/contact">Contact</Link>
                 </li>
               </ul>
