@@ -7,7 +7,7 @@ export default async function UpdatesSection() {
   }
 
   const res = await fetch(
-    `${process.env.STRAPI_API_URL}/api/updates?populate=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/updates?populate=*`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -23,8 +23,8 @@ export default async function UpdatesSection() {
   const updates_data = updates.data;
 
   return (
-    <div className="bg-bg-light text-black w-full lg:px-60 px-10 flex flex-col items-center">
-      <div className="flex flex-col items-center gap-8 bg-card-bg rounded-2xl py-5 my-5 w-full">
+    <div className="bg-gradient-to-r from-cobalt-200 to-shark-200 w-full lg:px-60 px-10 flex flex-col items-center">
+      <div className="flex flex-col items-center gap-8 rounded-2xl py-5 my-5 w-full">
         <div className="text-4xl font-bold">Updates</div>
         <div className=" flex flex-wrap justify-evenly items-stretch gap-2">
           {updates_data.map((update, id) => (

@@ -8,7 +8,7 @@ export default async function Events() {
         throw new Error('Token not found!');
     }
 
-    const res = await fetch(`${process.env.STRAPI_API_URL}/api/events?populate=*`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/events?populate=*`, {
         headers: {
             'Authorization': `Bearer ${token}`
         },
@@ -23,7 +23,7 @@ export default async function Events() {
     const events_data = events.data;
 
   return (
-    <div className='mt-20 bg-[#e0e0e0] min-h-screen flex flex-col items-center p-10 px-60'>
+    <div className='mt-20 bg-gradient-to-r from-cobalt-200 to-shark-200 min-h-screen flex flex-col items-center p-10 px-60'>
         <h1 className='font-bold text-black text-4xl'>Events</h1>
         <div className='grid grid-cols-3 w-full'>
             {

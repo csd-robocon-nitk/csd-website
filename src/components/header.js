@@ -12,7 +12,7 @@ export default function Header () {
     const pathname = usePathname()
     const [path, setPath] = useState(pathname)
 
-    const [navTransparency, setNavTransparency] = useState(false)
+    const [navTransparency, setNavTransparency] = useState(true)
 
     const changeNavColor = () => {
         if (window.scrollY <= 100 && pathname === "/") {
@@ -39,30 +39,32 @@ export default function Header () {
       <div
         className={
           navTransparency
-            ? ("flex flex-wrap fixed items-center justify-center z-50 w-full h-20 top-0 " + (open ? " bg-bg-dark" : ""))
-            : "flex flex-wrap fixed items-center justify-center z-50 w-full h-20 top-0 bg-bg-dark"
+            ? ("flex flex-wrap absolute items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
+            : "flex flex-wrap absolute items-center justify-center h-20 z-50 w-full top-0 bg-shark-950"
         }
       >
-        <div className="py-3 flex items-center md:gap-8 justify-evenly w-full">
-          <img src="/logo.png" className={"xl:h-16 w-auto md:h-12 h-6"} alt="" />
-          <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-white lg:uppercase">
-            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
-              <Link href="/">Home</Link>
+        <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
+          <div className="flex flex-col items-center">
+            <img src="/logo.png" className={"w-auto md:h-16 h-6"} alt="" />
+          </div>
+          <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-xl text-white lg:uppercase">
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/">Home</Link>
             </li>
-            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
-              <Link href="/people">People</Link>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/people">People</Link>
             </li>
-            <li className="hover:bg-page-accent-light  p-2 rounded-xl hover:text-black">
-              <Link href="/blog">Blog</Link>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/blog">Blog</Link>
             </li>
-            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
-              <Link href="/resources">Resources</Link>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/resources">Resources</Link>
             </li>
-            <li className="hover:bg-page-accent-light p-2 rounded-xl hover:text-black">
-              <Link href="/events">Events</Link>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/events">Events</Link>
             </li>
-            <li className="hover:bg-page-accent-light  p-2 rounded-xl hover:text-black">
-              <Link href="/contact">Contact</Link>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/contact">Contact</Link>
             </li>
           </ul>
           <div className="lg:hidden">
@@ -73,23 +75,23 @@ export default function Header () {
         <div className="w-full">
           {
             open ? (
-              <ul className="flex p-20 flex-col justify-evenly bg-[#161616] h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
+              <ul className="flex p-20 flex-col justify-evenly bg-page-black h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/">Home</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/people">People</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/blog">Blog</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/resources">Resources</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/events">Events</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-black">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/contact">Contact</Link>
                 </li>
               </ul>

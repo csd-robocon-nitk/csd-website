@@ -5,9 +5,9 @@ import Mail from "../../../public/assets/images/mail.svg";
 
 export default function Contact() {
   return (
-    <div className="pt-20 flex gap-2  bg-bg-light flex-col justify-center items-center">
-      <div className="flex gap-8 justify-center w-full mt-10">
-        <div className="flex flex-col gap-8 bg-white rounded-b-sm rounded-t-2xl shadow-lg p-10 w-1/2">
+    <div className="pt-20 flex gap-2 bg-gradient-to-r from-cobalt-200 to-shark-200 from- flex-col justify-center items-center">
+      <div className="flex gap-2 justify-center w-full mt-10">
+        <div className="flex flex-col backdrop-blur-2xl border-2 border-white/30 bg-shark-50/30 rounded-b-sm rounded-t-lg shadow-sm p-10 w-1/2">
           <h1 className="xl:text-5xl text-xl font-bold">Contact Us</h1>
           <div className="w-full flex xl:flex-row flex-col items-center justify-between">
             <div className="flex flex-col items-start lg:gap-4 justify-between">
@@ -42,28 +42,34 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start gap-8 p-10 bg-white rounded-t-sm rounded-b-2xl shadow-lg w-1/2 mb-10">
+      <div className="flex flex-col items-start gap-8 p-10 backdrop-blur-2xl border-2 border-white/30 bg-shark-50/30 rounded-t-sm rounded-b-lg shadow-sm w-1/2 mb-10">
         <div className="font-bold lg:text-5xl text-xl">Write to us</div>
         <form action="" className="flex flex-col gap-4 w-3/4">
+          <div className="flex flex-col gap-2">
           <span className="lg:text-2xl text-sm">Name</span>
           <input
             type="text"
             placeholder=""
-            className="border-b-[2px] focus:border-b-[0.5px] w-1/2  border-[#161616] focus:outline-none placeholder-inherit"
+            className="border-b-[2px] focus:border-b-[0.5px] w-full bg-shark-50/30 border-[#161616] focus:outline-none placeholder-inherit"
           />
+          </div> 
+          <div className="flex flex-col gap-2">
           <span className="lg:text-2xl text-sm">E-mail</span>
           <input
             type="email"
             placeholder=""
-            className="border-b-[2px] focus:border-b-[0.5px] w-1/2 border-[#161616] focus:outline-none placeholder-inherit"
+            className="border-b-[2px] focus:border-b-[0.5px] bg-shark-50/30 w-full border-[#161616] focus:outline-none placeholder-inherit"
           />
+          </div>
+          <div className="flex flex-col gap-2">
           <span className="lg:text-2xl text-sm">Message</span>
           <textarea
             name="message"
             id="message"
-            className="border-b-[2px] focus:border-b-[0.5px] border-[#161616] outline-none"
+            className="border-b-[2px] focus:border-b-[0.5px] bg-shark-50/30 border-[#161616] outline-none"
           ></textarea>
-          <button className="btn text-white lg:text-2xl text-sm btn-primary bg-page-accent hover:bg-page-accent-light ease-in-out hover:scale-[1.05] hover:shadow-2xl duration-200">
+          </div>
+          <button className="btn text-white lg:text-2xl text-sm btn-primary bg-shark-950 hover:bg-shark-800 ease-in-out hover:scale-[1.05] hover:shadow-2xl duration-200">
             Submit
           </button>
         </form>

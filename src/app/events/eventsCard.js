@@ -6,10 +6,10 @@ export default function EventsCard({event}) {
    const endDateTime = new Date(event.attributes.end) 
 
   return (
-    <div className="card overflow-hidden shadow-xl m-10 bg-[#ffffff] w-full">
+    <div className="card overflow-hidden shadow-xl m-10 backdrop-blur-2xl border-2 border-white/30 bg-shark-50/30 w-full">
       <img
         src={
-          process.env.STRAPI_API_URL +
+          process.env.NEXT_PUBLIC_STRAPI_API_URL +
           event.attributes.media.data.attributes.formats.thumbnail.url
         }
         alt=""

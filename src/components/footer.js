@@ -8,7 +8,7 @@ import LinkedIn from '../../public/assets/images/linkedin.svg';
 
 const Footer = () => {
   return (
-    <div className='footer bg-bg-dark flex items-center gap-16 justify-evenly py-10'>
+    <div className='footer bg-shark-950 flex items-center gap-16 justify-evenly py-10'>
         <div className='flex flex-col items-center justify-center text-wrap'>
             <img src={Logo.src} alt='logo' className='lg:h-16 h-4' />
             <p className='text-white text-xs text-wrap'>&copy; 2024 All Rights Reserved</p>

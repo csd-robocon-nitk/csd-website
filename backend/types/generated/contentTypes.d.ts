@@ -794,6 +794,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     singularName: 'blog';
     pluralName: 'blogs';
     displayName: 'blog';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -804,6 +805,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     desc: Attribute.Text;
     blogtext: Attribute.Text;
     publishedDate: Attribute.Date;
+    content: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

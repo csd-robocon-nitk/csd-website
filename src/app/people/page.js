@@ -6,7 +6,7 @@ export default async function PeoplePage() {
         throw new Error('Token not found!');
     }
 
-    const res = await fetch(`${process.env.STRAPI_API_URL}/api/peoples?populate=*`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/peoples?populate=*`, {
         headers: {
             'Authorization': `Bearer ${token}`
         },
@@ -25,9 +25,9 @@ export default async function PeoplePage() {
     const associated_staff = people_data.filter(item => item.attributes.type === "associated_staff");
 
     return (
-        <div className="px-60 py-10 mt-20 bg-bg-light flex flex-col items-center">
-            <div className="flex flex-col items-center justify-center">
-                <h1 className="text-black font-bold text-4xl">Associated Faculty</h1>
+        <div className="py-10 pt-10 mt-20 bg-gradient-to-r from-cobalt-200 to-shark-200 flex w-full flex-col items-center">
+            <div className="flex flex-col items-center justify-evenly w-ful">
+                <h1 className="font-extrabold text-4xl lg:text-5xl">Associated Faculty</h1>
                 <div className="flex flex-wrap items-center p-10 justify-center gap-8">
                     {
                         associated_faculty.map((faculty,index) => (
@@ -39,7 +39,7 @@ export default async function PeoplePage() {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="text-black font-bold text-4xl">Associated Research Scholars</h1>
+                <h1 className="font-extrabold text-4xl lg:text-5xl">Associated Research Scholars</h1>
                 <div className="flex flex-wrap items-center p-10 justify-center space-x-8">
                     {
                         associated_research_scholars.map((faculty,index) => (
@@ -51,7 +51,7 @@ export default async function PeoplePage() {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="text-black font-bold text-4xl">Associated Staff</h1>
+                <h1 className="font-extrabold text-4xl lg:text-5xl">Associated Staff</h1>
                 <div className="flex flex-wrap items-center p-10 justify-center space-x-8">
                     {
                         associated_staff.map((faculty,index) => (

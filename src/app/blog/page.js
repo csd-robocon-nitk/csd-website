@@ -9,7 +9,7 @@ const Blogs
         throw new Error('Token not found!');
     }
 
-    const res = await fetch(`${process.env.STRAPI_API_URL}/api/blogs?populate=*`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?populate=*`, {
         headers: {
             'Authorization': `Bearer ${token}`
         },
@@ -22,13 +22,12 @@ const Blogs
 
     const blogs = await res.json();
     const blogs_data = blogs.data;
-    console.log(blogs_data[0])
 
 
   return (
-    <div className='pt-20 p-10 bg-bg-light min-h-screen flex flex-col justify-center items-center w-full'>
-        <div className='font-bold text-4xl m-5'>CSD's Blogs</div>
-        <div className='flex w-full justify-center items-center flex-wrap gap-4'>
+    <div className='pt-20 p-10 bg-gradient-to-r from-cobalt-200 to-shark-200 min-h-screen gap-8 flex flex-col justify-center items-center w-full'>
+        <div className='font-bold pt-5 text-5xl m-5'>CSD's Blogs</div>
+        <div className='flex w-full justify-center items-center flex-wrap gap-8'>
             {
                 blogs_data.map((blog, index) => (
                     <BlogCard key={index} blog={blog} />

@@ -1,9 +1,9 @@
-import { Inter } from 'next/font/google'
+import { Familjen_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
-const inter = Inter({ subsets: ['latin'], weight: ['variable']})
+const inter = Familjen_Grotesk({ subsets: ['latin'], weight: ['variable']})
 
 export const metadata = {
 	title: 'Center for System Design',
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
 		
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale = 1.0,maximum-scale=1.0" /> 
-			<body className={`${inter.className} text-page-black overflow-x-hidden`}>
+			<body className={`${inter.className} text-shark-950 bg-white overflow-x-hidden`}>
                 <Header />
                 {children}
 				<Footer />
