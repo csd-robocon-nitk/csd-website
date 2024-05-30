@@ -39,8 +39,8 @@ export default function Header () {
       <div
         className={
           navTransparency
-            ? ("flex flex-wrap absolute items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
-            : "flex flex-wrap absolute items-center justify-center h-20 z-50 w-full top-0 bg-shark-950"
+            ? ("flex flex-wrap absolute items-center justify-center h-24 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
+            : "flex flex-wrap absolute items-center justify-center h-24 z-50 w-full top-0 bg-shark-950"
         }
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
@@ -75,7 +75,7 @@ export default function Header () {
         <div className="w-full">
           {
             open ? (
-              <ul className="flex p-20 flex-col justify-evenly bg-page-black h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
+              <ul className="flex p-20 flex-col justify-evenly bg-shark-950 h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
                 <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/">Home</Link>
                 </li>

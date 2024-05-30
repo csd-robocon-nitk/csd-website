@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
 		
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale = 1.0,maximum-scale=1.0" /> 
-			<body className={`${inter.className} text-shark-950 bg-white overflow-x-hidden`}>
+			<body className={`${inter.className} text-shark-950 bg-white`}>
                 <Header />
                 {children}
 				<Footer />

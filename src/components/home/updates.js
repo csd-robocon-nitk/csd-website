@@ -23,7 +23,7 @@ export default async function UpdatesSection() {
   const updates_data = updates.data;
 
   return (
-    <div className="bg-gradient-to-r from-cobalt-200 to-shark-200 w-full lg:px-60 px-10 flex flex-col items-center">
+    <div className="w-full lg:px-60 px-10 flex flex-col items-center">
       <div className="flex flex-col items-center gap-8 rounded-2xl py-5 my-5 w-full">
         <div className="text-4xl font-bold">Updates</div>
         <div className=" flex flex-wrap justify-evenly items-stretch gap-2">

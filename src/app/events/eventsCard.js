@@ -6,21 +6,22 @@ export default function EventsCard({event}) {
    const endDateTime = new Date(event.attributes.end) 
 
   return (
-    <div className="card overflow-hidden shadow-xl m-10 backdrop-blur-2xl border-2 border-white/30 bg-shark-50/30 w-full">
+    <div className="flex flex-col items-center overflow-hidden rounded-md shadow-sm m-10 bg-shark-100/50 p-2">
       <img
         src={
           process.env.NEXT_PUBLIC_STRAPI_API_URL +
           event.attributes.media.data.attributes.formats.thumbnail.url
         }
         alt=""
+        className='rounded-lg'
       />
       <div className="card-body">
         <p className="card-title">{event.attributes.title}</p>
         <p>{event.attributes.desc}</p>
         <div className='grid grid-cols-2'>
           <div>
-            <p>Begins at: </p>
-            <p className="text-lg">
+            <p className="xl:text-lg text-sm">Begins at: </p>
+            <p className="xl:text-lg text-sm">
               {startDateTime
                 .toLocaleTimeString("en-IN", {
                   hour: "2-digit",
@@ -28,7 +29,7 @@ export default function EventsCard({event}) {
                 })
                 .toUpperCase()}
             </p>
-            <p className="text-lg">
+            <p className="xl:text-lg text-sm">
               {startDateTime.toLocaleDateString("en-IN", {
                 weekday: "short",
                 day: "numeric",
@@ -38,8 +39,8 @@ export default function EventsCard({event}) {
             </p>
           </div>
           <div>
-            <p>Ends at: </p>
-            <p className="text-lg">
+            <p className="xl:text-lg text-sm">Ends at: </p>
+            <p className="xl:text-lg text-sm">
               {endDateTime
                 .toLocaleTimeString("en-IN", {
                   hour: "2-digit",
@@ -47,7 +48,7 @@ export default function EventsCard({event}) {
                 })
                 .toUpperCase()}
             </p>
-            <p className="text-lg">
+            <p className="xl:text-lg text-sm">
               {endDateTime.toLocaleDateString("en-IN", {
                 weekday: "short",
                 day: "numeric",
@@ -58,7 +59,7 @@ export default function EventsCard({event}) {
           </div>
         </div>
         <div className='card-actions'>
-              <button className='btn btn-primary bg-[#161616] hover:bg-black'>Details</button>
+              <button className='btn btn-primary text-sm xl:text-lg text-white bg-shark-800 hover:bg-shark-950'>Details</button>
         </div>
       </div>
     </div>

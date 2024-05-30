@@ -39,7 +39,7 @@ module.exports = {
         '950': '#461404',
         },
         
-        'port-gore': {
+        'shark': {
           '50': '#f2f4fc',
           '100': '#e1e6f8',
           '200': '#c9d2f4',
@@ -91,7 +91,7 @@ module.exports = {
           '900': '#455073',
           '950': '#2a2f41',
         },
-        'shark': {
+        'forgot_color': {
           '50': '#f3f6f8',
           '100': '#e1e9ec',
           '200': '#c7d4da',

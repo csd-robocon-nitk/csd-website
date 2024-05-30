@@ -27,8 +27,8 @@ export default async function BlogPage({ params }) {
   const date = new Date(blog_data.attributes.publishedDate);
 
   return (
-    <div className="flex bg-gradient-to-r from-cobalt-200 to-shark-200 pt-20 flex-col items-center min-h-screen w-full">
-      <div className="p-10 flex flex-col items-center w-3/5 gap-8">
+    <div className="flex pt-20 flex-col items-center min-h-screen w-full">
+      <div className="p-10 flex flex-col items-center w-4/5 gap-8">
         <div className="py-20 flex flex-col items-center gap-4">
             <h1 className="text-7xl font-extrabold text-wrap text-center">{blog_data.attributes.title}</h1>
             <p className="text-2xl font-bold text-page-accent">{date.toDateString()}</p>

@@ -25,9 +25,9 @@ const Blogs
 
 
   return (
-    <div className='pt-20 p-10 bg-gradient-to-r from-cobalt-200 to-shark-200 min-h-screen gap-8 flex flex-col justify-center items-center w-full'>
+    <div className='pt-20 p-10 gap-8 flex flex-col justify-center items-center w-full'>
         <div className='font-bold pt-5 text-5xl m-5'>CSD's Blogs</div>
-        <div className='flex w-full justify-center items-center flex-wrap gap-8'>
+        <div className='flex flex-col w-full flex-wrap justify-center items-center gap-8'>
             {
                 blogs_data.map((blog, index) => (
                     <BlogCard key={index} blog={blog} />

@@ -23,9 +23,9 @@ export default async function Events() {
     const events_data = events.data;
 
   return (
-    <div className='mt-20 bg-gradient-to-r from-cobalt-200 to-shark-200 min-h-screen flex flex-col items-center p-10 px-60'>
-        <h1 className='font-bold text-black text-4xl'>Events</h1>
-        <div className='grid grid-cols-3 w-full'>
+    <div className='mt-20 px-5 min-h-screen flex flex-col items-center p-10'>
+        <h1 className='font-extrabold text-5xl'>Events</h1>
+        <div className='flex flex-wrap items-center justify-center gap-2'>
             {
                 events_data.map((event, index) => (
                     <EventsCard key={index} event={event} />
