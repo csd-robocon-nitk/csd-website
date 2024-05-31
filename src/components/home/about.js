@@ -9,7 +9,7 @@ export default function AboutSection() {
           <h1 className="text-4xl md:text-start text-center font-extrabold">
             About Us
           </h1>
-          <p className="md:text-2xl text-md text-wrap text-justify">
+          <p className="md:text-xl text-lg text-wrap text-justify">
             Centre for System Design (A Centre of Excellence at NITK Surathkal)
             envisages an interdisciplinary approach and means for realization of
             successful engineering systems. Key components for this are system
@@ -36,7 +36,7 @@ export default function AboutSection() {
           <h1 className="text-4xl font-extrabold md:text-start text-center">
             Objectives
           </h1>
-          <ul className="md:text-2xl text-md text-wrap text-justify list-inside list-disc flex flex-col gap-4">
+          <ul className="md:text-xl text-lg text-wrap text-justify list-inside list-disc flex flex-col gap-4">
             <li>
               To provide facilities for experimental learning through system
               design, simulation and actual experimentation on physical systems

@@ -12,16 +12,16 @@ export default function CoverSection () {
         // </div>
         <div className="cover bg-black h-screen overflow-hidden relative flex flex-col gap-8 justify-center items-center">
             <div className="w-full z-0 overflow-hidden">
-            <video autoPlay muted loop className="absolute scale-125 h-screen top-0 left-0 w-full object-cover brightness-50 blur-[2px]">
-                <source src="/about.mp4" />
-            </video>
+                <video autoPlay muted loop className="absolute scale-125 h-screen top-0 left-0 w-full object-cover brightness-[.25] blur-[2px]">
+                    <source src="/about.mp4" />
+                </video>
             </div>
-            <div className="h-screen absolute justify-center xl:gap-12 items-center flex flex-col text-transparent bg-clip-text bg-gradient-to-r from-cobalt-300 to-shark-300">
-            <div className="flex flex-col gap-0 items-center">
-            <div className="xl:text-9xl lg:text-7xl sm:text-5xl text-3xl font-extrabold tracking-tighter">Center for System Design</div>
-            <div className="xl:text-8xl lg:text-7xl sm:text-5xl text-3xl font-extrabold tracking-tighter">NITK</div>
-            </div>
-            <div className="xl:text-6xl lg:text-4xl sm:text-2xl text-lg font-bold tracking-tighter">A Centre of Excellence at NITK Surathkal</div>
+            <div className="h-screen absolute justify-center lg:gap-8 gap-5 items-center flex flex-col text-transparent bg-clip-text bg-gradient-to-r from-cobalt-300 to-shark-300 text-center">
+                <div className="flex flex-col gap-0 items-center">
+                    <div className="lg:text-8xl sm:text-6xl text-4xl font-bold tracking-tighter">Center for System Design</div>
+                    <div className="lg:text-7xl sm:text-5xl text-4xl font-bold tracking-tighter">NITK</div>
+                </div>
+                <div className="lg:text-4xl sm:text-3xl text-2xl font-medium tracking-tighter">A Centre of Excellence at NITK Surathkal</div>
             </div>
         </div>
     )

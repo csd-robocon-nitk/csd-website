@@ -27,7 +27,7 @@ export default async function PeoplePage() {
     return (
         <div className="py-10 px-5 pt-10 mt-20 bg-white flex w-full flex-col items-center">
             <div className="flex flex-col items-center justify-evenly w-ful">
-                <h1 className="font-extrabold text-4xl lg:text-5xl text-center">Associated Faculty</h1>
+                <h1 className="font-extrabold text-3xl sm:text-4xl text-center">Associated Faculty</h1>
                 <div className="flex flex-wrap items-center p-10 justify-center gap-8">
                     {
                         associated_faculty.map((faculty,index) => (
@@ -39,7 +39,7 @@ export default async function PeoplePage() {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="font-extrabold text-4xl lg:text-5xl text-center">Associated Research Scholars</h1>
+                <h1 className="font-extrabold text-3xl sm:text-4xl text-center">Associated Research Scholars</h1>
                 <div className="flex flex-wrap items-center p-10 justify-center space-x-8">
                     {
                         associated_research_scholars.map((faculty,index) => (
@@ -51,7 +51,7 @@ export default async function PeoplePage() {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <h1 className="font-extrabold text-4xl lg:text-5xl text-center">Associated Staff</h1>
+                <h1 className="font-extrabold text-3xl sm:text-4xl text-center">Associated Staff</h1>
                 <div className="flex flex-wrap items-center p-10 justify-center space-x-8">
                     {
                         associated_staff.map((faculty,index) => (

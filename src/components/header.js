@@ -39,15 +39,15 @@ export default function Header () {
       <div
         className={
           navTransparency
-            ? ("flex flex-wrap absolute items-center justify-center h-24 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
-            : "flex flex-wrap absolute items-center justify-center h-24 z-50 w-full top-0 bg-shark-950"
+            ? ("flex flex-wrap fixed items-center justify-center h-24 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
+            : "flex flex-wrap fixed items-center justify-center h-24 z-50 w-full top-0 bg-shark-950"
         }
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
           <div className="flex flex-col items-center">
-            <img src="/logo.png" className={"w-auto md:h-16 h-6"} alt="" />
+            <img src="/logo.png" className={"w-auto md:h-14 h-12"} alt="" />
           </div>
-          <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-xl text-white lg:uppercase">
+          <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-lg text-white lg:uppercase">
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/">Home</Link>
             </li>
