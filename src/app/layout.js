@@ -1,8 +1,9 @@
-import { Roboto } from 'next/font/google'
+import { Familjen_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
+import Footer from '@/components/footer'
 
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700', '900'] })
+const inter = Familjen_Grotesk({ subsets: ['latin'], weight: ['variable']})
 
 export const metadata = {
 	title: 'Center for System Design',
@@ -12,10 +13,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
+		
 		<html lang="en">
-			<body className={`${roboto.className} text-slate-700`}>
+			<meta name="viewport" content="width=device-width, initial-scale = 1.0,maximum-scale=1.0" /> 
+			<body className={`${inter.className} text-shark-950 bg-white`}>
                 <Header />
                 {children}
+				<Footer />
             </body>
 		</html>
 	)

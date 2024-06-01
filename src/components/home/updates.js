@@ -1,27 +1,37 @@
-import UpdateCard from "./updateCard"
+import UpdateCard from "./updateCard";
 
-let updates = [
+export default async function UpdatesSection() {
+  const token = process.env.TOKEN;
+  if (!token) {
+    throw new Error("Token not found!");
+  }
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/updates?populate=*`,
     {
-        image: "/updates/001.jpg",
-        title: "Coming Soon..."
-    },
-    {
-        image: "/updates/002.jpg",
-        title: "NITK is Full of Possibilities | 2023 BTech Orientation"
-    },
-    {
-        image: "updates/003.jpg",
-        title: "Awareness Program for MSME's | Kottara Chowki | 20th March 2023"
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
-]
+  );
 
-export default function UpdatesSection () {
-    return (
-        <div className="max-w-screen-lg mx-auto py-10">
-            <h1 className="text-4xl mb-10">Updates</h1>
-            <div className="flex flex-wrap justify-evenly items-stretch">
-                {updates.map((u,i) => <UpdateCard key={i} update={u} />)}
-            </div>
+  if (!res.ok) {
+    throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
+  }
+
+  const updates = await res.json();
+  const updates_data = updates.data;
+
+  return (
+    <div className="w-full lg:px-60 px-10 flex flex-col items-center">
+      <div className="flex flex-col items-center gap-8 rounded-2xl py-5 my-5 w-full">
+        <div className="text-4xl font-bold">Updates</div>
+        <div className=" flex flex-wrap justify-evenly items-stretch gap-2">
+          {updates_data.map((update, id) => (
+            <UpdateCard key={id} update={update} />
+          ))}
         </div>
-    )
+      </div>
+    </div>
+  );
 }
