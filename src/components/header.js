@@ -45,7 +45,7 @@ export default function Header () {
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
           <div className="flex flex-col items-center">
-            <img src="/logo.png" className={"w-auto md:h-14 h-12"} alt="" />
+            <img src="/logo.png" className={"w-auto md:h-14 h-10"} alt="" />
           </div>
           <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-lg text-white lg:uppercase">
             <li className="p-2 rounded-xl">
@@ -75,23 +75,23 @@ export default function Header () {
         <div className="w-full">
           {
             open ? (
-              <ul className="flex p-20 flex-col justify-evenly bg-shark-950 h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
+              <ul className="flex px-20 pb-5 flex-col justify-evenly bg-shark-950 h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/">Home</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/people">People</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/blog">Blog</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/resources">Resources</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/events">Events</Link>
                 </li>
-                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] p-2 rounded-xl hover:text-cobalt-600">
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/contact">Contact</Link>
                 </li>
               </ul>

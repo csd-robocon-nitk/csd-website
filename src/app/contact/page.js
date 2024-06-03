@@ -15,7 +15,7 @@ export default function Contact() {
             </div>
             <div className="lg:text-xl text-md font-semibold">
               Coordinator <br />
-              Center for System Design NITK
+              Centre for System Design NITK
               <br />
               Surathkal
               <br />
