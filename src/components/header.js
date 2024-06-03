@@ -39,8 +39,8 @@ export default function Header () {
       <div
         className={
           navTransparency
-            ? ("flex flex-wrap fixed items-center justify-center h-24 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
-            : "flex flex-wrap fixed items-center justify-center h-24 z-50 w-full top-0 bg-shark-950"
+            ? ("flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
+            : "flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 bg-shark-950"
         }
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
