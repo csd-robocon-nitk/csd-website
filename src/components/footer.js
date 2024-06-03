@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import Logo from '../../public/logo.png';
+import LogoFooter from '../../public/logo-footer.png';
 import Facebook from '../../public/assets/images/facebook.svg';
 import Instagram from '../../public/assets/images/instagram.svg';
 import Youtube from '../../public/assets/images/youtube.svg';
@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div className='footer bg-shark-950 flex items-center gap-16 justify-evenly py-10'>
         <div className='flex flex-col items-center justify-center text-wrap'>
-            <img src={Logo.src} alt='logo' className='lg:h-16 h-4' />
+            <img src={LogoFooter.src} alt='logo' className='lg:h-24 h-16' />
             <p className='text-white text-xs text-wrap'>&copy; 2024 All Rights Reserved</p>
         </div>
         <div className='flex flex-col gap-4'>
