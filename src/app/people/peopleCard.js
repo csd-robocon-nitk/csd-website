@@ -6,8 +6,9 @@ export default function PeopleCard({item}) {
       <div className="flex jusitfy-center flex-col border-2 items-center w-[300px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[400px] rounded-lg mb-4 px-3 py-5">
         <figure>
           <Image
-            width={110}
-            height={90}
+            width={90}
+            height={120}
+            objectFit='contain'
             src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.formats.thumbnail.url}`}
             alt={item.attributes.name}
             className="rounded-full object-cover mx-auto"
