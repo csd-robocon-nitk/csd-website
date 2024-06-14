@@ -45,7 +45,7 @@ export default function Header () {
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
           <div className="flex flex-col items-center">
-            <img src="/logo.png" className={"w-auto md:h-14 h-10"} alt="" />
+            <Link href="/"><img src="/logo.png" className={"w-auto md:h-14 h-10"} alt="" /></Link>
           </div>
           <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-lg text-white lg:uppercase">
             <li className="p-2 rounded-xl">

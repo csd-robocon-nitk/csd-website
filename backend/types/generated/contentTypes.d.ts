@@ -801,7 +801,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    thumbnail: Attribute.Media;
+    thumbnail: Attribute.Media<'images' | 'videos'>;
     desc: Attribute.Text;
     blogtext: Attribute.Text;
     publishedDate: Attribute.Date;
@@ -829,7 +829,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    media: Attribute.Media;
+    media: Attribute.Media<'images' | 'videos'>;
     start: Attribute.DateTime & Attribute.Required;
     desc: Attribute.Text;
     end: Attribute.DateTime;
@@ -866,7 +866,7 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
     name: Attribute.String;
     Designation: Attribute.String;
     Department: Attribute.String;
-    pfp: Attribute.Media;
+    pfp: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     type: Attribute.Enumeration<
       ['associated_faculty', 'associated_research_scholars', 'associated_staff']
     >;
@@ -905,7 +905,7 @@ export interface ApiUpdateUpdate extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 10;
       }>;
-    media: Attribute.Media & Attribute.Required;
+    media: Attribute.Media<'images' | 'videos'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
