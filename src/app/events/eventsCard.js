@@ -12,7 +12,7 @@ export default function EventsCard({event}) {
           process.env.NEXT_PUBLIC_STRAPI_API_URL +
           event.attributes.media.data.attributes.formats.thumbnail.url
         }
-        alt=""
+        alt="Image"
         className='rounded-lg'
       />
       <div className="card-body">
