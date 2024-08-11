@@ -60,15 +60,15 @@ export default function PeoplePage() {
   };
 
   return (
-    <div className="min-h-screen py-10 px-5 pt-10 mt-20 bg-white flex w-full flex-col items-center">
-      <div className="flex gap-4 justify-center items-center w-full">
-        <div className="flex flex-col items-center w-full px-40">
+    <div className="min-h-screen py-10 px-5 pt-10 mt-16 bg-white flex w-full flex-col items-center relative">
+      <div className="flex gap-4 justify-center items-center w-full absolute z-10">
+        <div className="flex flex-col items-center w-full sm:px-40 px-5">
           <div className="flex items-start justify-between w-full">
-            <div className="font-extrabold text-4xl sm:text-4xl text-center">
+            <div className="font-extrabold lg:text-4xl sm:text-4xl text-2xl text-center">
               Our Team
             </div>
-            <div className="flex items-center flex-col justify-center gap-2">
-              <div className="flex items-center justify-end gap-2 w-full text-right">
+            <div className={dropdownVisible ? "p-2 transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md" : "p-2 transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md"}>
+              <div className="flex items-center justify-center gap-2 w-full">
                 <div className="font-bold text-xl">{type}</div>
                 <FaFilter
                   className="cursor-pointer"
@@ -102,8 +102,8 @@ export default function PeoplePage() {
           </div>
         </div>
       </div>
-      <div>
-        <div className="flex flex-col items-center justify-evenly w-ful">
+      <div className="w-full px-30 absolute z-0 mt-5">
+        <div className="flex flex-col items-center justify-evenly w-full">
           <div className="flex flex-wrap items-center p-10 justify-center gap-8">
             {loading ? (
               <ClipLoader color={"#363797"} loading={loading} />
