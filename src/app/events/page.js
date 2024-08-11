@@ -3,7 +3,7 @@ import EventsCard from './eventsCard'
 
 export default async function Events() {
 
-    const token = process.env.TOKEN;
+    const token = process.env.NEXT_PUBLIC_TOKEN;
     if (!token) {
         throw new Error('Token not found!');
     }
