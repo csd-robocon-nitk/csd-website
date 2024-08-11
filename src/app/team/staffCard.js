@@ -8,8 +8,8 @@ function StaffCard({ item }) {
     const skills = item.attributes.skills.split("\n")
 
   return (
-    <div className="flex group flex-col justify-around border-2 items-center w-[250px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[250px] rounded-lg p-3">
-      <figure className="group-hover:hidden px-5 w-full">
+    <div className="flex group flex-col justify-around border-2 items-center w-[250px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[250px] rounded-lg overflow-hidden p-2">
+      <figure className="group-hover:-translate-y-[115%] transform transition-transform duration-300 ease-in-out px-5 w-full">
         <Image
           width={200}
           height={200}
@@ -18,11 +18,11 @@ function StaffCard({ item }) {
           className="rounded-md object-cover mx-auto w-full"
         />
       </figure>
-      <div className="items-center flex flex-col gap-2 text-center w-full">
-        <h2 className="sm:text-2xl text-xl font-bold">
+      <div className="items-center flex flex-col gap-2 text-center w-full group-hover:-translate-y-full transform transition-all duration-300 ease-in-out group-hover:m-4">
+        <h2 className="text-2xl font-bold">
           {item.attributes.name}
         </h2>
-        <div className="hidden group-hover:inline">
+        <div>
           <ul className="flex flex-col gap-0">
             {
                 skills.map((skill, index) => (
@@ -31,7 +31,7 @@ function StaffCard({ item }) {
             }
           </ul>
         </div>
-        <div className="hidden group-hover:inline">
+        <div className="group-hover:inline">
           <ul className="flex justify-center items-center gap-4">
             <li>
               <a
