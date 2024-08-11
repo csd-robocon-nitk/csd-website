@@ -1,7 +1,7 @@
 import PeopleCard from './peopleCard.js'
 
 export default async function PeoplePage() {
-    const token = process.env.TOKEN;
+    const token = process.env.NEXT_PUBLIC_TOKEN;
     if (!token) {
         throw new Error('Token not found!');
     }

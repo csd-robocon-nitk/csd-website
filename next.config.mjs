@@ -2,12 +2,11 @@
 const nextConfig = {
     // output: "export"
     images : {
-        domains: ['localhost'],
+        domains: ['http://devcsd.nitk.ac.in/strapi'],
         remotePatterns: [
             {
               protocol: 'http',
-              hostname: 'localhost',
-              port: '1337',
+              hostname: 'devcsd.nitk.ac.in'
             },
           ],
     },
