@@ -16,12 +16,16 @@ export default function CoverSection () {
                     <source src="/about.mp4" />
                 </video>
             </div>
-            <div className="h-screen absolute justify-center lg:gap-8 gap-5 items-center flex flex-col text-transparent bg-clip-text bg-gradient-to-r from-cobalt-300 to-shark-300 text-center">
+            <div className="h-screen absolute justify-center lg:gap-2 gap-0 items-center flex flex-col text-transparent bg-clip-text bg-gradient-to-r from-cobalt-300 to-shark-300 text-center">
                 <div className="flex flex-col gap-0 items-center">
                     <div className="lg:text-8xl sm:text-6xl text-4xl font-bold tracking-tighter">Centre for System Design</div>
                     <div className="lg:text-7xl sm:text-5xl text-4xl font-bold tracking-tighter">NITK</div>
                 </div>
                 <div className="lg:text-4xl sm:text-3xl text-2xl font-medium tracking-tighter">A Centre of Excellence at NITK Surathkal</div>
+                <div className="flex flex-col gap-0 items-center">
+                    <div className="lg:text-4xl sm:text-3xl text-2xl tracking-tighter">Pioneering Innovation and Collaboration</div>
+                    <div className="lg:text-4xl sm:text-2xl text-xl tracking-tighter">Driving research and development to solve real-world challenges</div>
+                </div>
             </div>
         </div>
     )
