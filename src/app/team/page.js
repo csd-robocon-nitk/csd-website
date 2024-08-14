@@ -67,14 +67,13 @@ export default function PeoplePage() {
             <div className="font-extrabold lg:text-4xl sm:text-4xl text-2xl text-center">
               Our Team
             </div>
-            <div className={dropdownVisible ? "p-2 transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md" : "p-2 transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md"}>
-              <div className="flex items-center justify-center gap-2 w-full">
+            <div className={dropdownVisible ? "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md" : "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md"}>
+              <div className="px-2 flex items-center justify-center gap-2 w-full cursor-pointer" onClick={() => {
+                    setDropdownVisible(!dropdownVisible);
+                  }}>
                 <div className="font-bold text-xl">{type}</div>
                 <FaFilter
                   className="cursor-pointer"
-                  onClick={() => {
-                    setDropdownVisible(!dropdownVisible);
-                  }}
                 />
               </div>
               <div
@@ -87,7 +86,8 @@ export default function PeoplePage() {
                 {Object.keys(dropDown).map((key) => {
                   return (
                     <div
-                      className="w-full text-center p-1 bg-shark-200/50 rounded-md"
+                      className="w-full text-center p-1 px-[4px] bg-shark-200/50 rounded-md"
+                      key={key}
                       onClick={() => {
                         handleType(key);
                         setDropdownVisible(false);
