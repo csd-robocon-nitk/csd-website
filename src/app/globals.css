@@ -3,5 +3,12 @@
 @tailwind utilities;
 
 .cover-heading {
-    text-shadow: 2px 2px 5px #aaaaaa44;
+  text-shadow: 2px 2px 5px #aaaaaa44;
+}
+
+.font-outline-1 {
+  -webkit-text-stroke: 1px #363797;
+}
+.font-outline-2 {
+  -webkit-text-stroke: 2px #363797;
 }
