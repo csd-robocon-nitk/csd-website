@@ -3,17 +3,17 @@ import Image from 'next/image';
 
 export default function PeopleCard({item}) {
     return (
-      <div className="flex flex-col border-2 items-center max-w-[300px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[450px] rounded-lg mb-4 px-3 py-5">
-        <figure className="px-10">
+      <div className="flex jusitfy-center flex-col border-2 items-center w-[300px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[400px] rounded-lg mb-4 px-3 py-5">
+        <figure className='h-1/3'>
           <Image
-            width={110}
-            height={90}
+            width={90}
+            height={120}
             src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.formats.thumbnail.url}`}
             alt={item.attributes.name}
-            className="rounded-full object-cover mx-auto"
+            className="rounded-full w-[90px] h-[120px] object-cover mx-auto"
           />
         </figure>
-        <div className="card-body items-center text-center">
+        <div className="flex flex-col gap-2 h-2/3 p-4 items-center text-center">
           <h2 className="sm:text-2xl text-xl font-bold">{item.attributes.name}</h2>
           <p>{item.attributes.Designation}</p>
           <div className='bg-slate-900 h-[1px] w-full'></div>

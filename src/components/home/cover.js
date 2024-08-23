@@ -16,6 +16,7 @@ export default function CoverSection () {
                     <source src="/about.mp4" />
                 </video>
             </div>
+            <div className="h-screen absolute justify-center lg:gap-8 gap-5 items-center flex flex-col text-shark-200/80 bg-white bg-clip-text text-center">
             <div className="h-screen absolute justify-center lg:gap-2 gap-0 items-center flex flex-col text-transparent bg-clip-text bg-gradient-to-r from-cobalt-300 to-shark-300 text-center">
                 <div className="flex flex-col gap-0 items-center">
                     <div className="lg:text-8xl sm:text-6xl text-4xl font-bold tracking-tighter">Centre for System Design</div>
