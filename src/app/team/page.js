@@ -61,7 +61,7 @@ export default function PeoplePage() {
   // efn
   return (
     <div className="min-h-screen py-10 px-5 pt-10 mt-16 bg-white flex w-full flex-col items-center relative">
-      <div className="flex items-start justify-between px-32 w-full h-[20px] z-10 flex-wrap gap-4">
+      <div className="flex items-start justify-between px-32 w-full h-[20px] z-10">
         <div className="font-extrabold lg:text-4xl sm:text-4xl text-2xl text-center">
           Our Team
         </div>
