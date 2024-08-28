@@ -30,9 +30,9 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="bg-shark-950 text-white relative text-center pt-40 py-28 scroll-effect w-full px-24">
+      <section className="bg-shark-950 text-white relative text-center pt-28 py-20 mb-4 scroll-effect w-full px-24">
         <div className="parallax absolute inset-0 z-0 opacity-70" data-speed="30">
           <Image
             src="/assets/images/454631101_891828776323719_4302866775297206512_n.jpg"
@@ -49,9 +49,9 @@ const AboutUs = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="text-center scroll-effect px-24">
-        <h2 className="text-5xl font-bold mb-4">Our Mission & Vision</h2>
-        <div className="flex flex-wrap justify-center">
+      <section className="flex justify-between h-screen items-start text-center scroll-effect px-24">
+        <h2 className="text-5xl w-1/5 font-bold mb-4 sticky top-40">Our Mission & Vision</h2>
+        <div className="w-3/5 items-stretch flex flex-wrap justify-center">
           <div className="flex-1 p-12 bg-gray-200 m-4 rounded-lg shadow-xl">
             <h3 className="text-3xl font-semibold mb-6">Mission Statement</h3>
             <p className="text-lg">To foster a transdisciplinary ecosystem that bridges the gap between academia and industry, driving forward research and development across multiple domains.</p>
@@ -64,24 +64,24 @@ const AboutUs = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="text-center scroll-effect px-24">
-        <h2 className="text-5xl font-bold mb-4">About CSD</h2>
-        <p className="max-w-4xl mx-auto text-xl">A detailed introduction about CSD, highlighting its focus on system modeling, simulation, system dynamics, control, and optimization. This section emphasizes the center's commitment to innovation, collaboration, and impactful research.</p>
-        <div className="flex justify-center mt-8">
-          <Image
+      <section className="flex justify-between items-start h-screen text-center scroll-effect px-24">
+        <div className="w-1/5 sticky top-40">
+          <h2 className="text-5xl font-bold mb-4">About CSD</h2>
+          <p className="max-w-4xl mx-auto text-xl">A detailed introduction about CSD, highlighting its focus on system modeling, simulation, system dynamics, control, and optimization. This section emphasizes the center's commitment to innovation, collaboration, and impactful research.</p>
+        </div>
+        <div className="w-3/5 flex justify-center mt-8">
+          <img
             src="/assets/images/452915252_883818157124781_4143011533915238862_n.jpg"
             alt="About Us Image"
-            width={500}
-            height={300}
             className="rounded-lg shadow-xl"
           />
         </div>
       </section>
 
       {/* Objectives Section */}
-      <section className="text-center bg-white scroll-effect px-24">
-        <h2 className="text-5xl font-bold mb-4">Our Objectives</h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="h-screen flex justify-between items-start text-center bg-white scroll-effect px-24">
+        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">Our Objectives</h2>
+        <ul className="w-3/5 grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             'Fostering Transdisciplinary Collaboration',
             'Industry-Academia Partnerships',
@@ -100,9 +100,10 @@ const AboutUs = () => {
       </section>
 
       {/* Impact Section */}
-      <section className="text-center scroll-effect px-20">
-        <h2 className="text-5xl font-bold mb-4">Our Impact by the Numbers</h2>
-        <div className="flex flex-wrap justify-center">
+      <section className="flex h-screen justify-between items-start text-center scroll-effect px-20 py-5">
+        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">Our Impact by the Numbers</h2>
+        <div className="w-3/5 flex flex-col items-center">
+        <div className="flex items-stretch flex-wrap justify-center">
           {[
             { number: '50+', label: 'Industry Collaborations' },
             { number: '10+', label: 'Research Publications' },
@@ -116,20 +117,20 @@ const AboutUs = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
-          <Image
+        <div className="flex justify-center mt-8 w-1/2">
+          <img
             src="/assets/images/453164207_884558033717460_5676383110198238741_n.jpg"
             alt="Impact Image"
-            width={500}
-            height={300}
             className="rounded-lg shadow-xl"
           />
+        </div>
         </div>
       </section>
 
       {/* What We Do Section */}
-      <section className="text-center bg-white scroll-effect px-24">
-        <h2 className="text-5xl font-bold mb-4">What We Do</h2>
+      <section className="flex min-h-screen justify-between items-start text-center bg-white scroll-effect px-24">
+        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">What We Do</h2>
+        <div className="w-3/5">
         <div className="flex flex-wrap justify-center">
           {[
             { title: 'Transdisciplinary Research', description: 'Covering various fields like smart agriculture, forestry, conservation, and environmental monitoring.', bgColor: 'bg-gray-200' },
@@ -147,7 +148,7 @@ const AboutUs = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
+        {/* <div className="flex justify-center mt-8">
           <Image
             src="/assets/images/453878205_888204150019515_171988846503097887_n.jpg"
             alt="What We Do Image"
@@ -155,12 +156,14 @@ const AboutUs = () => {
             height={300}
             className="rounded-lg shadow-xl"
           />
+        </div> */}
         </div>
       </section>
 
       {/* Our Expertise Section */}
-      <section className="pb-8 text-center scroll-effect px-24">
-        <h2 className="text-5xl font-bold mb-4">Our Expertise</h2>
+      <section className="flex min-h-screen justify-between items-start pb-8 p-12 text-center scroll-effect px-24">
+        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">Our Expertise</h2>
+        <div className="w-3/5 flex flex-col min-h-screen justify-center">
         <p className="max-w-4xl mx-auto text-xl mb-12">Overview of the team's expertise in various domains like civil, mechanical, electrical, electronics, computer systems, and more.</p>
         <div className="flex justify-center mt-8">
           <Image
@@ -170,6 +173,7 @@ const AboutUs = () => {
             height={300}
             className="rounded-lg shadow-xl"
           />
+        </div>
         </div>
       </section>
     </div>
