@@ -8,7 +8,7 @@ function StaffCard({ item }) {
     const skills = item.attributes.skills.split("\n")
 
   return (
-    <div className="flex group flex-col justify-around border-2 items-center w-[250px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[250px] rounded-lg overflow-hidden p-2">
+    <div className="flex group flex-col border-2 items-center w-[250px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[250px] rounded-lg overflow-hidden p-2">
       <figure className="group-hover:-translate-y-[115%] transform transition-transform duration-300 ease-in-out px-5 w-full">
         <Image
           width={200}
