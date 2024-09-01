@@ -870,6 +870,7 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
     type: Attribute.Enumeration<
       ['associated_faculty', 'associated_research_scholars', 'associated_staff']
     >;
+    skills: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

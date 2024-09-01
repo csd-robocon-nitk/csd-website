@@ -39,6 +39,9 @@
         "associated_research_scholars",
         "associated_staff"
       ]
+    },
+    "skills": {
+      "type": "text"
     }
   }
 }
