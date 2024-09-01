@@ -4,7 +4,7 @@ import BlogCard from './BlogCard.js';
 const Blogs
  = async () => {
 
-    const token = process.env.TOKEN;
+    const token = process.env.NEXT_PUBLIC_TOKEN;
     if (!token) {
         throw new Error('Token not found!');
     }

@@ -6,8 +6,7 @@ const nextConfig = {
         remotePatterns: [
             {
               protocol: 'http',
-              hostname: 'localhost',
-              port: '1337',
+              hostname: 'devcsd.nitk.ac.in'
             },
           ],
     },

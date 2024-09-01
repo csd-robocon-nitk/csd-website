@@ -10,7 +10,7 @@ export default function Contact() {
         <h1 className="lg:text-5xl md:text-4xl text-2xl font-extrabold text-center">Contact Us</h1>
         <div className="flex xl:flex-row flex-col items-center gap-8 w-full justify-evenly">
           <div className="flex flex-col justify-center lg:gap-8 gap-4">
-            <div className="lg:text-4xl text-lg font-bold">
+            <div className="lg:text-3xl text-lg font-bold">
               Prof. K V Gangadharan
             </div>
             <div className="lg:text-xl text-md font-semibold">
@@ -25,7 +25,7 @@ export default function Contact() {
               <br />
               Karnataka, India
             </div>
-            <div className="flex flex-col items-start lg:text-2xl text-md font gap-2">
+            <div className="flex flex-col items-start lg:text-xl text-md font gap-2">
               <div className="flex items-center gap-2">
                 <Image src={Call} className="h-6 w-6" />
                 <span className="">+91-0824-2473915</span>
@@ -53,27 +53,27 @@ export default function Contact() {
         </div>
       </div>
       <div className="flex flex-col w-2/3 gap-8 items-center rounded-lg shadow-sm bg-shark-100/50 p-10">
-        <h1 className="lg:text-5xl md:text-4xl text-2xl font-extrabold text-center">Write to Us</h1>
-        <form action="" className="flex flex-col gap-4 w-full">
-          <span className="lg:text-2xl text-sm">Name</span>
+        <h1 className="lg:text-4xl md:text-3xl text-2xl font-extrabold text-center">Write to Us</h1>
+        <form action="" className="flex flex-col gap-2 w-full">
+          <span className="lg:text-xl text-sm">Name</span>
           <input
             type="text"
             placeholder=""
-            className="p-1 border-[1px] rounded-lg lg:text-xl focus:border-[2px] w-full  border-shark-800/70 bg-shark-100/30 focus:outline-none placeholder-inherit"
+            className="p-1 border-[2px] rounded-lg lg:text-2xl focus:border-[1px] w-full  border-shark-800/70 bg-shark-100/30 focus:outline-none placeholder-inherit"
           />
-          <span className="lg:text-2xl text-sm">E-mail</span>
+          <span className="lg:text-xl text-sm">E-mail</span>
           <input
             type="email"
             placeholder=""
-            className="p-1 border-[1px] rounded-lg lg:text-xl  focus:border-[2px] w-full border-shark-800/70 bg-shark-100/30 focus:outline-none placeholder-inherit"
+            className="p-1 border-[2px] rounded-lg lg:text-2xl  focus:border-[1px] w-full border-shark-800/70 bg-shark-100/30 focus:outline-none placeholder-inherit"
           />
-          <span className="lg:text-2xl text-sm">Message</span>
+          <span className="lg:text-xl text-sm">Message</span>
           <textarea
             name="message"
             id="message"
-            className="p-1 border-[1px] rounded-lg lg:text-xl w-full focus:border-[2px] border-shark-800/70 bg-shark-100/30 outline-none"
+            className="p-1 border-[2px] rounded-lg lg:text-2xl w-full focus:border-[1px] border-shark-800/70 bg-shark-100/30 outline-none"
           ></textarea>
-          <button className="btn btn-primary w-1/2 text-white lg:text-2xl text-md bg-shark-800 hover:bg-shark-950 ease-in-out hover:scale-[1.01] duration-200">
+          <button className="btn btn-primary w-1/5 text-white lg:text-2xl text-md bg-shark-800 hover:bg-shark-950 ease-in-out hover:scale-[1.01] duration-200">
             Submit
           </button>
         </form>

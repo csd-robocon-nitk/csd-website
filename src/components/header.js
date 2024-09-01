@@ -39,8 +39,8 @@ export default function Header () {
       <div
         className={
           navTransparency
-            ? ("flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950" : ""))
-            : "flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 bg-shark-950"
+            ? ("flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950/95 backdrop-blur-md" : ""))
+            : "flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 bg-shark-950/95 backdrop-blur-md"
         }
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
@@ -52,7 +52,10 @@ export default function Header () {
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/">Home</Link>
             </li>
             <li className="p-2 rounded-xl">
-              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/people">People</Link>
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/about">About</Link>
+            </li>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/team">team</Link>
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/blog">Blog</Link>
@@ -80,7 +83,10 @@ export default function Header () {
                   <Link href="/">Home</Link>
                 </li>
                 <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
-                  <Link href="/people">People</Link>
+                  <Link href="/about">About</Link>
+                </li>
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
+                  <Link href="/team">team</Link>
                 </li>
                 <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/blog">Blog</Link>
