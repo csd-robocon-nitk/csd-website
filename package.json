@@ -11,9 +11,11 @@
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@tailwindcss/typography": "^0.5.13",
+    "framer-motion": "^11.3.31",
     "next": "^14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-scroll-parallax": "^3.4.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

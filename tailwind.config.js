@@ -11,6 +11,9 @@ module.exports = {
       gridTemplateColumns: {
         "about-section": "1fr 3fr"
       },
+      backgroundImage: {
+        "about-section": "linear-gradient(#C2EEFF, #8BBBFF 50% 80%, #69A8FF)"
+      },
       colors: {
         'old-copper': {
           '50': '#f7f5ef',
