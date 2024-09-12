@@ -1,9 +1,21 @@
 import React from 'react'
 import Image from 'next/image';
+import Modal from './Modal';
 
 export default function PeopleCard({item}) {
+
+    const [isOpen, setIsOpen] = React.useState(false)
+
+
+    const openHandler = () => {
+      setIsOpen(!isOpen)
+    }
+
+
     return (
-      <div className="flex jusitfy-center flex-col border-2 items-center w-[300px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[400px] rounded-lg mb-4 px-3 py-5">
+      <>
+      {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={item} />}
+      <div className="flex jusitfy-center flex-col border-2 ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[400px] rounded-lg mb-4 px-3 py-5">
         <figure className='h-1/3'>
           <Image
             width={90}
@@ -19,11 +31,12 @@ export default function PeopleCard({item}) {
           <div className='bg-slate-900 h-[1px] w-full'></div>
           <p>{item.attributes.Department}</p>
           <div className="card-actions">
-            <button className="btn btn-primary border-cobalt-700 hover:bg-shark-950 bg-shark-900 text-white h-10 px-10 min-h-0">
+            <button className="btn btn-primary border-cobalt-700 hover:bg-shark-950 bg-shark-900 text-white px-10 min-h-0" onClick={openHandler}>
               Read More
             </button>
           </div>
         </div>
       </div>
+      </>
     );
 }

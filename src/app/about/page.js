@@ -32,7 +32,7 @@ const AboutUs = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="bg-shark-950 text-white relative text-center pt-32 py-24 mb-4 scroll-effect w-full px-24">
+      {/* <section className="bg-shark-950 text-white relative text-center pt-32 py-24 mb-4 scroll-effect w-full px-24">
         <div
           className="parallax absolute inset-0 z-0 opacity-70"
           data-speed="30"
@@ -53,6 +53,17 @@ const AboutUs = () => {
             Innovation Meets Collaboration at NITK Surathkal
           </h2>
         </div>
+      </section> */}
+
+      <section className="relative mt-32">
+        <Image
+          src="/assets/images/454631101_891828776323719_4302866775297206512_n.jpg"
+          alt="Hero Image"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="rounded"
+        />
       </section>
 
       {/* Mission & Vision Section */}
