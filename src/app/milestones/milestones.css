@@ -1,0 +1,63 @@
+.timeline::after {
+    content: '';
+    position: absolute;
+    background-color: #272757;
+    margin: -1px;
+    width: 3px;
+    left : 50%;
+    z-index: 0;
+    animation: line-height-animate linear;
+    animation-timeline: scroll();
+}
+
+@keyframes line-height-animate {
+    from {
+        height: 5%;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+.box-left {
+    animation: fade-in-left ease-in;
+    animation-timeline: view();
+    animation-range: entry 0;
+    z-index: 999;
+}
+
+.box-right {
+    animation: fade-in-right ease-in;
+    animation-timeline: view();
+    animation-range: entry 0;
+    z-index: 999;
+}
+
+@keyframes fade-in-left {
+    25% {
+        opacity: 0;
+        scale: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-right {
+    25% {
+        opacity: 0;
+        scale: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+        transform: translateX(0);
+    }
+}
