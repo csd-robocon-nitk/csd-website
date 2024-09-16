@@ -45,7 +45,7 @@ export default function FocusAreasSection () {
 							</ul>
 						}
 					/>
-							</div>
+				</div>
 			</div>
         </div>
     )

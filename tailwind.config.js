@@ -148,8 +148,45 @@ module.exports = {
           '950': '#121d59',
       },
       
-     }
+     },
+    keyframes: {
+      "fadeInUp": {
+        "0%": {
+          opacity: 0,
+          transform: "translateY(10px)",
+          height: 0,
+        },
+        "50%": {
+          opacity: 0,
+          transform: "translateY(10px)",
+          height: "var(--height)",
+        },
+        "100%": {
+          opacity: 1,
+          transform: "translateY(0)",
+          height: "var(--height)"
+        }
+      },
+      "fadeOut": {
+        "0%": {
+          opacity: "initial",
+          height: "var(--height)"
+        },
+        "50%": {
+          opacity: 0,
+          height: "var(--height)"
+        },
+        "100%": {
+          opacity: 0,
+          height: 0,
+        }
+      }
     },
+    animation: {
+      "fadeInUp": "fadeInUp 500ms forwards",
+      "fadeOut": "fadeOut 500ms forwards"
+    }
+  },
   },
 
   plugins: [require("daisyui"), require('@tailwindcss/typography')],
