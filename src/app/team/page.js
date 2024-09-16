@@ -60,15 +60,15 @@ export default function PeoplePage() {
   };
   // efn
   return (
-    <div className="min-h-screen py-10 px-5 pt-10 mt-16 bg-white flex w-full flex-col items-center relative">
-      <div className="flex items-start justify-between px-32 w-full h-[20px] z-10">
+    <div className="min-h-screen py-10 px-5 pt-10 mt-16 bg-white flex w-full flex-col items-center">
+      <div className="flex items-start justify-between px-32 w-full h-[20px]">
         <div className="font-extrabold lg:text-4xl sm:text-4xl text-2xl text-center">
           Our Team
         </div>
         <div
           className={
             dropdownVisible
-              ? "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md"
+              ? "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md z-10"
               : "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md"
           }
         >
@@ -103,9 +103,17 @@ export default function PeoplePage() {
           </div>
         </div>
       </div>
-      <div className="w-full z-0 mt-5">
-        <div className="flex flex-col items-center justify-evenly w-full">
-          <div className="flex flex-wrap items-center p-10 justify-center gap-8">
+      <div className="w-full mt-5">
+        <div className="flex flex-col items-center justify-evenly w-full px-16 p-10">
+          <div style={
+            {
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "1rem",
+              width: "100%",
+              padding: "1rem",
+            }
+          }>
             {loading ? (
               <ClipLoader color={"#363797"} loading={loading} />
             ) : type == "Faculty" ? (
