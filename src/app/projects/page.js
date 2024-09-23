@@ -1,8 +1,18 @@
-"use client"
-
 import HightlightProject from "./HighlightProject"
+import Projects from "./Projects"
 
-export default function ProjectsPage () {
+export default async function ProjectsPage () {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/projects?populate=*`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          },
+          cache: "no-cache",
+        }
+    )
+    let projects = await res.json()
+
     return (
         <main className="min-h-screen mt-24 px-5">
             <div className="flex flex-col md:flex-row h-[700px] md:h-96 max-w-[1200px] mx-auto rounded overflow-hidden">
@@ -25,6 +35,8 @@ export default function ProjectsPage () {
                     link="/vlabs"
                 />
             </div>
+
+            <Projects projects={projects.data} />
         </main>
     )
 }

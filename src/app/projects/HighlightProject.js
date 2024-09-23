@@ -20,7 +20,7 @@ export default function HightlightProject ({ title, description, link, bgImage }
     return (
         <div className="flex-1 h-full cursor-pointer bg-center bg-cover group" style={{backgroundImage: `url(${bgImage})`}}>
             <a href={link} className="text-white">
-                <div className="flex flex-col px-5 bg-black/60 hover:bg-black/85 duration-500 transition-[background] justify-center items-center h-full">
+                <div className="flex flex-col px-5 bg-black/60 hover:bg-black/85 backdrop-blur-sm duration-500 transition-[background] justify-center items-center h-full">
                     <h1 className="text-center text-3xl font-bold mb-2">{title}</h1>
                     <div
                         className="text-center md:text-justify overflow-hidden group-hover:animate-fadeInUp animate-fadeOut max-w-md"
