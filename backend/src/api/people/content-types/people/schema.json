@@ -40,8 +40,35 @@
         "associated_staff"
       ]
     },
-    "skills": {
+    "areasOfInterest": {
       "type": "text"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "scholar": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "academicBackground": {
+      "type": "text"
+    },
+    "HighlightProjects": {
+      "type": "text"
+    },
+    "Achievements": {
+      "type": "text"
+    },
+    "email": {
+      "type": "string"
     }
   }
 }

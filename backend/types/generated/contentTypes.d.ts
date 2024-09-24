@@ -851,6 +851,38 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiMilestoneMilestone extends Schema.CollectionType {
+  collectionName: 'milestones';
+  info: {
+    singularName: 'milestone';
+    pluralName: 'milestones';
+    displayName: 'milestone';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    timeline: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::milestone.milestone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::milestone.milestone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPeoplePeople extends Schema.CollectionType {
   collectionName: 'peoples';
   info: {
@@ -870,7 +902,16 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
     type: Attribute.Enumeration<
       ['associated_faculty', 'associated_research_scholars', 'associated_staff']
     >;
-    skills: Attribute.Text;
+    areasOfInterest: Attribute.Text;
+    telephone: Attribute.String;
+    fax: Attribute.String;
+    mobile: Attribute.String;
+    scholar: Attribute.String;
+    linkedin: Attribute.String;
+    academicBackground: Attribute.Text;
+    HighlightProjects: Attribute.Text;
+    Achievements: Attribute.Text;
+    email: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -882,6 +923,42 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::people.people',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
+  info: {
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'project';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    status: Attribute.Enumeration<['upcoming', 'ongoing', 'completed']> &
+      Attribute.Required;
+    cover_image: Attribute.Media<'images'> & Attribute.Required;
+    description: Attribute.Text;
+    content: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
       'oneToOne',
       'admin::user'
     > &
@@ -945,7 +1022,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
       'api::event.event': ApiEventEvent;
+      'api::milestone.milestone': ApiMilestoneMilestone;
       'api::people.people': ApiPeoplePeople;
+      'api::project.project': ApiProjectProject;
       'api::update.update': ApiUpdateUpdate;
     }
   }
