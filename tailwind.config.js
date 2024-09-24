@@ -107,20 +107,6 @@ module.exports = {
           '900': '#323b43',
           '950': '#1f262d',
         },
-      
-      
-      
-
-      
-
-
-      
-    
-      
-
-  
-      
-      
         'i': {
           '50': '#f0f6fe',
           '100': '#ddeafc',
@@ -183,8 +169,8 @@ module.exports = {
       }
     },
     animation: {
-      "fadeInUp": "fadeInUp 500ms forwards",
-      "fadeOut": "fadeOut 500ms forwards"
+      "fadeInUp": "fadeInUp 700ms forwards",
+      "fadeOut": "fadeOut 700ms forwards"
     }
   },
   },
