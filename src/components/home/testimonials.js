@@ -19,11 +19,11 @@ function Card({ testimonial }) {
     testimonial.attributes.photo.data.attributes.formats.thumbnail.url;
   return (
     <div className="w-[500px] p-4 border border-shark-950 rounded-md shadow-sm flex-shrink-0">
-      <div className="flex gap-4 items-center h-full">
-        
+      <div className="flex gap-4 items-center relative h-full">
+        <Image src={Quote} className="h-28 w-28 absolute opacity-50 inset-0 z-0"/>
         <Image className="rounded-full w-1/4" width={60} height={60} src={imgsrc} />
-        <div className="w-3/4 flex flex-col justify-between relative h-full gap-8">
-        <Image src={Quote} className="h-24 w-24 absolute opacity-40 top-0 z-0"/>
+        <div className="w-3/4 flex flex-col justify-between h-full gap-8">
+        
             <div className="text-right flex flex-col gap-0 p-4">
                 <span className="text-justify z-10">{testimonial.attributes.testimonial}</span>
             </div>
