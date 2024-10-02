@@ -8,7 +8,8 @@ import LinkedIn from '../../public/assets/images/linkedin.svg';
 
 const Footer = () => {
   return (
-    <footer className='bg-shark-950 flex items-center gap-16 justify-center py-10'>
+    <div className='footer bg-black flex items-center gap-16 justify-center py-10 h-[350px]'>
+      
         <div className='flex flex-col items-center justify-center text-wrap'>
             <img src={LogoFooter.src} alt='logo' className='lg:h-24 h-16' />
             <p className='text-white text-xs text-wrap'>&copy; 2024 All Rights Reserved</p>
@@ -26,7 +27,7 @@ const Footer = () => {
                 <li><a href="https://www.linkedin.com/in/csd-nitk/" className='flex items-center gap-3 lg:text-xl text-sm text-white'><Image src={Facebook} className='fill-current h-6 w-6' /><div>Facebook</div></a></li>
             </ul>
         </div>
-    </footer>
+    </div>
   )
 }
 

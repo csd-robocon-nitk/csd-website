@@ -37,11 +37,12 @@ export default function Header () {
 
     return (
       <div
-        className={
-          navTransparency
-            ? ("flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950/80 backdrop-blur-md" : ""))
-            : "flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 bg-shark-950/80 backdrop-blur-sm"
-        }
+      className={
+        navTransparency
+        ? "flex flex-wrap fixed items-center justify-between h-20 z-50 w-full top-0 transition-colors duration-300 " +
+        (open ? "bg-black bg-opacity-70 backdrop-blur-md" : "bg-transparent")
+        : "flex flex-wrap fixed items-center justify-between h-20 z-50 w-full top-0 bg-black bg-opacity-70 backdrop-blur-md transition-colors duration-300"
+    }
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
           <div className="flex flex-col items-center">
@@ -68,6 +69,9 @@ export default function Header () {
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/events">Events</Link>
+            </li>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/vlabs">Vlab</Link>
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/contact">Contact</Link>
@@ -99,6 +103,9 @@ export default function Header () {
                 </li>
                 <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/events">Events</Link>
+                </li>
+                <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
+                  <Link href="/vlabs">vlab</Link>
                 </li>
                 <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/contact">Contact</Link>
