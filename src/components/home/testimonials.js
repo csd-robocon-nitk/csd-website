@@ -16,17 +16,18 @@ function Card({ testimonial }) {
   const imgsrc =
     process.env.NEXT_PUBLIC_STRAPI_API_URL +
     "/" +
-    testimonial.attributes.photo.data.attributes.formats.small.url;
+    testimonial.attributes.photo.data.attributes.formats.thumbnail.url;
   return (
-    <div className="w-[500px] p-2 border border-shark-950 rounded-md shadow-sm flex-shrink-0">
+    <div className="w-[500px] p-4 border border-shark-950 rounded-md shadow-sm flex-shrink-0">
       <div className="flex gap-4 items-center h-full">
+        
         <Image className="rounded-full w-1/4" width={60} height={60} src={imgsrc} />
-        <div className="w-3/4 flex flex-col items-end justify-between h-full">
-            <div className="text-lg">
-                <Image src={Quote} className="h-16 w-16"/>
-                <span className="text-justify">{testimonial.attributes.testimonial}</span>
+        <div className="w-3/4 flex flex-col justify-between relative h-full gap-8">
+        <Image src={Quote} className="h-24 w-24 absolute opacity-40 top-0 z-0"/>
+            <div className="text-right flex flex-col gap-0 p-4">
+                <span className="text-justify z-10">{testimonial.attributes.testimonial}</span>
             </div>
-            <div className="flex flex-col gap-1 items-end">
+            <div className="flex flex-col gap-0 items-end">
                 <span className="text-xl font-bold">{testimonial.attributes.name}</span>
                 <span className="text-right text-shark-800">{testimonial.attributes.work}</span>
             </div>
