@@ -18,7 +18,7 @@ function Card({ testimonial }) {
     "/" +
     testimonial.attributes.photo.data.attributes.formats.thumbnail.url;
   return (
-    <div className="w-[500px] p-4 border border-shark-950 rounded-md shadow-sm flex-shrink-0">
+    <div className="w-[500px] p-4 border bg-shark-900/95 text-white rounded-md flex-shrink-0">
       <div className="flex gap-4 items-center relative h-full">
         <Image src={Quote} className="h-28 w-28 absolute opacity-50 inset-0 z-0"/>
         <Image className="rounded-full w-1/4" width={60} height={60} src={imgsrc} />
@@ -29,7 +29,7 @@ function Card({ testimonial }) {
             </div>
             <div className="flex flex-col gap-0 items-end">
                 <span className="text-xl font-bold">{testimonial.attributes.name}</span>
-                <span className="text-right text-shark-800">{testimonial.attributes.work}</span>
+                <span className="text-right text-white/80">{testimonial.attributes.work}</span>
             </div>
         </div>
       </div>
@@ -88,13 +88,13 @@ function Testimonials() {
     });
 
     return controls.stop;
-  }, [xTranslation, testimonials]);
+  }, [xTranslation, width, testimonials]);
 
   return (
-    <div className="pb-8 flex items-center gap-8 flex-col overflow-x-hidden">
+    <div className="pb-8 flex items-center gap-8 flex-col overflow-x-hidden relative">
       <div className="text-4xl font-bold">Testimonials</div>
       <motion.div
-        className="flex gap-4 w-screen"
+        className="flex gap-4"
         ref={ref}
         style={{ x: xTranslation }}
       >
