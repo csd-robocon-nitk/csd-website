@@ -72,6 +72,9 @@ export default function Header () {
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/contact">Contact</Link>
             </li>
+            <li className="p-2 rounded-xl">
+              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/vlabs">VLABS</Link>
+            </li>
           </ul>
           <div className="lg:hidden">
             <button className={open ? "hidden" : ""} onClick={handleClick}><img src={Ham.src} className="h-10 cursor-pointer" alt="" /></button>
