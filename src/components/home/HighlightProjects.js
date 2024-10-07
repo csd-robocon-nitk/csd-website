@@ -73,7 +73,7 @@ function HighlightProjects() {
             src="/objectives.mp4"
             className="w-full rounded-lg object-cover object-center"
           ></motion.video>
-          <div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/40 backdrop-blur-sm h-full">
+          <div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
             <motion.h1
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ function HighlightProjects() {
             src="/about.mp4"
             className="w-full rounded-lg object-cover object-center"
           ></motion.video>
-          <div className="flex flex-col w-full absolute justify-center items-start p-8 bg-black/40 backdrop-blur-sm h-full">
+          <div className="flex flex-col gap-8 w-full absolute justify-center items-start p-8 bg-black/60 h-full">
             <motion.h1
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ function HighlightProjects() {
             src="/objectives.mp4"
             className="w-full rounded-lg object-cover object-center"
           ></motion.video>
-          <div className="flex flex-col w-full absolute justify-center items-start p-8 bg-black/40 backdrop-blur-sm h-full">
+          <div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
             <motion.h1
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
