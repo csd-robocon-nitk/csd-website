@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import useMeasure from "react-use-measure";
 import { mergeRefs } from "react-merge-refs";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Lenis from "lenis";
 
 function HighlightProjects() {
   const vlabRef = useRef(null);
@@ -42,6 +43,17 @@ function HighlightProjects() {
     offset: ["start end", "start start"],
   });
   const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1]);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
 
   return (
     <div className="flex justify-center items-center pb-24 m mx-24 mb-8 flex-col gap-2 relative">
@@ -170,17 +182,17 @@ function HighlightProjects() {
           style={{ scale: scale2explore, height: height }}
           className="flex gap-4 w-4/5 sticky top-56 rounded-lg overflow-hidden"
         >
-          <div
-            className="flex gap-4 w-full justify-center items-center p-8 bg-shark-950"
-          >
+          <div className="flex gap-4 w-full justify-center items-center p-8 bg-shark-950">
             <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="bg-white text-shark-950 p-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="bg-white text-shark-950 p-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
             >
-              <Link href={"/projects"} className="text-4xl font-extrabold">Explore More Projects</Link>
-              <ArrowRight className="w-8 h-8"/>
+              <Link href={"/projects"} className="text-4xl font-extrabold">
+                Explore More Projects
+              </Link>
+              <ArrowRight className="w-8 h-8" />
             </motion.div>
           </div>
         </motion.div>
