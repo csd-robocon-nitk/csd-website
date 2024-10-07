@@ -18,18 +18,20 @@ function Card({ testimonial }) {
     "/" +
     testimonial.attributes.photo.data.attributes.formats.thumbnail.url;
   return (
-    <div className="w-[500px] p-4 border bg-shark-900/95 text-white rounded-md flex-shrink-0">
-      <div className="flex gap-4 items-center relative h-full">
-        <Image src={Quote} className="h-28 w-28 absolute opacity-50 inset-0 z-0"/>
-        <Image className="rounded-full w-1/4" width={60} height={60} src={imgsrc} />
-        <div className="w-3/4 flex flex-col justify-between h-full gap-8">
+    <div className="w-[500px] p-4 border bg-gradient-to-r from-shark-600 via-shark-800/90 to-shark-950/90 text-white rounded-md flex-shrink-0">
+      <div className="flex flex-col items-start relative h-full">
+        {/* <Image src={Quote} className="h-12 w-12 opacity-50 inset-0 z-0"/> */}
+        <div className="w-full flex flex-col justify-between h-full">
         
-            <div className="text-right flex flex-col gap-0 p-4">
-                <span className="text-justify z-10">{testimonial.attributes.testimonial}</span>
+            <div className="text-right flex flex-col gap-0">
+                <span className="text-justify z-10 italic">{`"${testimonial.attributes.testimonial}"`}</span>
             </div>
-            <div className="flex flex-col gap-0 items-end">
+            <div className="flex justify-between items-center px-2">
+                <Image className="rounded-full h-16 w-16" width={60} height={60} src={imgsrc} />
+                <div className="flex flex-col items-end w-3/4">
                 <span className="text-xl font-bold">{testimonial.attributes.name}</span>
                 <span className="text-right text-white/80">{testimonial.attributes.work}</span>
+                </div>
             </div>
         </div>
       </div>
@@ -77,11 +79,14 @@ function Testimonials() {
   const xTranslation = useMotionValue(0);
 
   useEffect(() => {
+
+    if (!testimonials) return;
+
     let controls;
-    let finalPosition = -width/2 -16;
+    let finalPosition = -((500 + 16) * testimonials.length);
     controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
-      duration: 15,
+      duration: 40,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,
@@ -94,7 +99,7 @@ function Testimonials() {
     <div className="pb-8 flex items-center gap-8 flex-col overflow-x-hidden relative">
       <div className="text-4xl font-bold">Testimonials</div>
       <motion.div
-        className="flex gap-4"
+        className="flex gap-4 w-full"
         ref={ref}
         style={{ x: xTranslation }}
       >
