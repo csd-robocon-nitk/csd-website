@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
+    "@studio-freight/react-lenis": "^0.0.47",
     "@tailwindcss/typography": "^0.5.13",
     "framer-motion": "^11.3.31",
     "lenis": "^1.1.13",

@@ -10,7 +10,7 @@ export default async function HomePage () {
 			<CoverSection />
 			<AboutSection />
 			<FocusAreasSection />
-			{/* <Testimonials /> */}
+			<Testimonials />
 			<HighlightProjects />
 		</>
 	)

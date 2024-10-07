@@ -179,7 +179,7 @@ function HighlightProjects() {
 
         {/* Exlore */}
         <motion.div
-          style={{ scale: scale2explore, height: height }}
+          style={{ scale: scale2explore, height: height + 32 }}
           className="flex gap-4 w-4/5 sticky top-56 rounded-lg overflow-hidden"
         >
           <div className="flex gap-4 w-full justify-center items-center p-8 bg-shark-950">
