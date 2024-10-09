@@ -40,17 +40,17 @@ function Modal({ isOpen, setIsOpen, data }) {
   const academicBackground = data.attributes.academicBackground?.split("\n");
 
   return (
-    <div className="fixed inset-0 h-screen w-screen flex justify-center items-center z-50 bg-shark-950/30 backdrop-blur-sm">
+    <div className="fixed inset-0 h-screen w-screen flex justify-center items-center z-50 bg-shark-300/50 backdrop-blur-md">
       <div
-        className={"rounded bg-white flex flex-col border-shark-800 border-2"}
+        className={"rounded bg-white flex flex-col border-shark-900 border-2"}
         ref={modalRef}
       >
-        <div className="flex justify-between w-full items-center gap-4 bg-shark-900 text-white p-8 px-16">
+        <div className="flex justify-between w-full items-center gap-4 bg-shark-900 text-white p-4 px-16">
           <div className="flex gap-4 items-center">
             <figure className="h-1/3">
               <Image
                 width={90}
-                height={120}
+                height={90}
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${data.attributes.pfp.data.attributes.formats.thumbnail.url}`}
                 alt={data.attributes.name}
                 className="rounded-full object-cover mx-auto"
@@ -66,7 +66,7 @@ function Modal({ isOpen, setIsOpen, data }) {
           </div>
           <div className="flex flex-col">
             <p>Telephone: {data.attributes.telephone}</p>
-            <p>Email: {data.attributes.email}</p>
+            <p>E-mail: {data.attributes.email}</p>
             <p>Mobile: {data.attributes.mobile}</p>
             <div className="flex gap-4 mt-2">
             <a
