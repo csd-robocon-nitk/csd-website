@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import Image from "next/image";
 import Quote from "@/../../public/assets/images/quote.svg"
+import Lenis from "lenis";
 
 function Card({ testimonial }) {
   const imgsrc =
@@ -94,6 +95,17 @@ function Testimonials() {
 
     return controls.stop;
   }, [xTranslation, width, testimonials]);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
 
   return (
     <div className="pb-8 flex items-center gap-8 flex-col overflow-x-hidden relative">

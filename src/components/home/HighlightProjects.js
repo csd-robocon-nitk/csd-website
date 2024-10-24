@@ -187,9 +187,9 @@ function HighlightProjects() {
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="bg-white text-shark-950 p-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
+              className="bg-white text-shark-950 px-8 py-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
             >
-              <Link href={"/projects"} className="text-4xl font-extrabold">
+              <Link href={"/projects"} className="text-2xl font-extrabold">
                 Explore More Projects
               </Link>
               <ArrowRight className="w-8 h-8" />

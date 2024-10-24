@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import LinkedIn from '../../../public/assets/images/linkedin.svg';
 import Scholar from '../../../public/assets/images/scholar-white.svg';
+import NITK from '../../../public/assets/images/nitk.png';
 import "./modal.css";
 
 
@@ -80,6 +81,12 @@ function Modal({ isOpen, setIsOpen, data }) {
               className="flex items-center gap-3 lg:text-xl text-sm"
             >
               <Image src={Scholar} className="fill-current h-5 w-5" />
+            </a>
+            <a
+              href={data.attributes?.nitk}
+              className="flex items-center gap-3 lg:text-xl text-sm"
+            >
+              <Image src={NITK} className="fill-current h-5 w-5" />
             </a>
           </div>
           </div>

@@ -61,59 +61,39 @@ export default function PeoplePage() {
   // efn
   return (
     <div className="min-h-screen py-10 px-5 pt-10 mt-16 bg-white flex w-full flex-col items-center">
-      <div className="flex items-start justify-between px-32 w-full h-[20px]">
-        <div className="font-extrabold lg:text-4xl sm:text-4xl text-2xl text-center">
-          Our Team
-        </div>
-        <div
-          className={
-            dropdownVisible
-              ? "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md z-10"
-              : "p-2 w-[150px] transition-all duration-200 ease-in-out flex items-center flex-col justify-center gap-2  bg-slate-100 shadow-md rounded-md"
+      
+      <div className="flex justify-between w-full px-20">
+        <h1 className="text-4xl font-bold text-center">Our Team</h1>
+        <div>
+          {
+            Object.keys(dropDown).map((key) => (
+              <button
+                onClick={() => handleType(key)}
+                className={`${
+                  type === key
+                    ? "bg-shark-900 text-white"
+                    : "bg-slate-100"
+                } px-4 py-2 rounded-md shadow-md font-semibold mr-2`}
+              >
+                {key}
+              </button>
+            ))
           }
-        >
-          <div
-            className="px-2 flex items-center justify-center gap-2 w-full cursor-pointer"
-            onClick={() => {
-              setDropdownVisible(!dropdownVisible);
-            }}
-          >
-            <div className="font-bold text-xl">{type}</div>
-            <FaFilter className="cursor-pointer" />
-          </div>
-          <div
-            className={
-              dropdownVisible ? "flex flex-col gap-1 items-center" : "hidden"
-            }
-          >
-            {Object.keys(dropDown).map((key) => {
-              return (
-                <div
-                  className="w-full text-center p-1 px-[4px] bg-shark-200/50 rounded-md"
-                  key={key}
-                  onClick={() => {
-                    handleType(key);
-                    setDropdownVisible(false);
-                  }}
-                >
-                  {key}
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
+        
+      
       <div className="w-full mt-5">
-        <div className="flex flex-col items-center justify-evenly w-full px-16 p-10">
-          <div style={
-            {
+        <div className="flex flex-col items-center justify-evenly w-full px-16 p-2">
+          <div
+            style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
               gap: "1rem",
               width: "100%",
               padding: "1rem",
-            }
-          }>
+            }}
+          >
             {loading ? (
               <ClipLoader color={"#363797"} loading={loading} />
             ) : type == "Faculty" ? (
