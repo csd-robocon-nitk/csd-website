@@ -2,58 +2,66 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowDown, Mouse, Scroll } from "lucide-react";
+
+const MouseScrollLogo = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+      className="flex justify-center items-center"
+    >
+      <motion.div
+        className="w-6 h-10 border-2 border-white rounded-full flex justify-center items-start"
+        animate={{ y: [0, 5, 0] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      >
+        <motion.div
+          className="w-1 h-2 bg-white rounded-full mt-2"
+          animate={{ y: [10, 0, 10] }}
+          transition={{ duration: 1, repeat: Infinity }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const AboutUs = () => {
-  useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll(".scroll-effect");
-      elements.forEach((element) => {
-        const position = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (position < windowHeight - 100) {
-          element.classList.add("active");
-        }
-      });
-
-      const parallaxElements = document.querySelectorAll(".parallax");
-      parallaxElements.forEach((element) => {
-        const speed = element.getAttribute("data-speed");
-        const yPos = -((window.scrollY * speed) / 100);
-        element.style.transform = `translateY(${yPos}px)`;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      {/* <section className="bg-shark-950 text-white relative text-center pt-32 py-24 mb-4 scroll-effect w-full px-24">
-        <div
-          className="parallax absolute inset-0 z-0 opacity-70"
-          data-speed="30"
-        >
-          <Image
-            src="/assets/images/454631101_891828776323719_4302866775297206512_n.jpg"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
+
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-shark-950 to-shark-900">
+        <div className="absolute inset-0 bg-pattern opacity-10"></div>
+        <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center text-white">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-6xl font-bold mb-6 text-shadow-lg"
+          >
+            About Us
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-2xl mb-8 text-shadow-md"
+          >
+            Driving research and development to solve real-world problems
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <MouseScrollLogo />
+          </motion.div>
         </div>
-        <div className="relative z-10">
-          <h1 className="text-6xl font-extrabold tracking-wide">
-            Welcome to CSD
-          </h1>
-          <h2 className="text-3xl mt-4 text-w-900">
-            Innovation Meets Collaboration at NITK Surathkal
-          </h2>
-        </div>
-      </section> */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+      </section>
 
       <section className="relative mt-32">
         <Image

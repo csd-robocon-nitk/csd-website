@@ -80,7 +80,7 @@ function HighlightProjects() {
               transition={{ duration: 1 }}
               className="text-4xl font-extrabold"
             >
-              Vlabs
+              Virtual labs
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 100 }}

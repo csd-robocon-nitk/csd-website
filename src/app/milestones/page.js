@@ -2,6 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./milestones.css";
+import { motion } from "framer-motion";
 
 function MileStones() {
   const [displayData, setDisplayData] = useState();
