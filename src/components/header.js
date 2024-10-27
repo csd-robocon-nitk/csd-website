@@ -51,26 +51,36 @@ export default function Header () {
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/">Home</Link>
             </li>
-            <li className="p-2 rounded-xl">
-              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/about">About</Link>
+            <li className="p-2 rounded-xl relative group">
+              <span className="relative w-fit block cursor-pointer after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:group-hover:scale-x-100 after:transition after:duration-300 after:origin-center">About</span>
+              <ul className="absolute hidden group-hover:block bg-shark-950/80 backdrop-blur-md mt-2 rounded-lg shadow-lg">
+                <li className="p-2 rounded-xl">
+                  <Link className="block px-4 py-2 text-white hover:bg-shark-950/80 text-nowrap" href="/about">About Us</Link>
+                </li>
+                <li className="p-2 rounded-xl">
+                  <Link className="block px-4 py-2 text-white hover:bg-shark-950/80" href="/milestones">Milestones</Link>
+                </li>
+              </ul>
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/team">team</Link>
             </li>
-            <li className="p-2 rounded-xl">
-              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/blog">Blog</Link>
-            </li>
-            <li className="p-2 rounded-xl">
-              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/milestones">Milestones</Link>
+            <li className="p-2 rounded-xl relative group">
+              <span className="relative w-fit block cursor-pointer after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:group-hover:scale-x-100 after:transition after:duration-300 after:origin-center">Insights</span>
+              <ul className="absolute hidden group-hover:block bg-shark-950/80 backdrop-blur-md mt-2 rounded-lg shadow-lg">
+                <li className="p-2 rounded-xl">
+                  <Link className="block px-4 py-2 text-white hover:bg-shark-950/80 text-nowrap" href="/events">News and Events</Link>
+                </li>
+                <li className="p-2 rounded-xl">
+                  <Link className="block px-4 py-2 text-white hover:bg-shark-950/80" href="/blog">Blogs</Link>
+                </li>
+              </ul>
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/research">Research</Link>
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/projects">Projects</Link>
-            </li>
-            <li className="p-2 rounded-xl">
-              <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/events">Events</Link>
             </li>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/contact">Contact</Link>
