@@ -179,7 +179,7 @@ function HighlightProjects() {
 
         {/* Exlore */}
         <motion.div
-          style={{ scale: scale2explore, height: height + 32 }}
+          style={{ scale: scale2explore, height: height + 32, clipPath: "polygon(0 0, 15% 0, 18% 40px, 82% 40px, 85% 0, 100% 0, 100% 100%, 0% 100%)" }}
           className="flex gap-4 w-4/5 sticky top-56 rounded-lg overflow-hidden"
         >
           <div className="flex gap-4 w-full justify-center items-center p-8 bg-shark-950">

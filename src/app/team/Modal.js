@@ -48,10 +48,10 @@ function Modal({ isOpen, setIsOpen, data }) {
       >
         <div className="flex justify-between w-full items-center gap-4 bg-shark-900 text-white p-4 px-16">
           <div className="flex gap-4 items-center">
-            <figure className="h-1/3">
+            <figure className="">
               <Image
-                width={90}
-                height={90}
+                width={120}
+                height={120}
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${data.attributes.pfp.data.attributes.formats.thumbnail.url}`}
                 alt={data.attributes.name}
                 className="rounded-full object-cover mx-auto"
