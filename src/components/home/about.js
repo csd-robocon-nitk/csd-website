@@ -1,24 +1,30 @@
-import Image from 'next/image'
-import Drone from '../../../public/assets/images/drone.jpg'
+"use client"
+
+import { Parallax } from "react-scroll-parallax"
 
 export default function AboutSection() {
 	return (
-		<div className="bg-[#fbfbfb] pt-0.5 relative pb-[400px] overflow-hidden">
-			<div className="w-[500px] ml-40 mt-20">
-				<h1 className="text-4xl font-bold text-gray-950 mb-6">
-					About Us
-				</h1>
-				<p className="md:text-xl text-lg text-gray-600 text-justify">
-					Centre for System Design (A Centre of Excellence at NITK
-					Surathkal) envisages an interdisciplinary approach and
-					means for realization of successful engineering systems.
-					It aims at facilitating and providing required
-					environment for all the key components of system design.
-				</p>
+		<div className="flex items-end justify-center -translate-x-[37px] pb-16 pt-24">
+			<div className="flex flex-col items-center gap-24 shrink-0 translate-x-[75px]">
+				<div className="flex gap-6">
+					<Parallax speed={-5}>
+						<img className="w-[200px] h-[320px] rounded-lg" src="/assets/images/aboutus1.png" alt="" />
+					</Parallax>
+
+					<Parallax speed={2}>
+						<img className="w-[200px] h-[320px] rounded-lg" src="/assets/images/aboutus2.png" alt="" />
+					</Parallax>
+
+					<Parallax speed={-5}>
+						<img className="w-[200px] h-[320px] rounded-lg" src="/assets/images/aboutus3.jpg" alt="" />
+					</Parallax>
+				</div>
+				<a href="/about" className="bg-[#066466] px-6 py-3 rounded-full text-white text-xl font-bold">Learn More</a>
 			</div>
-			<img className="w-[800px] opacity-80 rounded-l-lg absolute -right-20 top-20" src="/assets/images/aboutus1.png" alt="" />
-			<img className="w-[730px] opacity-80 rounded-lg absolute left-16 top-[370px]" src="/assets/images/aboutus2.png" alt="" />
-			<img className="w-[700px] opacity-80 rounded-lg absolute left-[820px] top-[450px]" src="/assets/images/aboutus3.png" alt="" />
+			<div className="bg-[#b4bebf] max-w-[550px] overflow-visible rounded-2xl px-20 py-12">
+				<img src="/assets/images/aboutheading.png" className="w-[138%] max-w-none -translate-x-[calc(27%+5px)] z-20 relative" alt="" />
+				<p className="text-white text-xl text-right">Center of System Design (A Center of Excellence at NITK Surathkal) envisages an Interdisciplinary approach and means for realization of successful engineering systems. It aims at facilitating and providing required environment for all key components of system design.</p>
+			</div>
 		</div>
 	)
 }

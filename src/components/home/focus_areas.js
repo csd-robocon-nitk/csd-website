@@ -3,7 +3,7 @@ import FocusAreaCard from "./FocusAreaCard"
 export default function FocusAreasSection () {
     return (
         <div 
-			className="bg-about-section -translate-y-12 pt-20 px-4 pb-10 flex justify-center" 
+			className="bg-about-section pt-20 px-4 pb-10 flex justify-center" 
 			style={{ clipPath: "polygon(0 0, 15% 0, 18% 40px, 82% 40px, 85% 0, 100% 0, 100% 100%, 0% 100%)" }}
 		>
 			<div className="max-w-[1200px]">
