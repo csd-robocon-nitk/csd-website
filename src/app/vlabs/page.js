@@ -36,35 +36,55 @@ export default function VirtualLabs() {
       name: "Tejas Pethker",
       title: "MTech in Mechatronics (2018-2020)",
       position: "Powertrain Control Unit (PTCU) System Engineer at Mercedes-Benz Research and Development India, Bengaluru",
+<<<<<<< Updated upstream
       image: "/placeholder.svg?height=100&width=100",
+=======
+      image: "/assets/images/453164207_884558033717460_5676383110198238741_n.jpg?height=100&width=100",
+>>>>>>> Stashed changes
       quote: "The Centre for System Design (CSD) at NITK Surathkal is a state-of-the-art technology lab where I had the freedom to explore projects of my own choosing. With Prof. KV Gangadharan's unwavering support, I delved into areas I was passionate about, gaining hands-on experience with industrial technologies. The strong foundation I built at CSD, particularly in sensors and actuator technologies, has made understanding Mercedes engine systems a much smoother process."
     },
     {
       name: "Abhinava Karaba",
       title: "MTech in Mechatronics (2021-2023)",
       position: "ADAS / Automation Engineer at Mercedes-Benz Research and Development India",
+<<<<<<< Updated upstream
       image: "/placeholder.svg?height=100&width=100",
+=======
+      image: "/assets/images/453164207_884558033717460_5676383110198238741_n.jpg?height=100&width=100",
+>>>>>>> Stashed changes
       quote: "The facilities at CSD provided a rich environment for hands-on learning. I had the opportunity to work with high-end equipment, such as National Instruments PXIs and Ethernet DAQs, as well as industry-grade sensors. The experience I gained in instrumentation, data acquisition, and testing was instrumental in preparing me for the industry. Working at CSD wasn't just about technical skills; it taught me adaptability and professionalism—key traits in a corporate setting."
     },
     {
       name: "Aishwarya Pillai",
       title: "MTech in Mechatronics (2019-2021)",
       position: "Engineer at Mercedes-Benz Research and Development India, Bengaluru",
+<<<<<<< Updated upstream
       image: "/placeholder.svg?height=100&width=100",
+=======
+      image: "/assets/images/453164207_884558033717460_5676383110198238741_n.jpg?height=100&width=100",
+>>>>>>> Stashed changes
       quote: "My two years at CSD, first as part of my MTech curriculum and then as a project researcher, were invaluable. The hands-on experience I gained in motor control algorithms and sensor technologies, particularly while working on a switched reluctance motor project, provided me with the skills needed to excel in modeling and simulation. The guidance I received during my MTech project laid the foundation for my current role at Mercedes-Benz."
     },
     {
       name: "Dr. Praveen Shenoy",
       title: "PhD in Control Systems",
       position: "Associate Professor, Department of Aeronautical Engineering, Srinivas Institute of Technology, Mangalore",
+<<<<<<< Updated upstream
       image: "/placeholder.svg?height=100&width=100",
+=======
+      image: "/assets/images/453164207_884558033717460_5676383110198238741_n.jpg?height=100&width=100",
+>>>>>>> Stashed changes
       quote: "Stepping into CSD in 2014 felt like entering a tech wonderland, filled with cutting-edge gadgets and endless possibilities. I got to play with sophisticated equipment, like the National Instruments Data Acquisition system, which we used to experiment with innovative materials like Magneto-Rheological Elastomers. Today, as an Associate Professor, I share those hands-on experiences with my students, equipping them with the same curiosity and problem-solving skills I honed at CSD."
     },
     {
       name: "Dr. Sai Aditya Raman Kuchibhatla",
       title: "BTech in Mechanical Engineering (2011-2012), JRF (2015-2016)",
       position: "Graduate Teaching Assistant at George W. Woodruff School of Mechanical Engineering, Georgia Tech, Atlanta, USA",
+<<<<<<< Updated upstream
       image: "/placeholder.svg?height=100&width=100",
+=======
+      image: "/assets/images/453164207_884558033717460_5676383110198238741_n.jpg?height=100&width=100",
+>>>>>>> Stashed changes
       quote: "My journey with CSD started back in 2011 when I worked on my Bachelor's thesis, which involved developing some of the early virtual labs at NITK. The hands-on experience I gained with cutting-edge hardware and instrumentation at CSD laid a strong foundation for my future career. Working in the fields of vibration instrumentation and measurement not only sharpened my technical skills but also gave me the confidence to tackle challenging research in automotive NVH and acoustics."
     }
   ]
