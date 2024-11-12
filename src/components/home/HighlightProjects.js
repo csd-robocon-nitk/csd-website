@@ -56,13 +56,13 @@ function HighlightProjects() {
   });
 
   return (
-    <div className="flex justify-center items-center pb-24 m mx-24 mb-8 flex-col gap-2 relative">
-      <h1 className="text-4xl font-bold sticky top-20">Highlight Projects</h1>
+    <div className="flex justify-center items-center pb-24 mx-24 mb-8 flex-col gap-2 relative">
+      <h1 className="text-4xl font-bold sticky top-16 pt-12">Highlight Projects</h1>
       <div className="flex flex-col items-center gap-16 text-white">
         {/* Vlabs */}
         <motion.div
           ref={vlabRef}
-          className="flex gap-4 w-4/5 sticky top-32 rounded-lg overflow-hidden"
+          className="flex gap-4 w-4/5 max-w-[1200px] sticky top-40 rounded-lg overflow-hidden"
           style={{ scale: scale2Vlab }}
         >
           <motion.video
@@ -103,7 +103,7 @@ function HighlightProjects() {
         <motion.div
           style={{ scale: scale2Search }}
           ref={searchRef}
-          className="flex gap-4 w-4/5 sticky top-40 rounded-lg overflow-hidden"
+          className="flex gap-4 w-4/5 max-w-[1200px] sticky top-48 rounded-lg overflow-hidden"
         >
           <motion.video
             style={{ scale: scaleSearch }}
@@ -142,7 +142,7 @@ function HighlightProjects() {
         <motion.div
           style={{ scale: scale2Emob }}
           ref={mergeRefs([eMobilityRef, measureRef])}
-          className="flex gap-4 w-4/5 sticky top-48 rounded-lg overflow-hidden"
+          className="flex gap-4 w-4/5 max-w-[1200px] sticky top-56 rounded-lg overflow-hidden"
         >
           <motion.video
             style={{ scale: scaleEmob }}
@@ -180,14 +180,14 @@ function HighlightProjects() {
         {/* Exlore */}
         <motion.div
           style={{ scale: scale2explore, height: height + 32 }}
-          className="flex gap-4 w-4/5 sticky top-56 rounded-lg overflow-hidden"
+          className="flex gap-4 w-4/5 max-w-[1200px] sticky top-64 rounded-lg overflow-hidden"
         >
-          <div className="flex gap-4 w-full justify-center items-center p-8 bg-shark-950">
+          <div className="flex gap-4 w-full justify-center items-center p-8 bg-sky-800">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="bg-white text-shark-950 px-8 py-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
+              className="bg-white text-shark-900 px-8 py-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
             >
               <Link href={"/projects"} className="text-2xl font-extrabold">
                 Explore More Projects

@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
 			<body className={`${inter.className} bg-sky-50`}>
                 <Providers>
 					<Header />
-						{children}
+					{children}
 					<Footer />
 				</Providers>
             </body>
