@@ -4,18 +4,22 @@ import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransf
 
 export default function FocusAreaCard ({ image, heading, description, larger = false }) {
     return (
-		<div className="overflow-hidden relative p-[3px] w-1/3 flex items-stretch rounded-lg">
-			<div className="absolute inset-0">
-				<MovingBorder rx="10%" ry="10%">
-				<div
-					className="h-40 w-40 opacity-[0.8] bg-[radial-gradient(#9E46FE_40%,transparent_60%)]"
-				/>
-				</MovingBorder>
+		<div className="w-1/3 flex flex-col items-center">
+			<div className={`max-w-44 bg-white rounded-full ${larger ? "p-5" : "p-10"} -mt-24 translate-y-1/2 z-10`}>
+				<img src={image} alt="" />
 			</div>
-			<div className="relative bg-[#e2eeff] border flex flex-col items-center w-full p-10 rounded-lg">
-				<h2 className="text-2xl font-semibold text-center">{heading}</h2>
-				<img className={`max-w-52 ${larger ? "p-8" : "p-10"}`} src={image} alt="" />
-				{description}
+			<div className="overflow-hidden relative p-[3px] flex items-stretch rounded-lg h-full">
+				<div className="absolute inset-0">
+					<MovingBorder rx="10%" ry="10%">
+						<div
+							className="h-40 w-40 opacity-[0.8] bg-[radial-gradient(#F48C15_40%,transparent_60%)]"
+						/>
+					</MovingBorder>
+				</div>
+				<div className="bg-sky-800 text-white border flex flex-col w-full h-full p-10 pt-28 rounded-lg relative">
+					<h2 className="text-2xl font-semibold text-center mb-5">{heading}</h2>
+					{description}
+				</div>
 			</div>
 		</div>
     )

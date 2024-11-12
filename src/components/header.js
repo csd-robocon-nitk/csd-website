@@ -37,17 +37,13 @@ export default function Header () {
 
     return (
       <div
-        className={
-          navTransparency
-            ? ("flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 " + (open ? " bg-shark-950/80 backdrop-blur-md" : ""))
-            : "flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 bg-shark-950/80 backdrop-blur-sm"
-        }
+        className={`flex flex-wrap fixed items-center justify-center h-20 z-50 w-full top-0 duration-300 ${!navTransparency || open ? " bg-white backdrop-blur-md drop-shadow-lg" : ""}`}
       >
         <div className="py-3 flex flex-wrap items-center lg:gap-4 justify-evenly w-full">
           <div className="flex flex-col items-center">
-            <Link href="/"><img src="/logo.png" className={"w-auto md:h-14 h-10"} alt="" /></Link>
+            <Link href="/"><img src="/logo.png" className={`w-auto md:h-14 h-10 ${!navTransparency || open ? "invert" : ""}`} alt="" /></Link>
           </div>
-          <ul className="hidden lg:flex lg:jusitfy-evenly lg:font-bold lg:text-lg text-white lg:uppercase">
+          <ul className={`hidden lg:flex lg:jusitfy-evenly lg:font-semibold lg:text-lg ${!navTransparency || open ? "text-neutral-800" : "text-white"} lg:uppercase`}>
             <li className="p-2 rounded-xl">
               <Link className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-cobalt-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="/">Home</Link>
             </li>
@@ -97,7 +93,7 @@ export default function Header () {
         <div className="w-full">
           {
             open ? (
-              <ul className="flex px-20 pb-5 flex-col justify-evenly bg-shark-950 h-screen text-2xl items-center gap-8 font-bold text-white uppercase">
+              <ul className="flex px-20 pb-5 flex-col justify-evenly bg-shark-950 h-screen text-2xl items-center gap-8 font-semibold text-white uppercase">
                 <li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl hover:text-cobalt-600">
                   <Link href="/">Home</Link>
                 </li>

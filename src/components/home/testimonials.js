@@ -19,7 +19,7 @@ function Card({ testimonial }) {
     "/" +
     testimonial.attributes.photo.data.attributes.formats.thumbnail.url;
   return (
-    <div className="w-[500px] p-4 border bg-gradient-to-r from-shark-600 via-shark-800/90 to-shark-950/90 text-white rounded-md flex-shrink-0">
+    <div className="w-[500px] p-4 border bg-sky-800 text-white rounded-md flex-shrink-0">
       <div className="flex flex-col items-start relative h-full">
         {/* <Image src={Quote} className="h-12 w-12 opacity-50 inset-0 z-0"/> */}
         <div className="w-full flex flex-col justify-between h-full">
@@ -31,7 +31,7 @@ function Card({ testimonial }) {
                 <Image className="rounded-full h-16 w-16" width={60} height={60} src={imgsrc} />
                 <div className="flex flex-col items-end w-3/4">
                 <span className="text-xl font-bold">{testimonial.attributes.name}</span>
-                <span className="text-right text-white/80">{testimonial.attributes.work}</span>
+                <span className="text-right text-white">{testimonial.attributes.work}</span>
                 </div>
             </div>
         </div>

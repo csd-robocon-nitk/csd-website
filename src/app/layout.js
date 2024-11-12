@@ -1,10 +1,10 @@
-import { Familjen_Grotesk } from 'next/font/google'
+import { Lexend_Deca, Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Providers } from './providers'
 
-const inter = Familjen_Grotesk({ subsets: ['latin'], weight: ['variable']})
+const inter = Lexend_Deca({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 
 export const metadata = {
 	title: 'Center for System Design',
@@ -16,10 +16,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale = 1.0,maximum-scale=1.0" /> 
-			<body className={`${inter.className} bg-white`}>
+			<body className={`${inter.className} bg-sky-50`}>
                 <Providers>
 					<Header />
-					{children}
+						{children}
 					<Footer />
 				</Providers>
             </body>

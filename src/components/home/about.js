@@ -19,10 +19,10 @@ export default function AboutSection() {
 						<img className="w-[200px] h-[320px] rounded-lg" src="/assets/images/aboutus3.jpg" alt="" />
 					</Parallax>
 				</div>
-				<a href="/about" className="bg-[#066466] px-6 py-3 rounded-full text-white text-xl font-bold">Learn More</a>
+				<a href="/about" className="bg-[#0369a1] px-6 py-3 rounded-full text-white text-xl font-bold">Learn More</a>
 			</div>
-			<div className="bg-[#b4bebf] max-w-[550px] overflow-visible rounded-2xl px-20 py-12">
-				<img src="/assets/images/aboutheading.png" className="w-[138%] max-w-none -translate-x-[calc(27%+5px)] z-20 relative" alt="" />
+			<div className="bg-sky-800 max-w-[550px] overflow-visible rounded-2xl px-20 py-12">
+				<img src="/assets/images/aboutheading.png" className="w-[138%] max-w-none -translate-x-[calc(27.5%+5px)] z-20 relative" alt="" />
 				<p className="text-white text-xl text-right">Center of System Design (A Center of Excellence at NITK Surathkal) envisages an Interdisciplinary approach and means for realization of successful engineering systems. It aims at facilitating and providing required environment for all key components of system design.</p>
 			</div>
 		</div>
