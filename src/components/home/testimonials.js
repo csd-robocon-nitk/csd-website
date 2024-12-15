@@ -19,16 +19,16 @@ function Card({ testimonial }) {
     "/" +
     testimonial.attributes.photo.data.attributes.formats.thumbnail.url;
   return (
-    <div className="w-[500px] p-4 border bg-sky-800 text-white rounded-md flex-shrink-0">
+    <div className="w-[500px] p-4 border bg-sky-800/95 backdrop-blur-xl text-white rounded-md flex-shrink-0">
       <div className="flex flex-col items-start relative h-full">
         {/* <Image src={Quote} className="h-12 w-12 opacity-50 inset-0 z-0"/> */}
         <div className="w-full flex flex-col justify-between h-full">
-        
+
             <div className="text-right flex flex-col gap-0">
                 <span className="text-justify z-10 italic">{`"${testimonial.attributes.testimonial}"`}</span>
             </div>
             <div className="flex justify-between items-center px-2">
-                <Image className="rounded-full h-16 w-16" width={60} height={60} src={imgsrc} />
+                <Image className="rounded-full h-16 w-16" width={60} height={60} src={imgsrc} alt={testimonial.attributes.name} />
                 <div className="flex flex-col items-end w-3/4">
                 <span className="text-xl font-bold">{testimonial.attributes.name}</span>
                 <span className="text-right text-white">{testimonial.attributes.work}</span>
@@ -108,7 +108,7 @@ function Testimonials() {
   });
 
   return (
-    <div className="pb-8 flex items-center gap-8 flex-col overflow-x-hidden relative">
+    <div className="pb-8 flex items-center gap-8 flex-col overflow-x-hidden relative bg-white">
       <div className="text-4xl font-bold">Testimonials</div>
       <motion.div
         className="flex gap-4 w-full"

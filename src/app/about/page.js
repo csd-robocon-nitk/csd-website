@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -31,26 +30,26 @@ const MouseScrollLogo = () => {
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col">
-
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-shark-950 to-shark-900">
+    <div className="flex flex-col overflow-x-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center text-white">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-6xl font-bold mb-6 text-shadow-lg"
           >
-            About Us
+            About CSD
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-2xl mb-8 text-shadow-md"
           >
-            Driving research and development to solve real-world problems
+            Where Innovation Meets Collaboration, and Cutting-Edge Research
+            Drives Impactful Solutions.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,49 +62,42 @@ const AboutUs = () => {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
-      <section className="relative mt-32">
-        <Image
-          src="/assets/images/454631101_891828776323719_4302866775297206512_n.jpg"
-          alt="Hero Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          className="rounded"
-        />
-      </section>
-
       {/* Mission & Vision Section */}
-      <section className="flex justify-between items-start text-center scroll-effect px-24">
-        <h2 className="text-5xl w-1/5 font-bold mb-4 sticky top-40">
-          Our Mission & Vision
-        </h2>
-        <div className="w-3/5 flex flex-wrap items-center h-full justify-center">
-          <div className="flex flex-col p-10 bg-gray-200 m-4 rounded-lg shadow-xl">
-            <h3 className="text-3xl font-semibold mb-6">Mission Statement</h3>
-            <p className="text-lg">
+      <section className="flex justify-between items-start text-center scroll-effect px-24 py-12">
+        <motion.div className="div w-full flex items-start justify-center">
+          <motion.div className="div w-1/2 flex flex-col items-center">
+            <h2 className="text-5xl font-bold mb-4">Mission</h2>
+            <p className="text-xl px-6">
               To foster a transdisciplinary ecosystem that bridges the gap
               between academia and industry, driving forward research and
-              development across multiple domains.
+              development across multiple domains. We are committed to creating
+              an environment where innovative ideas are nurtured and transformed
+              into tangible solutions that address real-world challenges.
             </p>
-          </div>
-          <div className="flex flex-col p-10 bg-gray-200 m-4 rounded-lg shadow-xl">
-            <h3 className="text-3xl font-semibold mb-6">Vision Statement</h3>
-            <p className="text-lg">
+          </motion.div>
+          <motion.div className="div w-1/2 items-center flex flex-col">
+            <h2 className="text-5xl font-bold mb-4">Vision</h2>
+            <p className="text-xl px-6">
               Driving transformative innovation through transdisciplinary
               research and collaborative expertise, addressing real-world
               challenges to create a sustainable and technologically advanced
               future.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* About Us Section */}
-      <section className="flex justify-between items-start min-h-screen text-center scroll-effect px-24">
+      {/* <section className="flex justify-between items-start min-h-screen text-center scroll-effect px-24">
         <div className="w-1/5 sticky top-40">
           <h2 className="text-5xl font-bold mb-4">About CSD</h2>
         </div>
-        <div className="w-3/5 flex flex-col justify-center gap-8 items-center mt-8 min-h-screen ">
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-3/5 flex flex-col justify-center gap-8 items-center mt-8 min-h-screen "
+        >
           <p className="max-w-4xl mx-auto text-xl">
             A detailed introduction about CSD, highlighting its focus on system
             modeling, simulation, system dynamics, control, and optimization.
@@ -117,15 +109,13 @@ const AboutUs = () => {
             alt="About Us Image"
             className="rounded-lg shadow-xl w-1/2"
           />
-        </div>
-      </section>
+        </motion.div>
+      </section> */}
 
       {/* Objectives Section */}
-      <section className="h-screen flex justify-between items-start text-center bg-white scroll-effect px-24">
-        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">
-          Our Objectives
-        </h2>
-        <ul className="w-3/5 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="flex flex-col gap-8 justify-between items-start text-center bg-white scroll-effect px-24 py-12">
+        <h2 className="text-5xl font-bold w-full">Our Objectives</h2>
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {[
             "Fostering Transdisciplinary Collaboration",
             "Industry-Academia Partnerships",
@@ -138,20 +128,25 @@ const AboutUs = () => {
           ].map((objective, index) => (
             <li
               key={index}
-              className="bg-gray-200 p-8 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="bg-sky-200 border-sky-800 border-2 p-8 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              <p className="text-xl">{objective}</p>
+              <motion.p
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-xl"
+              >
+                {objective}
+              </motion.p>
             </li>
           ))}
         </ul>
       </section>
 
       {/* Impact Section */}
-      <section className="flex h-screen justify-between items-start text-center scroll-effect px-20 py-5">
-        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">
-          Our Impact by the Numbers
-        </h2>
-        <div className="w-3/5 flex flex-col items-center">
+      <section className="flex flex-col gap-8 justify-between items-center text-center scroll-effect px-20 py-5">
+        <h2 className="text-5xl font-bold">Our Impact by the Numbers</h2>
+        <div className="flex flex-col items-center">
           <div className="flex items-stretch flex-wrap justify-center">
             {[
               { number: "50+", label: "Industry Collaborations" },
@@ -160,13 +155,16 @@ const AboutUs = () => {
               { number: "10000+", label: "Students Trained" },
               { number: "300+", label: "Internships" },
             ].map((impact, index) => (
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
                 key={index}
-                className="bg-gray-200 p-12 m-4 rounded-lg shadow-xl"
+                className="bg-sky-800 text-white p-12 m-4 rounded-lg shadow-xl"
               >
                 <h3 className="text-4xl font-extrabold">{impact.number}</h3>
                 <p className="text-lg">{impact.label}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
           <div className="flex justify-center mt-8 w-1/2">
@@ -180,87 +178,93 @@ const AboutUs = () => {
       </section>
 
       {/* What We Do Section */}
-      <section className="flex min-h-screen justify-between items-start text-center bg-white scroll-effect px-24">
-        <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">
-          What We Do
-        </h2>
-        <div className="w-3/5">
-          <div className="flex flex-wrap justify-center">
+      <section className="flex flex-col justify-between items-center text-center bg-white scroll-effect px-24">
+        <h2 className="text-5xl font-bold mb-4 sticky top-40">What We Do</h2>
+        <div className="">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
             {[
               {
                 title: "Transdisciplinary Research",
                 description:
                   "Covering various fields like smart agriculture, forestry, conservation, and environmental monitoring.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Industry-Academia Collaboration",
                 description:
                   "Details on partnerships with industries for multidisciplinary research and development.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Experiential Learning",
                 description:
                   "Emphasis on hands-on learning with system design, simulation, and physical experimentation.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Advanced Technological Support",
                 description:
                   "Description of cutting-edge techniques and tools available at CSD.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Environmental and Conservation Efforts",
                 description:
                   "Projects on shoreline analysis, river studies, forestry conservation, etc.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Emergency Communication and Product Design",
                 description:
                   "Innovation in emergency communication, energy harvesting, and biomedical applications.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Internships and Student Motivation",
                 description:
                   "Internship programs and student engagement in real-world projects.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
               {
                 title: "Educational Programs",
                 description:
                   "Workshops, seminars, and training sessions for skill development.",
-                bgColor: "bg-gray-200",
+                bgColor: "bg-sky-200",
               },
             ].map((activity, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`p-12 m-4 rounded-lg shadow-xl flex-1 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${activity.bgColor}`}
+                whileHover="hover"
+                initial="rest"
+                animate="rest"
+                className={`flex flex-col justify-center items-center p-12 m-4 rounded-lg shadow-xl  border-sky-800 border-2 flex-1 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${activity.bgColor}`}
               >
-                <h3 className="text-2xl font-semibold mb-4">
+                <motion.h3
+                  variants={{
+                    rest: { height: "auto", opacity: 1, scale: 1},
+                    hover: { height: 0, opacity: 0, scale: 0},
+                  }}
+                  className="text-2xl font-semibold"
+                >
                   {activity.title}
-                </h3>
-                <p>{activity.description}</p>
-              </div>
+                </motion.h3>
+                <motion.p
+                  variants={{
+                    rest: { height: 0, opacity: 0, scale: 0},
+                    hover: { height: "auto", opacity: 1, scale: 1},
+                  }}
+                  className="text-xl"
+                >
+                  {activity.description}
+                </motion.p>
+              </motion.div>
             ))}
           </div>
-          {/* <div className="flex justify-center mt-8">
-          <Image
-            src="/assets/images/453878205_888204150019515_171988846503097887_n.jpg"
-            alt="What We Do Image"
-            width={500}
-            height={300}
-            className="rounded-lg shadow-xl"
-          />
-        </div> */}
         </div>
       </section>
 
       {/* Our Expertise Section */}
-      <section className="flex min-h-screen justify-between items-start pb-8 p-12 text-center scroll-effect px-24">
+      {/* <section className="flex min-h-screen justify-between items-start pb-8 p-12 text-center scroll-effect px-24">
         <h2 className="w-1/5 text-5xl font-bold mb-4 sticky top-40">
           Our Expertise
         </h2>
@@ -279,7 +283,7 @@ const AboutUs = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
