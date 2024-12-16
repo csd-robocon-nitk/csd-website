@@ -78,9 +78,9 @@ export default function VirtualLabs() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen bg-white text-sky-800 overflow-x-hidden">
     
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black to-gray-800">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky to-sky-800 bg-sky-800">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         <div className="container mx-auto px-4 z-10 text-center text-white">
           <motion.h1 
@@ -104,7 +104,7 @@ export default function VirtualLabs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link href="#labs" className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
+            <Link href="#labs" className="bg-sky-800 text-sky px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
               Discover More <ArrowRight className="ml-2" />
             </Link>
           </motion.div>
@@ -113,7 +113,7 @@ export default function VirtualLabs() {
       </section>
 
     
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 bg-white text-sky-800">
         <div className="container mx-auto px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -123,10 +123,10 @@ export default function VirtualLabs() {
           >
             Welcome to the Virtual Lab at NITK
           </motion.h2>
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center md:justify-center gap-8">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 50 }}
               transition={{ duration: 0.8 }}
               className="md:w-1/2"
             >
@@ -138,10 +138,10 @@ export default function VirtualLabs() {
               transition={{ duration: 0.8 }}
               className="md:w-1/2"
             >
-              <p className="text-lg mb-6 text-gray-600">
+              <p className="text-lg mb-6 text-sky-600">
                 The Virtual Lab at NITK, hosted by the Centre for System Design (CSD), is redefining education and research by providing remote access to experiments typically conducted in physical labs. Our virtual labs replicate real-world lab environments, providing a comprehensive learning experience without geographical limitations.
               </p>
-              <p className="text-lg mb-6 text-gray-600">
+              <p className="text-lg mb-6 text-sky-600">
                 CSD's initiatives go beyond virtual labs, engaging in outreach activities and workshops designed to foster innovation, collaboration, and practical learning experiences.
               </p>
             </motion.div>
@@ -150,7 +150,7 @@ export default function VirtualLabs() {
       </section>
 
       {/* Key Features Section */}
-      <section id="features" className="py-20 bg-gray-100">
+      <section id="features" className="py-20 bg-sky-100">
         <div className="container mx-auto px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -162,24 +162,24 @@ export default function VirtualLabs() {
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: <Globe className="w-12 h-12 mb-4 text-black" />, title: "Remote Access", description: "Perform experiments from anywhere in the world." },
-              { icon: <Cpu className="w-12 h-12 mb-4 text-black" />, title: "Real-Time Data", description: "Obtain real-time results just as you would in a physical lab." },
-              { icon: <Users className="w-12 h-12 mb-4 text-black" />, title: "User-Friendly Interface", description: "Designed for a seamless and intuitive user experience." },
-              { icon: <Microscope className="w-12 h-12 mb-4 text-black" />, title: "Interactive Simulations", description: "Engage with high-quality simulations that closely mimic actual lab conditions." },
-              { icon: <Book className="w-12 h-12 mb-4 text-black" />, title: "Comprehensive Resources", description: "Access detailed manuals, tutorials, and support." },
-              { icon: <School className="w-12 h-12 mb-4 text-black" />, title: "Educational Impact", description: "Enhance learning outcomes through practical, hands-on virtual experiences." }
+              { icon: <Globe className="w-12 h-12 mb-4 text-sky" />, title: "Remote Access", description: "Perform experiments from anywhere in the world." },
+              { icon: <Cpu className="w-12 h-12 mb-4 text-sky" />, title: "Real-Time Data", description: "Obtain real-time results just as you would in a physical lab." },
+              { icon: <Users className="w-12 h-12 mb-4 text-sky" />, title: "User-Friendly Interface", description: "Designed for a seamless and intuitive user experience." },
+              { icon: <Microscope className="w-12 h-12 mb-4 text-sky" />, title: "Interactive Simulations", description: "Engage with high-quality simulations that closely mimic actual lab conditions." },
+              { icon: <Book className="w-12 h-12 mb-4 text-sky" />, title: "Comprehensive Resources", description: "Access detailed manuals, tutorials, and support." },
+              { icon: <School className="w-12 h-12 mb-4 text-sky" />, title: "Educational Impact", description: "Enhance learning outcomes through practical, hands-on virtual experiences." }
             ].map((feature, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md"
+                className="bg-white p-6 rounded-lg shadow-md border-2 border-sky-800"
               >
                 {feature.icon}
                 <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-sky-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -187,13 +187,13 @@ export default function VirtualLabs() {
       </section>
 
     
-      <section id="labs" className="py-20">
+      <section id="labs" className="py-20 text-white">
         <div className="container mx-auto px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-12 text-center"
+            className="text-4xl font-bold mb-12 text-center text-sky-800"
           >
             Labs Developed at NITK
           </motion.h2>
@@ -219,9 +219,9 @@ export default function VirtualLabs() {
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  whileHover={{ scale: 1.05, backgroundColor: '#000000', color: '#FFFFFF' }}
-                  className="bg-white p-4 rounded-lg shadow-md transition-colors duration-300 flex items-center"
+                  transition={{ duration: 0.2 }}
+                  whileHover={{ scale: 1.05}}
+                  className="bg-sky-800 p-4 rounded-lg shadow-md flex items-center"
                 >
                   {React.createElement(lab.icon, { size: 40, className: "mr-4" })}
                   <span>{lab.name}</span>
@@ -233,7 +233,7 @@ export default function VirtualLabs() {
       </section>
 
       
-      <section id="contribution" className="py-20 bg-gray-100">
+      <section id="contribution" className="py-20 bg-sky-100">
         <div className="container mx-auto px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -243,7 +243,7 @@ export default function VirtualLabs() {
           >
             Contribution of CSD to VLab Development
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-wrap px-16 justify-center items-center gap-8">
             {[
               { number: '15', label: 'Labs Developed' },
               { number: '135', label: 'Experiments Developed' },
@@ -255,12 +255,12 @@ export default function VirtualLabs() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.2}}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md text-center"
+                className="bg-white border-2 border-sky-800 p-6 rounded-lg shadow-md text-center"
               >
-                <h3 className="text-5xl font-bold mb-2 text-black">{stat.number}</h3>
-                <p className="text-xl text-gray-600">{stat.label}</p>
+                <h3 className="text-5xl font-bold mb-2 text-sky-800">{stat.number}</h3>
+                <p className="text-xl text-sky-600">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -268,7 +268,7 @@ export default function VirtualLabs() {
       </section>
 
       
-      <section id="outreach" className="py-20">
+      <section id="outreach" className="py-20 px-8">
         <div className="container mx-auto px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -285,23 +285,23 @@ export default function VirtualLabs() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl font-semibold mb-4">Our Nodal Centers</h3>
-              <p className="text-lg mb-6 text-gray-600">
+              <p className="text-lg mb-6 text-sky-600">
                 NITK Surathkal mentors over 440 institutions that have partnered as our Nodal Centers. These include state technological universities, centrally funded technical institutes, private universities, and more.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Karnataka</h4>
                   <p>178 VLNCs</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Kerala</h4>
                   <p>127 VLNCs</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Tamil Nadu</h4>
                   <p>61 VLNCs</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Other States</h4>
                   <p>74 VLNCs</p>
                 </div>
@@ -313,23 +313,23 @@ export default function VirtualLabs() {
               transition={{ duration: 0.8 }}
             >
               <h3 className="text-2xl font-semibold mb-4">Workshops and Training Programs</h3>
-              <p className="text-lg mb-6 text-gray-600">
+              <p className="text-lg mb-6 text-sky-600">
                 The Virtual Labs team at NITK Surathkal has facilitated over 1,000 physical workshops and virtual training sessions, training more than 120,000 users nationwide.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Karnataka</h4>
                   <p>448 Workshops/Webinars</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Kerala</h4>
                   <p>194 Workshops/Webinars</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Tamil Nadu</h4>
                   <p>104 Workshops/Webinars</p>
                 </div>
-                <div className="bg-gray-100 p-4 rounded-lg">
+                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
                   <h4 className="font-semibold">Other States</h4>
                   <p>119 Workshops/Webinars</p>
                 </div>
@@ -340,13 +340,13 @@ export default function VirtualLabs() {
       </section>
 
     
-<section id="testimonials" className="py-20 bg-gray-100" ref={testimonialRef}>
+{/* <section id="testimonials" className="py-20 bg-sky-100 text-white" ref={testimonialRef}>
   <div className="container mx-auto px-4">
     <motion.h2 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="text-4xl font-bold mb-12 text-center"
+      className="text-4xl font-bold mb-12 text-center text-sky-800"
     >
       Alumni Testimonials
     </motion.h2>
@@ -360,7 +360,7 @@ export default function VirtualLabs() {
       >
         {testimonials.map((testimonial, index) => (
           <div key={index} className="w-full flex-shrink-0 px-4">
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col h-full">
+            <div className="bg-sky-800 p-6 rounded-lg shadow-md flex flex-col h-full">
               <div className="flex items-center mb-4">
                 <Image
                   src={testimonial.image}
@@ -371,25 +371,25 @@ export default function VirtualLabs() {
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600">{testimonial.title}</p>
-                  <p className="text-sm text-gray-600">{testimonial.position}</p>
+                  <p className="text-sm text-gray-200">{testimonial.title}</p>
+                  <p className="text-sm text-gray-200">{testimonial.position}</p>
                 </div>
               </div>
-              <p className="text-gray-700 italic flex-grow">{`"${testimonial.quote}"`}</p>
+              <p className="text-gray-100 italic flex-grow">{`"${testimonial.quote}"`}</p>
             </div>
           </div>
         ))}
       </motion.div>
       <button
         onClick={prevTestimonial}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-sky-800 p-2 rounded-full shadow-md"
         aria-label="Previous testimonial"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={nextTestimonial}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-sky-800 p-2 rounded-full shadow-md"
         aria-label="Next testimonial"
       >
         <ChevronRight className="w-6 h-6" />
@@ -401,16 +401,16 @@ export default function VirtualLabs() {
           key={index}
           onClick={() => setCurrentTestimonial(index)}
           className={`w-3 h-3 rounded-full mx-1 ${
-            currentTestimonial === index ? 'bg-black' : 'bg-gray-300'
+            currentTestimonial === index ? 'bg-sky' : 'bg-sky-300'
           }`}
           aria-label={`Go to testimonial ${index + 1}`}
         />
       ))}
     </div>
   </div>
-</section>
+</section> */}
 
-      <section className="py-20">
+      <section className="py-20 bg-sky-100">
         <div className="container mx-auto px-4 text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -424,7 +424,7 @@ export default function VirtualLabs() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl mb-8 text-gray-600"
+            className="text-xl mb-8 text-sky-600"
           >
             Join us in revolutionizing education through virtual experimentation.
           </motion.p>
@@ -433,7 +433,7 @@ export default function VirtualLabs() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link href="https://vlab.co.in/" className="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
+            <Link href="https://vlab.co.in/" className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
               Get Started with Virtual Labs <ArrowRight className="ml-2" />
             </Link>
           </motion.div>
