@@ -2,10 +2,9 @@
 const nextConfig = {
     // output: "export"
     images : {
-        domains: ['localhost', "devcsd.nitk.ac.in"],
         remotePatterns: [
             {
-              protocol: 'http',
+              protocol: 'https',
               hostname: 'devcsd.nitk.ac.in'
             },
           ],
