@@ -27,7 +27,7 @@ export default function Contact() {
         className="max-w-4xl w-full bg-white rounded-2xl shadow-xl overflow-hidden"
       >
         <div className="md:flex">
-          <div className="md:w-1/2 bg-[#1a0033] p-8 text-white">
+          <div className="md:w-1/2 bg-sky-800 p-8 text-white">
             <motion.h2
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -110,7 +110,7 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-800"
                   required
                 />
               </div>
@@ -124,7 +124,7 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-800"
                   required
                 />
               </div>
@@ -138,7 +138,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-800"
                   required
                 ></textarea>
               </div>
@@ -146,7 +146,7 @@ export default function Contact() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
+                className="w-full bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700 transition duration-300"
               >
                 Send Message
               </motion.button>

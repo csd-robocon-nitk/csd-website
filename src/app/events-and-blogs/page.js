@@ -17,7 +17,7 @@ async function Events() {
   events = events.data;
 
   const blogs_res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/events?populate=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?populate=*`,
     {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
@@ -45,15 +45,15 @@ async function Events() {
   });
 
   return (
-    <div className="min-h-screen mt-20 flex flex-col items-center">
+    <div className="min-h-screen mt-20 flex flex-col items-center w-full">
       {/* Highlight Blogs */}
-      <HighlightedBlogs />
+      <HighlightedBlogs  blogs={blogs} />
 
       {/* Events */}
-      <AllEvents  pastEvents={pastEvents} ongoingEvents={ongoingEvents} upcomingEvents={upcomingEvents}/>
+      <AllEvents  pastEvents={pastEvents} ongoingEvents={ongoingEvents} upcomingEvents={upcomingEvents} />
 
       {/* Blogs */}
-      <Blogs />
+      <Blogs blogs={blogs} />
     </div>
   );
 }
