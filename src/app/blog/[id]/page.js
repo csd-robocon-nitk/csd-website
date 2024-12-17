@@ -2,7 +2,7 @@ import React from "react";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 export default async function BlogPage({ params }) {
-  const token = process.env.TOKEN;
+  const token = process.env.NEXT_PUBLIC_TOKEN;
   if (!token) {
     throw new Error("Token not found!");
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Clock, Calendar } from 'lucide-react'
 
 export default function EventsCard({event}) {
 
@@ -6,7 +7,7 @@ export default function EventsCard({event}) {
    const endDateTime = new Date(event.attributes.end) 
 
   return (
-    <div className="flex flex-col items-center overflow-hidden rounded-md shadow-sm m-10 bg-sky-100/50 p-2">
+    <div className="flex flex-col items-center overflow-hidden rounded-md shadow-sm p-2 bg-sky-100 border-2 border-sky-800">
       <img
         src={
           process.env.NEXT_PUBLIC_STRAPI_API_URL +
@@ -15,13 +16,14 @@ export default function EventsCard({event}) {
         alt="Image"
         className='rounded-lg'
       />
-      <div className="card-body">
-        <p className="card-title">{event.attributes.title}</p>
-        <p>{event.attributes.desc}</p>
-        <div className='grid grid-cols-2'>
+      <div className='p-2 flex flex-col gap-2'>
+        <p className="text-xl font-semibold">{event.attributes.title}</p>
+        <p className='text-sky-700'>{event.attributes.desc}</p>
+        <div className='grid grid-cols-2 gap-2 text-sky-600'>
           <div>
-            <p className="xl:text-lg text-sm">Begins at: </p>
-            <p className="xl:text-lg text-sm">
+            <p className="text-sm">Begins at: </p>
+            <p className="ext-sm flex items-center gap-2">
+              <Clock size={20} />
               {startDateTime
                 .toLocaleTimeString("en-IN", {
                   hour: "2-digit",
@@ -29,7 +31,8 @@ export default function EventsCard({event}) {
                 })
                 .toUpperCase()}
             </p>
-            <p className="xl:text-lg text-sm">
+            <p className="text-sm flex items-center gap-2">
+              <Calendar size={20} />
               {startDateTime.toLocaleDateString("en-IN", {
                 weekday: "short",
                 day: "numeric",
@@ -39,8 +42,9 @@ export default function EventsCard({event}) {
             </p>
           </div>
           <div>
-            <p className="xl:text-lg text-sm">Ends at: </p>
-            <p className="xl:text-lg text-sm">
+            <p className="text-sm">Ends at: </p>
+            <p className="text-sm flex items-center gap-2">
+              <Clock size={20} />
               {endDateTime
                 .toLocaleTimeString("en-IN", {
                   hour: "2-digit",
@@ -48,7 +52,8 @@ export default function EventsCard({event}) {
                 })
                 .toUpperCase()}
             </p>
-            <p className="xl:text-lg text-sm">
+            <p className="text-sm flex items-center gap-2">
+              <Calendar size={20} />
               {endDateTime.toLocaleDateString("en-IN", {
                 weekday: "short",
                 day: "numeric",
@@ -58,7 +63,7 @@ export default function EventsCard({event}) {
             </p>
           </div>
         </div>
-        <div className='card-actions'>
+        <div>
               <button className='btn btn-primary text-sm xl:text-lg text-white bg-sky-800 hover:bg-sky-950'>Details</button>
         </div>
       </div>
