@@ -21,7 +21,7 @@ export default function TestimonialCard({ testimonial, setCardWidth }) {
 
 	return (
 		<div 
-			className="bg-sky-200 w-[calc((100vw-144px)/3)] min-w-[400px] h-[calc(0.625*(100vw-144px)/3)] min-h-[250px] flex flex-shrink-0 flex-grow-0 rounded-lg group relative shadow-md shadow-sky-100 overflow-hidden" 
+			className="bg-sky-200 w-[calc((100vw-144px)/3)] min-w-[400px] h-[calc(0.55*(100vw-144px)/3)] min-h-[250px] flex flex-shrink-0 flex-grow-0 rounded-lg group relative shadow-md shadow-sky-100 overflow-hidden" 
 			onMouseLeave={resetScroll}
 			ref={cardRef}
 		>
@@ -30,15 +30,15 @@ export default function TestimonialCard({ testimonial, setCardWidth }) {
 				alt={name}
 				width={400}
 				height={400}
-				className="w-1/2 h-full object-cover object-center flex-shrink-0 rounded-lg"
-				style = {{clipPath: "circle(farthest-side at 0 50%)"}}
+				className="w-2/5 h-full object-cover object-center flex-shrink-0 rounded-lg"
+				style = {{clipPath: "circle(farthest-side at -10% 50%)"}}
 			/>
 			<div className="py-6 px-2 flex flex-col justify-between min-w-0">
 				<div className="w-full">
 					<h1 className="text-xl font-semibold text-sky-950 mb-1">{name}</h1>
 					<p className="text-sm text-gray-600 whitespace-pre-wrap">{designation}</p>
 				</div>
-				<p className="text-ellipsis whitespace-nowrap overflow-hidden h-6 pr-4">{text}</p>
+				<p className="text-justify overflow-hidden pr-4">"{text.split("\n")[0]}...</p>
 			</div>
 			<div data-lenis-prevent className="absolute w-full h-full top-0 left-0 duration-300 bg-sky-800/95 opacity-0 group-hover:opacity-100 text-neutral-100 py-5 cursor-pointer">
 				<p 
