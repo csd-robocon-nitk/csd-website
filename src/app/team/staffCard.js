@@ -19,7 +19,7 @@ function StaffCard({ item }) {
         />
       </figure>
       <div className="items-center flex flex-col gap-2 text-center w-full group-hover:-translate-y-full transform transition-all duration-300 ease-in-out group-hover:m-4">
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl mb-2 font-bold">
           {item.attributes.name}
         </h2>
         <div>

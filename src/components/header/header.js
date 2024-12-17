@@ -14,7 +14,6 @@ export default function Header () {
     const [open, setOpen] = useState(false)
 
     const pathname = usePathname()
-    const [path, setPath] = useState(pathname)
 
     const [navTransparency, setNavTransparency] = useState(true)
 
