@@ -45,7 +45,7 @@ async function Events() {
   });
 
   return (
-    <div className="min-h-screen mt-20 flex flex-col items-center w-full">
+    <div className="min-h-screen mt-20 flex flex-col items-center w-full bg-white">
       {/* Highlight Blogs */}
       <HighlightedBlogs  blogs={blogs} />
 

@@ -18,9 +18,9 @@ export default function EventsCard({event}) {
       />
       <div className='p-2 flex flex-col gap-2'>
         <p className="text-xl font-semibold">{event.attributes.title}</p>
-        <p className='text-sky-700'>{event.attributes.desc}</p>
-        <div className='grid grid-cols-2 gap-2 text-sky-600'>
-          <div>
+        <p className='text-black/80'>{event.attributes.desc}</p>
+        <div className='grid grid-cols-2 gap-2 text-black/80'>
+          <div className='flex flex-col gap-0'>
             <p className="text-sm">Begins at: </p>
             <p className="ext-sm flex items-center gap-2">
               <Clock size={20} />
@@ -41,7 +41,7 @@ export default function EventsCard({event}) {
               })}
             </p>
           </div>
-          <div>
+          <div className='flex flex-col gap-0'>
             <p className="text-sm">Ends at: </p>
             <p className="text-sm flex items-center gap-2">
               <Clock size={20} />

@@ -3,7 +3,7 @@ import Publications from "./Publications"
 
 export default function ResearchPage () {
     return (
-        <div className="min-h-screen mt-20 p-5">
+        <div className="min-h-screen mt-20 p-5 bg-white">
             <h1 className="text-4xl font-bold mb-8 max-w-[1100px] mx-auto">Our Research Areas</h1>
             <div className="grid grid-cols-2 gap-5 max-w-[1100px] mx-auto">
                 <div className="flex flex-col items-center p-5 shadow-gray-300 shadow-md rounded-md bg-blue-50/50">

@@ -19,7 +19,7 @@ function HighlightedBlogs({ blogs }) {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
       >
-        Blogs & Events
+        Our Highlights
       </motion.h1>
       <Carousel className="w-full">
         {blogs.map((blog, index) => {
@@ -46,7 +46,7 @@ function HighlightedBlogs({ blogs }) {
                     <h1 className="text-2xl font-semibold text-sky-900">
                       {blog.attributes.title}
                     </h1>
-                    <p className="text-lg text-sky-700 text-justify">
+                    <p className="text-lg text-black/80 text-justify">
                       {blog.attributes.desc}
                     </p>
                   </div>
