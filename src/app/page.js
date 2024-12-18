@@ -2,11 +2,13 @@ import AboutSection from "@/components/home/about"
 import CoverSection from "@/components/home/cover"
 import FocusAreasSection from "@/components/home/focus_areas"
 import HighlightProjects from "@/components/home/HighlightProjects"
-import Testimonials from "@/components/home/testimonials"
+import LenisInit from "@/components/home/LenisInit"
+import Testimonials from "@/components/home/testimonials/Testimonials"
 
 export default async function HomePage () {
 	return (
 		<>
+			<LenisInit />
 			<CoverSection />
 			<AboutSection />
 			<FocusAreasSection />

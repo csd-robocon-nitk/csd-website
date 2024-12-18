@@ -175,11 +175,11 @@ export default function VirtualLabs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md border-2 border-sky-800"
+                className="bg-white p-6 rounded-lg shadow-md border-2"
               >
                 {feature.icon}
                 <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-sky-600">{feature.description}</p>
+                <p className="text-black">{feature.description}</p>
               </motion.div>
             ))}
           </div>

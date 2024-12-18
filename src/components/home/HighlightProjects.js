@@ -6,7 +6,6 @@ import useMeasure from "react-use-measure";
 import { mergeRefs } from "react-merge-refs";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Lenis from "lenis";
 
 function HighlightProjects() {
   const vlabRef = useRef(null);
@@ -43,17 +42,6 @@ function HighlightProjects() {
     offset: ["start end", "start start"],
   });
   const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1]);
-
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  });
 
   return (
     <div className="flex justify-center items-center pb-24 mx-24 mb-8 flex-col gap-2 relative">
