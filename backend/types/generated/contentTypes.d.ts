@@ -966,6 +966,87 @@ export interface ApiProjectProject extends Schema.CollectionType {
   };
 }
 
+export interface ApiResearchPublicationResearchPublication
+  extends Schema.CollectionType {
+  collectionName: 'research_publications';
+  info: {
+    singularName: 'research-publication';
+    pluralName: 'research-publications';
+    displayName: 'Research Publication';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    author_name: Attribute.String & Attribute.Required;
+    domain: Attribute.String;
+    type: Attribute.Enumeration<
+      [
+        'Journal',
+        'International Conference',
+        'National Conference',
+        'Books Chapters',
+        'Patents',
+        'Others'
+      ]
+    > &
+      Attribute.DefaultTo<'Others'>;
+    journal: Attribute.String;
+    year: Attribute.String;
+    doi: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::research-publication.research-publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::research-publication.research-publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Schema.CollectionType {
+  collectionName: 'testimonials';
+  info: {
+    singularName: 'testimonial';
+    pluralName: 'testimonials';
+    displayName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    work: Attribute.String;
+    testimonial: Attribute.Text;
+    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUpdateUpdate extends Schema.CollectionType {
   collectionName: 'updates';
   info: {
@@ -1025,6 +1106,8 @@ declare module '@strapi/types' {
       'api::milestone.milestone': ApiMilestoneMilestone;
       'api::people.people': ApiPeoplePeople;
       'api::project.project': ApiProjectProject;
+      'api::research-publication.research-publication': ApiResearchPublicationResearchPublication;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::update.update': ApiUpdateUpdate;
     }
   }
