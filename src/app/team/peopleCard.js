@@ -31,7 +31,7 @@ export default function PeopleCard({item}) {
           <div className='bg-slate-900 h-[1px] w-full'></div>
           <p>{item.attributes.Department}</p>
           <div className="card-actions">
-            <button className="btn btn-primary border-cobalt-700 hover:bg-shark-950 bg-shark-900 text-white px-10 min-h-0" onClick={openHandler}>
+            <button className="btn btn-primary border-cobalt-700 hover:bg-sky-950 bg-sky-900 text-white px-10 min-h-0" onClick={openHandler}>
               Read More
             </button>
           </div>

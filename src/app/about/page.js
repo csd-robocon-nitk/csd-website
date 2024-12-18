@@ -30,8 +30,8 @@ const MouseScrollLogo = () => {
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col overflow-x-hidden">
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
+    <div className="flex flex-col overflow-x-hidden pt-20">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center text-white">
           <motion.h1
@@ -59,7 +59,6 @@ const AboutUs = () => {
             <MouseScrollLogo />
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Mission & Vision Section */}

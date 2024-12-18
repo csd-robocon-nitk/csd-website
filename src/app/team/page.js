@@ -71,7 +71,7 @@ export default function PeoplePage() {
                 onClick={() => handleType(key)}
                 className={`${
                   type === key
-                    ? "bg-shark-900 text-white"
+                    ? "bg-sky-900 text-white"
                     : "bg-slate-100"
                 } px-4 py-2 rounded-md shadow-md font-semibold mr-2`}
               >
