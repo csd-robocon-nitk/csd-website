@@ -175,7 +175,7 @@ export default function VirtualLabs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-lg shadow-md border-2"
+                className="bg-white p-6 rounded-lg shadow-md"
               >
                 {feature.icon}
                 <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
@@ -257,7 +257,7 @@ export default function VirtualLabs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2}}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white border-2 border-sky-800 p-6 rounded-lg shadow-md text-center"
+                className="bg-white p-6 rounded-lg shadow-md text-center"
               >
                 <h3 className="text-5xl font-bold mb-2 text-sky-800">{stat.number}</h3>
                 <p className="text-xl text-sky-600">{stat.label}</p>
@@ -289,19 +289,19 @@ export default function VirtualLabs() {
                 NITK Surathkal mentors over 440 institutions that have partnered as our Nodal Centers. These include state technological universities, centrally funded technical institutes, private universities, and more.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Karnataka</h4>
                   <p>178 VLNCs</p>
                 </div>
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Kerala</h4>
                   <p>127 VLNCs</p>
                 </div>
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Tamil Nadu</h4>
                   <p>61 VLNCs</p>
                 </div>
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Other States</h4>
                   <p>74 VLNCs</p>
                 </div>
@@ -317,19 +317,19 @@ export default function VirtualLabs() {
                 The Virtual Labs team at NITK Surathkal has facilitated over 1,000 physical workshops and virtual training sessions, training more than 120,000 users nationwide.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Karnataka</h4>
                   <p>448 Workshops/Webinars</p>
                 </div>
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Kerala</h4>
                   <p>194 Workshops/Webinars</p>
                 </div>
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Tamil Nadu</h4>
                   <p>104 Workshops/Webinars</p>
                 </div>
-                <div className="bg-sky-100 border-2 border-sky-800 p-4 rounded-lg">
+                <div className="bg-sky-100 p-4 rounded-lg">
                   <h4 className="font-semibold">Other States</h4>
                   <p>119 Workshops/Webinars</p>
                 </div>

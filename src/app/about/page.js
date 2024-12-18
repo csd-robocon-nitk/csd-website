@@ -127,7 +127,7 @@ const AboutUs = () => {
           ].map((objective, index) => (
             <li
               key={index}
-              className="bg-sky-200 border-sky-800 border-2 p-8 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="bg-sky-200 p-8 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <motion.p
                 initial={{ opacity: 0, y: 50 }}
@@ -236,7 +236,7 @@ const AboutUs = () => {
                 whileHover="hover"
                 initial="rest"
                 animate="rest"
-                className={`flex flex-col justify-center items-center p-12 m-4 rounded-lg shadow-xl  border-sky-800 border-2 flex-1 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${activity.bgColor}`}
+                className={`flex flex-col justify-center items-center p-12 m-4 rounded-lg shadow-xl flex-1 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${activity.bgColor}`}
               >
                 <motion.h3
                   variants={{
