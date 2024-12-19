@@ -31,8 +31,8 @@ export default function FocusAreasSection () {
 								<li>Data Acquisition</li>
 								<li>Digital Signal Processing</li>
 								<li>Real-Time Control Systems</li>
-								{/* <li>Graphical Simulation</li>
-								<li>Product development</li> */}
+								<li>Graphical Simulation</li>
+								<li>Product development</li>
 							</ul>
 						}
 					/>

@@ -1,31 +1,72 @@
-import { ChartSpline, Database, LayoutGrid, SlidersHorizontal } from "lucide-react"
+import { Bike, BookHeadphones, BrainCircuit, Cpu, Earth, Factory, Leaf, Map, RadioTower, Satellite } from "lucide-react"
 import Publications from "./Publications"
+import ResearchArea from "./ResearchArea"
 
 export default function ResearchPage () {
     return (
         <div className="min-h-screen mt-20 p-5 bg-white">
             <h1 className="text-4xl font-bold mb-8 max-w-[1100px] mx-auto">Our Research Areas</h1>
-            <div className="grid grid-cols-2 gap-5 max-w-[1100px] mx-auto">
-                <div className="flex flex-col items-center p-5 shadow-gray-300 shadow-md rounded-md bg-blue-50/50">
-                    <Database className="w-16 h-16 text-blue-500 mb-3"/>
-                    <h2 className="text-xl mb-1 font-medium text-center">Data Acquisition</h2>
-                    <p className="text-center text-gray-600">Collecting and analyzing large datasets for insights and decision-making.</p>
-                </div>
-                <div className="flex flex-col items-center p-5 shadow-gray-300 shadow-md rounded-md bg-green-50/50">
-                    <ChartSpline className="w-16 h-16 text-green-500 mb-3"/>
-                    <h2 className="text-xl mb-1 font-medium text-center">Digital Signal Processing</h2>
-                    <p className="text-center text-gray-600">Enhancing and manipulating digital signals for improved performance.</p>
-                </div>
-                <div className="flex flex-col items-center p-5 shadow-gray-300 shadow-md rounded-md bg-red-50/50">
-                    <SlidersHorizontal className="w-16 h-16 text-red-500 mb-3"/>
-                    <h2 className="text-xl mb-1 font-medium text-center">Real-Time Control Systems</h2>
-                    <p className="text-center text-gray-600">Developing systems that respond instantly to input for critical applications.</p>
-                </div>
-                <div className="flex flex-col items-center p-5 shadow-gray-300 shadow-md rounded-md bg-purple-50/50">
-                    <LayoutGrid className="w-16 h-16 text-purple-500 mb-3"/>
-                    <h2 className="text-xl mb-1 font-medium text-center">Graphical Simulation</h2>
-                    <p className="text-center text-gray-600">Creating visual representations of complex systems and processes.</p>
-                </div>
+            <div className="grid grid-cols-3 items-stretch gap-5 max-w-[1100px] mx-auto">
+                <ResearchArea 
+                    Logo = {Map}
+                    logo_color="#3b82f6"
+                    title = "Precision Surveying and Mapping"
+                    description = "LiDAR, Photogrammetry, and GIS-based research for urban planning, disaster management, and infrastructure development"
+                />
+                <ResearchArea 
+                    Logo = {Leaf}
+                    logo_color="#58eb3b"
+                    title = "Sustainable Energy Systems"
+                    description = "Solar farm feasibility, renewable energy integration, energy forecasting, and storage systems"
+                />
+                <ResearchArea 
+                    Logo = {BrainCircuit}
+                    logo_color="#ff66ea"
+                    title = "Automation and Robotics"
+                    description = "Autonomous systems, drone and UAV development, and control systems for industrial automation"
+                />
+                <ResearchArea 
+                    Logo = {Factory}
+                    logo_color="#5c5c5c"
+                    title = "Advanced Manufacturing and Prototyping"
+                    description = "3D printing, rapid prototyping, and materials research for sustainable manufacturing processes"
+                />
+                <ResearchArea 
+                    Logo = {Earth}
+                    logo_color="#36910a"
+                    title = "Environmental Impact Assessment"
+                    description = "Research into environmental monitoring, EIA for industries, and sustainability practices"
+                />
+                <ResearchArea 
+                    Logo = {Satellite}
+                    logo_color="#61caff"
+                    title = "Remote Sensing & GIS Applications"
+                    description = "Research into satellite data analysis, land-use planning, and agriculture monitoring"
+                />
+                <ResearchArea 
+                    Logo = {Bike}
+                    logo_color="#f7954a"
+                    title = "Electric Vehicles and E-Mobility"
+                    description = "Development of electric motors, testing, and performance optimization for electric vehicles"
+                />
+                <ResearchArea 
+                    Logo = {RadioTower}
+                    logo_color="#e6df3c"
+                    title = "Communication Systems"
+                    description = "HAM radio research, software-defined radios (SDRs), and wireless communication technologies"
+                />
+                <ResearchArea 
+                    Logo = {BookHeadphones}
+                    logo_color="#c62bff"
+                    title = "Immersive Learning Technologies"
+                    description = "Research into virtual labs, augmented reality (AR), and virtual reality (VR) for education"
+                />
+                <ResearchArea 
+                    Logo = {Cpu}
+                    logo_color="#f25265"
+                    title = "Embedded Systems and IoT"
+                    description = "Research on embedded systems, IoT applications, and sensor networks for smart cities and industries"
+                />
             </div>
             <h1 className="text-4xl font-bold mt-10 mb-6 max-w-[1100px] mx-auto">Research Publications</h1>
             <Publications />

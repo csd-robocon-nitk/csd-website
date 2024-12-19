@@ -66,7 +66,7 @@ const AboutUs = () => {
         <motion.div className="div w-full flex items-start justify-center">
           <motion.div className="div w-1/2 flex flex-col items-center">
             <h2 className="text-5xl font-bold mb-4">Mission</h2>
-            <p className="text-xl px-6">
+            <p className="text-xl px-6 text-justify">
               To foster a transdisciplinary ecosystem that bridges the gap
               between academia and industry, driving forward research and
               development across multiple domains. We are committed to creating
@@ -76,7 +76,7 @@ const AboutUs = () => {
           </motion.div>
           <motion.div className="div w-1/2 items-center flex flex-col">
             <h2 className="text-5xl font-bold mb-4">Vision</h2>
-            <p className="text-xl px-6">
+            <p className="text-xl px-6 text-justify">
               Driving transformative innovation through transdisciplinary
               research and collaborative expertise, addressing real-world
               challenges to create a sustainable and technologically advanced

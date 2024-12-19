@@ -57,11 +57,11 @@ export default function Contact() {
               </div>
               <div className="flex items-center space-x-4">
                 <EnvelopeIcon className="h-6 w-6" />
-                <span>solve@nitk.ac.in</span>
+                <span>csd@nitk.ac.in</span>
               </div>
               <div className="flex items-center space-x-4">
                 <MapPinIcon className="h-6 w-6" />
-                <span>Centre for System Design NITK, Surathkal,  P. O. Srinivasnagar ,  Mangalore - 575 025
+                <span>Centre for System Design NITK, Surathkal,  P.O. Srinivasnagar ,  Mangalore - 575 025
               <br />
               Karnataka, India</span>
               </div>
