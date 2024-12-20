@@ -80,7 +80,7 @@ export default function VirtualLabs() {
   return (
     <div className="min-h-screen bg-white text-sky-800 overflow-x-hidden">
     
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky to-sky-800 bg-sky-800">
+      <section className="relative h-[50vh] pt-20 flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky to-sky-800 bg-sky-800">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         <div className="container mx-auto px-4 z-10 text-center text-white">
           <motion.h1 
@@ -109,29 +109,29 @@ export default function VirtualLabs() {
             </Link>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+        {/* <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div> */}
       </section>
 
     
       <section id="about" className="py-20 bg-white text-sky-800">
         <div className="container mx-auto px-4">
-          <motion.h2 
+          {/* <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-4xl font-bold mb-8 text-center"
           >
             Welcome to the Virtual Lab at NITK
-          </motion.h2>
+          </motion.h2> */}
           <div className="flex flex-col md:flex-row items-center md:justify-center gap-8">
-            <motion.div 
+            {/* <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 50 }}
               transition={{ duration: 0.8 }}
               className="md:w-1/2"
             >
               <Image src="/assets/images/453164207_884558033717460_5676383110198238741_n.jpg" alt="Virtual Lab Setup" width={600} height={400} className="rounded-lg shadow-lg" />
-            </motion.div>
+            </motion.div> */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -433,7 +433,7 @@ export default function VirtualLabs() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Link href="https://vlab.co.in/" className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
+            <Link href="https://vlab.co.in/" target='_blank' className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
               Get Started with Virtual Labs <ArrowRight className="ml-2" />
             </Link>
           </motion.div>

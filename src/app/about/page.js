@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Nav from "./nav";
 import Link from "next/link";
 import { ArrowDown, Mouse, Scroll } from "lucide-react";
 
@@ -31,7 +32,8 @@ const MouseScrollLogo = () => {
 const AboutUs = () => {
   return (
     <div className="flex flex-col overflow-x-hidden pt-20">
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
+      <Nav />
+      <section id="top" className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center text-white">
           <motion.h1
@@ -62,7 +64,7 @@ const AboutUs = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="flex justify-between items-start text-center scroll-effect px-24 py-12">
+      <section id="mission" className="flex justify-between items-start text-center scroll-effect px-24 py-12">
         <motion.div className="div w-full flex items-start justify-center">
           <motion.div className="div w-1/2 flex flex-col items-center">
             <h2 className="text-5xl font-bold mb-4">Mission</h2>
@@ -112,7 +114,7 @@ const AboutUs = () => {
       </section> */}
 
       {/* Objectives Section */}
-      <section className="flex flex-col gap-8 justify-between items-start text-center bg-white scroll-effect px-24 py-12">
+      <section id="objectives" className="flex flex-col gap-8 justify-between items-start text-center bg-white scroll-effect px-24 py-12">
         <h2 className="text-5xl font-bold w-full">Our Objectives</h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {[
@@ -143,7 +145,7 @@ const AboutUs = () => {
       </section>
 
       {/* Impact Section */}
-      <section className="flex flex-col gap-8 justify-between items-center text-center scroll-effect px-20 py-5">
+      <section id="impact" className="flex flex-col gap-8 justify-between items-center text-center scroll-effect px-20 py-5">
         <h2 className="text-5xl font-bold">Our Impact by the Numbers</h2>
         <div className="flex flex-col items-center">
           <div className="flex items-stretch flex-wrap justify-center">
@@ -177,7 +179,7 @@ const AboutUs = () => {
       </section>
 
       {/* What We Do Section */}
-      <section className="flex flex-col justify-between items-center text-center bg-white scroll-effect px-24">
+      <section id="whatwedo" className="flex flex-col justify-between items-center text-center bg-white scroll-effect px-24">
         <h2 className="text-5xl font-bold mb-4 sticky top-40">What We Do</h2>
         <div className="">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
