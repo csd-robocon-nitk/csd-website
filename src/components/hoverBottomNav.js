@@ -1,39 +1,26 @@
 import React, { use } from "react";
 import { useState, useEffect } from "react";
-import { entries } from "../../../backend/config/middlewares";
+import { entries } from "../../backend/config/middlewares";
 
-function Nav() {
+function HoverBottomNav({ helper }) {
   const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const sections = document.querySelectorAll("section");
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          setActiveSection(section.getAttribute("id"));
-        }
-      });
-    });
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log(`${entry.target.id}: ${entry.intersectionRatio}`);
+            console.log("hehehe")
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            entries.map((entry) => {
+              console.log(entry.target.id);
+            });
           }
         });
       },
       {
-        threshold: 0.5,
-        rootMargin: "-80px",
+        threshold: 0,
+        rootMargin: "-40% 0px -59.5% 0px",
       }
     );
 
@@ -46,14 +33,6 @@ function Nav() {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
-
-  const helper = [
-    { href: "top", label: "Top" },
-    { href: "mission", label: "Mission" },
-    { href: "objectives", label: "Objectives" },
-    { href: "impact", label: "Impact" },
-    { href: "whatwedo", label: "What We Do" },
-  ];
 
   const scrollToSection = (e) => {
     e.preventDefault();
@@ -71,25 +50,25 @@ function Nav() {
   };
 
   return (
-    <div className="right-4 fixed top-1/2 bg-white/90 rounded p-4 z-10">
-      <ul>
+    <div className="right-4 fixed bottom-5 rounded z-10 flex justify-center w-full">
+      <div className="flex justify-center bg-sky-800/90 backdrop-blur-sm text-white shadow-md items-center py-2 px-2 rounded-full">
         {helper.map((item, index) => (
-          <li
+          <div
             key={index}
             className={
               activeSection == item.href
-                ? "bg-sky-300 rounded p-2 transition-all duration-300 cursor-pointer"
-                : "transition-all duration-300 cursor-pointer"
+                ? "bg-white text-sky-800 rounded-full p-2 transition-all duration-300 cursor-pointer text-sm"
+                : "transition-all duration-300 p-2 cursor-pointer text-sm"
             }
             onClick={scrollToSection}
             href={`#${item.href}`}
           >
             {item.label}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
 
-export default Nav;
+export default HoverBottomNav;

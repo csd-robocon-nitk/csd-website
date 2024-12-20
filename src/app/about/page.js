@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Nav from "./nav";
+import HoverBottomNav from "../../components/hoverBottomNav";
 import Link from "next/link";
 import { ArrowDown, Mouse, Scroll } from "lucide-react";
 
@@ -30,10 +30,19 @@ const MouseScrollLogo = () => {
 };
 
 const AboutUs = () => {
+
+  const helper = [
+      { href: "mission", label: "Mission" },
+      { href: "objectives", label: "Objectives" },
+      { href: "impact", label: "Impact" },
+      { href: "whatwedo", label: "What We Do" },
+    ];
+
+
   return (
     <div className="flex flex-col overflow-x-hidden pt-20">
-      <Nav />
-      <section id="top" className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
+      <HoverBottomNav helper={helper}/>
+      <div className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         <div className="container mx-auto px-4 z-10 flex flex-col items-center text-center text-white">
           <motion.h1
@@ -61,7 +70,7 @@ const AboutUs = () => {
             <MouseScrollLogo />
           </motion.div>
         </div>
-      </section>
+      </div>
 
       {/* Mission & Vision Section */}
       <section id="mission" className="flex justify-between items-start text-center scroll-effect px-24 py-12">
