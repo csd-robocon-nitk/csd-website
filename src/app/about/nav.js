@@ -26,14 +26,14 @@ function Nav() {
       (entries) => {
         entries.forEach((entry) => {
           console.log(`${entry.target.id}: ${entry.intersectionRatio}`);
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+          if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
           }
         });
       },
       {
         threshold: 0.5,
-        rootMargin: `-80px 0px 0px 0px`,
+        rootMargin: "-80px",
       }
     );
 
@@ -78,7 +78,7 @@ function Nav() {
             key={index}
             className={
               activeSection == item.href
-                ? "bg-sky-200 rounded p-2 transition-all duration-300 cursor-pointer"
+                ? "bg-sky-300 rounded p-2 transition-all duration-300 cursor-pointer"
                 : "transition-all duration-300 cursor-pointer"
             }
             onClick={scrollToSection}
