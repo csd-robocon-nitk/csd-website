@@ -113,7 +113,7 @@ export default function VirtualLabs() {
       </section>
 
     
-      <section id="about" className="py-20 bg-white text-sky-800">
+      <section id="about" className="py-20 bg-white text-black">
         <div className="container mx-auto px-4">
           {/* <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -138,10 +138,10 @@ export default function VirtualLabs() {
               transition={{ duration: 0.8 }}
               className="md:w-1/2"
             >
-              <p className="text-lg mb-6 text-sky-600">
+              <p className="text-lg mb-6 text-black">
                 The Virtual Lab at NITK, hosted by the Centre for System Design (CSD), is redefining education and research by providing remote access to experiments typically conducted in physical labs. Our virtual labs replicate real-world lab environments, providing a comprehensive learning experience without geographical limitations.
               </p>
-              <p className="text-lg mb-6 text-sky-600">
+              <p className="text-lg mb-6 text-black">
                 CSD's initiatives go beyond virtual labs, engaging in outreach activities and workshops designed to foster innovation, collaboration, and practical learning experiences.
               </p>
             </motion.div>

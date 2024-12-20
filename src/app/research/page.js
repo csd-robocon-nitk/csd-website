@@ -6,7 +6,7 @@ export default function ResearchPage () {
     return (
         <div className="min-h-screen mt-20 p-5 bg-white">
             <h1 className="text-4xl font-bold mb-8 max-w-[1100px] mx-auto">Our Research Areas</h1>
-            <div className="grid grid-cols-3 items-stretch gap-5 max-w-[1100px] mx-auto">
+            <div className="grid grid-cols-4 items-stretch gap-5 max-w-[1100px] mx-auto">
                 <ResearchArea 
                     Logo = {Map}
                     logo_color="#3b82f6"
