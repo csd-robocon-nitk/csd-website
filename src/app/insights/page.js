@@ -2,6 +2,7 @@ import React from "react";
 import AllEvents from "./events";
 import Blogs from "./blogs";
 import HighlightedBlogs from "./highlightedBlogs";
+import Splash from "./splash";
 
 async function Events() {
   const events_res = await fetch(
@@ -46,6 +47,8 @@ async function Events() {
 
   return (
     <div className="min-h-screen mt-20 flex flex-col items-center w-full bg-white">
+
+      <Splash />
       {/* Highlight Blogs */}
       <HighlightedBlogs  blogs={blogs} />
 
