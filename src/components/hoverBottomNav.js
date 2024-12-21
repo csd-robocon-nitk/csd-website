@@ -1,20 +1,19 @@
-import React, { use } from "react";
+import { useScroll, useTransform, motion } from "framer-motion"
 import { useState, useEffect } from "react";
-import { entries } from "../../backend/config/middlewares";
+import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md"
 
 function HoverBottomNav({ helper }) {
   const [activeSection, setActiveSection] = useState("");
+  let { scrollY } = useScroll()
+  let upButtonColor = useTransform(scrollY, y => y < 150 ? "#94a3b8" : "white")
+  let upButtonBg = useTransform(scrollY, y => y < 150 ? "transparent" : "")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-            console.log("hehehe")
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            entries.map((entry) => {
-              console.log(entry.target.id);
-            });
           }
         });
       },
@@ -35,7 +34,6 @@ function HoverBottomNav({ helper }) {
   }, []);
 
   const scrollToSection = (e) => {
-    e.preventDefault();
     const href = e.currentTarget.getAttribute("href");
     if (href) {
       const section = document.querySelector(href);
@@ -66,6 +64,13 @@ function HoverBottomNav({ helper }) {
             {item.label}
           </div>
         ))}
+        <motion.div
+          className={`rounded-full duration-300 p-2 ml-0.5 cursor-pointer text-sm hover:bg-slate-50/20 ${scrollY.current == 0 ? "text-slate-400" : ""}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style = {{ color: upButtonColor, backgroundColor: upButtonBg }}
+        >
+          <MdOutlineKeyboardDoubleArrowUp size={18} />
+        </motion.div>
       </div>
     </div>
   );

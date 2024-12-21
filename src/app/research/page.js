@@ -55,6 +55,7 @@ export default function ResearchPage () {
                     title = "Communication Systems"
                     description = "HAM radio research, software-defined radios (SDRs), and wireless communication technologies"
                 />
+                <span />
                 <ResearchArea 
                     Logo = {BookHeadphones}
                     logo_color="#c62bff"

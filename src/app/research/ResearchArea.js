@@ -5,7 +5,7 @@ export default function ResearchArea ({ Logo, title, description, logo_size = 55
             <div className="flex flex-col items-center gap-5">
                 <Logo className="flex-shrink-0" size={logo_size} color={logo_color} />
                 <div>
-                    <p className="text-gray-600 text-sm">{description}</p>
+                    <p className="text-gray-600 text-sm text-justify">{description}</p>
                 </div>
             </div>
         </div>
