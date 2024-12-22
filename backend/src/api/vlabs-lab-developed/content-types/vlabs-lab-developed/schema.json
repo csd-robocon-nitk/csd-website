@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vlabs_labs_developed",
+  "info": {
+    "singularName": "vlabs-lab-developed",
+    "pluralName": "vlabs-labs-developed",
+    "displayName": "VLabs: Labs Developed"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

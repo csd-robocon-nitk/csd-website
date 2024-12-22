@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "vlabs_contributions",
+  "info": {
+    "singularName": "vlabs-contribution",
+    "pluralName": "vlabs-contributions",
+    "displayName": "VLabs: Contribution",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "labs_developed": {
+      "type": "string",
+      "required": true
+    },
+    "experiments_developed": {
+      "type": "string",
+      "required": true
+    },
+    "upcoming_labs": {
+      "type": "string",
+      "required": true
+    },
+    "upcoming_experiments": {
+      "type": "string",
+      "required": true
+    },
+    "proposed_labs": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
