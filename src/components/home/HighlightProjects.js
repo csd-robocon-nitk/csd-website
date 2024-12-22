@@ -44,7 +44,7 @@ function HighlightProjects() {
 	const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1])
 
 	return (
-		<div className="flex justify-center items-center pb-24 mx-24 mb-8 flex-col gap-2 relative">
+		<section className="flex justify-center items-center pb-16 mx-24 mb-8 flex-col gap-2 relative" id="projects">
 			<h1 className="text-4xl font-bold sticky top-16 pt-12">
 				Highlight Projects
 			</h1>
@@ -200,7 +200,7 @@ function HighlightProjects() {
 					</div>
 				</motion.div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

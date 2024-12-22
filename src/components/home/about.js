@@ -4,7 +4,7 @@ import { Parallax } from "react-scroll-parallax"
 
 export default function AboutSection() {
 	return (
-		<div className="flex items-end justify-center -translate-x-[37px] pb-16 pt-24">
+		<section id="about" className="flex items-end justify-center -translate-x-[37px] pb-16 pt-24">
 			<div className="flex flex-col items-center gap-24 shrink-0 translate-x-[75px]">
 				<div className="flex gap-6">
 					<Parallax speed={-5}>
@@ -25,6 +25,6 @@ export default function AboutSection() {
 				<img src="/assets/images/aboutheading.png" className="w-[138%] max-w-none -translate-x-[calc(27.5%+5px)] z-20 relative" alt="" />
 				<p className="text-white text-xl text-right">Center of System Design (A Center of Excellence at NITK Surathkal) envisages an Interdisciplinary approach and means for realization of successful engineering systems. It aims at facilitating and providing required environment for all key components of system design.</p>
 			</div>
-		</div>
+		</section>
 	)
 }
