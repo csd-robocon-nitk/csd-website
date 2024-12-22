@@ -806,6 +806,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     blogtext: Attribute.Text;
     publishedDate: Attribute.Date;
     content: Attribute.Blocks;
+    Highlight: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1014,19 +1015,51 @@ export interface ApiResearchPublicationResearchPublication
   };
 }
 
+export interface ApiSponsorSponsor extends Schema.CollectionType {
+  collectionName: 'sponsors';
+  info: {
+    singularName: 'sponsor';
+    pluralName: 'sponsors';
+    displayName: 'sponsor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sponsor.sponsor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sponsor.sponsor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
     singularName: 'testimonial';
     pluralName: 'testimonials';
     displayName: 'testimonial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    work: Attribute.String;
+    designation: Attribute.Text;
     testimonial: Attribute.Text;
     photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
@@ -1083,6 +1116,112 @@ export interface ApiUpdateUpdate extends Schema.CollectionType {
   };
 }
 
+export interface ApiVlabsContributionVlabsContribution
+  extends Schema.SingleType {
+  collectionName: 'vlabs_contributions';
+  info: {
+    singularName: 'vlabs-contribution';
+    pluralName: 'vlabs-contributions';
+    displayName: 'VLabs: Contribution';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    labs_developed: Attribute.String & Attribute.Required;
+    experiments_developed: Attribute.String & Attribute.Required;
+    upcoming_labs: Attribute.String & Attribute.Required;
+    upcoming_experiments: Attribute.String & Attribute.Required;
+    proposed_labs: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::vlabs-contribution.vlabs-contribution',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::vlabs-contribution.vlabs-contribution',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiVlabsLabDevelopedVlabsLabDeveloped
+  extends Schema.CollectionType {
+  collectionName: 'vlabs_labs_developed';
+  info: {
+    singularName: 'vlabs-lab-developed';
+    pluralName: 'vlabs-labs-developed';
+    displayName: 'VLabs: Labs Developed';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    icon: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::vlabs-lab-developed.vlabs-lab-developed',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::vlabs-lab-developed.vlabs-lab-developed',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiVlabsOutreachVlabsOutreach extends Schema.SingleType {
+  collectionName: 'vlabs_outreaches';
+  info: {
+    singularName: 'vlabs-outreach';
+    pluralName: 'vlabs-outreaches';
+    displayName: 'VLabs: Outreach';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nodal_karnataka: Attribute.String & Attribute.Required;
+    nodal_kerala: Attribute.String & Attribute.Required;
+    nodal_tamil_nadu: Attribute.String & Attribute.Required;
+    nodal_other: Attribute.String & Attribute.Required;
+    workshops_karnataka: Attribute.String & Attribute.Required;
+    workshops_kerala: Attribute.String & Attribute.Required;
+    workshops_tamil_nadu: Attribute.String & Attribute.Required;
+    workshops_other: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::vlabs-outreach.vlabs-outreach',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::vlabs-outreach.vlabs-outreach',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1107,8 +1246,12 @@ declare module '@strapi/types' {
       'api::people.people': ApiPeoplePeople;
       'api::project.project': ApiProjectProject;
       'api::research-publication.research-publication': ApiResearchPublicationResearchPublication;
+      'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::update.update': ApiUpdateUpdate;
+      'api::vlabs-contribution.vlabs-contribution': ApiVlabsContributionVlabsContribution;
+      'api::vlabs-lab-developed.vlabs-lab-developed': ApiVlabsLabDevelopedVlabsLabDeveloped;
+      'api::vlabs-outreach.vlabs-outreach': ApiVlabsOutreachVlabsOutreach;
     }
   }
 }
