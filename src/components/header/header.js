@@ -15,7 +15,7 @@ export default function Header () {
 
     const pathname = usePathname()
 
-    const [navTransparency, setNavTransparency] = useState(false)
+    const [navTransparency, setNavTransparency] = useState(pathname == "/")
 
     const changeNavColor = () => {
 		if (window.scrollY <= 100) setNavTransparency(true)

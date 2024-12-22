@@ -1,3 +1,5 @@
+"use client"
+
 import { useScroll, useTransform, motion } from "framer-motion"
 import { useState, useEffect } from "react";
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md"

@@ -5,7 +5,7 @@ import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax"
 
 export default function CoverSection () {
     return (
-        <ParallaxBanner className="h-screen w-full">
+        <ParallaxBanner className="h-screen w-full bg-black">
             <ParallaxBannerLayer speed={-40}>
                 <video autoPlay loop muted src="/about.mp4" className="h-[200vh] object-cover object-center brightness-[.25]"></video>
             </ParallaxBannerLayer>
