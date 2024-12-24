@@ -24,9 +24,9 @@ export default async function Testimonials() {
 	const testimonials = await data.data
 
 	return (
-		<div className="pb-8 overflow-hidden relative bg-sky-50">
+		<section className="py-8 overflow-hidden relative bg-sky-50" id="testimonials">
 			<h1 className="text-4xl mb-8 font-bold text-center text-sky-950">Testimonials</h1>
 			<TetsimonialsContent testimonials={testimonials} />
-		</div>
+		</section>
 	)
 }

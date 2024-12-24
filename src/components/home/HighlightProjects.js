@@ -43,51 +43,52 @@ function HighlightProjects() {
   });
   const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1]);
 
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-center items-center pb-24 flex-col gap-2 relative">
-        <h1 className="text-4xl font-bold sticky top-16 pt-12">
-          Highlight Projects
-        </h1>
-        <div className="flex flex-col items-center gap-16 text-white mx-24">
-          {/* Vlabs */}
-          <motion.div
-            ref={vlabRef}
-            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-40 rounded-lg overflow-hidden"
-            style={{ scale: scale2Vlab }}
-          >
-            <motion.video
-              style={{ scale: scaleVLab }}
-              autoPlay
-              loop
-              muted
-              src="/objectives.mp4"
-              className="w-full rounded-lg object-cover object-center"
-            ></motion.video>
-            <div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
-              <motion.h1
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-4xl font-extrabold"
-              >
-                Virtual labs
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-xl text-justify"
-              >
-                The Virtual Lab at NITK, hosted by the Centre for System Design
-                (CSD), is redefining education and research by providing remote
-                access to experiments typically conducted in physical labs.
-                CSD's initiatives go beyond virtual labs, engaging in outreach
-                activities and workshops designed to foster innovation,
-                collaboration, and practical learning experiences.
-              </motion.p>
-            </div>
-          </motion.div>
+	return (
+		<section className="flex justify-center items-center pb-16 mx-24 mb-8 flex-col gap-2 relative" id="projects">
+			<h1 className="text-4xl font-bold sticky top-16 pt-12">
+				Highlight Projects
+			</h1>
+			<div className="flex flex-col items-center gap-16 text-white">
+				{/* Vlabs */}
+				<motion.div
+					ref={vlabRef}
+					className="flex gap-4 w-4/5 max-w-[1200px] sticky top-40 rounded-lg overflow-hidden"
+					style={{ scale: scale2Vlab }}
+				>
+					<motion.video
+						style={{ scale: scaleVLab }}
+						autoPlay
+						loop
+						muted
+						src="/objectives.mp4"
+						className="w-full rounded-lg object-cover object-center"
+					></motion.video>
+					<div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
+						<motion.h1
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 1 }}
+							className="text-4xl font-extrabold"
+						>
+							Virtual labs
+						</motion.h1>
+						<motion.p
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 1 }}
+							className="text-2xl text-justify"
+						>
+							The Virtual Lab at NITK, hosted by the Centre for
+							System Design (CSD), is redefining education and
+							research by providing remote access to experiments
+							typically conducted in physical labs. CSD's
+							initiatives go beyond virtual labs, engaging in
+							outreach activities and workshops designed to foster
+							innovation, collaboration, and practical learning
+							experiences.
+						</motion.p>
+					</div>
+				</motion.div>
 
           {/* Search */}
           <motion.div
@@ -193,29 +194,10 @@ function HighlightProjects() {
 							<ArrowRight className="w-8 h-8" />
 						</motion.div>
 					</div>
-				</motion.div> */}
-        </div>
-      </div>
-      <section className="py-8 w-full">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <Link
-              href="/projects"
-              target="_blank"
-              className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center"
-            >
-              Explore More Projects
-              <ArrowRight className="ml-2" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
+				</motion.div>
+			</div>
+		</section>
+	)
 }
 
 export default HighlightProjects;

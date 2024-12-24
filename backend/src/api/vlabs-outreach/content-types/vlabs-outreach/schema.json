@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "vlabs_outreaches",
+  "info": {
+    "singularName": "vlabs-outreach",
+    "pluralName": "vlabs-outreaches",
+    "displayName": "VLabs: Outreach"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nodal_karnataka": {
+      "type": "string",
+      "required": true
+    },
+    "nodal_kerala": {
+      "type": "string",
+      "required": true
+    },
+    "nodal_tamil_nadu": {
+      "type": "string",
+      "required": true
+    },
+    "nodal_other": {
+      "type": "string",
+      "required": true
+    },
+    "workshops_karnataka": {
+      "type": "string",
+      "required": true
+    },
+    "workshops_kerala": {
+      "type": "string",
+      "required": true
+    },
+    "workshops_tamil_nadu": {
+      "type": "string",
+      "required": true
+    },
+    "workshops_other": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

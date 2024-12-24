@@ -15,21 +15,23 @@ export default function Header () {
 
     const pathname = usePathname()
 
-    const [navTransparency, setNavTransparency] = useState(true)
+    const [navTransparency, setNavTransparency] = useState(pathname == "/")
 
     const changeNavColor = () => {
-        if (window.scrollY <= 100 && pathname === "/") {
-            setNavTransparency(true)
-        }
-        else {
-            setNavTransparency(false)
-        }
+		if (window.scrollY <= 100) setNavTransparency(true)
+		else setNavTransparency(false)
     }
 
     useEffect(() => {
-        changeNavColor()
-        window.addEventListener("scroll", changeNavColor)
-    })
+        if (pathname == "/") {
+			changeNavColor()
+        	window.addEventListener("scroll", changeNavColor)
+
+			return () => removeEventListener("scroll", changeNavColor)
+		} else {
+			setNavTransparency(false)
+		}
+    }, [ pathname ])
 
     {/* <img src="/ham.svg" className="invert h-12 cursor-pointer" alt="" /> */}
 

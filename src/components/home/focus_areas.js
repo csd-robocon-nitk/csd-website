@@ -3,9 +3,10 @@ import FocusAreaCard from "./FocusAreaCard"
 export default function FocusAreasSection () {
 	let ul_className = "list-disc flex flex-col gap-2 text-sm"
     return (
-        <div 
+        <section 
 			className="bg-sky-200 pt-20 px-4 pb-10 flex justify-center" 
 			style={{ clipPath: "polygon(0 0, 15% 0, 18% 40px, 82% 40px, 85% 0, 100% 0, 100% 100%, 0% 100%)" }}
+			id="focusareas"
 		>
 			<div className="max-w-[1000px]">
 				<h1 className="text-4xl font-bold mb-10">Key Focus Areas</h1>
@@ -49,6 +50,6 @@ export default function FocusAreasSection () {
 					/>
 				</div>
 			</div>
-        </div>
+        </section>
     )
 }
