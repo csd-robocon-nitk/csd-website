@@ -4,6 +4,7 @@ import PeopleCard from "./peopleCard.js";
 import StaffCard from "./staffCard.js";
 import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
+import Splash from "@/components/splash.js";
 
 export default function PeoplePage() {
   const [type, setType] = useState("Faculty");
@@ -60,10 +61,9 @@ export default function PeoplePage() {
   };
   // efn
   return (
-    <div className="min-h-screen py-10 px-5 pt-10 mt-16 bg-white flex w-full flex-col items-center">
-      
-      <div className="flex justify-between w-full px-20">
-        <h1 className="text-4xl font-bold text-center">Our Team</h1>
+    <div className="min-h-screen mt-20 bg-white flex w-full flex-col items-center">
+      <Splash title={"Our Team"} subtitle={"Meet the people at CSD!"}/>
+      <div className="flex justify-center w-full px-20 pt-10">
         <div>
           {
             Object.keys(dropDown).map((key) => (

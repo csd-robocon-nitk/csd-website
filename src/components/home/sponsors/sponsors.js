@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/components/home/utils";
-import React, { useEffect, useState } from "react";
-import './sponsors.css'
+import React, { useEffect, useState } from "react"
+import "./sponsors.css";
 
 export const Scroll = ({
   items,
@@ -70,8 +70,7 @@ export const Scroll = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap items-center",
-          start && "animate-scroll ",
+          "flex min-w-full shrink-0 py-4 w-max flex-nowrap items-center animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
