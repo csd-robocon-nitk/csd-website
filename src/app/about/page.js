@@ -74,8 +74,8 @@ const AboutUs = () => {
 
       {/* Mission & Vision Section */}
       <section id="mission" className="flex justify-between items-start text-center scroll-effect px-24 py-12">
-        <motion.div className="div w-full flex items-start justify-center">
-          <motion.div className="div w-1/2 flex flex-col items-center">
+        <motion.div className="div w-full flex gap-2 items-stretch justify-center">
+          <motion.div className="div w-1/2 flex flex-col">
             <h2 className="text-5xl font-bold mb-4">Mission</h2>
             <p className="text-xl px-6 text-justify">
               To foster a transdisciplinary ecosystem that bridges the gap
@@ -85,7 +85,7 @@ const AboutUs = () => {
               into tangible solutions that address real-world challenges.
             </p>
           </motion.div>
-          <motion.div className="div w-1/2 items-center flex flex-col">
+          <motion.div className="div w-1/2 items-center flex flex-col rounded p-2">
             <h2 className="text-5xl font-bold mb-4">Vision</h2>
             <p className="text-xl px-6 text-justify">
               Driving transformative innovation through transdisciplinary

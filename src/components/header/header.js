@@ -64,9 +64,12 @@ export default function Header () {
 							href = "/team"
 						/>
 
-						<DesktopNavElement
+						<DesktopDropdownNavElement
 							text = "INSIGHTS"
-							href = "/insights"
+							sublinks = {[
+								{ text: "BLOGS & NEWS", href: "/blog" },
+								{ text: "EVENTS", href: "/events"}
+							]}
 						/>
 
 						<DesktopNavElement
