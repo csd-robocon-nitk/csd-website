@@ -44,11 +44,11 @@ function HighlightProjects() {
   const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1]);
 
 	return (
-		<section className="flex justify-center items-center pb-16 mx-24 mb-8 flex-col gap-2 relative" id="projects">
+		<section className="flex justify-center items-center flex-col gap-2 relative" id="projects">
 			<h1 className="text-4xl font-bold sticky top-16 pt-12">
 				Highlight Projects
 			</h1>
-			<div className="flex flex-col items-center gap-16 text-white">
+			<div className="flex flex-col items-center gap-16 text-white mx-24">
 				{/* Vlabs */}
 				<motion.div
 					ref={vlabRef}
@@ -194,7 +194,7 @@ function HighlightProjects() {
 							<ArrowRight className="w-8 h-8" />
 						</motion.div>
 					</div>
-				</motion.div>
+				</motion.div> */}
 			</div>
 		</section>
 	)
