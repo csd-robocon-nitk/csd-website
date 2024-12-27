@@ -70,7 +70,7 @@ export default function Header () {
 							text = "INSIGHTS"
 							sublinks = {[
 								{ text: "BLOGS & NEWS", href: "/blog" },
-								{ text: "EVENTS", href: "/events"}
+								{ text: "EVENTS & VISITS", href: "/events"}
 							]}
 						/>
 

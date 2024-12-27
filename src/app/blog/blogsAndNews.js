@@ -34,7 +34,7 @@ function BlogsAndNews({ blogs, articles }) {
         {/* Blogs */}
         <div>
           {type === "Blogs" && (
-            <div className="w-full m-2 grid grid-cols-2 items-stretch justify-center gap-8">
+            <div className="w-full m-2 grid grid-cols-3 items-stretch justify-center gap-8">
               {blogs.map((blog, index) => (
                 <BlogCard key={index} blog={blog} />
               ))}
@@ -45,7 +45,7 @@ function BlogsAndNews({ blogs, articles }) {
         {/* News */}
         <div>
           {type === "News" && (
-            <div className="w-full m-2 grid grid-cols-2 items-stretch justify-center gap-8">
+            <div className="w-full m-2 grid grid-cols-3 items-stretch justify-center gap-8">
               {articles.map((article, index) => (
                 <ArticleCard key={index} article={article} />
               ))}

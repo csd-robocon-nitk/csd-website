@@ -57,7 +57,7 @@ export default function Contact() {
               </div>
               <div className="flex items-center space-x-4">
                 <EnvelopeIcon className="h-6 w-6" />
-                <span>csd@nitk.ac.in</span>
+                <span>csd@nitk.edu.in</span>
               </div>
               <div className="flex items-center space-x-4">
                 <MapPinIcon className="h-6 w-6" />
