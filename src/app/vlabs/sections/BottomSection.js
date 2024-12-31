@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { ExternalLink } from "lucide-react"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
@@ -24,15 +25,26 @@ export default function BottomSection () {
                 >
                     Join us in revolutionizing education through virtual experimentation.
                 </motion.p>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                >
-                    <Link href="https://vlab.co.in/" target='_blank' className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
-                        Get Started with Virtual Labs <ArrowRight className="ml-2" />
-                    </Link>
-                </motion.div>
+                <div className="flex gap-3 justify-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                        <Link href="https://vlab.co.in/" target='_blank' className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
+                            Get Started with Virtual Labs <ExternalLink  className="ml-2"/>
+                        </Link>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                        <Link href="https://rtlabs.nitk.ac.in/" target='_blank' className="bg-sky-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors inline-flex items-center">
+                            RT Labs <ExternalLink  className="ml-2"/>
+                        </Link>
+                    </motion.div>
+                </div>
             </div>
         </section>
     )

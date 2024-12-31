@@ -166,11 +166,20 @@ module.exports = {
           opacity: 0,
           height: 0,
         }
+      },
+      infiniteScroll: {
+        "0%": {
+          transform: "translateX(0)",
+        },
+        "100%": {
+          transform: "translateX(-100%)",
+        }
       }
     },
     animation: {
       "fadeInUp": "fadeInUp 700ms forwards",
-      "fadeOut": "fadeOut 700ms forwards"
+      "fadeOut": "fadeOut 700ms forwards",
+      "infiniteScroll": "infiniteScroll var(--animation-duration) forwards infinite linear"
     }
   },
   },

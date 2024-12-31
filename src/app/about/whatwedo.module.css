@@ -1,0 +1,218 @@
+.initiatives {
+    /* background-color: #ccdbf8; */
+    background-color: #e0f2fe;
+    color: var(--dark-text);
+    padding: 20px 50px;
+    overflow: hidden;
+}
+
+.initiatives h1 {
+    /* max-width: 1000px;
+    margin: 0px auto; */
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #075985;
+}
+
+.initiatives .content {
+    display: flex;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+.initiatives .left {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 100%;
+    row-gap: 8px;
+
+    --transition-duration: 500ms;
+    transition: var(--transition-duration);
+}
+
+.initiatives .left .section {
+    padding: 20px 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+    transition: box-shadow 100ms, gap var(--transition-duration), padding var(--transition-duration);
+    border-radius: 10px;
+}
+
+.initiatives .left .section img {
+    filter: brightness(0%);
+    width: 90px;
+    height: 90px;
+    transition: width var(--transition-duration), height var(--transition-duration); 
+}
+
+.initiatives .left .section p {
+    /* text-align: center; */
+    font-size: 21px;
+    line-height: 150%;
+    transition: font-size var(--transition-duration);
+}
+
+.initiatives .left .section:hover, .initiatives .left .section.active {
+    /* border-color: #dddddd; */
+    box-shadow: #001d534a -1px 1px 3px 1px;
+}
+
+
+
+.initiatives .right {
+    width: calc(100% - 450px);
+    max-width: 800px;
+    flex-shrink: 0;
+}
+
+.initiatives .right .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.initiatives .right .section img {
+    max-width: 120px;
+}
+
+.initiatives .right .section .text {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.initiatives .right .section .text h2 {
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 500;
+    text-align: center;
+    max-width: 500px;
+}
+
+.initiatives .right .section .text p {
+    font-size: 18px;
+    text-align: justify;
+    line-height: 150%;
+}
+
+
+
+
+@media (min-width: 1000px) {
+    .initiatives .left.small {
+        width: 400px;
+    }
+
+    .initiatives .left.small img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .initiatives .left.small .section {
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .initiatives .left.small .section p {
+        font-size: 16px;
+    }
+
+    .initiatives .right.open {
+        transform: translateX(0);
+    }
+
+    .initiatives .right {
+        padding-top: 30px;
+    }
+}
+
+
+@media (max-width: 999px) {
+    .initiatives .left {
+        row-gap: 10px;
+    }
+
+    .initiatives .right {
+        width: 100%;
+        transform: none;
+    }
+
+    .initiatives .right .section:hover {
+        box-shadow: none;
+        cursor: default;
+    }
+
+    .initiatives .right .section img {
+        filter: none;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .initiatives .left .section {
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .initiatives .left .section img {
+        width: 70px;
+        height: 70px;
+    } 
+
+    .initiatives .left .section p {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 550px) {
+    .initiatives {
+        padding: 40px 20px;
+    }
+
+    .initiatives .left .section p {
+        font-size: 17px;
+    }
+    
+    .initiatives .right .section {
+        padding: 10px;
+        overflow: hidden;
+        animation-name: grow;
+        animation-duration: 2500ms;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+    }
+
+    .initiatives .right .section .text p {
+        font-size: 17px;
+    }
+}
+
+
+@media (any-hover: none) {
+    .initiatives .left .section:hover {
+        box-shadow: none;
+    }
+
+    .initiatives .left .section.active {
+        box-shadow: #001d534a -1px 1px 3px 2px;
+    }
+}
+
+
+@keyframes grow {
+    0% {
+        max-height: 0;
+    }
+
+    100% {
+        max-height: 3000px;
+    }
+}

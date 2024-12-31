@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function ExploreMoreProjects() {
   return (
-    <div className="py-10 bg-sky-100 w-full">
+    <div className="py-10 w-full">
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

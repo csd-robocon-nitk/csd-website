@@ -18,7 +18,7 @@ export default function LabsDevelopedSection ({ labs }) {
                 <div className="flex flex-wrap mx-auto gap-3 max-w-[1100px]">
                     {
                         labs.map(({ name, icon, link }, index) => (
-                            <Link href={link} key={index} className="flex-grow">
+                            <Link href={link} key={index} target="_blank" className="flex-grow">
                                 <motion.div 
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
