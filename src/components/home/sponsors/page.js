@@ -26,10 +26,13 @@ async function Sponsors() {
   logos = await logos.json()
 
   return (
-    <section className="flex flex-col mb-12 justify-center items-center gap-8" id="sponsors">
+    <section className="flex flex-col mb-12 justify-center items-center gap-8" id="partners">
       <h1 className="text-4xl font-bold sticky top-16 pt-12">Our Partners</h1>
       <div className="h-fit flex flex-col antialiased items-center justify-center relative overflow-hidden w-11/12 mx-auto">
         <Scroll items={logos.data} direction="left" speed="slow" />
+      </div>
+      <div>
+
       </div>
     </section>
   );

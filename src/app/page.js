@@ -15,7 +15,7 @@ export default async function HomePage () {
         { href: "focusareas", label: "Focus Areas" },
         { href: "projects", label: "Projects" },
         { href: "testimonials", label: "Testimonials" },
-        { href: "sponsors", label: "Sponsors" },
+        { href: "partners", label: "Partners" },
     ];
 
 	return (
