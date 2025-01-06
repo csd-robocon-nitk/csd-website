@@ -6,6 +6,7 @@ import HighlightProjects from "@/components/home/HighlightProjects"
 import LenisInit from "@/components/home/LenisInit"
 import Sponsors from "@/components/home/sponsors/page"
 import Testimonials from "@/components/home/testimonials/Testimonials"
+import ViewAllPartners from "@/components/home/viewAllPartners"
 import HoverBottomNav from "@/components/hoverBottomNav"
 
 export default async function HomePage () {
@@ -28,6 +29,7 @@ export default async function HomePage () {
 			<ExploreMoreProjects />
 			<Testimonials />
 			<Sponsors />
+			<ViewAllPartners />
 		</>
 	)
 }

@@ -24,7 +24,6 @@ async function Sponsors() {
   }
 
   logos = await logos.json()
-  console.log(logos)
 
   return (
     <section className="flex flex-col mb-12 justify-center items-center gap-8" id="sponsors">
