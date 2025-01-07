@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
 import Modal from './Modal';
 
 export default function PeopleCard({item}) {
 
-    const [isOpen, setIsOpen] = React.useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
 
     const openHandler = () => {

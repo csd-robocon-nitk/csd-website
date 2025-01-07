@@ -15,18 +15,14 @@ export default function ResearchAreasSection () {
     ))
 
     return (
-        <div className="flex overflow-hidden py-2 px-2 gap-5 max-w-[1100px] mx-auto group">
-            <div
-                className="flex gap-5 animate-infiniteScroll group-hover:[animation-play-state:paused]"
-                style={{"--animation-duration": `${data.length*3}s`}}
-            >
-                {researchAreas}
-            </div>
-            <div
-                className="flex gap-5 animate-infiniteScroll group-hover:[animation-play-state:paused]"
-                style={{"--animation-duration": `${data.length*3}s`}}
-            >
-                {researchAreas}
+        <div className="flex overflow-hidden py-2 max-w-[1100px] mx-auto">
+            <div className="flex gap-5 px-2.5 animate-infiniteScroll hover:[animation-play-state:paused]" style={{"animation-duration": `${data.length*3}s`}}>
+                <div className="flex gap-5">
+                    {researchAreas}
+                </div>
+                <div className="flex gap-5">
+                    {researchAreas}
+                </div>
             </div>
         </div>
     )

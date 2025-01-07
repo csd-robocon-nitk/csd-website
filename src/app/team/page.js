@@ -1,5 +1,4 @@
 "use client";
-import { FaFilter } from "react-icons/fa";
 import PeopleCard from "./peopleCard.js";
 import StaffCard from "./staffCard.js";
 import { useState, useEffect } from "react";
@@ -10,7 +9,6 @@ export default function PeoplePage() {
   const [type, setType] = useState("Faculty");
   const [loading, setLoading] = useState(true);
   const [displayData, setDisplayData] = useState();
-  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const token = process.env.NEXT_PUBLIC_TOKEN;
   if (!token) {

@@ -172,14 +172,14 @@ module.exports = {
           transform: "translateX(0)",
         },
         "100%": {
-          transform: "translateX(-100%)",
+          transform: "translateX(-50%)",
         }
       }
     },
     animation: {
       "fadeInUp": "fadeInUp 700ms forwards",
       "fadeOut": "fadeOut 700ms forwards",
-      "infiniteScroll": "infiniteScroll var(--animation-duration) forwards infinite linear"
+      "infiniteScroll": "infiniteScroll forwards infinite linear"
     }
   },
   },
