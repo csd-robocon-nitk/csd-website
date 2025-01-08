@@ -22,7 +22,7 @@ function HighlightProjects() {
 
   const scale2Vlab = useTransform(scrollYProgressProj, [0, 1], [1, 0.85]);
   const scale2Search = useTransform(scrollYProgressProj, [0.25, 1], [1, 0.9]);
-  const scale2Emob = useTransform(scrollYProgressProj, [0.5, 1], [1, 0.95]);
+  const scale2Emob = useTransform(scrollYProgressProj, [0.5, 1], [1, 1]);
   const scale2explore = useTransform(scrollYProgressProj, [0.75, 1], [1, 1]);
 
   const { scrollYProgress: scrollYProgressVlab } = useScroll({
@@ -44,8 +44,8 @@ function HighlightProjects() {
   const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1]);
 
 	return (
-		<section className="flex justify-center items-center flex-col gap-2 relative" id="projects">
-			<h1 className="text-4xl font-bold sticky top-16 pt-12">
+		<section className="flex justify-center items-center flex-col gap-2" id="projects">
+			<h1 className="text-4xl font-bold sticky top-16 pt-12 pb-1">
 				Highlight Projects
 			</h1>
 			<div className="flex flex-col items-center gap-16 text-white mx-24">

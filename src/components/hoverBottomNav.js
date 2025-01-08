@@ -50,7 +50,7 @@ function HoverBottomNav({ helper }) {
   };
 
   return (
-    <div className="left-1/2 -translate-x-1/2 fixed bottom-5 rounded z-[999] flex justify-center">
+    <div className="left-1/2 -translate-x-1/2 fixed bottom-5 rounded z-[998] flex justify-center">
       <div className="flex justify-center bg-sky-800/90 backdrop-blur-sm text-white shadow-md items-center py-2 px-2 rounded-full">
         {helper.map((item, index) => (
           <div

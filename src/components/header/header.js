@@ -3,51 +3,66 @@
 import { createContext, useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import Ham from "../../../public/assets/images/ham.svg"
-import Close from "../../../public/assets/images/close.svg"
+import { IoMenu } from "react-icons/io5"
+import { IoClose } from "react-icons/io5"
 import DesktopNavElement from "./DesktopNavElement"
 import DesktopDropdownNavElement from "./DesktopDropdownNavElement"
+import MobileNavElement from "./MobileNavElement"
+import MobileDropdownNavElement from "./MobileDropdownNavElement"
 
 export let TransparencyContext = createContext(true)
 
 export default function Header () {
     const [open, setOpen] = useState(false)
-
     const pathname = usePathname()
-
     const [navTransparency, setNavTransparency] = useState(pathname == "/")
 
-    const changeNavColor = () => {
-		if (window.scrollY <= 100) setNavTransparency(true)
+    function changeNavColor () {
+		if (window.scrollY <= 100 && !open && pathname == "/") setNavTransparency(true)
 		else setNavTransparency(false)
     }
 
+	function handleResize () {
+		if (window.innerWidth >= 1024) {
+			setOpen(false)
+		}
+	}
+
     useEffect(() => {
-        if (pathname == "/") {
-			changeNavColor()
+		changeNavColor()
+
+		if (pathname == "/") {
         	window.addEventListener("scroll", changeNavColor)
 
-			return () => removeEventListener("scroll", changeNavColor)
-		} else {
-			setNavTransparency(false)
+			return () => window.removeEventListener("scroll", changeNavColor)
 		}
-    }, [ pathname ])
 
-    {/* <img src="/ham.svg" className="invert h-12 cursor-pointer" alt="" /> */}
+    }, [ pathname, open ])
+
+	useEffect(() => {
+        window.addEventListener("resize", handleResize)
+
+		return () => window.removeEventListener("resize", handleResize)
+	}, [])
+
+	useEffect(() => {
+		setOpen(false)
+	}, [ pathname ])
+
 
     const handleClick = () => {
-        setOpen(!open)
+        setOpen(open => !open)
     }
 
 
     return (
 		<TransparencyContext.Provider value={navTransparency}>
-			<div className={`fixed top-0 h-20 w-full z-[999] duration-300 ${!navTransparency || open ? "bg-white backdrop-blur-md drop-shadow-lg" : ""}`}>
-				<div className="py-3 px-6 flex flex-wrap items-center lg:gap-4 lg:justify-evenly justify-between w-full">
+			<div className={`fixed top-0 h-20 flex items-center w-full z-[999] duration-500 ${!navTransparency ? "bg-white backdrop-blur-md drop-shadow-lg" : ""}`}>
+				<div className="py-3 px-5 flex flex-wrap items-center lg:gap-4 lg:justify-evenly justify-between w-full shrink-0 z-[1000]">
 					<Link href="/">
-						<img src="/logo.png" className={`md:h-14 h-10 ${!navTransparency || open ? "invert" : ""} duration-300`} alt="" />
+						<img src="/logo.png" className={`xl:h-14 lg:h-10 h-14 ${!navTransparency ? "invert" : ""} duration-300`} alt="" />
 					</Link>
-					<ul className={`hidden lg:flex jusitfy-evenly font-semibold text-lg ${!navTransparency || open ? "text-neutral-800" : "text-white"}`}>
+					<ul className={`hidden lg:flex jusitfy-evenly font-semibold xl:text-lg ${!navTransparency ? "text-neutral-800" : "text-white"}`}>
 						<DesktopNavElement 
 							text = "HOME"
 							href = "/"
@@ -97,41 +112,69 @@ export default function Header () {
 					</ul>
 					<div className="lg:hidden">
 						<button 
-							className={`${navTransparency ? "" : "invert"} duration-300`} 
+							className={`${navTransparency ? "text-white" : "text-black"} duration-500 text-4xl`} 
 							onClick={handleClick}
 						>
-							<img src={open ? Close.src : Ham.src} className="h-10 cursor-pointer" alt="" />
+							{
+								open ? 
+									<IoClose />
+								:
+									<IoMenu />
+							}
 						</button>
 					</div>
 				</div>
-				<div className="w-full">
-					{
-						open ? (
-						<ul className="flex px-20 pb-5 flex-col justify-evenly bg-sky-800 h-screen text-2xl items-center gap-8 font-semibold text-white uppercase">
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/">Home</Link>
-							</li>
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/about">About</Link>
-							</li>
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/team">team</Link>
-							</li>
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/blog">Blog</Link>
-							</li>
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/milestones">Milestones</Link>
-							</li>
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/events">Events</Link>
-							</li>
-							<li onClick={handleClick} className="hover:bg-page-[#e5e5e5] px-2 rounded-xl">
-							<Link href="/contact">Contact</Link>
-							</li>
-						</ul>
-						) : null
-					}
+				<div className={`w-full ${open ? "h-screen" : "h-0"} duration-500 overflow-hidden absolute top-0 left-0 pt-20`}>
+					<ul data-lenis-prevent className="flex flex-col px-5 bg-sky-800 h-[calc(100vh-80px)] text-lg items-stretch font-semibold text-white overflow-scroll">
+						<MobileNavElement 
+							text = "HOME"
+							href = "/"
+						/>
+
+						<MobileDropdownNavElement
+							opened={open}
+							text = "ABOUT"
+							sublinks = {[
+								{ text: "ABOUT US", href: "/about" },
+								{ text: "MILESTONES", href: "/milestones" },
+								{ text: "PARTNERS", href: "/partners"}
+							]}
+						/>
+
+						<MobileNavElement
+							text = "TEAM"
+							href = "/team"
+						/>
+
+						<MobileDropdownNavElement
+							opened={open}
+							text = "INSIGHTS"
+							sublinks = {[
+								{ text: "BLOGS & NEWS", href: "/blog" },
+								{ text: "EVENTS & VISITS", href: "/events"}
+							]}
+						/>
+
+						<MobileNavElement
+							text = "RESEARCH"
+							href = "/research"
+						/>
+
+						<MobileNavElement
+							text = "PROJECTS"
+							href = "/projects"
+						/>
+
+						<MobileNavElement
+							text = "CONTACT"
+							href = "/contact"
+						/>
+
+						<MobileNavElement
+							text = "VLABS"
+							href = "/vlabs"
+						/>
+					</ul>
 				</div>
 			</div>
 		</TransparencyContext.Provider>
