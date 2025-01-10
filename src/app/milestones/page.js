@@ -52,7 +52,7 @@ export default async function TimelineDemo() {
 
   return (
     <div className="w-full">
-      <Splash title={"Our Milestones"} subtitle={""} />
+      <Splash title={"Our Milestones"} subtitle={"Trace our journey through key moments and achievement"} />
       <Timeline data={data} />
     </div>
   );
