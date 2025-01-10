@@ -60,7 +60,7 @@ export default function Header () {
 			<div className={`fixed top-0 h-20 flex items-center w-full z-[999] duration-500 ${!navTransparency ? "bg-white backdrop-blur-md drop-shadow-lg" : ""}`}>
 				<div className="py-3 px-5 flex flex-wrap items-center lg:gap-4 lg:justify-evenly justify-between w-full shrink-0 z-[1000]">
 					<Link href="/">
-						<img src="/logo.png" className={`xl:h-14 lg:h-10 h-14 ${!navTransparency ? "invert" : ""} duration-300`} alt="" />
+						<img src="/logo.png" className={`xl:h-14 lg:h-10 xs:h-14 h-12 ${!navTransparency ? "invert" : ""} duration-300 transition-colors`} alt="" />
 					</Link>
 					<ul className={`hidden lg:flex jusitfy-evenly font-semibold xl:text-lg ${!navTransparency ? "text-neutral-800" : "text-white"}`}>
 						<DesktopNavElement 

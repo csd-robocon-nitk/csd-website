@@ -8,6 +8,9 @@ module.exports = {
   theme: {
     
     extend: {
+      screens: {
+        xs: '525px'
+      },
       gridTemplateColumns: {
         "about-section": "1fr 3fr"
       },

@@ -51,15 +51,11 @@ function HoverBottomNav({ helper }) {
 
   return (
     <div className="left-1/2 -translate-x-1/2 fixed bottom-5 rounded z-[998] flex justify-center">
-      <div className="flex justify-center bg-sky-800/90 backdrop-blur-sm text-white shadow-md items-center py-2 px-2 rounded-full">
+      <div className="flex justify-center bg-sky-800/90 backdrop-blur-sm text-white shadow-md shadow-slate-700/60 items-center p-2 rounded-full">
         {helper.map((item, index) => (
           <div
             key={index}
-            className={
-              activeSection == item.href
-                ? "bg-white text-sky-800 rounded-full p-2 transition-all duration-300 cursor-pointer text-sm"
-                : "transition-all duration-300 p-2 cursor-pointer text-sm"
-            }
+            className={`duration-300 py-2 xs:px-2 px-1 cursor-pointer rounded-full transition-all xs:text-sm text-xs text-nowrap ${activeSection == item.href ? "bg-white text-sky-800" : ""}`}
             onClick={scrollToSection}
             href={`#${item.href}`}
           >
@@ -71,7 +67,7 @@ function HoverBottomNav({ helper }) {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           style = {{ color: upButtonColor, backgroundColor: upButtonBg }}
         >
-          <MdOutlineKeyboardDoubleArrowUp size={18} />
+          <MdOutlineKeyboardDoubleArrowUp className="xs:text-lg text-base" />
         </motion.div>
       </div>
     </div>
