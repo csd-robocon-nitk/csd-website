@@ -13,7 +13,7 @@ export default function ObjectivesSection() {
 			<ul className="flex flex-wrap justify-center items-stretch max-w-[1200px] mx-auto gap-5 w-full">
 				{
                     objectives.map(({ title, description, Icon }, i) => (
-                        <div className="w-[calc((100%-60px)/4)]" key={i}>
+                        <div className="xl:w-[calc((100%-60px)/4)] md:w-[calc((100%-60px)/3)] sm:w-[calc((100%-60px)/2)] w-[calc((100%-60px)/1)]" key={i}>
                             <ObjectivesCard
                                 title={title}
                                 description={description}

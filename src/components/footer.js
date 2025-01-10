@@ -11,7 +11,7 @@ export default function Footer() {
     { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com', color: 'text-blue-700' },
   ];
   return (
-    <footer className="bg-sky-950 text-gray-300 py-8">
+    <footer className="bg-sky-950 text-gray-300 py-8 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8">
           {/* Logo & Description */}
