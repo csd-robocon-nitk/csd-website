@@ -50,19 +50,19 @@ async function Partners() {
         <h1 className="text-4xl font-bold py-4">Government</h1>
         <div className="grid grid-cols-4 gap-4">
           {government.map((partner, index) => {
-            return <PartnerCard partner={partner} key={index} />;
+            return <PartnerCard partner={partner} key={index} index={index}/>;
           })}
         </div>
         <h1 className="text-4xl font-bold py-4">Industry</h1>
         <div className="grid grid-cols-4 gap-4">
           {industry.map((partner, index) => {
-            return <PartnerCard partner={partner} key={index} />;
+            return <PartnerCard partner={partner} key={index} index={index}/>;
           })}
         </div>
         <h1 className="text-4xl font-bold py-4">Academia</h1>
         <div className="grid grid-cols-4 gap-4">
           {academia.map((partner, index) => {
-            return <PartnerCard partner={partner} key={index} />;
+            return <PartnerCard partner={partner} key={index} index={index}/>;
           })}
         </div>
       </div>

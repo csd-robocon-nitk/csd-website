@@ -74,7 +74,6 @@ export default function Header () {
 								{ text: "ABOUT US", href: "/about" },
 								{ text: "MILESTONES", href: "/milestones" },
 								{ text: "PARTNERS", href: "/partners"},
-								{ text: "GALLERY", href: "/gallery"}
 							]}
 						/>
 
@@ -87,7 +86,8 @@ export default function Header () {
 							text = "INSIGHTS"
 							sublinks = {[
 								{ text: "BLOGS & NEWS", href: "/blog" },
-								{ text: "EVENTS & VISITS", href: "/events"}
+								{ text: "EVENTS & VISITS", href: "/events"},
+								{ text: "GALLERY", href: "/gallery"}
 							]}
 						/>
 
