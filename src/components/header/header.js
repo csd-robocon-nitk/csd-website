@@ -58,7 +58,8 @@ export default function Header () {
 							sublinks = {[
 								{ text: "ABOUT US", href: "/about" },
 								{ text: "MILESTONES", href: "/milestones" },
-								{ text: "PARTNERS", href: "/partners"}
+								{ text: "PARTNERS", href: "/partners"},
+								{ text: "GALLERY", href: "/gallery"}
 							]}
 						/>
 

@@ -7,6 +7,10 @@ const nextConfig = {
               protocol: 'https',
               hostname: 'devcsd.nitk.ac.in'
             },
+            {
+              protocol: 'https',
+              hostname: 'assets.aceternity.com'
+            }
           ],
     },
     
