@@ -4,8 +4,8 @@ import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransf
 
 export default function FocusAreaCard ({ image, heading, description, larger = false }) {
     return (
-		<div className="w-1/3 flex flex-col items-center">
-			<div className={`max-w-44 bg-white rounded-full ${larger ? "p-5" : "p-10"} -mt-24 translate-y-1/2 z-10`}>
+		<div className="flex-1 min-w-72 flex flex-col items-center">
+			<div className={`max-w-44 aspect-square bg-white rounded-full ${larger ? "p-5" : "p-10"} -mt-24 translate-y-1/2 z-10`}>
 				<img src={image} alt="" />
 			</div>
 			<div className="overflow-hidden relative p-[3px] flex items-stretch rounded-lg h-full">

@@ -11,13 +11,15 @@ export default async function fetchContribution () {
     let data = await res.json()
     let numbers = data.data.attributes
 
-    let contribution = [
-        { number: numbers.labs_developed, label: 'Labs Developed' },
-        { number: numbers.experiments_developed, label: 'Experiments Developed' },
-        { number: numbers.upcoming_labs, label: 'Upcoming Labs' },
-        { number: numbers.upcoming_experiments, label: 'Upcoming Experiments' },
-        { number: numbers.proposed_labs, label: 'Proposed Labs' }
-    ]
+    // let contribution = [
+    //     { number: numbers.labs_developed, label: 'Labs Developed' },
+    //     { number: numbers.experiments_developed, label: 'Experiments Developed' },
+    //     { number: numbers.upcoming_labs, label: 'Upcoming Labs' },
+    //     { number: numbers.upcoming_experiments, label: 'Upcoming Experiments' },
+    //     { number: numbers.proposed_labs, label: 'Proposed Labs' }
+    // ]
 
-    return contribution
+    // return contribution
+
+    return numbers
 }

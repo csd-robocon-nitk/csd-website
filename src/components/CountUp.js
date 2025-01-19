@@ -24,7 +24,7 @@ export default function CountUp({
     stiffness,
   });
 
-  const isInView = useInView(ref, { once: true, margin: "0px" });
+  const isInView = useInView(ref, { margin: "0px" });
 
   useEffect(() => {
     if (ref.current) {

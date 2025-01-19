@@ -10,7 +10,7 @@ export default function FocusAreasSection () {
 		>
 			<div className="max-w-[1000px]">
 				<h1 className="text-4xl font-bold mb-10">Key Focus Areas</h1>
-				<div className="my-5 flex items-stretch gap-5">
+				<div className="my-5 flex flex-wrap items-stretch justify-center gap-5">
 					<FocusAreaCard
 						heading = "Interdisciplinary Approach"
 						image = "/assets/images/focusarea1.png"

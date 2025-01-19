@@ -1,10 +1,12 @@
 "use client";
+
 import CountUp from "@/components/CountUp";
 import { motion } from "framer-motion";
 import HoverBottomNav from "../../components/hoverBottomNav";
 import WhatwedoSection from "./WhatwedoSection";
 import Splash from "@/components/splash";
 import ObjectivesSection from "./ObjectivesSection";
+import ImpactChart from "./AreaChart"
 
 const AboutUs = () => {
   const helper = [
@@ -58,38 +60,42 @@ const AboutUs = () => {
         className="flex flex-col gap-8 justify-between items-center text-center scroll-effect px-5 pb-5 pt-10"
       >
         <h2 className="text-5xl font-bold">Our Impact by the Numbers</h2>
-        <div className="flex flex-col items-center">
-          <div className="flex items-stretch flex-wrap justify-center gap-4 max-w-[1000px] mx-auto">
-            {[
-              { number: "50+", label: "Industry Collaborations" },
-              { number: "10+", label: "Research Publications" },
-              { number: "60", label: "Crore Rupees in Research Funding" },
-              { number: "10000+", label: "Students Trained" },
-              { number: "300+", label: "Internships" },
-            ].map((impact, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                key={index}
-                className="bg-sky-800 text-white p-12 rounded-lg shadow-md flex-grow"
-              >
-                <h3 className="text-3xl font-extrabold">
-                  <CountUp
-                    from={0}
-                    to={impact.number}
-                    separator=","
-                    direction="up"
-                    duration={1}
-                    className="count-up-text"
-                  />+
-                </h3>
-                <p className="text-">{impact.label}</p>
-              </motion.div>
-            ))}
+        <div className="flex items-end gap-5 max-w-[1100px]">
+          <div className="flex flex-col items-center">
+            <div className="flex items-stretch flex-wrap justify-center gap-4 mx-auto">
+              {[
+                { number: "50+", label: "Industry Collaborations" },
+                { number: "40+", label: "Research Publications" },
+                { number: "60", label: "Crore Rupees in Research Funding" },
+                { number: "10000+", label: "Students Trained" },
+                { number: "300+", label: "Internships" },
+              ].map((impact, index) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  key={index}
+                  className="shadow-sm shadow-sky-200/70 bg-sky-50/50 text-sky-800 p-5 rounded-lg flex-grow"
+                >
+                  <h3 className="text-3xl font-extrabold">
+                    <CountUp
+                      from={0}
+                      to={impact.number}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />+
+                  </h3>
+                  <p className="">{impact.label}</p>
+                </motion.div>
+              ))}
+            </div>
+            </div>
+            <ImpactChart />
           </div>
-          <div className="justify-center mt-8 gap-5 grid grid-cols-3">
+          <div className="justify-center mt-8 gap-5 grid grid-cols-3 max-w-[1100px]">
             <img
               src="/assets/images/453164207_884558033717460_5676383110198238741_n.jpg"
               alt="Impact Image"
@@ -106,7 +112,6 @@ const AboutUs = () => {
               className="rounded-lg"
             />
           </div>
-        </div>
       </section>
 
       {/* What We Do Section */}

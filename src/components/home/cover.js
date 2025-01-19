@@ -8,7 +8,7 @@ export default function CoverSection () {
         <section>
             <ParallaxBanner className="h-screen w-full bg-black">
                 <ParallaxBannerLayer speed={-40}>
-                    <video autoPlay loop muted src="/about.mp4" className="h-screen translate-y-[400px] w-full object-cover object-center brightness-[.25]"></video>
+                    <video autoPlay loop muted src="/about.mp4" className="h-screen translate-y-[400px] w-full object-cover object-center sm:brightness-[.25] brightness-[.10]"></video>
                 </ParallaxBannerLayer>
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-2">
                     <img src="/logo_small.png" className="sm:h-24 h-16 mb-2" alt="" />

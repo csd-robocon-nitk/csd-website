@@ -1,4 +1,3 @@
-import { Layers } from "lucide-react"
 import objectives from "./objectives_data"
 import ObjectivesCard from "./ObjectivesCard"
 
