@@ -1,5 +1,7 @@
 import React from "react";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default async function articlePage({ params }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -27,7 +29,10 @@ export default async function articlePage({ params }) {
   const date = new Date(article_data.attributes.PostedOn);
 
   return (
-    <div className="flex pt-20 flex-col items-center min-h-screen w-full">
+    <div className="flex mt-20 relative flex-col items-center min-h-screen w-full">
+      <Link href={"/blog?type=news"} className="fixed top-8 mt-20 left-4 flex items-center gap-1 text-xl text-white bg-sky-900/90 backdrop-blur-sm p-2 rounded-full z-[999] hover:scale-105 transition-all duration-300">
+        <ArrowLeft /> All news
+      </Link>
       <div className="p-10 flex flex-col items-center w-4/5 gap-8">
         <div className="py-20 flex flex-col items-center gap-4">
             <h1 className="text-5xl font-extrabold text-wrap text-center">{article_data.attributes.title}</h1>

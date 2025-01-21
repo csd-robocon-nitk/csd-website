@@ -4,8 +4,8 @@ import { useState } from "react";
 import BlogCard from "./BlogCard";
 import ArticleCard from "./ArticleCard";
 
-function BlogsAndNews({ blogs, articles }) {
-  const [type, setType] = useState("Blogs");
+function BlogsAndNews({ blogs, articles, init_type }) {
+  const [type, setType] = useState(init_type || "Blogs");
 
   const handleType = (key) => {
     setType(key);

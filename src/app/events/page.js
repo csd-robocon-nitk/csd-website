@@ -2,7 +2,11 @@ import React from 'react'
 import EventsAndVisits from './eventsAndVisits';
 import Splash from '@/components/splash';
 
-async function Events() {
+async function Events({ searchParams }) {
+
+  let { type } = await searchParams;
+
+  type == 'visits' ? type='Visits' : type='Events';
 
     const token = process.env.NEXT_PUBLIC_TOKEN;
   if (!token) {

@@ -4,9 +4,9 @@ import Events from './events';
 import Visits from './visits';
 import { useState } from 'react';
 
-function EventsAndVisits({events, visits}) {
+function EventsAndVisits({events, visits, init_type}) {
 
- const [type, setType] = useState("Visits");
+ const [type, setType] = useState(init_type || "Events");
  
    const handleType = (key) => {
      setType(key);

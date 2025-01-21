@@ -1,14 +1,17 @@
 import React from "react";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default async function BlogPage({ params }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
+  const { id } = await params;
   if (!token) {
     throw new Error("Token not found!");
   }
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs/${params.id}?populate=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs/${id}?populate=*`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -27,7 +30,10 @@ export default async function BlogPage({ params }) {
   const date = new Date(blog_data.attributes.publishedDate);
 
   return (
-    <div className="flex pt-20 flex-col items-center min-h-screen w-full">
+    <div className="relative flex mt-20 flex-col items-center min-h-screen w-full">
+      <Link href={"/blog?type=blogs"} className="fixed top-8 mt-20 left-4 flex items-center gap-1 text-xl text-white bg-sky-900/90 backdrop-blur-sm p-2 rounded-full z-[999] hover:scale-105 transition-all duration-300">
+        <ArrowLeft /> All blogs
+      </Link>
       <div className="p-10 flex flex-col items-center w-4/5 gap-8">
         <div className="py-20 flex flex-col items-center gap-4">
             <h1 className="text-7xl font-extrabold text-wrap text-center">{blog_data.attributes.title}</h1>

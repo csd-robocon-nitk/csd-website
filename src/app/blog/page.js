@@ -7,9 +7,13 @@ import BlogsAndNews from './blogsAndNews.js';
 
 
 const Blogs
- = async () => {
-
+ = async ({ searchParams }) => {
     const token = process.env.NEXT_PUBLIC_TOKEN;
+
+    let { type } = await searchParams;
+
+    type == 'news' ? type='News' : type='Blogs';
+
     if (!token) {
         throw new Error('Token not found!');
     }
@@ -45,7 +49,7 @@ const Blogs
   return (
     <div className='pt-20 flex flex-col justify-center items-center w-full bg-white'>
         <Splash title={"Blogs & News"} subtitle={"Stay Informed, Stay Ahead – Your Source for News and Insights"}/>
-        <BlogsAndNews blogs={blogs_data} articles={articles_data}/>
+        <BlogsAndNews blogs={blogs_data} articles={articles_data} init_type={type}/>
     </div>
   )
 }
