@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Youtube from '../../../public/assets/images/youtube-card.svg';
-import LinkedIn from '../../../public/assets/images/linkedin-card.svg';
+import Youtube from "../../../public/assets/images/youtube-card.svg";
+import LinkedIn from "../../../public/assets/images/linkedin-card.svg";
 
 function StaffCard({ item }) {
-
-    const skills = item.attributes.areasOfInterest.split("\n")
+  const skills = item.attributes.areasOfInterest.split("\n");
 
   return (
     <div className="flex group flex-col border-2 items-center w-[250px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[250px] rounded-lg overflow-hidden p-2">
@@ -19,16 +18,14 @@ function StaffCard({ item }) {
         />
       </figure>
       <div className="items-center flex flex-col gap-2 text-center w-full group-hover:-translate-y-full transform transition-all duration-300 ease-in-out group-hover:m-4">
-        <h2 className="text-2xl mb-2 font-bold">
-          {item.attributes.name}
-        </h2>
+        <h2 className="text-2xl mb-2 font-bold">{item.attributes.name}</h2>
         <div>
           <ul className="flex flex-col gap-0">
-            {
-                skills.map((skill, index) => (
-                    <li className="text-left" key={index}>{skill}</li>
-                ))
-            }
+            {skills.map((skill, index) => (
+              <li className="text-left" key={index}>
+                {skill}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="group-hover:inline">
