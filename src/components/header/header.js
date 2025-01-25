@@ -59,9 +59,14 @@ export default function Header () {
 		<TransparencyContext.Provider value={navTransparency}>
 			<div className={`fixed top-0 h-20 flex items-center w-full z-[999] duration-500 ${!navTransparency ? "bg-white backdrop-blur-md drop-shadow-lg" : ""}`}>
 				<div className="py-3 px-5 flex flex-wrap items-center lg:gap-4 lg:justify-evenly justify-between w-full shrink-0 z-[1000]">
-					<Link href="/">
-						<img src="/logo.png" className={`xl:h-14 lg:h-10 xs:h-14 h-12 ${!navTransparency ? "invert" : ""} duration-300 transition-colors`} alt="" />
-					</Link>
+					<div className="flex">
+						<Link href="https://www.nitk.ac.in/" title="nitk.ac.in" target="_blank">
+							<img src="/logo_nitk.png" className={`xl:h-11 lg:h-7 xs:h-11 h-9 ${!navTransparency ? "invert" : ""} duration-300 transition-colors border-r-[1.5px] border-white`} alt="" />
+						</Link>
+						<Link href="/" title="Home">
+							<img src="/logo_csd.png" className={`xl:h-11 lg:h-7 xs:h-11 h-9 ${!navTransparency ? "invert" : ""} duration-300 transition-colors`} alt="" />
+						</Link>
+					</div>
 					<ul className={`hidden lg:flex jusitfy-evenly font-semibold xl:text-lg ${!navTransparency ? "text-neutral-800" : "text-white"}`}>
 						<DesktopNavElement 
 							text = "HOME"
@@ -74,6 +79,7 @@ export default function Header () {
 								{ text: "ABOUT US", href: "/about" },
 								{ text: "MILESTONES", href: "/milestones" },
 								{ text: "PARTNERS", href: "/partners"},
+								{ text: "FACILITIES", href: "/facilities"},
 							]}
 						/>
 
@@ -138,7 +144,8 @@ export default function Header () {
 							sublinks = {[
 								{ text: "ABOUT US", href: "/about" },
 								{ text: "MILESTONES", href: "/milestones" },
-								{ text: "PARTNERS", href: "/partners"}
+								{ text: "PARTNERS", href: "/partners"},
+								{ text: "FACILITIES", href: "/facilities"},
 							]}
 						/>
 
