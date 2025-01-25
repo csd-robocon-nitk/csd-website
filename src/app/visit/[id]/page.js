@@ -32,7 +32,7 @@ async function Visit({ params }) {
   return (
     <div className="mt-20 min-h-screen flex flex-col gap-2 px-16 py-10">
       <Link href={"/events?type=visits"} className="fixed top-8 mt-20 left-4 flex items-center gap-1 text-xl text-white bg-sky-900/90 backdrop-blur-sm p-2 rounded-full z-[999] hover:scale-105 transition-all duration-300">
-        <ArrowLeft /> All visits
+        <ArrowLeft />
       </Link>
       <div className="mt-20 text-sky-900 font-bold text-3xl text-center">
         {visit.attributes.Title}

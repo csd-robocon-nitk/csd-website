@@ -32,7 +32,7 @@ export default async function BlogPage({ params }) {
   return (
     <div className="relative flex mt-20 flex-col items-center min-h-screen w-full">
       <Link href={"/blog?type=blogs"} className="fixed top-8 mt-20 left-4 flex items-center gap-1 text-xl text-white bg-sky-900/90 backdrop-blur-sm p-2 rounded-full z-[999] hover:scale-105 transition-all duration-300">
-        <ArrowLeft /> All blogs
+        <ArrowLeft />
       </Link>
       <div className="p-10 flex flex-col items-center w-4/5 gap-8">
         <div className="py-20 flex flex-col items-center gap-4">
