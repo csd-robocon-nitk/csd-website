@@ -35,9 +35,11 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "associated_faculty",
-        "associated_research_scholars",
-        "associated_staff"
+        "faculty",
+        "research_scholar",
+        "staff",
+        "upskilled_staff",
+        "interns"
       ]
     },
     "areasOfInterest": {

@@ -35,6 +35,9 @@
     "end": {
       "type": "datetime",
       "required": false
+    },
+    "learn_more": {
+      "type": "string"
     }
   }
 }
