@@ -2,6 +2,7 @@ import Splash from "@/components/splash";
 import React from "react";
 import Image from "next/image";
 import PartnerCard from "./partnerCard";
+import PartnerHoverCard from "./partnerHoverCard";
 
 async function Partners() {
   const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -50,19 +51,19 @@ async function Partners() {
         <h1 className="text-4xl font-bold py-4">Government</h1>
         <div className="grid grid-cols-4 gap-4">
           {government.map((partner, index) => {
-            return <PartnerCard partner={partner} key={index} index={index}/>;
+            return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}
         </div>
         <h1 className="text-4xl font-bold py-4">Industry</h1>
         <div className="grid grid-cols-4 gap-4">
           {industry.map((partner, index) => {
-            return <PartnerCard partner={partner} key={index} index={index}/>;
+            return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}
         </div>
         <h1 className="text-4xl font-bold py-4">Academia</h1>
         <div className="grid grid-cols-4 gap-4">
           {academia.map((partner, index) => {
-            return <PartnerCard partner={partner} key={index} index={index}/>;
+            return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}
         </div>
       </div>

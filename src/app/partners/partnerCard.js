@@ -9,7 +9,7 @@ function PartnerCard({ partner, index }) {
       initial={{ x: "10px", opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.2, duration: 0.5 }}
+      transition={{duration: 0.5 }}
       onClick={() => {
         window.open(partner.attributes.link, "_blank");
       }}
