@@ -788,6 +788,44 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiArticleArticle extends Schema.CollectionType {
+  collectionName: 'articles';
+  info: {
+    singularName: 'article';
+    pluralName: 'articles';
+    displayName: 'Article';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    postedat: Attribute.String;
+    title: Attribute.String;
+    desc: Attribute.Text;
+    thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    newsText: Attribute.Blocks;
+    PostedOn: Attribute.Date;
+    link: Attribute.String;
+    isLink: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -834,6 +872,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     start: Attribute.DateTime & Attribute.Required;
     desc: Attribute.Text;
     end: Attribute.DateTime;
+    learn_more: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -845,6 +884,71 @@ export interface ApiEventEvent extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFacilityFacility extends Schema.CollectionType {
+  collectionName: 'facilities';
+  info: {
+    singularName: 'facility';
+    pluralName: 'facilities';
+    displayName: 'Facility';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.RichText;
+    cover_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    category: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::facility.facility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::facility.facility',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiImageImage extends Schema.CollectionType {
+  collectionName: 'images';
+  info: {
+    singularName: 'image';
+    pluralName: 'images';
+    displayName: 'Image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    placeholder: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::image.image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::image.image',
       'oneToOne',
       'admin::user'
     > &
@@ -901,7 +1005,7 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
     Department: Attribute.String;
     pfp: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     type: Attribute.Enumeration<
-      ['associated_faculty', 'associated_research_scholars', 'associated_staff']
+      ['faculty', 'research_scholar', 'staff', 'upskilled_staff', 'interns']
     >;
     areasOfInterest: Attribute.Text;
     telephone: Attribute.String;
@@ -1021,6 +1125,7 @@ export interface ApiSponsorSponsor extends Schema.CollectionType {
     singularName: 'sponsor';
     pluralName: 'sponsors';
     displayName: 'sponsor';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1028,6 +1133,8 @@ export interface ApiSponsorSponsor extends Schema.CollectionType {
   attributes: {
     logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Attribute.String;
+    PartnerType: Attribute.Enumeration<['Industry', 'Government', 'Academia']>;
+    link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1109,6 +1216,39 @@ export interface ApiUpdateUpdate extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::update.update',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiVisitVisit extends Schema.CollectionType {
+  collectionName: 'visits';
+  info: {
+    singularName: 'visit';
+    pluralName: 'visits';
+    displayName: 'Visit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Description: Attribute.Text;
+    Title: Attribute.String;
+    Thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::visit.visit',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::visit.visit',
       'oneToOne',
       'admin::user'
     > &
@@ -1240,8 +1380,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::article.article': ApiArticleArticle;
       'api::blog.blog': ApiBlogBlog;
       'api::event.event': ApiEventEvent;
+      'api::facility.facility': ApiFacilityFacility;
+      'api::image.image': ApiImageImage;
       'api::milestone.milestone': ApiMilestoneMilestone;
       'api::people.people': ApiPeoplePeople;
       'api::project.project': ApiProjectProject;
@@ -1249,6 +1392,7 @@ declare module '@strapi/types' {
       'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::update.update': ApiUpdateUpdate;
+      'api::visit.visit': ApiVisitVisit;
       'api::vlabs-contribution.vlabs-contribution': ApiVlabsContributionVlabsContribution;
       'api::vlabs-lab-developed.vlabs-lab-developed': ApiVlabsLabDevelopedVlabsLabDeveloped;
       'api::vlabs-outreach.vlabs-outreach': ApiVlabsOutreachVlabsOutreach;

@@ -2,6 +2,7 @@
 
 import BarChart from "./BarChart"
 import { motion } from "framer-motion"
+import LineChart from "./LineChart"
 
 export default function ContributionSection ({ contribution }) {
     return (
@@ -20,13 +21,8 @@ export default function ContributionSection ({ contribution }) {
                     developed={contribution.labs_developed}
                     upcoming={contribution.upcoming_labs}
                     proposed={contribution.proposed_labs}
-                    />
-                <BarChart
-                    title={"Experiments"}
-                    developed={contribution.experiments_developed}
-                    upcoming={contribution.upcoming_experiments}
-                    tooltipWidth="150px"
                 />
+                <LineChart />
             </div>
         </section>
     )
