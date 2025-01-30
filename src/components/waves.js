@@ -62,6 +62,7 @@ class Noise {
 export default function Waves({
   lineColor = "black",
   backgroundColor = "transparent",
+  background = "transparent",
   waveSpeedX = 0.0125,
   waveSpeedY = 0.005,
   waveAmpX = 32,
@@ -237,7 +238,7 @@ export default function Waves({
   }, [
     lineColor, backgroundColor, waveSpeedX, waveSpeedY,
     waveAmpX, waveAmpY, friction, tension, maxCursorMove,
-    xGap, yGap
+    xGap, yGap, background
   ]);
 
   return (
@@ -245,6 +246,7 @@ export default function Waves({
       ref={containerRef}
       style={{
         backgroundColor,
+        background,
         ...style
       }}
       className={`absolute top-0 left-0 w-full h-full overflow-hidden ${className}`}

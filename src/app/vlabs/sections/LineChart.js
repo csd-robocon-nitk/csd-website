@@ -1,6 +1,6 @@
 "use client"
 
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 import {
 	ChartContainer,
 	ChartLegend,
@@ -43,7 +43,7 @@ export default function Component () {
 	return (
 		<div className="w-full bg-sky-50 p-5 rounded-lg shadow" ref={ref}>
 			<h2 className="text-2xl font-bold text-center mb-6 text-slate-600">Outreach Activities</h2>
-			<ChartContainer config={chartConfig} height={200}>
+			<ChartContainer config={chartConfig} height={230}>
 				{
 					inView &&
 					<LineChart
@@ -60,6 +60,10 @@ export default function Component () {
 							tickLine={false}
 							axisLine={false}
 							tickMargin={8}
+						/>
+						<YAxis
+							type="number"
+							width={25}
 						/>
 						<ChartTooltip
 							cursor={false}

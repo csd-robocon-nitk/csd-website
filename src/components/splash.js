@@ -5,10 +5,11 @@ import MouseScrollLogo from "./MouseScrollLogo";
 
 function Splash({ title, subtitle }) {
   return (
-    <div className="relative h-[50vh] w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 to-sky-900 overflow-x-hidden">
+    <div className="relative bg-sky-100 h-[50vh] w-full flex items-center justify-center overflow-hidden overflow-x-hidden">
       <Waves
-        lineColor="#708090"
+        lineColor="#dddddd55"
         backgroundColor="#075985"
+        background="linear-gradient(#075985, #0369a1 60%, #0284c7 90%, #e0f2fe 130%)"
         waveSpeedX={0.02}
         waveSpeedY={0.01}
         waveAmpX={40}

@@ -14,7 +14,7 @@ function StaffCard({ item }) {
           height={200}
           src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.formats.thumbnail.url}`}
           alt={item.attributes.name}
-          className="rounded-md object-cover mx-auto w-full"
+          className="rounded-xl object-cover mx-auto w-full"
         />
       </figure>
       <div className="items-center flex flex-col gap-2 text-center w-full group-hover:-translate-y-full transform transition-all duration-300 ease-in-out group-hover:m-4">
@@ -32,16 +32,9 @@ function StaffCard({ item }) {
           <ul className="flex justify-center items-center gap-4">
             <li>
               <a
-                href="https://www.youtube.com/channel/UCLj5czsa3vwEGO3zkox3cuA"
+                href={item.attributes.linkedin}
                 className="flex items-center gap-3 lg:text-xl text-sm"
-              >
-                <Image src={Youtube} className="fill-current h-6 w-6" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/csd.nitk/"
-                className="flex items-center gap-3 lg:text-xl text-sm"
+                target="_blank"
               >
                 <Image src={LinkedIn} className="fill-current h-5 w-5" />
               </a>

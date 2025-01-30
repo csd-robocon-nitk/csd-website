@@ -24,7 +24,7 @@ function PartnerHoverCard({ partner, index }) {
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: index * 0.1, duration: 0.5 }}
-        className="flex-grow"
+        className="flex-grow h-full"
       >
         <HoverCard openDelay={200}>
           <HoverCardTrigger asChild>
@@ -44,12 +44,10 @@ function PartnerHoverCard({ partner, index }) {
             </Button>
           </HoverCardTrigger>
           <HoverCardContent className="w-80">
-            <div className="flex justify-between space-x-4">
-              <div className="space-y-1">
-                <h4 className="text-lg font-semibold">
-                  {partner.attributes.name}
-                </h4>
-              </div>
+            <div>
+              <h4 className="text-center font-semibold">
+                {partner.attributes.name}
+              </h4>
             </div>
           </HoverCardContent>
         </HoverCard>

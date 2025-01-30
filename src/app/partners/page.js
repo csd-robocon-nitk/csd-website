@@ -49,19 +49,19 @@ async function Partners() {
 
       <div className="flex flex-col px-32">
         <h1 className="text-4xl font-bold py-4">Government</h1>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 items-stretch">
           {government.map((partner, index) => {
             return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}
         </div>
         <h1 className="text-4xl font-bold py-4">Industry</h1>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 items-stretch">
           {industry.map((partner, index) => {
             return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}
         </div>
         <h1 className="text-4xl font-bold py-4">Academia</h1>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 items-stretch">
           {academia.map((partner, index) => {
             return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}

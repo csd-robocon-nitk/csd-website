@@ -12,7 +12,7 @@ async function TeamPage({ searchParams }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/peoples?populate=*`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/peoples?populate=*&pagination[limit]=100`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -34,8 +34,6 @@ async function TeamPage({ searchParams }) {
     }
     return item.attributes.type === type;
   });
-
-  console.log(data)
 
   return (
     <div className="min-h-screen mt-20 bg-white flex w-full flex-col items-center">
