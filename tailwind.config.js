@@ -15,7 +15,8 @@ module.exports = {
   			'about-section': '1fr 3fr'
   		},
   		backgroundImage: {
-  			'about-section': 'linear-gradient(#C3E9E5, #C3E9E5)'
+  			'about-section': 'linear-gradient(#C3E9E5, #C3E9E5)',
+			'radial': 'radial-gradient(circle farthest-side at 0% 100%, black, #00000000 90% 100%)'
   		},
   		colors: {
   			'old-copper': {

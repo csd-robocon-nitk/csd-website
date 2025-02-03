@@ -88,3 +88,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+path.hover-draw {
+  stroke-dasharray: var(--path-length);
+  stroke-dashoffset: var(--path-length);
+}
+
+.hover-draw-parent:hover path.hover-draw, .hover-draw-parent.active path.hover-draw {
+  stroke-dashoffset: 0;
+}
