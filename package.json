@@ -33,6 +33,7 @@
     "react-vertical-timeline-component": "^3.6.0",
     "recharts": "^2.15.0",
     "slick-carousel": "^1.8.1",
+    "strapi-plugin-ezforms": "^0.1.7",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   },

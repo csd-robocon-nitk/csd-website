@@ -1,22 +1,58 @@
-'use client'
+"use client";
 
-import React, { useState } from "react"
-import { motion } from "framer-motion"
-import { PhoneIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline"
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  PhoneIcon,
+  EnvelopeIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/outline";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [success, setSuccess] = useState(null);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prevState => ({ ...prevState, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     // Handle form submission here
-    console.log(formData)
-  }
+    const token = process.env.NEXT_PUBLIC_TOKEN;
+    setSuccess(null);
+
+
+    if (!token) {
+      throw new Error("Token not found!");
+    }
+
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/contacts`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: formData }),
+      }
+    );
+    console.log(response)
+    if (!response.ok) {
+      throw new Error("Failed to submit form");
+    }
+
+    const result = await response.json();
+    console.log("Form submitted successfully:", result);
+    setSuccess("Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   return (
     <div className="min-h-screen flex flex-wrap p-10 mt-20 gap-4 justify-center items-center">
@@ -42,8 +78,9 @@ export default function Contact() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-xl font-semibold mb-6 text-gray-300"
             >
-            Prof. K V Gangadharan<br/>
-            Centre for System Design NITK
+              Prof. K V Gangadharan
+              <br />
+              Centre for System Design NITK
             </motion.h3>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -61,9 +98,12 @@ export default function Contact() {
               </div>
               <div className="flex items-center space-x-4">
                 <MapPinIcon className="h-6 w-6" />
-                <span>Centre for System Design NITK, Surathkal,  P.O. Srinivasnagar ,  Mangalore - 575 025
-              <br />
-              Karnataka, India</span>
+                <span>
+                  Centre for System Design NITK, Surathkal, P.O. Srinivasnagar ,
+                  Mangalore - 575 025
+                  <br />
+                  Karnataka, India
+                </span>
               </div>
             </motion.div>
             <motion.div
@@ -101,7 +141,10 @@ export default function Contact() {
               className="space-y-4"
             >
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Name
                 </label>
                 <input
@@ -115,7 +158,10 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email
                 </label>
                 <input
@@ -129,7 +175,10 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Message
                 </label>
                 <textarea
@@ -150,10 +199,11 @@ export default function Contact() {
               >
                 Send Message
               </motion.button>
+              {success && <p className="text-center text-sm mt-2">{success}</p>}
             </motion.form>
           </div>
         </div>
       </motion.div>
     </div>
-  )
+  );
 }

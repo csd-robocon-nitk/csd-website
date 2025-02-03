@@ -1,42 +1,65 @@
-import React from "react";
 import Image from "next/image";
-import Youtube from "../../../public/assets/images/youtube-card.svg";
-import LinkedIn from "../../../public/assets/images/linkedin-card.svg";
+import { Linkedin } from "lucide-react";
 
 function StaffCard({ item }) {
   const skills = item.attributes.areasOfInterest.split("\n");
-
   return (
-    <div className="flex group flex-col border-2 items-center w-[250px] ease-in-out hover:scale-[1.05] shadow-md duration-200 h-[250px] rounded-lg overflow-hidden p-2">
-      <figure className="group-hover:-translate-y-[115%] transform transition-transform duration-300 ease-in-out px-5 w-full">
-        <Image
-          width={200}
-          height={200}
-          src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.formats.thumbnail.url}`}
-          alt={item.attributes.name}
-          className="rounded-xl object-cover mx-auto w-full"
-        />
-      </figure>
-      <div className="items-center flex flex-col gap-2 text-center w-full group-hover:-translate-y-full transform transition-all duration-300 ease-in-out group-hover:m-4">
-        <h2 className="text-2xl mb-2 font-bold">{item.attributes.name}</h2>
-        <div>
-          <ul className="flex flex-col gap-0">
-            {skills.map((skill, index) => (
-              <li className="text-left" key={index}>
-                {skill}
-              </li>
-            ))}
-          </ul>
+    <div className="group relative w-72 h-72 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+      <div className="absolute inset-0 bg-sky-50 p-4 transition-all duration-200 ease-in-out group-hover:-translate-y-full">
+        <figure className="mb-4">
+          <Image
+            width={200}
+            height={200}
+            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.formats.thumbnail.url}`}
+            alt={item.attributes.name}
+            className="rounded-md object-cover w-full h-48"
+            onError={(e) => {
+              e.currentTarget.src = "/placeholder.svg";
+            }}
+          />
+        </figure>
+        <h2 className="text-xl font-bold text-center truncate">
+          {item.attributes.name}
+        </h2>
+      </div>
+      <div className="absolute inset-0 bg-white p-4 transition-all duration-200 ease-in-out translate-y-full group-hover:translate-y-0 flex flex-col gap-2">
+        <div className="flex flex-col gap-0">
+          <h2 className="text-xl font-bold text-center">
+            {item.attributes.name}
+          </h2>
+          <h2 className="text-sm font-bold text-center">
+            {item.attributes.Designation}
+          </h2>
         </div>
-        <div className="group-hover:inline">
+        <ul className="text-sm mb-4 space-y-1">
+          {skills.map((skill, index) => (
+            <li className="text-left" key={index}>
+              {skill}
+            </li>
+          ))}
+        </ul>
+        <div className="absolute bottom-4 left-0 right-0">
           <ul className="flex justify-center items-center gap-4">
+            {/* <li>
+              <a
+                href={youtubeUrl}
+                className="block text-gray-600 hover:text-red-600 transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${name}'s YouTube channel`}
+              >
+                <Youtube size={24} />
+              </a>
+            </li> */}
             <li>
               <a
                 href={item.attributes.linkedin}
-                className="flex items-center gap-3 lg:text-xl text-sm"
+                className="block text-gray-600 hover:text-blue-600 transition-colors duration-200"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.attributes.name}'s LinkedIn profile`}
               >
-                <Image src={LinkedIn} className="fill-current h-5 w-5" />
+                <Linkedin size={20} />
               </a>
             </li>
           </ul>

@@ -22,8 +22,8 @@ function Staff({ data }) {
   );
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-    <div className="flex flex-col justify-center w-full px-20 py-10">
+    <div className="w-full flex flex-col justify-center items-center p-2">
+
       <div className="w-full justify-center flex mb-4">
         {Object.keys(dropDown).map((key) => (
           <button
@@ -50,7 +50,6 @@ function Staff({ data }) {
           <StaffCard key={index} item={item} />
         ))}
       </div>
-    </div>
   </div>
   );
 }

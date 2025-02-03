@@ -4,7 +4,7 @@ import StaffCard from "./staffCard";
 function Scholar({data}) {
   return (
     <div className="w-full mt-5">
-      <div className="flex flex-col items-center justify-evenly w-full px-16 p-2">
+
         <div
           style={{
             display: "grid",
@@ -20,7 +20,6 @@ function Scholar({data}) {
                 ))
             }
         </div>
-      </div>
     </div>
   );
 }

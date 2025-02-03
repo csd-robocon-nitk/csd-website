@@ -7,7 +7,6 @@ function Faculty({data}) {
 
   return (
     <div className="w-full mt-5">
-      <div className="flex flex-col items-center justify-evenly w-full px-16 p-2">
         <div
           style={{
             display: "grid",
@@ -23,7 +22,6 @@ function Faculty({data}) {
                 ))
             }
         </div>
-      </div>
     </div>
   );
 }
