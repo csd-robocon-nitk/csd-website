@@ -60,7 +60,7 @@ function HighlightProjects() {
 						autoPlay
 						loop
 						muted
-						src="/objectives.mp4"
+						src="/virtualLabs.mp4"
 						className="w-full rounded-lg object-cover object-center"
 					></motion.video>
 					<div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
@@ -101,7 +101,7 @@ function HighlightProjects() {
               autoPlay
               loop
               muted
-              src="/about.mp4"
+              src="/objectives.mp4"
               className="w-full rounded-lg object-cover object-center"
             ></motion.video>
             <div className="flex flex-col gap-8 w-full absolute justify-center items-start p-8 bg-black/60 h-full">
@@ -142,7 +142,7 @@ function HighlightProjects() {
               autoPlay
               loop
               muted
-              src="/objectives.mp4"
+              src="/about.mp4"
               className="w-full rounded-lg object-cover object-center"
             ></motion.video>
             <div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
