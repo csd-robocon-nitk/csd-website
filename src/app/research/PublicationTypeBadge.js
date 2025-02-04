@@ -20,7 +20,7 @@ export default function PublicationTypeBadge ({ type }) {
     }
 
     return (
-        <div className="px-2 min-w-32 py-1 rounded-full text-sm text-center flex items-center justify-center" style={{ backgroundColor: bg, color: color}}>
+        <div className="sm:px-2 px-10 min-w-32 py-1 rounded-full text-sm text-center flex items-center justify-center" style={{ backgroundColor: bg, color: color}}>
             <p className="leading-none pb-1">{type}</p>
         </div>
     )
