@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import LinkedIn from '../../../public/assets/images/linkedin.svg';
-import Scholar from '../../../public/assets/images/scholar-white.svg';
-import NITK from '../../../public/assets/images/nitk.png';
-import { X } from 'lucide-react';
+import LinkedIn from "../../../public/assets/images/linkedin.svg";
+import Scholar from "../../../public/assets/images/scholar-white.svg";
+import NITK from "../../../public/assets/images/nitk.png";
+import { CircleX } from "lucide-react";
 import "./modal.css";
 
 function Modal({ isOpen, setIsOpen, data }) {
@@ -16,8 +16,8 @@ function Modal({ isOpen, setIsOpen, data }) {
     modalRef.current.classList.add("close-modal");
     setTimeout(() => {
       setIsOpen(false);
-    }, 300)
-  }
+    }, 300);
+  };
 
   const clickOutsideToClose = (e) => {
     if (modalRef.current === null) {
@@ -46,7 +46,6 @@ function Modal({ isOpen, setIsOpen, data }) {
       document.removeEventListener("mousedown", clickOutsideToClose);
       document.removeEventListener("keydown", handleKeyDown);
     };
-
   }, [isOpen]);
 
   const achievements = data.attributes.Achievements?.split("\n");
@@ -59,7 +58,13 @@ function Modal({ isOpen, setIsOpen, data }) {
         className="rounded bg-white flex flex-col md:flex-row border-sky-900 border-2 m-4 md:m-10 w-full h-full max-w-[1300px] max-h-[90vh] overflow-y-auto"
         ref={modalRef}
       >
-        <div className="flex flex-col w-full md:w-2/5 justify-between items-center gap-4 bg-sky-900 text-white p-4">
+        <div className="relative flex flex-col w-full md:w-2/5 justify-between items-center gap-4 bg-sky-900 text-white p-4">
+          <button
+            className="absolute top-4 left-4 rounded-full text-white z-[999]"
+            onClick={closeModal}
+          >
+            <CircleX width={30} height={30}/>
+          </button>
           <div className="flex flex-col gap-4 items-center">
             <figure className="flex-shrink-0">
               <Image
@@ -74,8 +79,12 @@ function Modal({ isOpen, setIsOpen, data }) {
               <h1 className="font-extrabold text-xl md:text-2xl text-center">
                 {data.attributes.name}
               </h1>
-              <p className="text-center text-sm md:text-lg">{data.attributes.Designation}</p>
-              <p className="text-center text-sm md:text-lg">{data.attributes.Department}</p>
+              <p className="text-center text-sm md:text-lg">
+                {data.attributes.Designation}
+              </p>
+              <p className="text-center text-sm md:text-lg">
+                {data.attributes.Department}
+              </p>
             </div>
           </div>
           <div className="flex flex-col text-sm md:text-lg">
