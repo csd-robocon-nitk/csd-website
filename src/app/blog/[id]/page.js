@@ -1,7 +1,9 @@
 import React from "react";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import parse from 'html-react-parser';
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import "./page.css"
 
 export default async function BlogPage({ params }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -34,10 +36,10 @@ export default async function BlogPage({ params }) {
       <Link href={"/blog?type=blogs"} className="fixed top-8 mt-20 left-4 flex items-center gap-1 text-xl text-white bg-sky-900/90 backdrop-blur-sm p-2 rounded-full z-[999] hover:scale-105 transition-all duration-300">
         <ArrowLeft />
       </Link>
-      <div className="p-10 flex flex-col items-center w-4/5 gap-8">
+      <div className="p-10 flex flex-col items-center w-4/5 gap-4">
         <div className="py-20 flex flex-col items-center gap-4">
-            <h1 className="text-7xl font-extrabold text-wrap text-center">{blog_data.attributes.title}</h1>
-            <p className="text-2xl font-bold text-page-accent">{date.toDateString()}</p>
+            <h1 className="text-5xl font-extrabold text-wrap text-center">{blog_data.attributes.title}</h1>
+            <p className="text-xl font-bold text-page-accent">{date.toDateString()}</p>
             <div className="text-xl text-wrap">{blog_data.attributes.desc}</div>
         </div>
         <div className="w-full justify-center flex ">
@@ -50,9 +52,10 @@ export default async function BlogPage({ params }) {
                 alt=""
             />
         </div>
-        <div className="prose-xl text-shark-950 text-2xl">
-            <BlocksRenderer content={blog_data.attributes.content} />
-        </div>
+        <article className="prose-xl text-shark-950 text-2xl ck-content">
+            {await parse(blog_data.attributes.blog)}
+            {console.log(blog_data.attributes.blog)}
+        </article>
       </div>
     </div>
   );
