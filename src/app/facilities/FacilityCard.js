@@ -32,8 +32,8 @@ export default function FacilityCard ({ title, description, imageSrc, open, togg
             >
                 <svg className="absolute top-0 left-0" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
                     <path
-                        className="hover-draw duration-700"
-                        stroke="#000000"
+                        className="hover-draw duration-1000 bg-indigo-800"
+                        stroke="#3730a3"
                         strokeWidth={10}
                         fill="none"
                         d="M 0 0 L 0 100 L 100 100 L 100 0 L 0 0"
@@ -41,16 +41,16 @@ export default function FacilityCard ({ title, description, imageSrc, open, togg
                         style={{ "--path-length": pathLength + "px" }}
                     />
                 </svg>
-                <div className="w-full h-full bg-white rounded-lg relative shadow-md hover:shadow-gray-400/70 duration-200 cursor-pointer flex flex-col justify-between overflow-hidden group" onClick={toggleOpen} >
+                <div className="w-full h-full bg-white rounded-lg relative shadow-md duration-200 cursor-pointer flex flex-col justify-between overflow-hidden group" onClick={toggleOpen} >
                     <img
                         src={imageSrc}
-                        className="absolute opacity-60 w-full h-full flex-grow object-cover object-center group-hover:scale-110 origin-center duration-500"
+                        className="absolute w-full h-full flex-grow object-cover object-center group-hover:scale-110 origin-center duration-500"
                     />
                     <div className={`absolute ${open ? "h-full" : "h-0"} group-hover:h-full w-full bg-white rounded-lg bottom-0 duration-500`}/>
-                    <div className="p-7 z-50 flex flex-col justify-between h-full">
+                    <div className="p-7 pt-4 z-50 flex flex-col justify-between h-full bg-gradient-to-b from-white via-white/60 via-25% to-transparent to-50%">
                         <div>
                             <motion.h1
-                                className="text-xl font-semibold mb-1"
+                                className="text-xl font-semibold mb-2"
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.5, duration: 0.5 }}

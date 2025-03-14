@@ -7,7 +7,11 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { useMotionValue } from "framer-motion"
 import { useAnimate } from "framer-motion"
-import { ThreeDPrinting } from "./FacilityContents"
+
+// contents
+import ThreeDPrinting from "./contents/ThreeDPrinting"
+import Lidar from "./contents/Lidar"
+import Uav from "./contents/Uav"
 
 export default function FacilitiesPage() {
 	let [ open, setOpen ] = useState(-1)
@@ -37,7 +41,7 @@ export default function FacilitiesPage() {
 				title="Facilities at CSD"
 				subtitle="Home to cutting-edge technologies and equipment to kickstart innovation."
 			/>
-			<div className="max-w-[1200px] mx-auto py-10 flex flex-wrap gap-2 overflow-hidden">
+			<div className="max-w-[1200px] mx-auto py-10 flex flex-wrap gap-2 overflow-hidden relative">
 				<LayoutGroup>
 					<FacilityCard
 						setContentHeight={setHeight}
@@ -57,7 +61,7 @@ export default function FacilitiesPage() {
 						description="The centre boasts terrestrial and aerial LiDAR systems to facilitate high-resolution 3D mapping and environmental modeling."
 						imageSrc="/facilities/photogammetry.png"
 					>
-
+						<Lidar />
 					</FacilityCard>
 					<FacilityCard
 						setContentHeight={setHeight}
@@ -67,7 +71,7 @@ export default function FacilitiesPage() {
 						description="Our UAV fleet facilitates aerial surveying, environmental monitoring, and advanced photogrammetry projects."
 						imageSrc="/facilities/drone.webp"
 					>
-
+						<Uav />
 					</FacilityCard>
 					<FacilityCard
 						setContentHeight={setHeight}
