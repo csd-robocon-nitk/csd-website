@@ -6,7 +6,7 @@ import ProjectCard from './ProjectCard';
 
 function ProjectSection({ title, projects, viewAllLink }) {
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gradient-to-b from-background to-secondary/10">
     <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

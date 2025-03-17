@@ -24,7 +24,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    // videoId: "dQw4w9WgXcQ",
   },
   {
     title: "VidhYug 2.0 - Administrative Usage",
@@ -47,7 +47,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    videoId: "Xnlz9MMqaGA",
   },
   {
     title: "VidhYug 3.0 - E-Cycle with IRIS Integration",
@@ -64,7 +64,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    videoId: "wZr6k_tV6Ak",
   },
   {
     title: "VidhYug 4.0 - Forest E-Bike",
@@ -82,7 +82,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    videoId: "IPepptEKgEk",
   },
   {
     title: "VidhYug 4.1 - E-Bike for Campus Security",
@@ -99,7 +99,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    videoId: "8ASWYSiiImE",
   },
   {
     title: "VidhYug 4.2 - Dirt Bike for Rescue Operations",
@@ -116,7 +116,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    videoId: "xg7jCbNggQE",
   },
   {
     title: "VidhYug 5.0 - Quad Bike for Accessibility",
@@ -150,7 +150,7 @@ const initiatives = [
       "/placeholder.svg?height=400&width=600",
       "/placeholder.svg?height=400&width=600",
     ],
-    videoId: "dQw4w9WgXcQ",
+    videoId: "oTDkqzffLns",
   },
 ]
 
@@ -391,45 +391,49 @@ export default function EMobilityPage() {
                 <h2 className="text-3xl font-bold mb-6">Technical Specifications</h2>
                 <ul className="space-y-6 text-lg">
                   <li className="flex items-start">
-                    <span className="font-semibold min-w-[200px]">Backend:</span>
-                    <span className="text-gray-600">Node.js with Express, MongoDB</span>
+                    <span className="font-semibold min-w-[200px]">Focus Areas:</span>
+                    <span className="text-gray-600">
+                      Electric Bicycles, Electric Scooters, Autonomous Vehicles, Energy Efficiency & Autonomy
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="font-semibold min-w-[200px]">Frontend:</span>
-                    <span className="text-gray-600">React, Next.js, TailwindCSS</span>
+                    <span className="font-semibold min-w-[200px]">Key Equipment:</span>
+                    <span className="text-gray-600">
+                      CAD Design Software, ANSYS, 3D Printers, Laser Cutting Machines
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="font-semibold min-w-[200px]">API Integration:</span>
-                    <span className="text-gray-600">RESTful APIs, WebSocket for real-time updates</span>
+                    <span className="font-semibold min-w-[200px]">Development Workflow:</span>
+                    <span className="text-gray-600">
+                      Design & Simulation, Prototyping, Assembly, Testing & Optimization
+                    </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="font-semibold min-w-[200px]">Authentication:</span>
-                    <span className="text-gray-600">JWT-based auth with role-based access control</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="font-semibold min-w-[200px]">Deployment:</span>
-                    <span className="text-gray-600">Docker containers, Kubernetes orchestration</span>
+                    <span className="font-semibold min-w-[200px]">Funding Sources:</span>
+                    <span className="text-gray-600">Research Grants, Government Programs for Sustainable Mobility</span>
                   </li>
                 </ul>
               </div>
               <div className="space-y-8">
                 <Card className="transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-semibold mb-4">System Architecture</h3>
-                    <p className="text-lg text-gray-600">
-                      Microservices-based architecture with separate services for authentication, charging management,
-                      payment processing, and analytics. This approach ensures scalability and easier maintenance.
-                    </p>
+                    <h3 className="text-2xl font-semibold mb-4">Development Workflow</h3>
+                    <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                      <li>Design & Simulation: Using CAD & ANSYS for modeling & analysis</li>
+                      <li>Prototyping: Utilizing 3D printing and laser cutting for component development</li>
+                      <li>Assembly: Integration of electric motors, batteries, and control systems</li>
+                      <li>Testing & Optimization: Performance testing for energy efficiency & autonomy</li>
+                    </ul>
                   </CardContent>
                 </Card>
                 <Card className="transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-semibold mb-4">Performance Metrics</h3>
-                    <p className="text-lg text-gray-600">
-                      99.9% uptime, sub-100ms API response times, real-time data processing capability for up to 10,000
-                      concurrent charging sessions. Our platform is designed to handle high loads while maintaining
-                      responsiveness.
-                    </p>
+                    <h3 className="text-2xl font-semibold mb-4">Long-Term Goals</h3>
+                    <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                      <li>Develop new EV technologies</li>
+                      <li>Improve energy efficiency & autonomous capabilities</li>
+                      <li>Contribute to sustainable transportation innovation</li>
+                    </ul>
                   </CardContent>
                 </Card>
               </div>

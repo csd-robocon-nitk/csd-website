@@ -112,6 +112,7 @@ const ProjectDetail = ({ params }) => {
 								"Description",
 								"Key Features",
 								"Impact",
+								"participants",
 								"Testimonials"
 							].map(tab => (
 								<TabsTrigger
@@ -256,6 +257,7 @@ const ProjectDetail = ({ params }) => {
 									)
 								)}
 						</TabsContent>
+						
 					</Tabs>
 				</div>
 			</div>
