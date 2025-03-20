@@ -54,7 +54,6 @@ export default async function BlogPage({ params }) {
         </div>
         <article className="prose-xl text-shark-950 text-2xl ck-content">
             {await parse(blog_data.attributes.blog)}
-            {console.log(blog_data.attributes.blog)}
         </article>
       </div>
     </div>

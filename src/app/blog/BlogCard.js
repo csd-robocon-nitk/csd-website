@@ -1,36 +1,52 @@
 "use client"
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
+import { Calendar, ArrowRight } from "lucide-react"; 
 
 export default function BlogCard({ blog }) {
-
-  const navigateToBlog = () => {
-    window.location.href = `/blog/${blog.id}`;
-  }
-
   const date = new Date(blog.attributes.publishedDate);
+  
   return (
-    <div
-    onClick={navigateToBlog}
-    className="w-full m-2 flex cursor-pointer flex-col h-[300px] justify-between hover:scale-[1.05] transition-all bg-sky-100 rounded overflow-hidden">
-        <img
-          className="object-fill h-1/2"
-          src={
-            process.env.NEXT_PUBLIC_STRAPI_API_URL +
-            blog.attributes.thumbnail.data.attributes.url
-          }
-          alt=""
-        />
-      <div className="flex h-1/2 flex-col w-full gap-2 justify-between text-black p-2">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-lg font-bold text-sky-900">{blog.attributes.title}</h1>
+    <Link href={`/blog/${blog.id}`} className="block w-full max-w-md">
+      <div className="h-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-sky-50 border border-sky-100 hover:border-sky-200">
+        <div className="relative overflow-hidden h-48">
+          <img
+            src={
+              process.env.NEXT_PUBLIC_STRAPI_API_URL +
+              blog.attributes.thumbnail.data.attributes.url
+            }
+            alt={blog.attributes.title || "Blog thumbnail"}
+            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+          />
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-sm font-bold text-black">
-            {date.toDateString()}
-          </p>
+        
+        <div className="p-5 flex flex-col gap-3">
+          {/* Expandable title that grows on hover */}
+          <div className="group overflow-hidden transition-all duration-300 hover:min-h-fit">
+            <h3 className="text-xl font-bold text-sky-900 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+              {blog.attributes.title}
+            </h3>
+          </div>
+          
+          {blog.attributes.desc && (
+            <p className="text-gray-700 text-sm line-clamp-3">{blog.attributes.desc}</p>
+          )}
+          
+          <div className="flex items-center gap-2 mt-2">
+            <Calendar className="h-4 w-4 text-sky-700" />
+            <p className="text-sm text-gray-600">{date.toLocaleDateString("en-IN", {
+              day: "numeric", 
+              month: "long", 
+              year: "numeric"
+            })}</p>
+          </div>
+          
+          <div className="group inline-flex items-center gap-2 self-end mt-2 py-1 px-3 rounded-full hover:bg-sky-50 transition-all duration-300">
+            <span className="text-sm font-medium text-sky-700">Read article</span>
+            <ArrowRight className="h-4 w-4 text-sky-700 transform transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

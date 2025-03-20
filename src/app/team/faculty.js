@@ -3,8 +3,6 @@ import PeopleCard from "./peopleCard";
 
 function Faculty({data}) {
 
-    console.log(data);
-
   return (
     <div className="w-full mt-5">
         <div

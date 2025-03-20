@@ -1,47 +1,84 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import Link from "next/link";
+import { Calendar, ExternalLink } from "lucide-react";
 
-export default function articleCard({ article }) {
-  const navigateToArticle = () => {
+export default function ArticleCard({ article }) {
+  const date = new Date(article.attributes.PostedOn);
+  
+  const CardWrapper = ({ children }) => {
     if (article.attributes.isLink) {
-      window.open(article.attributes.link, "_blank");
+      return (
+        <a 
+          href={article.attributes.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block w-full max-w-md"
+        >
+          {children}
+        </a>
+      );
     } else {
-      window.location.href = `/article/${article.id}`;
+      return <Link href={`/article/${article.id}`} className="block w-full max-w-md">{children}</Link>;
     }
   };
 
-  const date = new Date(article.attributes.PostedOn);
   return (
-    <div
-      onClick={navigateToArticle}
-      className="relative w-full m-2 flex cursor-pointer flex-col h-[300px] justify-between hover:scale-[1.05] transition-all bg-sky-100 rounded overflow-hidden"
-    >
-      <img
-        className="object-fill h-1/2"
-        src={
-          process.env.NEXT_PUBLIC_STRAPI_API_URL +
-          article.attributes.thumbnail.data.attributes.url
-        }
-        alt=""
-      />
-      <div className="flex h-1/2 flex-col w-full gap-2 justify-between text-black p-2">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-lg font-bold text-sky-900">
-            {article.attributes.title}
-          </h1>
+    <CardWrapper>
+      <div className="h-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-sky-50 border border-sky-100 hover:border-sky-200">
+        <div className="relative overflow-hidden h-48">
+          <img
+            src={
+              process.env.NEXT_PUBLIC_STRAPI_API_URL +
+              article.attributes.thumbnail.data.attributes.url
+            }
+            alt={article.attributes.title || "Article thumbnail"}
+            className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+          />
+          
           {article.attributes.isLink && (
-            <FaExternalLinkAlt className="z-10 top-2 right-2 ml-2 text-lg text-sky-600" />
+            <div className="absolute top-2 right-2 bg-sky-900/80 text-white p-1.5 rounded-full">
+              <ExternalLink className="h-4 w-4" />
+            </div>
           )}
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-sm text-black flex justify-between font-bold">
-            <h1>{article.attributes.postedat}</h1>
-            <h1>{date.toDateString()}</h1>
-          </p>
+        
+        <div className="p-5 flex flex-col gap-3">
+          <div className="group/title overflow-hidden transition-all duration-300 hover:min-h-fit">
+            <h3 className="text-xl font-bold text-sky-900 line-clamp-2 group-hover/title:line-clamp-none transition-all duration-300">
+              {article.attributes.title}
+            </h3>
+          </div>
+          
+          {article.attributes.desc && (
+            <p className="text-gray-700 text-sm line-clamp-3">{article.attributes.desc}</p>
+          )}
+          
+          <div className="flex items-center justify-between mt-2">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-sky-700" />
+              <p className="text-sm text-gray-600">
+                {date.toLocaleDateString("en-IN", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric"
+                })}
+              </p>
+            </div>
+            
+            {article.attributes.postedat && (
+              <p className="text-sm font-medium text-sky-700">{article.attributes.postedat}</p>
+            )}
+          </div>
+          
+          <div className="group/read inline-flex items-center gap-2 self-end mt-2 py-1.5 px-4 rounded-full bg-white hover:bg-sky-50 transition-all duration-300 border border-transparent hover:border-sky-200">
+            <span className="text-sm font-medium text-sky-700">
+              {article.attributes.isLink ? "Visit source" : "Read article"}
+            </span>
+            <ExternalLink className={`h-4 w-4 text-sky-700 transform transition-transform duration-300 ${article.attributes.isLink ? "group-hover/read:scale-110" : "group-hover/read:translate-x-1.5"}`} />
+          </div>
         </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 }
