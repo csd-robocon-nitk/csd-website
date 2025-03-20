@@ -1,9 +1,17 @@
 import React from "react";
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import parse from 'html-react-parser';
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 import Link from "next/link";
-import "./page.css"
+import Image from "next/image";
+import "./page.css";
+
+// Function to estimate reading time
+function getReadingTime(content) {
+  const text = content.replace(/<[^>]*>/g, '');
+  const wordCount = text.split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / 200); // Assuming 200 words per minute
+  return readingTime;
+}
 
 export default async function BlogPage({ params }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -30,32 +38,81 @@ export default async function BlogPage({ params }) {
   const blog_data = blog.data;
 
   const date = new Date(blog_data.attributes.publishedDate);
+  const readingTimeMinutes = getReadingTime(blog_data.attributes.blog);
+  
+  // Format date in a friendly way
+  const formattedDate = date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const imageUrl = blog_data.attributes.thumbnail.data 
+    ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${blog_data.attributes.thumbnail.data.attributes.url}`
+    : "/placeholder-image.jpg";
 
   return (
-    <div className="relative flex mt-20 flex-col items-center min-h-screen w-full">
-      <Link href={"/blog?type=blogs"} className="fixed top-8 mt-20 left-4 flex items-center gap-1 text-xl text-white bg-sky-900/90 backdrop-blur-sm p-2 rounded-full z-[999] hover:scale-105 transition-all duration-300">
-        <ArrowLeft />
+    <div className="relative flex flex-col items-center min-h-screen w-full bg-white">
+      {/* Back button */}
+      <Link 
+        href="/blog?type=blogs" 
+        className="fixed top-24 left-4 md:left-8 flex items-center gap-1 text-white bg-sky-800 p-2 md:p-3 rounded-full z-[999] hover:bg-sky-700 shadow-md transition-all duration-300"
+        aria-label="Back to blogs"
+      >
+        <ArrowLeft size={20} />
       </Link>
-      <div className="p-10 flex flex-col items-center w-4/5 gap-4">
-        <div className="py-20 flex flex-col items-center gap-4">
-            <h1 className="text-5xl font-extrabold text-wrap text-center">{blog_data.attributes.title}</h1>
-            <p className="text-xl font-bold text-page-accent">{date.toDateString()}</p>
-            <div className="text-xl text-wrap">{blog_data.attributes.desc}</div>
+
+      {/* Hero Section */}
+      <div className="w-full bg-gradient-to-b from-sky-50 to-white pt-32 pb-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sky-900 text-center leading-tight">
+            {blog_data.attributes.title}
+          </h1>
+          
+          <div className="flex flex-wrap justify-center items-center gap-4 mt-6 text-gray-600">
+            <div className="flex items-center gap-1">
+              <Calendar size={18} />
+              <span className="text-sm">{formattedDate}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock size={18} />
+              <span className="text-sm">{readingTimeMinutes} min read</span>
+            </div>
+            {blog_data.attributes.author && (
+              <div className="flex items-center gap-1">
+                <User size={18} />
+                <span className="text-sm">{blog_data.attributes.author}</span>
+              </div>
+            )}
+          </div>
+          
+          {blog_data.attributes.desc && (
+            <p className="mt-6 text-lg text-gray-700 text-center max-w-3xl mx-auto">
+              {blog_data.attributes.desc}
+            </p>
+          )}
         </div>
-        <div className="w-full justify-center flex ">
-            <img
-                className="w-3/4 rounded-lg"
-                src={
-                process.env.NEXT_PUBLIC_STRAPI_API_URL +
-                blog_data.attributes.thumbnail.data.attributes.formats.thumbnail.url
-                }
-                alt=""
-            />
+      </div>
+
+      {/* Featured Image */}
+      <div className="w-full max-w-5xl mx-auto px-4 -mt-6">
+        <div className="aspect-[16/9] relative rounded-xl overflow-hidden shadow-lg">
+          <img
+            src={imageUrl}
+            alt={blog_data.attributes.title}
+            className="w-full h-full object-cover"
+          />
         </div>
-        <article className="prose-xl text-shark-950 text-2xl ck-content">
-            {await parse(blog_data.attributes.blog)}
+      </div>
+
+      {/* Blog Content */}
+      <div className="w-full max-w-4xl mx-auto px-4 py-12">
+        <article className="blog-content">
+          {parse(blog_data.attributes.blog)}
         </article>
       </div>
+
+      {/* Related Posts or CTA could go here */}
     </div>
   );
 }

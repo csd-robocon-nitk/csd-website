@@ -1,15 +1,25 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import LinkedIn from "../../../public/assets/images/linkedin.svg";
-import Scholar from "../../../public/assets/images/scholar-white.svg";
-import NITK from "../../../public/assets/images/nitk.png";
-import { CircleX } from "lucide-react";
+import { X, Linkedin, Phone, Mail, Globe } from "lucide-react";
 import "./modal.css";
+
+// Google Scholar SVG icon component
+const GoogleScholar = ({ size = 20 }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+  >
+    <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+  </svg>
+);
 
 function Modal({ isOpen, setIsOpen, data }) {
   const modalRef = useRef(null);
+  const contentRef = useRef(null);
 
   const closeModal = () => {
     modalRef.current.classList.remove("open-modal");
@@ -19,12 +29,8 @@ function Modal({ isOpen, setIsOpen, data }) {
     }, 300);
   };
 
-  const clickOutsideToClose = (e) => {
-    if (modalRef.current === null) {
-      return;
-    }
-
-    if (!modalRef.current.contains(e.target)) {
+  const handleClickOutside = (e) => {
+    if (modalRef.current && !contentRef.current.contains(e.target)) {
       closeModal();
     }
   };
@@ -38,107 +44,188 @@ function Modal({ isOpen, setIsOpen, data }) {
   useEffect(() => {
     if (isOpen) {
       modalRef.current.classList.add("open-modal");
+      document.body.style.overflow = 'hidden';
     }
 
-    document.addEventListener("mousedown", clickOutsideToClose);
+    document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
+    
     return () => {
-      document.removeEventListener("mousedown", clickOutsideToClose);
+      document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
-  const achievements = data.attributes.Achievements?.split("\n");
-  const highlightProjects = data.attributes.HighlightProjects?.split("\n");
-  const academicBackground = data.attributes.academicBackground?.split("\n");
+  // Parse data with safety checks
+  const achievements = data?.attributes?.Achievements?.split("\n").filter(Boolean) || [];
+  const highlightProjects = data?.attributes?.HighlightProjects?.split("\n").filter(Boolean) || [];
+  const academicBackground = data?.attributes?.academicBackground?.split("\n").filter(Boolean) || [];
+  const areasOfInterest = data?.attributes?.areasOfInterest?.split("\n").filter(Boolean) || [];
+  
+  const imageUrl = data?.attributes?.pfp?.data?.attributes?.url 
+    ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${data.attributes.pfp.data.attributes.url}`
+    : "/placeholder.svg";
 
   return (
-    <div className="fixed inset-0 h-screen w-screen flex justify-center items-center z-[1000] bg-sky-300/50 backdrop-blur-sm">
-      <div
-        className="rounded bg-white flex flex-col md:flex-row border-sky-900 border-2 m-4 md:m-10 w-full h-full max-w-[1300px] max-h-[90vh] overflow-y-auto"
-        ref={modalRef}
+    <div 
+      className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+      ref={modalRef}
+    >
+      <div 
+        ref={contentRef}
+        className="bg-white w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] relative"
+        style={{ 
+          boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px",
+          animation: "modal-appear 0.3s ease-out forwards" 
+        }}
       >
-        <div className="relative flex flex-col w-full md:w-2/5 justify-between items-center gap-4 bg-sky-900 text-white p-4">
-          <button
-            className="absolute top-4 left-4 rounded-full text-white z-[999]"
-            onClick={closeModal}
-          >
-            <CircleX width={30} height={30}/>
-          </button>
-          <div className="flex flex-col gap-4 items-center">
-            <figure className="flex-shrink-0">
+        {/* Close button - positioned absolutely to be outside the content flow */}
+        <button 
+          onClick={closeModal}
+          className="absolute top-4 right-4 z-10 bg-white/10 rounded-full p-2 hover:bg-white/20 transition-colors text-white shadow-md"
+          aria-label="Close modal"
+        >
+          <X size={20} color="black"/>
+        </button>
+
+        {/* Left sidebar */}
+        <div className="w-full md:w-2/5 bg-gradient-to-b from-sky-800 to-sky-900 text-white p-6 flex flex-col">
+          <div className="flex flex-col items-center mb-6 pt-4">
+            <div className="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-white/80 shadow-lg overflow-hidden mb-4">
               <Image
-                width={90}
-                height={90}
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${data.attributes.pfp.data.attributes.url}`}
-                alt={data.attributes.name}
-                className="h-32 w-32 md:h-60 md:w-60 rounded-full object-cover mx-auto"
+                src={imageUrl}
+                alt={data?.attributes?.name || "Faculty member"}
+                width={200}
+                height={200}
+                className="w-full h-full object-cover"
+                onError={(e) => { e.target.src = "/placeholder.svg" }}
               />
-            </figure>
-            <div>
-              <h1 className="font-extrabold text-xl md:text-2xl text-center">
-                {data.attributes.name}
-              </h1>
-              <p className="text-center text-sm md:text-lg">
-                {data.attributes.Designation}
-              </p>
-              <p className="text-center text-sm md:text-lg">
-                {data.attributes.Department}
-              </p>
             </div>
+            
+            <h1 className="text-2xl font-bold text-center">
+              {data?.attributes?.name || "Faculty Member"}
+            </h1>
+            
+            <p className="text-lg text-sky-100 text-center">
+              {data?.attributes?.Designation || ""}
+            </p>
+            
+            <p className="text-sm text-sky-200 text-center">
+              {data?.attributes?.Department || ""}
+            </p>
           </div>
-          <div className="flex flex-col text-sm md:text-lg">
-            <p>Telephone: {data.attributes.telephone}</p>
-            <p>E-mail: {data.attributes.email}</p>
-            <p>Mobile: {data.attributes.mobile}</p>
-            <div className="flex justify-center gap-4 mt-2">
-              <a
+          
+          <div className="space-y-4 mt-2">
+            {data?.attributes?.telephone && (
+              <div className="flex items-center gap-3 text-sky-100">
+                <Phone size={18} />
+                <span>{data.attributes.telephone}</span>
+              </div>
+            )}
+            
+            {data?.attributes?.email && (
+              <div className="flex items-center gap-3 text-sky-100 break-all">
+                <Mail size={18} />
+                <a href={`mailto:${data.attributes.email}`} className="hover:underline">
+                  {data.attributes.email}
+                </a>
+              </div>
+            )}
+          </div>
+          
+          <div className="flex gap-4 mt-6 justify-center md:justify-start">
+            {data?.attributes?.linkedin && (
+              <a 
                 href={data.attributes.linkedin}
-                className="flex items-center gap-3 text-sm md:text-xl"
+                className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
               >
-                <Image src={LinkedIn} className="fill-current h-5 w-5" />
+                <Linkedin size={20} />
               </a>
-              <a
+            )}
+            
+            {data?.attributes?.scholar && (
+              <a 
                 href={data.attributes.scholar}
-                className="flex items-center gap-3 text-sm md:text-xl"
+                className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Google Scholar Profile"
               >
-                <Image src={Scholar} className="fill-current h-5 w-5" />
+                <GoogleScholar size={20} />
               </a>
-              <a
-                href={data.attributes?.nitk}
-                className="flex items-center gap-3 text-sm md:text-xl"
+            )}
+            
+            {data?.attributes?.nitk && (
+              <a 
+                href={data.attributes.nitk}
+                className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="NITK Profile"
               >
-                <Image src={NITK} className="fill-current h-5 w-5" />
+                <Globe size={20} />
               </a>
-            </div>
+            )}
           </div>
         </div>
-
-        <div className="flex flex-col px-4 md:px-8 py-4 gap-5 w-full md:w-3/5 overflow-y-auto">
-          <div>
-            <h1 className="text-lg font-bold">Achievements: </h1>
-            <ul className="text-sm md:text-lg list-disc list-inside">
-              {achievements?.map((achievement, index) => (
-                <li key={index}>{achievement}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h1 className="text-lg font-bold">Highlight Projects: </h1>
-            <ul className="text-sm md:text-lg list-disc list-inside">
-              {highlightProjects?.map((project, index) => (
-                <li key={index}>{project}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h1 className="text-lg font-bold">Academic Background: </h1>
-            <ul className="text-sm md:text-lg list-disc list-inside">
-              {academicBackground?.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
+        
+        {/* Main content area */}
+        <div className="w-full md:w-3/5 p-6 overflow-y-auto max-h-[60vh] md:max-h-[90vh] pt-12 md:pt-6">
+          {areasOfInterest.length > 0 && (
+            <section className="mb-6">
+              <h2 className="text-xl font-bold text-sky-900 mb-2 flex items-center gap-2">
+                Areas of Interest
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                {areasOfInterest.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+        
+          {achievements.length > 0 && (
+            <section className="mb-6">
+              <h2 className="text-xl font-bold text-sky-900 mb-2 flex items-center gap-2">
+                Achievements
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                {achievements.map((achievement, index) => (
+                  <li key={index}>{achievement}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+          
+          {highlightProjects.length > 0 && (
+            <section className="mb-6">
+              <h2 className="text-xl font-bold text-sky-900 mb-2 flex items-center gap-2">
+                Notable Projects
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                {highlightProjects.map((project, index) => (
+                  <li key={index}>{project}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+          
+          {academicBackground.length > 0 && (
+            <section className="mb-6">
+              <h2 className="text-xl font-bold text-sky-900 mb-2 flex items-center gap-2">
+                Academic Background
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                {academicBackground.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </div>
     </div>

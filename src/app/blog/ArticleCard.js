@@ -25,7 +25,7 @@ export default function ArticleCard({ article }) {
 
   return (
     <CardWrapper>
-      <div className="h-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-sky-50 border border-sky-100 hover:border-sky-200">
+      <div className="h-full flex flex-col overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-sky-50 border border-sky-100 hover:border-sky-200">
         <div className="relative overflow-hidden h-48">
           <img
             src={
@@ -43,7 +43,7 @@ export default function ArticleCard({ article }) {
           )}
         </div>
         
-        <div className="p-5 flex flex-col gap-3">
+        <div className="p-5 flex flex-col gap-3 flex-grow">
           <div className="group/title overflow-hidden transition-all duration-300 hover:min-h-fit">
             <h3 className="text-xl font-bold text-sky-900 line-clamp-2 group-hover/title:line-clamp-none transition-all duration-300">
               {article.attributes.title}
@@ -71,11 +71,13 @@ export default function ArticleCard({ article }) {
             )}
           </div>
           
-          <div className="group/read inline-flex items-center gap-2 self-end mt-2 py-1.5 px-4 rounded-full bg-white hover:bg-sky-50 transition-all duration-300 border border-transparent hover:border-sky-200">
-            <span className="text-sm font-medium text-sky-700">
-              {article.attributes.isLink ? "Visit source" : "Read article"}
-            </span>
-            <ExternalLink className={`h-4 w-4 text-sky-700 transform transition-transform duration-300 ${article.attributes.isLink ? "group-hover/read:scale-110" : "group-hover/read:translate-x-1.5"}`} />
+          <div className="mt-auto pt-4 self-end">
+            <div className="group/read inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white hover:bg-sky-50 transition-all duration-300 border border-transparent hover:border-sky-200">
+              <span className="text-sm font-medium text-sky-700">
+                {article.attributes.isLink ? "Visit source" : "Read article"}
+              </span>
+              <ExternalLink className={`h-4 w-4 text-sky-700 transform transition-transform duration-300 ${article.attributes.isLink ? "group-hover/read:scale-110" : "group-hover/read:translate-x-1.5"}`} />
+            </div>
           </div>
         </div>
       </div>

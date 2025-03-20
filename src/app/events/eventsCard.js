@@ -1,12 +1,18 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { Calendar, MapPin } from 'lucide-react' // Import icons if you have lucide-react
+import { Calendar, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function EventsCard({event}) {
   const startDateTime = event.attributes.start ? new Date(event.attributes.start) : null
+  const [showFullDescription, setShowFullDescription] = useState(false);
+  
+  // Check if description is long enough to need expansion
+  const description = event.attributes.desc || "";
+  const needsExpansion = description.length > 120;
   
   return (
-    <div className="w-full m-2 max-w-md overflow-hidden rounded-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-sky-50 border border-sky-100">
+    <div className="w-full m-2 max-w-md overflow-hidden rounded-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-sky-50 border border-sky-100 flex flex-col h-full">
       <div className="relative overflow-hidden h-48">
         <img
           src={
@@ -18,9 +24,31 @@ export default function EventsCard({event}) {
         />
       </div>
       
-      <div className="p-5 flex flex-col gap-3">
+      <div className="p-5 flex flex-col gap-3 flex-grow">
         <h3 className="text-xl font-bold text-sky-900 line-clamp-2">{event.attributes.title}</h3>
-        <p className="text-gray-700 text-sm line-clamp-3">{event.attributes.desc}</p>
+        
+        {/* Description with expand/collapse functionality */}
+        <div>
+          <p className={`text-gray-700 text-sm ${!showFullDescription && needsExpansion ? 'line-clamp-3' : ''}`}>
+            {description}
+          </p>
+          
+          {needsExpansion && (
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                setShowFullDescription(!showFullDescription);
+              }}
+              className="text-sky-700 hover:text-sky-900 text-xs font-medium mt-1 flex items-center gap-1 transition-colors"
+            >
+              {showFullDescription ? (
+                <>Show less <ChevronUp size={14} /></>
+              ) : (
+                <>Read more <ChevronDown size={14} /></>
+              )}
+            </button>
+          )}
+        </div>
         
         <div className="flex flex-col gap-3 mt-2">
           {startDateTime && (
@@ -53,7 +81,7 @@ export default function EventsCard({event}) {
           )}
         </div>
         
-        <div className="flex gap-3 mt-3 pt-3 border-t border-sky-100">
+        <div className="flex gap-3 mt-auto pt-3 border-t border-sky-100">
           {event.attributes.registerLink && event.attributes.registerLink.trim() !== "" && (
             <Link 
               href={event.attributes.registerLink} 
