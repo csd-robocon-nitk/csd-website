@@ -5,8 +5,8 @@ import React from "react"
 function FilterBar({ activeFilter, setActiveFilter }) {
 	const filters = [
 		{ name: "All", value: "all" },
-		{ name: "Main Projects", value: "main" },
 		{ name: "Featured Work", value: "featured" },
+		{ name: "Main Projects", value: "main" },
 		{ name: "Consultancy Work", value: "consultancy" },
 		{ name: "Student Work", value: "student" }
 	]
