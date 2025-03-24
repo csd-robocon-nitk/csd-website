@@ -7,19 +7,46 @@ import FilterBar from "./FilterBar"
 import Link from "next/link"
 
 function ProjectList({ projects }) {
-	const [activeFilter, setActiveFilter] = useState("all")
+	const [activeFilter, setActiveFilter] = useState(0)
 	let ref = useRef(null)
 
-	let featuredProjects = projects.filter(p => p.attributes.featured_work)
-	let mainProjects = projects.filter(p => p.attributes.category == "main")
-	let consultancyProjects = projects.filter(p => p.attributes.category == "consultancy")
-	let studentProjects = projects.filter(p => p.attributes.category == "student research")
+	let categories = [
+		{
+			name: "All"
+		},
+		{
+			name: "Featured Work",
+			filter: p => p.attributes.featured_work
+		},
+		{
+			name: "Main Projects",
+			filter: p => p.attributes.category == "main"
+		},
+		{
+			name: "Consultancy Work",
+			filter: p => p.attributes.category == "consultancy"
+		},
+		{
+			name: "Student Research & Innovation",
+			filter: p => p.attributes.category == "student research"
+		},
+		{
+			name: "Internal Research Projects",
+			filter: p => p.attributes.category == "internal research"
+		},
+		{
+			name: "Product Development & Prototyping",
+			filter: p => p.attributes.category == "product development"
+		},
+		{
+			name: "Collaborative Academia Projects",
+			filter: p => p.attributes.category == "collaborative"
+		},
+	]
 
-	if (activeFilter == "all") {
-		featuredProjects = featuredProjects.slice(0, 3)
-		mainProjects = mainProjects.slice(0, 3)
-		consultancyProjects = consultancyProjects.slice(0, 3)
-		studentProjects = studentProjects.slice(0, 3)
+	let getSelectedProjects = category => {
+		if (activeFilter == 0) return projects.filter(category.filter).slice(0,3)
+		else return projects.filter(category.filter)
 	}
 
 	useEffect(() => {
@@ -28,7 +55,7 @@ function ProjectList({ projects }) {
 	}, [activeFilter])
 
 	const renderViewAllLink = filter => {
-		if (activeFilter == "all") {
+		if (activeFilter == 0) {
 			return (
 				<Link
 					href="#"
@@ -56,56 +83,21 @@ function ProjectList({ projects }) {
 			<FilterBar
 				activeFilter={activeFilter}
 				setActiveFilter={setActiveFilter}
+				categories={categories}
+				getSelectedProjects={getSelectedProjects}
 			/>
 
 			<AnimatePresence>
-				{(activeFilter === "all" || activeFilter === "featured") &&
-					featuredProjects.length > 0 && 
-                    (
-						<ProjectSection
-							key="featured"
-							title="Featured Work"
-							projects={featuredProjects}
-							viewAllLink={renderViewAllLink("featured")}
-						/>
-					)
-                }
-
-				{(activeFilter === "all" || activeFilter === "main") &&
-					mainProjects.length > 0 && 
-                    (
-						<ProjectSection
-							key="main"
-							title="Main Projects"
-							gradientClass="bg-gradient-to-br from-cyan-500/50 to-blue-600/50"
-							projects={mainProjects}
-							viewAllLink={renderViewAllLink("main")}
-						/>
-					)
-                }
-
-				{(activeFilter === "all" || activeFilter === "consultancy") &&
-					consultancyProjects.length > 0 && 
-                    (
-						<ProjectSection
-							key="consultancy"
-							title="Consultancy Projects"
-							projects={consultancyProjects}
-							viewAllLink={renderViewAllLink("consultancy")}
-						/>
-					)
-                }
-
-				{(activeFilter === "all" || activeFilter === "student") &&
-					studentProjects.length > 0 && 
-                    (
-						<ProjectSection
-							key="student"
-							title="Student Work"
-							projects={studentProjects}
-							viewAllLink={renderViewAllLink("student")}
-						/>
-					)
+				{
+					categories.map((category, i) => 
+						i != 0 && getSelectedProjects(category).length > 0 && (activeFilter == 0 || activeFilter == i) &&
+							<ProjectSection
+								key={i}
+								title={category.name}
+								projects={getSelectedProjects(category)}
+								viewAllLink={renderViewAllLink(i)}
+							/>
+						)
                 }
 			</AnimatePresence>
 		</motion.div>

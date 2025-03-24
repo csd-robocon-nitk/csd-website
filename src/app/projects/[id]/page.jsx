@@ -13,7 +13,7 @@ export default async function ProjectDetail ({ params }) {
 	const { id } = await params
 	
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/projects/${id}?populate[cover_image]=*&populate[slides][populate]=*&populate[key_features]=*&populate[impact][populate]=*&populate[team][populate]=*&populate[external_team][populate]=*&populate[testimonials]=*`,
+		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/projects/${id}?populate[cover_image]=*&populate[objectives]=*&populate[slides][populate]=*&populate[key_features]=*&populate[impact][populate]=*&populate[team][populate]=*&populate[external_team][populate]=*&populate[testimonials]=*`,
 		{
 			headers: {
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`
@@ -23,7 +23,6 @@ export default async function ProjectDetail ({ params }) {
 	)
 	let resData = await res.json()
 	let project = resData.data.attributes
-	console.log(project)
 	const { slides, cover_image, full_description, objectives, external_link, title, key_features, impact, team, external_team, testimonials, sub_projects } = project
 
 	const image_url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${cover_image?.data.attributes.url}`
@@ -31,7 +30,7 @@ export default async function ProjectDetail ({ params }) {
 	let tab_names = [{ name: "Description", value: "description" }]
 	let tabs = [ <Description slides={slides} full_description={full_description} key="description" /> ]
 
-	if (key_features) {
+	if (key_features.length) {
 		tab_names.push({ name: "Key Features", value: "key_features" })
 		tabs.push(<KeyFeatures key_features={key_features} key="key_features" />)
 	}
@@ -41,12 +40,12 @@ export default async function ProjectDetail ({ params }) {
 		tabs.push(<Impact impact={impact} key="impact" />)
 	}
 
-	if (team || external_team) {
+	if (team.length || external_team.length) {
 		tab_names.push({ name: "Team", value: "team" })
 		tabs.push(<Team team={team.data} external_team={external_team} key="team" />)
 	}
 
-	if (testimonials) {
+	if (testimonials.length) {
 		tab_names.push({ name: "Testimonials", value: "testimonials" })
 		tabs.push(<Testimonials testimonials={testimonials} key="testimonials" />)
 	}
@@ -74,7 +73,7 @@ export default async function ProjectDetail ({ params }) {
 						className="w-full aspect-square rounded-lg object-cover"
 					/>
 
-					{ objectives &&
+					{ !!objectives.length &&
 						<div className="space-y-2 border border-sky-100 p-4 rounded-lg">
 							<h2 className="font-bold text-xl">Objectives:</h2>
 							<ul className="space-y-2">

@@ -2,28 +2,21 @@
 
 import React from "react"
 
-function FilterBar({ activeFilter, setActiveFilter }) {
-	const filters = [
-		{ name: "All", value: "all" },
-		{ name: "Featured Work", value: "featured" },
-		{ name: "Main Projects", value: "main" },
-		{ name: "Consultancy Work", value: "consultancy" },
-		{ name: "Student Work", value: "student" }
-	]
-
+function FilterBar({ activeFilter, setActiveFilter, categories, getSelectedProjects }) {
 	return (
-		<div className="w-full justify-center flex mb-4">
-			{filters.map(filter => (
+		<div className="w-full justify-center flex mb-4 px-4 gap-2 md:flex-wrap">
+			{categories.map((category,i) => (
+				(i == 0 || !!getSelectedProjects(category).length) && 
 				<button
-					key={filter.value}
-					onClick={() => setActiveFilter(filter.value)}
+					key={i}
+					onClick={() => setActiveFilter(i)}
 					className={`${
-						activeFilter == filter.value
+						activeFilter == i
 							? "bg-sky-900 text-white"
 							: "bg-slate-100"
-					} px-4 py-2 rounded-md shadow-md font-semibold mr-2`}
+					} px-4 py-2 rounded-md shadow-md font-semibold`}
 				>
-					{filter.name}
+					{category.name}
 				</button>
 			))}
 		</div>

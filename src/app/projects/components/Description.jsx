@@ -10,7 +10,7 @@ export default function Description ({ slides, full_description}) {
             <Slides slides={slides} />
 
             <div className="prose max-w-none">
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed whitespace-pre-wrap text-justify">
                     {full_description}
                 </p>
             </div>
