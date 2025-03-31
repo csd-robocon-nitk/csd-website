@@ -12,7 +12,7 @@ async function TeamPage({ searchParams }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/peoples?populate=*&pagination[limit]=100`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/peoples?populate=*&pagination[limit]=100&sort[0]=rank:asc`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
