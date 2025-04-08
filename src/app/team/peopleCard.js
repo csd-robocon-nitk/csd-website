@@ -12,8 +12,8 @@ export default function PeopleCard({item}) {
     setImageError(true);
   };
 
-  const imageUrl = item?.attributes?.pfp?.data?.attributes?.formats?.thumbnail?.url 
-    ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.formats.thumbnail.url}`
+  const imageUrl = item?.attributes?.pfp?.data?.attributes?.url 
+    ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.attributes.pfp.data.attributes.url}`
     : "/placeholder.svg";
 
   return (
