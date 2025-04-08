@@ -90,7 +90,7 @@ export default function Contact() {
             >
               <div className="flex items-center space-x-4">
                 <PhoneIcon className="h-6 w-6" />
-                <span>+91-0824-2473915</span>
+                <span>+91-0824-2473115</span>
               </div>
               <div className="flex items-center space-x-4">
                 <EnvelopeIcon className="h-6 w-6" />
