@@ -37,6 +37,9 @@ async function Partners() {
   const academia = partners.data.filter(
     (partner) => partner.attributes.PartnerType === "Academia"
   );
+  const other = partners.data.filter(
+    (partner) => partner.attributes.PartnerType === "Others"
+  );
 
   return (
     <div className="flex flex-col py-20">
@@ -63,6 +66,12 @@ async function Partners() {
         <h1 className="text-4xl font-bold py-4">Academia</h1>
         <div className="grid grid-cols-4 gap-4 items-stretch">
           {academia.map((partner, index) => {
+            return <PartnerHoverCard partner={partner} key={index} index={index}/>;
+          })}
+        </div>
+        <h1 className="text-4xl font-bold py-4">Others</h1>
+        <div className="grid grid-cols-4 gap-4 items-stretch">
+          {other.map((partner, index) => {
             return <PartnerHoverCard partner={partner} key={index} index={index}/>;
           })}
         </div>
