@@ -9,7 +9,7 @@ function ProjectCard({ project }) {
 		<div className="bg-white text-primary rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 flex flex-col">
 			<div className="relative h-48">
 				<Image
-					src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${cover_image.data.attributes.formats.medium.url}`}
+					src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${cover_image.data.attributes.url}`}
 					alt={title}
 					fill
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
