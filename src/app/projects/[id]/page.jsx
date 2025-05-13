@@ -40,7 +40,7 @@ export default async function ProjectDetail ({ params }) {
 		tabs.push(<Impact impact={impact} key="impact" />)
 	}
 
-	if (team.length || external_team.length) {
+	if (team.data.length || external_team.length) {
 		tab_names.push({ name: "Team", value: "team" })
 		tabs.push(<Team team={team.data} external_team={external_team} key="team" />)
 	}
