@@ -1,14 +1,15 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaRocket } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaRocket, FaYoutube } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: 'Facebook', icon: FaFacebook, href: 'https://facebook.com', color: 'text-blue-600' },
-    { name: 'Twitter', icon: FaTwitter, href: 'https://twitter.com', color: 'text-blue-400' },
-    { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com', color: 'text-pink-600' },
-    { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com', color: 'text-blue-700' },
+    { name: 'Facebook', icon: FaFacebook, href: 'https://www.facebook.com/csd.nitk/', color: 'text-blue-600' },
+    // { name: 'Twitter', icon: FaTwitter, href: 'https://twitter.com', color: 'text-blue-400' },
+    { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/csd_nitk?igsh=YzB5b25iNHA0OGhm', color: 'text-pink-600' },
+    // { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com', color: 'text-blue-700' },
+    { name: 'Youtube', icon: FaYoutube, href: 'https://www.youtube.com/@centreforsystemdesignnitks8420', color: 'text-red-600' },
   ];
   return (
     <footer className="bg-sky-950 text-gray-300 py-8 overflow-hidden">
