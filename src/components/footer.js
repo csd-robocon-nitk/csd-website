@@ -11,6 +11,14 @@ export default function Footer() {
     // { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com', color: 'text-blue-700' },
     { name: 'Youtube', icon: FaYoutube, href: 'https://www.youtube.com/@centreforsystemdesignnitks8420', color: 'text-red-600' },
   ];
+
+  const quickLinks = [
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Team', href: '/team?type=faculty' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
   return (
     <footer className="bg-sky-950 text-gray-300 py-8 overflow-hidden">
       <div className="max-w-5xl mx-auto px-4">
@@ -30,13 +38,13 @@ export default function Footer() {
           <div className="flex flex-col space-y-2">
             <h3 className="text-sm font-semibold text-white">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
-              {["About", "Projects", "Team", "Contact"].map((item) => (
+              {quickLinks.map((link) => (
                 <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={link.name}
+                  href={link.href}
                   className="text-sm hover:text-white transition-colors duration-200"
                 >
-                  {item}
+                  {link.name}
                 </Link>
               ))}
             </nav>
