@@ -7,7 +7,7 @@ export default function ResearchPage () {
         <div className="min-h-screen pt-12 bg-white">
             <Splash
                 title="Research"
-                subtitle="CSD contributes vastly in the areas of research and publications."
+                subtitle="Driving Innovation through Research, Collaboration, and Real-World Impact."
             />
             <div className="px-5">
                 <h1 className="sm:text-4xl text-3xl font-bold my-8 max-w-[1100px] mx-auto">Our Research Areas</h1>
