@@ -52,7 +52,7 @@ function HighlightProjects() {
 				{/* Vlabs */}
 				<motion.div
 					ref={vlabRef}
-					className="flex gap-4 w-4/5 max-w-[1200px] sticky top-40 rounded-lg overflow-hidden"
+					className="flex gap-4 w-4/5 max-w-[1200px] sticky top-40 rounded-lg overflow-hidden max-h-[600px]"
 					style={{ scale: scale2Vlab }}
 				>
 					<motion.video
@@ -94,14 +94,14 @@ function HighlightProjects() {
           <motion.div
             style={{ scale: scale2Search }}
             ref={searchRef}
-            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-48 rounded-lg overflow-hidden"
+            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-48 rounded-lg overflow-hidden max-h-[600px]"
           >
             <motion.video
               style={{ scale: scaleSearch }}
               autoPlay
               loop
               muted
-              src="/objectives.mp4"
+              src="/srm_video.mp4"
               className="w-full rounded-lg object-cover object-center"
             ></motion.video>
             <div className="flex flex-col gap-8 w-full absolute justify-center items-start p-8 bg-black/60 h-full">
@@ -111,7 +111,7 @@ function HighlightProjects() {
                 transition={{ duration: 1 }}
                 className="text-4xl font-extrabold"
               >
-                SEARCH
+                Switched Reluctance Motor (SRM)
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 100 }}
@@ -119,14 +119,7 @@ function HighlightProjects() {
                 transition={{ duration: 1 }}
                 className="text-xl text-justify"
               >
-                SEARCH is a groundbreaking initiative designed to revolutionize
-                emergency management and environmental monitoring. Developed by
-                the Centre for System Design (CSD) at NITK Surathkal, SEARCH
-                integrates cutting-edge UHF/VHF/HF radio stations with
-                autonomous aerial and marine vehicles, creating a robust
-                platform for disaster response, communication, and rescue
-                operations. This initiative represents a global first, setting
-                new standards for how emergencies are managed.
+                The Centre for System Design (CSD), NITK Surathkal, has developed cost-effective, magnet-free Switched Reluctance Motors (SRMs) for electric vehicles, including E-rickshaws and E-cycles. Backed by the Ministry of Heavy Industries, the project delivers indigenous motor and controller solutions aligned with the Atmanirbhar Bharat mission.
               </motion.p>
             </div>
           </motion.div>
@@ -135,7 +128,7 @@ function HighlightProjects() {
           <motion.div
             style={{ scale: scale2Emob }}
             ref={mergeRefs([eMobilityRef, measureRef])}
-            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-56 rounded-lg overflow-hidden"
+            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-56 rounded-lg overflow-hidden max-h-[600px]"
           >
             <motion.video
               style={{ scale: scaleEmob }}
