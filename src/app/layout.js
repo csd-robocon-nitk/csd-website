@@ -7,9 +7,9 @@ import { Providers } from './providers'
 const inter = Lexend_Deca({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 
 export const metadata = {
-	title: 'Center for System Design',
+	title: 'Centre for System Design',
 	description:
-		'Center for System Design at National Institute of Technology, Karnataka, Suratkhal'
+		'Centre for System Design at National Institute of Technology, Karnataka, Suratkhal'
 }
 
 export default function RootLayout({ children }) {

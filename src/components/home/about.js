@@ -22,7 +22,7 @@ export default function AboutSection() {
 				</div>
 				<div className="bg-sky-800 max-w-[550px] overflow-visible rounded-2xl md:pl-20 lg:pr-20 md:pr-12 xs:px-8 px-4 lg:py-12 xs:py-8 py-4">
 					<img src="/assets/images/aboutheading.png" className="md:w-[138%] w-full max-w-none md:-translate-x-[calc(27.5%+5px)] z-20 relative" alt="" />
-					<p className="text-white lg:text-xl text-base xl:leading-normal leading-snug md:text-right text-justify">Center of System Design (A Center of Excellence at NITK Surathkal) envisages an Interdisciplinary approach and means for realization of successful engineering systems. It aims at facilitating and providing required environment for all key components of system design.</p>
+					<p className="text-white lg:text-xl text-base xl:leading-normal leading-snug md:text-right text-justify">Centre of System Design (A Centre of Excellence at NITK Surathkal) envisages an Interdisciplinary approach and means for realization of successful engineering systems. It aims at facilitating and providing required environment for all key components of system design.</p>
 				</div>
 				<a href="/about" className="bg-[#0369a1] px-6 py-3 rounded-full text-white lg:text-xl text-lg font-bold md:hidden visible">Learn More</a>
 			</div>

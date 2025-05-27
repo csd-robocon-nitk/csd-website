@@ -376,9 +376,6 @@ export default function EMobilityPage() {
                       <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
                       <p className="text-lg text-gray-600 mb-4">{feature.description}</p>
                       <p className="text-gray-600 mb-6">{feature.details}</p>
-                      <Button variant="outline" size="lg" className="text-lg">
-                        Learn more <ChevronRight className="h-5 w-5 ml-2" />
-                      </Button>
                     </CardContent>
                   </Card>
                 ))}
