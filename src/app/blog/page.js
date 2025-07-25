@@ -48,7 +48,7 @@ const Blogs
 
   return (
     <div className='pt-20 flex flex-col justify-center items-center w-full bg-white'>
-        <Splash title={"Blogs & News"} subtitle={"Stay Informed, Stay Ahead – Your Source for News and Insights"}/>
+        <Splash title={"Blogs & News"} subtitle={"All Things CSD – News Updates and Expert Blogs"}/>
         <BlogsAndNews blogs={blogs_data} articles={articles_data} init_type={type}/>
     </div>
   )
