@@ -36,7 +36,7 @@ export default function TeamSection ({ team }) {
                 >
                     Our Team
                 </motion.h2>
-                <div className="grid grid-cols-3 items-stretch mx-auto gap-3 max-w-[1100px]">
+                <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-stretch mx-auto gap-3 max-w-[1100px]">
                     {
                         team_data.map(({ position, name, image_url }, index) => (
                             <motion.div 
