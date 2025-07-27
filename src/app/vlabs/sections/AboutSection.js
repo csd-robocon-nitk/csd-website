@@ -13,10 +13,10 @@ export default function AboutSection () {
                         transition={{ duration: 0.5 }}
                         className="md:w-1/2"
                     >
-                        <p className="text-lg mb-6 text-black">
+                        <p className="text-lg mb-6 text-black text-justify">
                             The Virtual Lab at NITK, hosted by the Centre for System Design (CSD), is redefining education and research by providing remote access to experiments typically conducted in physical labs. Our virtual labs replicate real-world lab environments, providing a comprehensive learning experience without geographical limitations.
                         </p>
-                        <p className="text-lg mb-6 text-black">
+                        <p className="text-lg mb-6 text-black text-justify">
                             CSD's initiatives go beyond virtual labs, engaging in outreach activities and workshops designed to foster innovation, collaboration, and practical learning experiences.
                         </p>
                     </motion.div>

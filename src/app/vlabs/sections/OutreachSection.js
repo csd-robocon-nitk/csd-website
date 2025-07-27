@@ -4,13 +4,13 @@ import { motion } from "framer-motion"
 
 export default function OutreachSection ({ outreach }) {
     return (
-        <section id="outreach" className="py-10 px-8">
-            <div className="container mx-auto px-4">
+        <section id="outreach" className="py-10">
+            <div className="container mx-auto sm:px-10 px-6">
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl font-bold mb-12 text-center"
+                    className="sm:text-4xl text-3xl font-bold mb-8 text-center"
                 >
                     Outreach Activities
                 </motion.h2>
@@ -20,26 +20,26 @@ export default function OutreachSection ({ outreach }) {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h3 className="text-2xl font-semibold mb-4 text-black">Our Nodal Centers</h3>
-                        <p className="text-lg mb-6 text-slate-600">
+                        <h3 className="sm:text-2xl text-xl font-semibold mb-4 text-black">Our Nodal Centers</h3>
+                        <p className="sm:text-lg text-base mb-6 text-slate-600 text-justify">
                             NITK Surathkal mentors over 440 institutions that have partnered as our Nodal Centers. These include state technological universities, centrally funded technical institutes, private universities, and more.
                         </p>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Karnataka</h4>
-                                <p className="text-black">{outreach.nodal_karnataka}</p>
+                                <p className="text-black break-words">{outreach.nodal_karnataka}</p>
                             </div>
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Kerala</h4>
-                                <p className="text-black">{outreach.nodal_kerala}</p>
+                                <p className="text-black break-words">{outreach.nodal_kerala}</p>
                             </div>
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Tamil Nadu</h4>
-                                <p className="text-black">{outreach.nodal_tamil_nadu}</p>
+                                <p className="text-black break-words">{outreach.nodal_tamil_nadu}</p>
                             </div>
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Other States</h4>
-                                <p className="text-black">{outreach.nodal_other}</p>
+                                <p className="text-black break-words">{outreach.nodal_other}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -55,19 +55,19 @@ export default function OutreachSection ({ outreach }) {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Karnataka</h4>
-                                <p className="text-black">{outreach.workshops_karnataka}</p>
+                                <p className="text-black break-words">{outreach.workshops_karnataka}</p>
                             </div>
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Kerala</h4>
-                                <p className="text-black">{outreach.workshops_kerala}</p>
+                                <p className="text-black break-words">{outreach.workshops_kerala}</p>
                             </div>
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Tamil Nadu</h4>
-                                <p className="text-black">{outreach.workshops_tamil_nadu}</p>
+                                <p className="text-black break-words">{outreach.workshops_tamil_nadu}</p>
                             </div>
                             <div className="bg-sky-100 p-4 rounded-lg">
                                 <h4 className="font-semibold">Other States</h4>
-                                <p className="text-black">{outreach.workshops_other}</p>
+                                <p className="text-black break-words">{outreach.workshops_other}</p>
                             </div>
                         </div>
                     </motion.div>

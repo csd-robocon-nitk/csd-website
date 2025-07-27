@@ -9,17 +9,21 @@ import OutreachSection from './sections/OutreachSection'
 import BottomSection from './sections/BottomSection'
 import fetchContribution from './helpers/fetchContribution'
 import fetchOutreach from './helpers/fetchOutreach'
+import fetchTeam from './helpers/fetchTeam'
+import TeamSection from './sections/TeamSection'
 
 export default async function VirtualLabs() {
     let labs = await fetchLabs()
     let contribution = await fetchContribution()
     let outreach = await fetchOutreach()
+    let team = await fetchTeam()
 
     const helper = [
         { href: "features", label: "Features" },
         { href: "labs", label: "Labs" },
         { href: "contribution", label: "Contribution" },
         { href: "outreach", label: "Outreach" },
+        { href: "team", label: "Team"}
     ];
     
 
@@ -32,6 +36,7 @@ export default async function VirtualLabs() {
             <LabsDevelopedSection labs={labs} />
             <ContributionSection contribution={contribution} />
             <OutreachSection outreach={outreach} />
+            <TeamSection team={team} />
             <BottomSection />
         </div>
     )

@@ -15,12 +15,12 @@ export default function KeyFeaturesSection () {
 
     return (
         <section id="features" className="py-10 bg-sky-100">
-            <div className="container mx-auto px-4 max-w-[1100px]">
+            <div className="container mx-auto sm:px-4 px-2 max-w-[1100px]">
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl font-bold mb-12"
+                    className="sm:text-4xl text-3xl text-center font-bold mb-8"
                 >
                     Key Features
                 </motion.h2>
@@ -35,7 +35,7 @@ export default function KeyFeaturesSection () {
                                 whileHover={{ scale: 1.02 }}
                                 className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center"
                             >
-                                <h3 className="text-xl font-semibold mb-6">{feature.title}</h3>
+                                <h3 className="text-xl w-full sm:text-center font-semibold mb-4">{feature.title}</h3>
                                 <div className="flex items-center gap-4">
                                     {feature.icon}
                                     <p className="text-black">{feature.description}</p>

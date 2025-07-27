@@ -13,7 +13,7 @@ export default function BottomSection () {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl font-bold mb-8"
+                    className="sm:text-4xl text-3xl font-bold mb-8"
                 >
                     Ready to Explore Virtual Labs?
                 </motion.h2>
