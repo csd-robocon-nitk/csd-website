@@ -55,7 +55,7 @@ function HoverBottomNav({ helper }) {
         {helper.map((item, index) => (
           <div
             key={index}
-            className={`duration-300 py-2 xs:px-2 px-1 cursor-pointer rounded-full transition-all xs:text-sm text-xs text-nowrap ${activeSection == item.href ? "bg-white text-sky-800" : ""}`}
+            className={`duration-300 py-2 xs:px-2 px-1 cursor-pointer select-none rounded-full transition-all xs:text-sm text-xs text-nowrap ${activeSection == item.href ? "bg-white text-sky-800" : ""}`}
             onClick={scrollToSection}
             href={`#${item.href}`}
           >

@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 export default function TeamSection ({ team }) {
-    console.log(team)
     let team_data = team.map(member => {
         let data = { position: member.attributes.position }
         if (member.attributes.person.data) {
