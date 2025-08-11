@@ -2,8 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import Link from "next/link"
-import { ArrowLeft, Battery, Zap, Timer, Settings, ChevronRight, ChevronLeft} from "lucide-react"
+import { Battery, Zap, Timer, Settings, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from '../components/ui/button';
 import Splash from "@/components/splash"
 import { Card, CardContent } from "../components/ui/card"
@@ -20,11 +19,8 @@ const initiatives = [
       "Integrated smart features for tracking and scheduling",
     ],
     images: [
-      "/assets/images/gallery/VidhYug (3).png?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/assets/images/gallery/e-mobility/vidhyug 1.0.jpg",
     ],
-    // videoId: "dQw4w9WgXcQ",
   },
   {
     title: "VidhYug 2.0 - Administrative Usage",
@@ -43,9 +39,11 @@ const initiatives = [
       "VidhYug 2.2.2 - Library",
     ],
     images: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/assets/images/gallery/e-mobility/vidhyug 2.0.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 2.1.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 2.2.1 hostel office.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 2.2.1.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 2 bldc motor.jpg",
     ],
     videoId: "Xnlz9MMqaGA",
   },
@@ -60,9 +58,9 @@ const initiatives = [
       "IRIS system with GPS tracking",
     ],
     images: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/assets/images/gallery/e-mobility/vidhyug 3.0.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 3.0 1.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 3.1.jpg",
     ],
     videoId: "wZr6k_tV6Ak",
   },
@@ -78,9 +76,11 @@ const initiatives = [
       "Removable headlight/torch for versatile illumination",
     ],
     images: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/assets/images/gallery/e-mobility/vidhyug 4.0_1.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 4.0_2.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 4.0_3.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 4.0_4.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 4.0_5.jpg",
     ],
     videoId: "IPepptEKgEk",
   },
@@ -95,9 +95,9 @@ const initiatives = [
       "Quiet operation for discreet security rounds",
     ],
     images: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/assets/images/gallery/e-mobility/vidhyug 4.1 launch.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 4.1.jpg",
+      "/assets/images/gallery/e-mobility/vidhyug 4.1_2.jpg",
     ],
     videoId: "8ASWYSiiImE",
   },
@@ -156,7 +156,7 @@ const initiatives = [
 
 function Initiative({ initiative }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-  const totalSlides = initiative.images.length + 1 // +1 for the video slide
+  const totalSlides = initiative.images.length + (initiative.videoId ? 1 : 0) // +1 for the video slide
 
   const nextSlide = () => {
     setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % totalSlides)
@@ -197,35 +197,15 @@ function Initiative({ initiative }) {
         <div className="space-y-4">
           <div className="relative h-[300px] w-full">
             {currentSlideIndex < initiative.images.length ? (
-              <>
-                <Image
-                  src={initiative.images[currentSlideIndex] || "/placeholder.svg"}
-                  alt={`${initiative.title} - Image ${currentSlideIndex + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
-                <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
-                  <Button
-                    onClick={prevSlide}
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full bg-white/80 hover:bg-white pointer-events-auto"
-                  >
-                    <ChevronLeft className="h-6 w-6" />
-                  </Button>
-                  <Button
-                    onClick={nextSlide}
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full bg-white/80 hover:bg-white pointer-events-auto"
-                  >
-                    <ChevronRight className="h-6 w-6" />
-                  </Button>
-                </div>
-              </>
+              <Image
+                src={initiative.images[currentSlideIndex] || "/placeholder.svg"}
+                alt={`${initiative.title} - Image ${currentSlideIndex + 1}`}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
             ) : (
-              <div className="w-full h-full rounded-lg overflow-hidden">
+              initiative.videoId && <div className="w-full h-full rounded-lg overflow-hidden">
                 <iframe
                   width="100%"
                   height="100%"
@@ -238,6 +218,24 @@ function Initiative({ initiative }) {
                 ></iframe>
               </div>
             )}
+            <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
+              <Button
+                onClick={prevSlide}
+                variant="outline"
+                size="icon"
+                className="rounded-full bg-white/80 hover:bg-white pointer-events-auto"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+              <Button
+                onClick={nextSlide}
+                variant="outline"
+                size="icon"
+                className="rounded-full bg-white/80 hover:bg-white pointer-events-auto"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+            </div>
           </div>
           <div className="flex justify-center space-x-2">
             {Array.from({ length: totalSlides }).map((_, index) => (
@@ -329,11 +327,11 @@ export default function EMobilityPage() {
               </div>
               <div className="relative h-[400px] rounded-lg overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=800&width=1200"
+                  src="/assets/images/gallery/e-mobility/cover.jpeg"
                   alt="Platform Overview"
                   layout="fill"
                   objectFit="cover"
-                  className="transition-transform duration-300 hover:scale-110"
+                  className="transition-transform duration-300"
                 />
               </div>
             </div>
