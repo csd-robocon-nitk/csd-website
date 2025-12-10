@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_projects_objectives",
+  "info": {
+    "displayName": "Objectives",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

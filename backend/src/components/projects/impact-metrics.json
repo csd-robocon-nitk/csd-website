@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_projects_impact_metrics",
+  "info": {
+    "displayName": "Impact Metrics",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "metric": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

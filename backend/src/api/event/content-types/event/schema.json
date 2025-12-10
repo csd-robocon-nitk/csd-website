@@ -38,6 +38,9 @@
     },
     "learn_more": {
       "type": "string"
+    },
+    "registerLink": {
+      "type": "string"
     }
   }
 }

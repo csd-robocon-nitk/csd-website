@@ -27,18 +27,19 @@
     "desc": {
       "type": "text"
     },
-    "blogtext": {
-      "type": "text"
-    },
     "publishedDate": {
       "type": "date",
       "required": false
     },
-    "content": {
-      "type": "blocks"
-    },
     "Highlight": {
       "type": "boolean"
+    },
+    "blog": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

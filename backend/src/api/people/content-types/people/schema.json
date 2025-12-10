@@ -71,6 +71,15 @@
     },
     "email": {
       "type": "string"
+    },
+    "rank": {
+      "type": "biginteger"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "team"
     }
   }
 }

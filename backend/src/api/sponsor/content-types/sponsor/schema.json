@@ -31,7 +31,8 @@
       "enum": [
         "Industry",
         "Government",
-        "Academia"
+        "Academia",
+        "Others"
       ]
     },
     "link": {

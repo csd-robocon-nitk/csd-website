@@ -793,7 +793,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   info: {
     singularName: 'article';
     pluralName: 'articles';
-    displayName: 'Article';
+    displayName: 'News Article';
     description: '';
   };
   options: {
@@ -841,16 +841,54 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     title: Attribute.String;
     thumbnail: Attribute.Media<'images' | 'videos'>;
     desc: Attribute.Text;
-    blogtext: Attribute.Text;
     publishedDate: Attribute.Date;
-    content: Attribute.Blocks;
     Highlight: Attribute.Boolean;
+    blog: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -873,6 +911,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     desc: Attribute.Text;
     end: Attribute.DateTime;
     learn_more: Attribute.String;
+    registerLink: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -930,7 +969,8 @@ export interface ApiImageImage extends Schema.CollectionType {
   info: {
     singularName: 'image';
     pluralName: 'images';
-    displayName: 'Image';
+    displayName: 'Gallery';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1017,6 +1057,12 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
     HighlightProjects: Attribute.Text;
     Achievements: Attribute.Text;
     email: Attribute.String;
+    rank: Attribute.BigInteger;
+    projects: Attribute.Relation<
+      'api::people.people',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1047,12 +1093,36 @@ export interface ApiProjectProject extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    status: Attribute.Enumeration<['upcoming', 'ongoing', 'completed']> &
-      Attribute.Required;
     cover_image: Attribute.Media<'images'> & Attribute.Required;
-    description: Attribute.Text;
-    content: Attribute.RichText;
+    title: Attribute.String & Attribute.Required;
+    category: Attribute.Enumeration<
+      [
+        'main',
+        'consultancy',
+        'student research',
+        'internal research',
+        'product development',
+        'collaborative'
+      ]
+    >;
+    short_description: Attribute.Text;
+    full_description: Attribute.Text;
+    featured_work: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    slides: Attribute.Component<'projects.image-slide', true>;
+    impact: Attribute.Component<'projects.impact'>;
+    objectives: Attribute.Component<'projects.objectives', true>;
+    key_features: Attribute.Component<'projects.key-features', true>;
+    testimonials: Attribute.Component<'general.testimonial', true>;
+    external_link: Attribute.String;
+    sub_projects: Attribute.Component<'projects.sub-project', true>;
+    external_team: Attribute.Component<'projects.member', true>;
+    team: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::people.people'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1133,7 +1203,9 @@ export interface ApiSponsorSponsor extends Schema.CollectionType {
   attributes: {
     logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Attribute.String;
-    PartnerType: Attribute.Enumeration<['Industry', 'Government', 'Academia']>;
+    PartnerType: Attribute.Enumeration<
+      ['Industry', 'Government', 'Academia', 'Others']
+    >;
     link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1229,6 +1301,7 @@ export interface ApiVisitVisit extends Schema.CollectionType {
     singularName: 'visit';
     pluralName: 'visits';
     displayName: 'Visit';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1238,6 +1311,8 @@ export interface ApiVisitVisit extends Schema.CollectionType {
     Title: Attribute.String;
     Thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    ExternalLink: Attribute.String;
+    AdditionalNotes: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1362,6 +1437,43 @@ export interface ApiVlabsOutreachVlabsOutreach extends Schema.SingleType {
   };
 }
 
+export interface ApiVlabsTeamVlabsTeam extends Schema.CollectionType {
+  collectionName: 'vlabs_teams';
+  info: {
+    singularName: 'vlabs-team';
+    pluralName: 'vlabs-teams';
+    displayName: 'VLabs: Team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    person: Attribute.Relation<
+      'api::vlabs-team.vlabs-team',
+      'oneToOne',
+      'api::people.people'
+    >;
+    position: Attribute.String & Attribute.Required;
+    name: Attribute.String;
+    image: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::vlabs-team.vlabs-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::vlabs-team.vlabs-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1382,6 +1494,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::blog.blog': ApiBlogBlog;
+      'api::contact.contact': ApiContactContact;
       'api::event.event': ApiEventEvent;
       'api::facility.facility': ApiFacilityFacility;
       'api::image.image': ApiImageImage;
@@ -1396,6 +1509,7 @@ declare module '@strapi/types' {
       'api::vlabs-contribution.vlabs-contribution': ApiVlabsContributionVlabsContribution;
       'api::vlabs-lab-developed.vlabs-lab-developed': ApiVlabsLabDevelopedVlabsLabDeveloped;
       'api::vlabs-outreach.vlabs-outreach': ApiVlabsOutreachVlabsOutreach;
+      'api::vlabs-team.vlabs-team': ApiVlabsTeamVlabsTeam;
     }
   }
 }
