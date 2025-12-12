@@ -78,7 +78,7 @@ const Slideshow = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length)
-    }, 5000)
+    }, 4000)
     return () => clearInterval(timer)
   }, [])
 
