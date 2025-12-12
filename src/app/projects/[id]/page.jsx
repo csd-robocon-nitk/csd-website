@@ -28,7 +28,7 @@ export default async function ProjectDetail ({ params }) {
 	const image_url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${cover_image?.data.attributes.url}`
 
 	let tab_names = [{ name: "Description", value: "description" }]
-	let tabs = [ <Description slides={slides} full_description={full_description} key="description" /> ]
+	let tabs = [ <Description slides={slides} full_description={full_description} autoScroll interval={4000} key="description" /> ]
 
 	if (key_features.length) {
 		tab_names.push({ name: "Key Features", value: "key_features" })
@@ -97,6 +97,8 @@ export default async function ProjectDetail ({ params }) {
 					{ external_link &&
 						<a
 							href={external_link}
+							target="_blank"
+  							rel="noopener noreferrer"
 							className="flex items-center text-sky-800 bg-sky-200/50 rounded-full font-bold px-6 py-3 text-lg hover:bg-sky-200/40 duration-200"
 						>
 							<SquareArrowOutUpRight className="mr-2 h-5 w-5" />
