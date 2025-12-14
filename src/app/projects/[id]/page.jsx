@@ -97,6 +97,8 @@ export default async function ProjectDetail ({ params }) {
 					{ external_link &&
 						<a
 							href={external_link}
+							target="_blank"
+  							rel="noopener noreferrer"
 							className="flex items-center text-sky-800 bg-sky-200/50 rounded-full font-bold px-6 py-3 text-lg hover:bg-sky-200/40 duration-200"
 						>
 							<SquareArrowOutUpRight className="mr-2 h-5 w-5" />
