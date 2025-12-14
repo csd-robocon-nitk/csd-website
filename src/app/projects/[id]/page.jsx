@@ -28,7 +28,7 @@ export default async function ProjectDetail ({ params }) {
 	const image_url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${cover_image?.data.attributes.url}`
 
 	let tab_names = [{ name: "Description", value: "description" }]
-	let tabs = [ <Description slides={slides} full_description={full_description} autoScroll interval={4000} key="description" /> ]
+	let tabs = [ <Description slides={slides} full_description={full_description} key="description" /> ]
 
 	if (key_features.length) {
 		tab_names.push({ name: "Key Features", value: "key_features" })
