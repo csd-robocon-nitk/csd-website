@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_projects_image_slides",
+  "info": {
+    "displayName": "Image Slide",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

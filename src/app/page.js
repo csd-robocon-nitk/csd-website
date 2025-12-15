@@ -8,8 +8,11 @@ import Sponsors from "@/components/home/sponsors/page"
 import Testimonials from "@/components/home/testimonials/Testimonials"
 import ViewAllPartners from "@/components/home/viewAllPartners"
 import HoverBottomNav from "@/components/hoverBottomNav"
+import getAboutImages from "@/components/home/aboutImages"
 
 export default async function HomePage () {
+	const images = await getAboutImages();
+
     const helper = [
         { href: "about", label: "About Us" },
         { href: "focusareas", label: "Focus Areas" },
@@ -23,12 +26,12 @@ export default async function HomePage () {
 			<LenisInit />
 			<HoverBottomNav helper={helper} />
 			<CoverSection />
-			<AboutSection />
+			<AboutSection images={images} />
 			<FocusAreasSection />
 			<HighlightProjects />
 			<ExploreMoreProjects />
 			<Testimonials />
-			<Sponsors />
+			<Sponsors /> 
 			<ViewAllPartners />
 		</>
 	)

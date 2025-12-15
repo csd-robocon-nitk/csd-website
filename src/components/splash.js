@@ -25,7 +25,7 @@ function Splash({ title, subtitle }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:text-6xl sm:text-3xl text-2xl font-bold mb-6 text-shadow-lg"
+          className="lg:text-6xl sm:text-3xl text-2xl font-bold mb-6 text-shadow-lg max-w-4xl"
         >
           {title}
         </motion.h1>

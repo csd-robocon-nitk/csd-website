@@ -12,19 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "upcoming",
-        "ongoing",
-        "completed"
-      ],
-      "required": true
-    },
     "cover_image": {
       "type": "media",
       "multiple": false,
@@ -33,11 +20,75 @@
         "images"
       ]
     },
-    "description": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "main",
+        "consultancy",
+        "student research",
+        "internal research",
+        "product development",
+        "collaborative"
+      ]
+    },
+    "short_description": {
       "type": "text"
     },
-    "content": {
-      "type": "richtext"
+    "full_description": {
+      "type": "text"
+    },
+    "featured_work": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.image-slide"
+    },
+    "impact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.impact"
+    },
+    "objectives": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.objectives"
+    },
+    "key_features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.key-features"
+    },
+    "testimonials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.testimonial"
+    },
+    "external_link": {
+      "type": "string"
+    },
+    "sub_projects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.sub-project"
+    },
+    "external_team": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.member"
+    },
+    "team": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::people.people",
+      "inversedBy": "projects"
     }
   }
 }

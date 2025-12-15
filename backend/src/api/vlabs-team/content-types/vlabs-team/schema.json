@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vlabs_teams",
+  "info": {
+    "singularName": "vlabs-team",
+    "pluralName": "vlabs-teams",
+    "displayName": "VLabs: Team"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::people.people"
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

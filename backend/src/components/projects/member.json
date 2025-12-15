@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_projects_members",
+  "info": {
+    "displayName": "Member",
+    "icon": "shield"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string"
+    }
+  }
+}

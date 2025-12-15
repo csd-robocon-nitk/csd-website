@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_projects_impacts",
+  "info": {
+    "displayName": "Impact",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "metrics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.impact-metrics"
+    }
+  }
+}

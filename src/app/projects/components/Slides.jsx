@@ -4,10 +4,17 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import { ChevronLeft } from "lucide-react"
 import { ChevronRight } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Slides ({ slides }) {
     let [ currentSlide, setCurrentSlide ] = useState(0)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide(prev => (prev + 1) % slides.length)
+        }, 4000)
+
+        return () => clearInterval(interval)
+    }, [slides.length])
 
     return (
         <div className="relative">
