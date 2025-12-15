@@ -996,6 +996,41 @@ export interface ApiHomePageAboutUsHomePageAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiHomePageAnnouncementHomePageAnnouncement
+  extends Schema.CollectionType {
+  collectionName: 'home_page_announcements';
+  info: {
+    singularName: 'home-page-announcement';
+    pluralName: 'home-page-announcements';
+    displayName: 'Announcements';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    link: Attribute.String;
+    date: Attribute.Date;
+    heading: Attribute.String;
+    subheading: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page-announcement.home-page-announcement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page-announcement.home-page-announcement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiImageImage extends Schema.CollectionType {
   collectionName: 'images';
   info: {
@@ -1530,6 +1565,7 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::facility.facility': ApiFacilityFacility;
       'api::home-page-about-us.home-page-about-us': ApiHomePageAboutUsHomePageAboutUs;
+      'api::home-page-announcement.home-page-announcement': ApiHomePageAnnouncementHomePageAnnouncement;
       'api::image.image': ApiImageImage;
       'api::milestone.milestone': ApiMilestoneMilestone;
       'api::people.people': ApiPeoplePeople;

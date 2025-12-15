@@ -9,6 +9,7 @@ import Testimonials from "@/components/home/testimonials/Testimonials"
 import ViewAllPartners from "@/components/home/viewAllPartners"
 import HoverBottomNav from "@/components/hoverBottomNav"
 import getAboutImages from "@/components/home/aboutImages"
+import Announcements from "@/components/home/announcements"
 
 export default async function HomePage () {
 	const images = await getAboutImages();
@@ -26,6 +27,7 @@ export default async function HomePage () {
 			<LenisInit />
 			<HoverBottomNav helper={helper} />
 			<CoverSection />
+			<Announcements />
 			<AboutSection images={images} />
 			<FocusAreasSection />
 			<HighlightProjects />
