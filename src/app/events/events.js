@@ -5,17 +5,18 @@ import { useEffect } from "react";
 
 export default function Events({events}) {
   const [active, setActive] = React.useState("ongoing");
-
+ 
   const [pastEvents, setPastEvents] = React.useState([]);
   const [currentEvents, setCurrentEvents] = React.useState([]);
   const [upcomingEvents, setUpcomingEvents] = React.useState([]);
+  const [eventSpotlight, seteventSpotlight] = React.useState(null);
 
   useEffect(() => {
     const date = new Date();
     const pEvents = [];
     const cEvents = [];
     const uEvents = [];
-
+    const hEvents = [];
     events.forEach((event) => {
       if (new Date(event.attributes.start) > date) {
         uEvents.push(event);
@@ -24,15 +25,51 @@ export default function Events({events}) {
       } else {
         cEvents.push(event);
       }
+      if(event.attributes.isHighlight){
+        hEvents.push(event);
+      }
     });
-
     setPastEvents(pEvents);
     setCurrentEvents(cEvents);
     setUpcomingEvents(uEvents);
+    seteventSpotlight(hEvents);
+
+    if (cEvents.length > 0) {
+      setActive("ongoing");
+    } else if (uEvents.length > 0) {
+      setActive("upcoming");
+    } else if (pEvents.length > 0) {
+      setActive("past");
+    } else {
+      setActive("");
+    }
   }, [events]);
+
+ 
+
 
   return (
     <div className="min-h-screen flex flex-col items-center w-full">
+        <div
+          className={`cursor-pointer rounded p-2 text-4xl bg-sky-100/50 text-sky-950
+           after:hover:scale-x-100 after:transition after:duration-300 after:origin-left font-bold self-start`}
+        >
+          Events Spotlight
+        </div>
+        <div className="">
+          <div className="grid grid-cols-3 ">
+            {eventSpotlight?.map((event, index) => (
+              <EventsCard key={index} event={event} />
+            ))}
+            {eventSpotlight?.length == 0 ? (
+              <p className="text-3xl items-center justify-center w-full min-h-52  font-bold mt-20">
+                No highlighted events
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
       <div className="flex gap-4 pt-10 text-2xl">
         <div
           className={`cursor-pointer rounded p-2 text-xl ${
@@ -70,6 +107,7 @@ export default function Events({events}) {
         >
           Upcoming Events
         </div>
+         
       </div>
       <div className="event-display">
         <div className={active == "past" ? "" : "hidden"}>
@@ -77,7 +115,7 @@ export default function Events({events}) {
             {pastEvents.map((event, index) => (
               <EventsCard key={index} event={event} />
             ))}
-            {pastEvents.length == 0 ? (
+            {pastEvents.length === 0 ? (
               <p className="text-2xl items-center justify-center w-full">
                 No past events
               </p>
@@ -91,7 +129,7 @@ export default function Events({events}) {
             {currentEvents.map((event, index) => (
               <EventsCard key={index} event={event} />
             ))}
-            {currentEvents.length == 0 ? (
+            {currentEvents.length === 0 ? (
               <p className="text-2xl items-center justify-center w-full">
                 No ongoing events
               </p>
@@ -105,7 +143,7 @@ export default function Events({events}) {
             {upcomingEvents.map((event, index) => (
               <EventsCard key={index} event={event} />
             ))}
-            {upcomingEvents.length == 0 ? (
+            {upcomingEvents.length === 0 ? (
               <p className="text-2xl items-center justify-center w-full min-h-52">
                 No upcoming events
               </p>
