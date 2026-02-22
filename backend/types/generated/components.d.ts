@@ -11,19 +11,6 @@ export interface TestingFacilitiesTestingFacilities extends Schema.Component {
   };
 }
 
-export interface TechSpecsTechSpecs extends Schema.Component {
-  collectionName: 'components_tech_specs_tech_specs';
-  info: {
-    displayName: 'techSpecs';
-  };
-  attributes: {
-    focusArea: Attribute.Text;
-    keyEquipment: Attribute.Text;
-    devWorkflow: Attribute.Text;
-    fundingSources: Attribute.Text;
-  };
-}
-
 export interface TechnicalTechnical extends Schema.Component {
   collectionName: 'components_technical_technicals';
   info: {
@@ -34,6 +21,19 @@ export interface TechnicalTechnical extends Schema.Component {
     techSpecs: Attribute.Component<'tech-specs.tech-specs'>;
     devWorkflowPanel: Attribute.Component<'dev-workflow-panel.dev-workflow-panel'>;
     longTermGoalsPanel: Attribute.Component<'longterm-goals-panel.long-term-goals-panel'>;
+  };
+}
+
+export interface TechSpecsTechSpecs extends Schema.Component {
+  collectionName: 'components_tech_specs_tech_specs';
+  info: {
+    displayName: 'techSpecs';
+  };
+  attributes: {
+    focusArea: Attribute.Text;
+    keyEquipment: Attribute.Text;
+    devWorkflow: Attribute.Text;
+    fundingSources: Attribute.Text;
   };
 }
 
@@ -279,8 +279,8 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'testing-facilities.testing-facilities': TestingFacilitiesTestingFacilities;
-      'tech-specs.tech-specs': TechSpecsTechSpecs;
       'technical.technical': TechnicalTechnical;
+      'tech-specs.tech-specs': TechSpecsTechSpecs;
       'team.team': TeamTeam;
       'srm-main.srm-main': SrmMainSrmMain;
       'srm-design-prototyping.srm-design-prototyping': SrmDesignPrototypingSrmDesignPrototyping;

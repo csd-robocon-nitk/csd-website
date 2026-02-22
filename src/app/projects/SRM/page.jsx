@@ -1,18 +1,24 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Wrench, Bike, CheckCircle, ChevronDown, Zap, Gauge, Activity, Cpu, Volume2 } from "lucide-react"
+import { Wrench, Bike, CheckCircle, ChevronDown, Zap, Gauge, Activity, Cpu, Volume2, Microchip, } from "lucide-react"
 import { useInView } from "react-intersection-observer"
 import { ChevronDownIcon, Linkedin, Twitter, Mail } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import Splash from "@/components/splash"
 
+const facilityIcons = [Zap, Gauge, Activity, Microchip, Volume2,]
+
+/*
+
 const images = [
   "/assets/images/gallery/VIDHYUG%204.0_6.jpg?height=400&width=600",
   "/assets/images/gallery/converter1.png?height=400&width=600",
   "/assets/images/gallery/converter2.png?height=400&width=600",
 ]
+
+
 
 const teamMembers = [
   {
@@ -72,7 +78,10 @@ const facilities = [
     icon: Volume2,
   },
 ]
-const Slideshow = () => {
+
+*/
+
+const Slideshow = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(0)
 
   useEffect(() => {
@@ -122,19 +131,67 @@ const Slideshow = () => {
 }
 
 export default function Page() {
-  
-  const [isExpanded, setIsExpanded] = useState(false)
 
-  const controlAlgorithms = [
-    "Hysteresis Current Control",
-    "Voltage PWM",
-    "Soft and Hard Chopping Algorithms",
-    "FPGA controllers for precision and versatility",
-    "MCUs and DSPs from STM and Texas Instruments",
-  ]
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [srm_page, setSRMPage] = useState(null)
+  const [loading, setLoaading] = useState(true)
   const [showAll, setShowAll] = useState(false)
+
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
+
+
+  const [projectRef, projectInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const [teamRef, teamInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const token = process.env.NEXT_PUBLIC_TOKEN
+        if (!token) {
+          throw new Error("Token not found!")
+        }
+
+        const res = await fetch(
+		      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/srm?` + 
+            `populate[srmMain][populate][srmMainImage]=*&` +
+            `populate[srmFeaturedImages]=*&` +
+            `populate[srmDesignPrototyping][populate][image]=*&` +
+            `populate[srmControllerDesign]=*&` +
+            `populate[controlAlgoSensorInter]=*&` +
+            `populate[testFacilities]=*&` +
+            `populate[projectDetails]=*&` +
+            `populate[team]=*`,
+		    {
+			    headers: {
+				    Authorization: `Bearer ${token}`
+			    },
+			    cache: "no-cache"
+		      }
+        )
+        console.log(res)
+        if (!res.ok) {
+		      throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
+	      }
+  
+  
+        const data = await res.json()
+        setSRMPage(data.data.attributes)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setLoaading(false)
+      }
+    }
+    fetchData()
+  },[])
 
   useEffect(() => {
     const cards = document.querySelectorAll(".facility-card")
@@ -151,6 +208,24 @@ export default function Page() {
     }
   }, []) // Removed showAll from dependencies
 
+  if (loading) return <div className="pt-20 text-center">Loading...</div>
+  if (!srm_page) return <div className="pt-20 text-center">No data found</div>
+
+  const featuredImages =
+  srm_page.srmFeaturedImages?.data?.map(
+    (img) =>
+      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${img.attributes.url}`
+  ) || []
+
+  /*
+  const controlAlgorithms = [
+    "Hysteresis Current Control",
+    "Voltage PWM",
+    "Soft and Hard Chopping Algorithms",
+    "FPGA controllers for precision and versatility",
+    "MCUs and DSPs from STM and Texas Instruments",
+  ]
+  */
   const handleMouseMove = (e) => {
     const card = e.currentTarget
     const rect = card.getBoundingClientRect()
@@ -170,16 +245,6 @@ export default function Page() {
     e.currentTarget.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)"
   }
 
-  const [projectRef, projectInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
-  const [teamRef, teamInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
   return (
     <div className="min-h-screen pt-12 bg-gray-100">
       <Splash
@@ -197,7 +262,8 @@ export default function Page() {
             className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <Image
-              src="/assets/images/gallery/srm page.png?height=400&width=600"
+              //src="/assets/images/gallery/srm page.png?height=400&width=600"
+              src={srm_page?.srmMain?.srmMainImage?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${srm_page.srmMain.srmMainImage.data.attributes.url}` : "/placeholder.jpg"}
               alt="Switched Reluctance Motor"
               layout="fill"
               objectFit="cover"
@@ -214,11 +280,12 @@ export default function Page() {
               Switched Reluctance Motor (SRM) Development
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
+              {/*
               The Centre for System Design (CSD) at NITK Surathkal is actively engaged in the research and development
               of Switched Reluctance Motors (SRMs) as a sustainable and cost-effective alternative to traditional BLDC
               motors for electric vehicles (EVs). This project aims to address the high costs associated with permanent
               magnet (PM)-based motors by developing innovative SRM solutions that are robust, fault-tolerant, and
-              magnet-free.
+              magnet-free. */} {srm_page.srmMain.srmMainDesc}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -236,7 +303,7 @@ export default function Page() {
         <section className="py-12 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Featured Images</h2>
-          <Slideshow />
+          <Slideshow images = {featuredImages} />
           <p className="mt-6 text-center text-gray-600">
             Explore our collection of stunning images showcasing our products and services.
           </p>
@@ -252,6 +319,40 @@ export default function Page() {
               SRM Design and Prototyping
             </h2>
             <div className="grid md:grid-cols-2 gap-12">
+              {srm_page?.srmDesignPrototyping?.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
+                >
+                  <div className="relative group">
+                    {item?.image?.data?.attributes?.url && (
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.image.data.attributes.url}`}
+                      alt={item?.name}
+                      width={400}
+                      height={300}
+                      className="w-full h-48 object-cover"
+                    />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
+                  </div>
+                            
+                  <div className="p-6">
+                    <div className="flex items-center mb-4">
+                      <Wrench className="w-8 h-8 text-blue-500" />
+                      <h3 className="text-2xl font-semibold ml-3 text-gray-800 dark:text-gray-100">
+                        {item?.name}
+                      </h3>
+                    </div>
+                            
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {item?.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+
+            {/* 
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
                 <div className="relative group">
                   <Image
@@ -276,7 +377,7 @@ export default function Page() {
                   </p>
                   {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">
                 Learn More
-              </button> */}
+              </button> 
                 </div>
               </div>
 
@@ -304,9 +405,10 @@ export default function Page() {
                   </p>
                   {/* <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">
                 Learn More
-              </button> */}
+              </button> 
                 </div>
               </div>
+              */}
             </div>
           </div>
         </section>
@@ -316,11 +418,14 @@ export default function Page() {
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
             <div className="p-6 sm:p-8">
               <p className="text-gray-600 mb-6 leading-relaxed">
+                {/*
                 CSD has developed controllers capable of driving motors up to 600V and 40A. These controllers are
                 designed in-house to be modular and cost-effective, utilizing industrial IGBT modules and novel
                 configurations to meet the needs of four-phase motors.
+                */} {srm_page?.srmControllerDesign?.controllerDesignDesc}
               </p>
               <ul className="space-y-3">
+                {/*
                 {[
                   "Modular and cost-effective design",
                   "Industrial IGBT modules",
@@ -331,7 +436,16 @@ export default function Page() {
                     <CheckCircle className="h-6 w-6 text-green-500 mr-2 flex-shrink-0" />
                     <span className="text-gray-700">{item}</span>
                   </li>
-                ))}
+                ))} */}
+                  {srm_page?.srmControllerDesign?.ControllerDesignPoints
+                    ?.split("-")
+                    ?.filter((point) => point.trim() !== "")
+                    ?.map((point, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle className="h-6 w-6 text-green-500 mr-2 flex-shrink-0" />
+                        <span className="text-gray-700">{point.trim()}</span>
+                      </li>
+                  ))}
               </ul>
             </div>
           </div>
@@ -348,17 +462,10 @@ export default function Page() {
                 className={`overflow-y-auto transition-all duration-300 ease-in-out ${isExpanded ? "max-h-80" : "max-h-40"}`}
               >
                 <ul className="space-y-2 px-6 pb-6">
-                  {controlAlgorithms.map((algorithm, index) => (
-                    <motion.li
-                      key={index}
-                      className="flex items-center text-gray-700 hover:text-gray-900"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <ChevronDown className="h-5 w-5 mr-2 text-blue-500" />
-                      {algorithm}
-                    </motion.li>
+                  {srm_page?.controlAlgoSensorInter?.filter((item) => item.typeName === "Control Algorithms")?.map((item, index) => (
+                    <div key={index}>
+                      <div dangerouslySetInnerHTML={{ __html: item.typeDetails, }} />
+                    </div>
                   ))}
                 </ul>
               </div>
@@ -373,17 +480,37 @@ export default function Page() {
               <h3 className="text-2xl font-semibold mb-4 p-6 bg-gray-50">Sensor Integration</h3>
               <div className="p-6">
                 <p className="text-gray-700 leading-relaxed">
+                  {/*
                   The team has experimented with diverse rotor position sensors (hall effect, IR, magnetic rotary) and
                   integrated current sensors to refine motor control and enhance performance.
+                  */}
+                  {srm_page?.controlAlgoSensorInter
+                    ?.filter((item) => item.typeName === "Sensor Integration")
+                    ?.map((item, index) => (
+                      <p key={index} className="text-gray-700 leading-relaxed">
+                        {item.typeDetails}
+                      </p>
+                  ))}
                 </p>
               </div>
               <div className="p-6 bg-blue-50">
                 <h4 className="text-lg font-semibold mb-2 text-blue-800">Key Features:</h4>
+                {/*
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>Multiple sensor types supported</li>
                   <li>Enhanced motor control precision</li>
                   <li>Improved overall performance</li>
-                </ul>
+                </ul> */}
+                {srm_page?.controlAlgoSensorInter
+                  ?.filter((item) => item.typeName === "Sensor Integration")
+                  ?.map((item, index) => (
+                    <div
+                        key={index}
+                      dangerouslySetInnerHTML={{
+                        __html: item.typeKeyFeatures,
+                      }}
+                    />
+                ))}
               </div>
             </div>
           </div>
@@ -412,7 +539,7 @@ export default function Page() {
                 visible: { transition: { staggerChildren: 0.1 } },
               }}
             >
-              {facilities.slice(0, showAll ? facilities.length : 3).map((facility, index) => (
+              {srm_page?.testFacilities?.slice(0, showAll ? srm_page.testFacilities.length : 3)?.map((facility, index) => (
                 <motion.li
                   key={index}
                   className="facility-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 ease-in-out"
@@ -422,11 +549,18 @@ export default function Page() {
                   }}
                 >
                   <div className="p-6 relative">
+                    
                     <div className="absolute top-4 right-4 text-purple-500">
-                      <facility.icon size={24} />
+                      {(() => {
+                        const IconComponent =
+                          facilityIcons[index % facilityIcons.length]
+
+                        return <IconComponent size={24} />
+                      })()}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{facility.title}</h3>
-                    <p className="text-gray-600">{facility.purpose}</p>
+                    
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{facility.facilityName}</h3>
+                    <p className="text-gray-600">{facility.facilityDesc}</p>
                   </div>
                   <div className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 w-full transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
                 </motion.li>
@@ -474,9 +608,10 @@ export default function Page() {
                 <div className="w-full md:w-1/2 md:pl-8">
                   <h3 className="text-2xl font-semibold mb-4 text-gray-700">Project Overview</h3>
                   <p className="text-gray-600 mb-4">
-                    Our SRM (Switched Reluctance Motor) project aims to develop an alternative to BLDC motors for
+                    {/*Our SRM (Switched Reluctance Motor) project aims to develop an alternative to BLDC motors for
                     Electric Vehicles, supporting the 'Atmanirbhar Bharat' initiative. We're focusing on applications
-                    for 2-Wheeler and 3-Wheeler EVs, utilizing advanced software and partnering with industry leaders.
+                    for 2-Wheeler and 3-Wheeler EVs, utilizing advanced software and partnering with industry leaders.*/}
+                    {srm_page?.projectDetails?.projectOverview}
                   </p>
                   <div className="flex items-center text-blue-600">
                     <Cpu className="mr-2" />
@@ -486,6 +621,8 @@ export default function Page() {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                  <div dangerouslySetInnerHTML={{ __html: srm_page?.projectDetails?.projectLeftPanel, }} />
+                  {/*
                   <p className="mb-2">
                     <strong className="text-gray-700">Project Cost:</strong> ₹16.98 Crores
                   </p>
@@ -495,8 +632,11 @@ export default function Page() {
                   <p>
                     <strong className="text-gray-700">Industrial Partner:</strong> Aditya Auto Pvt Ltd., Bangalore
                   </p>
+                  */}
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+                  <div dangerouslySetInnerHTML={{ __html: srm_page?.projectDetails?.projectRightPanel, }} />
+                  {/*
                   <p className="mb-2">
                     <strong className="text-gray-700">Software Used:</strong> Electromagnetic Finite Element Analysis,
                     MATLAB, and CAD
@@ -509,12 +649,15 @@ export default function Page() {
                     <strong className="text-gray-700">Outcome:</strong> Two prototype SRMs (for E-Rickshaw and E-Cycle)
                     fabricated and tested, with a controller developed
                   </p>
+                  */}
                 </div>
               </div>
               <div className="mt-6 bg-blue-50 p-4 rounded-lg">
                 <p className="text-blue-800">
-                  <strong>Future Scope:</strong> Implementation of SRM technology at the vehicle level, paving the way
-                  for more efficient and cost-effective electric vehicles in India.
+                  <strong>Future Scope:</strong>{" "}{srm_page?.projectDetails?.projectFutureScope}
+                  {/*
+                  Implementation of SRM technology at the vehicle level, paving the way
+                  for more efficient and cost-effective electric vehicles in India. */}
                 </p>
               </div>
             </div>
@@ -530,22 +673,22 @@ export default function Page() {
           >
             <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Our Team</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {teamMembers.map((member, index) => (
+              {srm_page?.team?.map((member, index) => (
                 <motion.div
-                  key={member.name}
+                  key={member.personName}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{member.name}</h3>
-                    <p className="text-blue-600 mb-4">{member.role}</p>
-                    <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{member.personName}</h3>
+                    <p className="text-blue-600 mb-4">{member.personRole}</p>
+                    <p className="text-gray-600 text-sm mb-4">{member.personBio}</p>
                     <div className="flex space-x-4">
-                      {member.linkedin && (
+                      {member.personLinkedin && (
                         <a
-                          href={member.linkedin}
+                          href={member.personLinkedin}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:text-blue-600"
@@ -553,9 +696,9 @@ export default function Page() {
                           <Linkedin className="w-5 h-5" />
                         </a>
                       )}
-                      {member.twitter && (
+                      {member.personTwitter && (
                         <a
-                          href={member.twitter}
+                          href={member.personTwitter}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-400 hover:text-blue-500"
@@ -563,8 +706,8 @@ export default function Page() {
                           <Twitter className="w-5 h-5" />
                         </a>
                       )}
-                      {member.email && (
-                        <a href={`mailto:${member.email}`} className="text-gray-600 hover:text-gray-700">
+                      {member.personEmail && (
+                        <a href={`mailto:${member.personEmail}`} className="text-gray-600 hover:text-gray-700">
                           <Mail className="w-5 h-5" />
                         </a>
                       )}
