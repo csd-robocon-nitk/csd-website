@@ -9,6 +9,7 @@ import { Card, CardContent } from "../components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import ReactMarkdown from "react-markdown"
 
+/*
 const initiatives = [
   {
     title: "VidhYug 1.0 - Student Commuting",
@@ -154,10 +155,13 @@ const initiatives = [
     videoId: "oTDkqzffLns",
   },
 ]
+*/
 
 function Initiative({ initiative }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-  const totalSlides = initiative.images.length + (initiative.videoId ? 1 : 0) // +1 for the video slide
+  //const totalSlides = initiative.images.length + (initiative.videoId ? 1 : 0) // +1 for the video slide
+  const images = initiative.initiativeMedia?.data || []
+  const totalSlides = images.length
 
   const nextSlide = () => {
     setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % totalSlides)
@@ -170,11 +174,12 @@ function Initiative({ initiative }) {
   return (
     <Card className="mb-8">
     <CardContent className="p-6">
-      <h3 className="text-2xl font-bold mb-4">{initiative.title}</h3>
+      <h3 className="text-2xl font-bold mb-4">{initiative.initiativeName}</h3>
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <p className="text-gray-700 mb-4">{initiative.description}</p>
+          <p className="text-gray-700 mb-4">{initiative.initiativeDesc}</p>
           <h4 className="font-semibold mb-2">Key Features:</h4>
+          {/*}
           <ul className="list-disc pl-5 mb-4">
             {initiative.features.map((feature, index) => (
               <li key={index} className="text-gray-600">
@@ -182,9 +187,16 @@ function Initiative({ initiative }) {
               </li>
             ))}
           </ul>
-          {initiative.variants && (
+          */}
+          <div className="text-gray-600 mb-4">
+            <ReactMarkdown components={{ ul : ({ node, ...props }) => (<ul className="list-disc pl-6 space-y-2" {...props} />),}}>
+              {initiative.initiativeKeyFeatures}
+            </ReactMarkdown>
+          </div>
+          {initiative.initiativeVariants && (
             <>
               <h4 className="font-semibold mb-2">Variants:</h4>
+              {/*
               <ul className="list-disc pl-5">
                 {initiative.variants.map((variant, index) => (
                   <li key={index} className="text-gray-600">
@@ -192,20 +204,27 @@ function Initiative({ initiative }) {
                   </li>
                 ))}
               </ul>
+              */}
+              <div className="text-gray-600">
+                <ReactMarkdown components={{ ul: ({ node, ...props }) => (<ul className="list-disc pl-6 space-y-2" {...props} />),}}> 
+                  {initiative.initiativeVariants} 
+                </ReactMarkdown>
+              </div>
             </>
           )}
         </div>
         <div className="space-y-4">
           <div className="relative h-[300px] w-full">
-            {currentSlideIndex < initiative.images.length ? (
+            {images.length > 0 && (
               <Image
-                src={initiative.images[currentSlideIndex] || "/placeholder.svg"}
-                alt={`${initiative.title} - Image ${currentSlideIndex + 1}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${images[currentSlideIndex]?.attributes?.url}`}
+                alt={`${initiative.initiativeName} - Image ${currentSlideIndex + 1}`}
                 layout="fill"
                 objectFit="cover"
                 className="rounded-lg"
               />
-            ) : (
+            )}
+              {/*
               initiative.videoId && <div className="w-full h-full rounded-lg overflow-hidden">
                 <iframe
                   width="100%"
@@ -219,6 +238,7 @@ function Initiative({ initiative }) {
                 ></iframe>
               </div>
             )}
+            */}
             <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
               <Button
                 onClick={prevSlide}
@@ -269,7 +289,7 @@ export default function EMobilityPage() {
         }
 
         const res = await fetch(
-		      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/e-mobility-platform?populate[Overview][populate]=*&populate[Features]=*&populate[Technical][populate]=*&populate[InitiativesPanel]=*`,
+		      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/e-mobility-platform?populate[Overview][populate]=*&populate[Features]=*&populate[Technical][populate]=*&populate[InitiativesPanel][populate][initiativeMedia]=*`,
 		    {
 			    headers: {
 				    Authorization: `Bearer ${token}`
@@ -474,9 +494,19 @@ export default function EMobilityPage() {
                 on campus. Led by Dr. Pruthviraj U and Prof. K V Gangadharan, the project aims to transform campus
                 transportation.
               </p>
+              {/*
               {initiatives.map((initiative, index) => (
                 <Initiative key={index} initiative={initiative} />
               ))}
+              */}
+
+              {emob_page?.InitiativesPanel?.length > 0 ? (
+                emob_page.InitiativesPanel.map((initiative, index) => (
+                  <Initiative key={index} initiative={initiative} />
+                ))
+              ) : (
+                <p className="text-gray-400">No initiatives availible.</p>
+              )}
             </div>
           </TabsContent>
         </Tabs>
