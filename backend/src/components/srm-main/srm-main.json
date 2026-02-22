@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_srm_main_srm_mains",
+  "info": {
+    "displayName": "SRM Main"
+  },
+  "options": {},
+  "attributes": {
+    "srmMainDesc": {
+      "type": "text"
+    },
+    "srmMainImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

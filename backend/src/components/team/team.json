@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_team_teams",
+  "info": {
+    "displayName": "team"
+  },
+  "options": {},
+  "attributes": {
+    "personName": {
+      "type": "string"
+    },
+    "personLinkedin": {
+      "type": "string"
+    },
+    "personEmail": {
+      "type": "string"
+    },
+    "personTwitter": {
+      "type": "string"
+    }
+  }
+}

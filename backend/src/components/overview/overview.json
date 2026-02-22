@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_overview_overviews",
+  "info": {
+    "displayName": "Overview"
+  },
+  "options": {},
+  "attributes": {
+    "overviewDescription": {
+      "type": "text"
+    },
+    "overviewImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

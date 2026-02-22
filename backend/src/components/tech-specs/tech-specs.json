@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_tech_specs_tech_specs",
+  "info": {
+    "displayName": "techSpecs"
+  },
+  "options": {},
+  "attributes": {
+    "focusArea": {
+      "type": "text"
+    },
+    "keyEquipment": {
+      "type": "text"
+    },
+    "devWorkflow": {
+      "type": "text"
+    },
+    "fundingSources": {
+      "type": "text"
+    }
+  }
+}

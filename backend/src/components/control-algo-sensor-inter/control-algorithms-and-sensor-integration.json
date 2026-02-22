@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_control_algo_sensor_inter_control_algorithms_and_sensor_integrations",
+  "info": {
+    "displayName": "Control Algorithms and Sensor Integration"
+  },
+  "options": {},
+  "attributes": {
+    "typeName": {
+      "type": "string"
+    },
+    "typeDetails": {
+      "type": "richtext"
+    },
+    "typeKeyFeatures": {
+      "type": "richtext"
+    }
+  }
+}

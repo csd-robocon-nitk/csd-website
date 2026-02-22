@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_project_details_project_details",
+  "info": {
+    "displayName": "Project Details"
+  },
+  "options": {},
+  "attributes": {
+    "projectOverview": {
+      "type": "text"
+    },
+    "projectLeftPanel": {
+      "type": "text"
+    },
+    "projectRightPanel": {
+      "type": "text"
+    },
+    "projectFutureScope": {
+      "type": "text"
+    }
+  }
+}

@@ -1,13 +1,15 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Battery, Zap, Timer, Settings, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from '../components/ui/button';
 import Splash from "@/components/splash"
 import { Card, CardContent } from "../components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
+import ReactMarkdown from "react-markdown"
 
+/*
 const initiatives = [
   {
     title: "VidhYug 1.0 - Student Commuting",
@@ -153,10 +155,13 @@ const initiatives = [
     videoId: "oTDkqzffLns",
   },
 ]
+*/
 
 function Initiative({ initiative }) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-  const totalSlides = initiative.images.length + (initiative.videoId ? 1 : 0) // +1 for the video slide
+  //const totalSlides = initiative.images.length + (initiative.videoId ? 1 : 0) // +1 for the video slide
+  const images = initiative.initiativeMedia?.data || []
+  const totalSlides = images.length
 
   const nextSlide = () => {
     setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % totalSlides)
@@ -169,11 +174,12 @@ function Initiative({ initiative }) {
   return (
     <Card className="mb-8">
     <CardContent className="p-6">
-      <h3 className="text-2xl font-bold mb-4">{initiative.title}</h3>
+      <h3 className="text-2xl font-bold mb-4">{initiative.initiativeName}</h3>
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <p className="text-gray-700 mb-4">{initiative.description}</p>
+          <p className="text-gray-700 mb-4">{initiative.initiativeDesc}</p>
           <h4 className="font-semibold mb-2">Key Features:</h4>
+          {/*}
           <ul className="list-disc pl-5 mb-4">
             {initiative.features.map((feature, index) => (
               <li key={index} className="text-gray-600">
@@ -181,9 +187,16 @@ function Initiative({ initiative }) {
               </li>
             ))}
           </ul>
-          {initiative.variants && (
+          */}
+          <div className="text-gray-600 mb-4">
+            <ReactMarkdown components={{ ul : ({ node, ...props }) => (<ul className="list-disc pl-6 space-y-2" {...props} />),}}>
+              {initiative.initiativeKeyFeatures}
+            </ReactMarkdown>
+          </div>
+          {initiative.initiativeVariants && (
             <>
               <h4 className="font-semibold mb-2">Variants:</h4>
+              {/*
               <ul className="list-disc pl-5">
                 {initiative.variants.map((variant, index) => (
                   <li key={index} className="text-gray-600">
@@ -191,20 +204,27 @@ function Initiative({ initiative }) {
                   </li>
                 ))}
               </ul>
+              */}
+              <div className="text-gray-600">
+                <ReactMarkdown components={{ ul: ({ node, ...props }) => (<ul className="list-disc pl-6 space-y-2" {...props} />),}}> 
+                  {initiative.initiativeVariants} 
+                </ReactMarkdown>
+              </div>
             </>
           )}
         </div>
         <div className="space-y-4">
           <div className="relative h-[300px] w-full">
-            {currentSlideIndex < initiative.images.length ? (
+            {images.length > 0 && (
               <Image
-                src={initiative.images[currentSlideIndex] || "/placeholder.svg"}
-                alt={`${initiative.title} - Image ${currentSlideIndex + 1}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${images[currentSlideIndex]?.attributes?.url}`}
+                alt={`${initiative.initiativeName} - Image ${currentSlideIndex + 1}`}
                 layout="fill"
                 objectFit="cover"
                 className="rounded-lg"
               />
-            ) : (
+            )}
+              {/*
               initiative.videoId && <div className="w-full h-full rounded-lg overflow-hidden">
                 <iframe
                   width="100%"
@@ -218,6 +238,7 @@ function Initiative({ initiative }) {
                 ></iframe>
               </div>
             )}
+            */}
             <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
               <Button
                 onClick={prevSlide}
@@ -255,6 +276,46 @@ function Initiative({ initiative }) {
 }
 
 export default function EMobilityPage() {
+
+  const [emob_page, setEmobPage] = useState(null)
+  const [loading, setLoaading] = useState(true)
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const token = process.env.NEXT_PUBLIC_TOKEN
+        if (!token) {
+          throw new Error("Token not found!")
+        }
+
+        const res = await fetch(
+		      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/e-mobility-platform?populate[Overview][populate]=*&populate[Features]=*&populate[Technical][populate]=*&populate[InitiativesPanel][populate][initiativeMedia]=*`,
+		    {
+			    headers: {
+				    Authorization: `Bearer ${token}`
+			    },
+			    cache: "no-cache"
+		      }
+        )
+        console.log(res)
+        if (!res.ok) {
+		      throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
+	      }
+  
+  
+        const data = await res.json()
+        setEmobPage(data.data.attributes)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setLoaading(false)
+      }
+    }
+    fetchData()
+  },[])
+  if (loading) return <div className="pt-20 text-center">Loading...</div>
+  if (!emob_page) return <div className="pt-20 text-center">No data found</div>
+
   return (
     <div className="min-h-screen pt-12 bg-white">
       <Splash
@@ -311,23 +372,20 @@ export default function EMobilityPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
-                <p className="text-lg text-gray-600 mb-6">
-                  Our E-mobility Platform is a comprehensive solution designed to revolutionize electric vehicle
-                  charging infrastructure. It combines advanced hardware integration with intelligent software to
-                  provide seamless charging experiences for both individual users and fleet managers.
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  The platform features real-time monitoring, predictive maintenance, and smart charging optimization to
-                  ensure maximum efficiency and user satisfaction.
-                </p>
-                <p className="text-lg text-gray-600">
-                  With our cutting-edge technology, we're paving the way for a more sustainable and efficient future in
-                  transportation.
-                </p>
+                {emob_page?.Overview?.overviewDescription ? (
+                  <p className="text-lg text-gray-600 whitespace-pre-line">
+                    {emob_page.Overview.overviewDescription}
+                  </p>
+                ) : (
+                  <p className="text-lg text-gray-400">
+                    No overview available.
+                  </p>
+                )}
               </div>
               <div className="relative h-[400px] rounded-lg overflow-hidden">
                 <Image
-                  src="/assets/images/gallery/e-mobility/cover.jpeg"
+                  //src="/assets/images/gallery/e-mobility/cover.jpeg"
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${emob_page.Overview.overviewImage.data.attributes.url}`}
                   alt="Platform Overview"
                   layout="fill"
                   objectFit="cover"
@@ -340,43 +398,29 @@ export default function EMobilityPage() {
             <div className="grid gap-8">
               <h2 className="text-3xl font-bold mb-6">Key Features</h2>
               <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  {
-                    title: "Smart Charging Optimization",
-                    description:
-                      "AI-driven charging schedules that optimize for cost and grid load, ensuring efficient energy use.",
-                    details:
-                      "Our advanced algorithms consider factors such as time-of-use electricity rates, grid demand, and user preferences to create the most cost-effective and energy-efficient charging plans.",
-                  },
-                  {
-                    title: "Real-time Monitoring",
-                    description:
-                      "Live status updates and alerts for all charging stations, providing instant insights.",
-                    details:
-                      "Monitor charging progress, station availability, and system health in real-time. Receive instant notifications for any issues or completed charging sessions.",
-                  },
-                  {
-                    title: "Fleet Management",
-                    description:
-                      "Comprehensive tools for managing electric vehicle fleets, optimizing operations and reducing costs.",
-                    details:
-                      "Track vehicle usage, plan maintenance schedules, and analyze performance metrics to maximize the efficiency of your electric vehicle fleet.",
-                  },
-                  {
-                    title: "Payment Integration",
-                    description: "Seamless payment processing and billing management for hassle-free transactions.",
-                    details:
-                      "Support for multiple payment methods, automatic billing, and detailed transaction history, making it easy for users to pay for charging services.",
-                  },
-                ].map((feature, index) => (
-                  <Card key={index} className="transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                    <CardContent className="p-8">
-                      <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
-                      <p className="text-lg text-gray-600 mb-4">{feature.description}</p>
-                      <p className="text-gray-600 mb-6">{feature.details}</p>
-                    </CardContent>
-                  </Card>
-                ))}
+
+                {emob_page?.Features?.length > 0 ? (
+                  emob_page.Features.map((feature, index) => (
+                    <Card
+                      key={index}
+                      className="transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                        <CardContent className="p-8">
+                          <h3 className="text-2xl font-semibold mb-4">
+                            {feature.featureName}
+                          </h3>
+                          <p className="text-lg text-gray-600 mb-4">
+                            {feature.featureShortDescription}
+                          </p>
+
+                          <p className="text-gray-600 mb-6">
+                            {feature.featureLongDescription}
+                          </p>
+                        </CardContent>
+                    </Card>
+                  ))
+                ) : ( 
+                  <p className="text-gray-400">No features available.</p>
+                )}
               </div>
             </div>
           </TabsContent>
@@ -388,47 +432,55 @@ export default function EMobilityPage() {
                   <li className="flex items-start">
                     <span className="font-semibold min-w-[200px]">Focus Areas:</span>
                     <span className="text-gray-600">
-                      Electric Bicycles, Electric Scooters, Autonomous Vehicles, Energy Efficiency & Autonomy
+                      {emob_page?.Technical?.techSpecs?.focusArea}
                     </span>
                   </li>
+
                   <li className="flex items-start">
                     <span className="font-semibold min-w-[200px]">Key Equipment:</span>
                     <span className="text-gray-600">
-                      CAD Design Software, ANSYS, 3D Printers, Laser Cutting Machines
+                      {emob_page?.Technical?.techSpecs?.keyEquipment}
                     </span>
                   </li>
+
                   <li className="flex items-start">
                     <span className="font-semibold min-w-[200px]">Development Workflow:</span>
                     <span className="text-gray-600">
-                      Design & Simulation, Prototyping, Assembly, Testing & Optimization
+                      {emob_page?.Technical?.techSpecs?.devWorkFlow}
                     </span>
                   </li>
+
                   <li className="flex items-start">
                     <span className="font-semibold min-w-[200px]">Funding Sources:</span>
-                    <span className="text-gray-600">Research Grants, Government Programs for Sustainable Mobility</span>
+                    <span className="text-gray-600">
+                      {emob_page?.Technical?.techSpecs?.fundingSources}
+                    </span>
                   </li>
                 </ul>
               </div>
+
               <div className="space-y-8">
+                {/* Development Workflow Panel */}
                 <Card className="transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold mb-4">Development Workflow</h3>
-                    <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                      <li>Design & Simulation: Using CAD & ANSYS for modeling & analysis</li>
-                      <li>Prototyping: Utilizing 3D printing and laser cutting for component development</li>
-                      <li>Assembly: Integration of electric motors, batteries, and control systems</li>
-                      <li>Testing & Optimization: Performance testing for energy efficiency & autonomy</li>
-                    </ul>
+                    <div className="text-gray-600">
+                      <ReactMarkdown components={{ul: ({node, ...props}) => (<ul className="list-disc pl-6 space-y-2" {...props} />)}}>
+                        {emob_page?.Technical?.devWorkflowPanel.devWorkflowDesc}
+                      </ReactMarkdown>
+                    </div>
                   </CardContent>
                 </Card>
+
+                {/* Long Term Goals Panel */}
                 <Card className="transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold mb-4">Long-Term Goals</h3>
-                    <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                      <li>Develop new EV technologies</li>
-                      <li>Improve energy efficiency & autonomous capabilities</li>
-                      <li>Contribute to sustainable transportation innovation</li>
-                    </ul>
+                    <div className="text-gray-600">
+                      <ReactMarkdown components={{ul: ({node, ...props}) => (<ul className="list-disc pl-6 space-y-2" {...props} />)}}>
+                      {emob_page?.Technical?.longTermGoalsPanel.longTermGoalsDesc}
+                      </ReactMarkdown>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
@@ -442,9 +494,19 @@ export default function EMobilityPage() {
                 on campus. Led by Dr. Pruthviraj U and Prof. K V Gangadharan, the project aims to transform campus
                 transportation.
               </p>
+              {/*
               {initiatives.map((initiative, index) => (
                 <Initiative key={index} initiative={initiative} />
               ))}
+              */}
+
+              {emob_page?.InitiativesPanel?.length > 0 ? (
+                emob_page.InitiativesPanel.map((initiative, index) => (
+                  <Initiative key={index} initiative={initiative} />
+                ))
+              ) : (
+                <p className="text-gray-400">No initiatives availible.</p>
+              )}
             </div>
           </TabsContent>
         </Tabs>

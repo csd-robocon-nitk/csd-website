@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dev_workflow_panel_dev_workflow_panels",
+  "info": {
+    "displayName": "devWorkflowPanel"
+  },
+  "options": {},
+  "attributes": {
+    "devWorkflowDesc": {
+      "type": "richtext"
+    }
+  }
+}

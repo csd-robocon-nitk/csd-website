@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_srm_controller_design_srm_controller_designs",
+  "info": {
+    "displayName": "srmControllerDesign"
+  },
+  "options": {},
+  "attributes": {
+    "controllerDesignDesc": {
+      "type": "text"
+    },
+    "ControllerDesignPoints": {
+      "type": "richtext"
+    }
+  }
+}
