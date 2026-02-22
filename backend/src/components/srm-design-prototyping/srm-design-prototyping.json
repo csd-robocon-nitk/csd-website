@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_srm_design_prototyping_srm_design_prototypings",
+  "info": {
+    "displayName": "srmDesignPrototyping"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

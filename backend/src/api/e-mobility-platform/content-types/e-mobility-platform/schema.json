@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "e_mobility_platforms",
+  "info": {
+    "singularName": "e-mobility-platform",
+    "pluralName": "e-mobility-platforms",
+    "displayName": "E-Mobility-Platform",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Overview": {
+      "displayName": "Overview",
+      "type": "component",
+      "repeatable": false,
+      "component": "overview.overview"
+    },
+    "Features": {
+      "displayName": "Features",
+      "type": "component",
+      "repeatable": true,
+      "component": "features.features"
+    },
+    "Technical": {
+      "displayName": "Technical",
+      "type": "component",
+      "repeatable": false,
+      "component": "technical.technical"
+    },
+    "InitiativesPanel": {
+      "displayName": "InitiativesPanel",
+      "type": "component",
+      "repeatable": true,
+      "component": "initiatives-panel.initiatives-panel"
+    }
+  }
+}

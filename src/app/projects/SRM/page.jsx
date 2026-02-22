@@ -121,7 +121,8 @@ const Slideshow = () => {
   )
 }
 
-export default function Page() {
+export default async function Page() {
+  
   const [isExpanded, setIsExpanded] = useState(false)
 
   const controlAlgorithms = [

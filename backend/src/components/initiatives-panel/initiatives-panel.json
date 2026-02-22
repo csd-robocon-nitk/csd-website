@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_initiatives_panel_initiatives_panels",
+  "info": {
+    "displayName": "InitiativesPanel"
+  },
+  "options": {},
+  "attributes": {
+    "initiativeName": {
+      "type": "string"
+    },
+    "initiativeDesc": {
+      "type": "text"
+    },
+    "initiativeKeyFeatures": {
+      "type": "richtext"
+    },
+    "initiativeVariants": {
+      "type": "richtext"
+    },
+    "initiativeMedia": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

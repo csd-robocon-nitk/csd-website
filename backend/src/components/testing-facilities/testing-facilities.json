@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_testing_facilities_testing_facilities_s",
+  "info": {
+    "displayName": "Testing Facilities "
+  },
+  "options": {},
+  "attributes": {
+    "facilityName": {
+      "type": "string"
+    },
+    "facilityDesc": {
+      "type": "text"
+    }
+  }
+}

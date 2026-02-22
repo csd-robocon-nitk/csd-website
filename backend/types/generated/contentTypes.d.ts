@@ -893,6 +893,44 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiEMobilityPlatformEMobilityPlatform
+  extends Schema.SingleType {
+  collectionName: 'e_mobility_platforms';
+  info: {
+    singularName: 'e-mobility-platform';
+    pluralName: 'e-mobility-platforms';
+    displayName: 'E-Mobility-Platform';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Overview: Attribute.Component<'overview.overview'>;
+    Features: Attribute.Component<'features.features', true>;
+    Technical: Attribute.Component<'technical.technical'>;
+    InitiativesPanel: Attribute.Component<
+      'initiatives-panel.initiatives-panel',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::e-mobility-platform.e-mobility-platform',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::e-mobility-platform.e-mobility-platform',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -1292,6 +1330,48 @@ export interface ApiSponsorSponsor extends Schema.CollectionType {
   };
 }
 
+export interface ApiSrmSrm extends Schema.SingleType {
+  collectionName: 'srms';
+  info: {
+    singularName: 'srm';
+    pluralName: 'srms';
+    displayName: 'SRM';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    srmMain: Attribute.Component<'srm-main.srm-main'>;
+    srmFeaturedImages: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    srmDesignPrototyping: Attribute.Component<
+      'srm-design-prototyping.srm-design-prototyping',
+      true
+    >;
+    srmControllerDesign: Attribute.Component<'srm-controller-design.srm-controller-design'>;
+    controlAlgoSensorInter: Attribute.Component<
+      'control-algo-sensor-inter.control-algorithms-and-sensor-integration',
+      true
+    >;
+    testFacilities: Attribute.Component<
+      'testing-facilities.testing-facilities',
+      true
+    >;
+    projectDetails: Attribute.Component<'project-details.project-details'>;
+    team: Attribute.Component<'team.team', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::srm.srm', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::srm.srm', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1562,6 +1642,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
+      'api::e-mobility-platform.e-mobility-platform': ApiEMobilityPlatformEMobilityPlatform;
       'api::event.event': ApiEventEvent;
       'api::facility.facility': ApiFacilityFacility;
       'api::home-page-about-us.home-page-about-us': ApiHomePageAboutUsHomePageAboutUs;
@@ -1572,6 +1653,7 @@ declare module '@strapi/types' {
       'api::project.project': ApiProjectProject;
       'api::research-publication.research-publication': ApiResearchPublicationResearchPublication;
       'api::sponsor.sponsor': ApiSponsorSponsor;
+      'api::srm.srm': ApiSrmSrm;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::update.update': ApiUpdateUpdate;
       'api::visit.visit': ApiVisitVisit;

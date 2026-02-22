@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_technical_technicals",
+  "info": {
+    "displayName": "Technical",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "techSpecs": {
+      "displayName": "techSpecs",
+      "type": "component",
+      "repeatable": false,
+      "component": "tech-specs.tech-specs"
+    },
+    "devWorkflowPanel": {
+      "displayName": "devWorkflowPanel",
+      "type": "component",
+      "repeatable": false,
+      "component": "dev-workflow-panel.dev-workflow-panel"
+    },
+    "longTermGoalsPanel": {
+      "displayName": "longTermGoalsPanel",
+      "type": "component",
+      "repeatable": false,
+      "component": "longterm-goals-panel.long-term-goals-panel"
+    }
+  }
+}

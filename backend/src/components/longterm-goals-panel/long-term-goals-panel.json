@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_longterm_goals_panel_long_term_goals_panels",
+  "info": {
+    "displayName": "longTermGoalsPanel"
+  },
+  "options": {},
+  "attributes": {
+    "longTermGoalsDesc": {
+      "type": "richtext"
+    }
+  }
+}
