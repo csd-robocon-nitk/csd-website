@@ -22,7 +22,7 @@ export default async function getAboutImages(){
 	}
 
     const data = await res.json()
-	const about_images = data.data.attributes
+	const about_images = data.data?.attributes
     
     
     return (about_images)
