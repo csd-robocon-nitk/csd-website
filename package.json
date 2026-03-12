@@ -16,6 +16,7 @@
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tailwindcss/typography": "^0.5.13",
+    "better-sqlite3": "^12.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.10",

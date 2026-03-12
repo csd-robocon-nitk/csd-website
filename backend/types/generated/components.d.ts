@@ -1,4 +1,4 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Attribute, Schema } from '@strapi/strapi';
 
 export interface ProjectsSubProject extends Schema.Component {
   collectionName: 'components_projects_sub_projects';

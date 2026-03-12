@@ -19,7 +19,7 @@
     "media": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos"
@@ -39,8 +39,8 @@
     "learn_more": {
       "type": "string"
     },
-    "registerLink": {
-      "type": "string"
+    "isHighlight": {
+      "type": "boolean"
     }
   }
 }

@@ -43,6 +43,8 @@ async function Events({ searchParams }) {
 
   const events = await event.json();
   const events_data = events.data;
+  console.log(events);
+  console.log(events_data);
   
   const visits = await visit.json();
   const visits_data = visits.data;
