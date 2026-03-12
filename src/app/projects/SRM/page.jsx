@@ -18,7 +18,7 @@ const teamMembers = [
   {
     name: "Sandesh Bhaktha",
     role: "Project Lead",
-    bio: "Dr. John Doe has over 15 years of experience in electric motor design and leads our SRM project.",
+    bio: "",
     linkedin: "https://www.linkedin.com/in/johndoe",
     twitter: "https://twitter.com/johndoe",
     email: "john.doe@example.com",
@@ -26,21 +26,21 @@ const teamMembers = [
   {
     name: "Neil Jose",
     role: "Senior Engineer",
-    bio: "Jane specializes in electromagnetic analysis and optimization of SRM designs.",
+    bio: "",
     linkedin: "https://www.linkedin.com/in/janesmith",
     email: "jane.smith@example.com",
   },
   {
     name: "Sarath kannan",
     role: "Software Developer",
-    bio: "Mike develops the control software for our SRM prototypes and simulations.",
+    bio: "",
     twitter: "https://twitter.com/mikejohnson",
     email: "mike.johnson@example.com",
   },
   {
     name: "Sumitra",
     role: "Research Associate",
-    bio: "Emily focuses on improving the efficiency and performance of our SRM designs.",
+    bio: "",
     linkedin: "https://www.linkedin.com/in/emilybrown",
     email: "emily.brown@example.com",
   },
