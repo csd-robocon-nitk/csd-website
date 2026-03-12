@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-page-about-us",
     "pluralName": "home-page-about-uses",
-    "displayName": "Home Page: About Us"
+    "displayName": "Home Page: About Us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,34 +13,40 @@
   "pluginOptions": {},
   "attributes": {
     "left": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "centre": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "right": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "about_section_text": {
+      "type": "text"
     }
   }
 }

@@ -97,7 +97,7 @@ export default function EventsCard({event}) {
           
           {event.attributes.learn_more && event.attributes.learn_more.trim() !== "" && (
             <Link 
-              href={event.attributes.learn_more} 
+              href={event.attributes.learn_more}
               target="_blank" 
               rel="noopener noreferrer"
               className="flex-1"
