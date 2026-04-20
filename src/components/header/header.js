@@ -9,6 +9,7 @@ import DesktopNavElement from "./DesktopNavElement";
 import DesktopDropdownNavElement from "./DesktopDropdownNavElement";
 import MobileNavElement from "./MobileNavElement";
 import MobileDropdownNavElement from "./MobileDropdownNavElement";
+import { useSearchParams } from "next/navigation";
 
 export let TransparencyContext = createContext(true);
 
@@ -16,6 +17,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const [navTransparency, setNavTransparency] = useState(pathname == "/");
+  const searchParams = useSearchParams();
 
   function changeNavColor() {
     if (window.scrollY <= 100 && !open && pathname == "/")
@@ -47,7 +49,7 @@ export default function Header() {
 
   useEffect(() => {
     setOpen(false);
-  }, [pathname]);
+  }, [pathname, searchParams]);
 
   const handleClick = () => {
     setOpen((open) => !open);
@@ -166,6 +168,7 @@ export default function Header() {
             />
 
             <MobileDropdownNavElement
+              opened={open}
               text="TEAM"
               sublinks={[
                 { text: "FACULTY", href: "/team?type=faculty" },

@@ -38,6 +38,9 @@ function StaffCard({ item }) {
         <h2 className="text-xl font-bold text-center truncate text-gray-800">
           {name}
         </h2>
+        <p className="mt-3 text-center text-blue-600 text-sm font-medium cursor-default">
+          Learn More →
+        </p>
       </div>
 
       {/* Back card - visible on hover */}
