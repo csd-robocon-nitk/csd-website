@@ -37,15 +37,7 @@ function Staff({ data }) {
           </button>
         ))}
       </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "1rem",
-          width: "100%",
-          padding: "1rem",
-        }}
-      >
+      <div className="grid gap-10 px-10 py-12 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {filteredData.map((item, index) => (
           <StaffCard key={index} item={item} />
         ))}

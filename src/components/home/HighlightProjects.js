@@ -1,196 +1,91 @@
 "use client";
+
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
-import useMeasure from "react-use-measure";
-import { mergeRefs } from "react-merge-refs";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 function HighlightProjects() {
-  const vlabRef = useRef(null);
-  const searchRef = useRef(null);
-  const eMobilityRef = useRef(null);
-  const projRef = useRef(null);
+  return (
+    <section
+      className="flex justify-center items-center flex-col pt-8 py-22 px-6"
+      id="projects"
+    >
+      <h1 className="relative top-[2px] text-4xl md:text-4xl font-bold pb-12 text-center">
+        Highlight Projects
+      </h1>
 
-  const [measureRef, { height }] = useMeasure();
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-[1400px] text-white">
+        
+        <div className="relative rounded-2xl overflow-hidden h-[500px] group shadow-xl">
+          <img
+            src="assets/images/virtualLabs.jpg"
+            alt="Virtual Labs"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
-  const { scrollYProgress: scrollYProgressProj } = useScroll({
-    target: projRef,
-    offset: ["start start", "end end"],
-  });
+          <div className="absolute inset-0 bg-black/60 p-6 flex flex-col justify-end">
+            <h1 className="text-3xl font-extrabold mb-4">
+              Virtual Labs
+            </h1>
 
-  const scale2Vlab = useTransform(scrollYProgressProj, [0, 1], [1, 0.85]);
-  const scale2Search = useTransform(scrollYProgressProj, [0.25, 1], [1, 0.9]);
-  const scale2Emob = useTransform(scrollYProgressProj, [0.5, 1], [1, 1]);
-  const scale2explore = useTransform(scrollYProgressProj, [0.75, 1], [1, 1]);
+            <p className="text-lg leading-relaxed">
+              The Virtual Lab at NITK, hosted by the Centre for
+              System Design (CSD), is redefining education and
+              research by providing remote access to experiments
+              typically conducted in physical labs. CSD also
+              conducts workshops and outreach programs to foster
+              innovation and practical learning experiences.
+            </p>
+          </div>
+        </div>
 
-  const { scrollYProgress: scrollYProgressVlab } = useScroll({
-    target: vlabRef,
-    offset: ["start end", "start start"],
-  });
-  const scaleVLab = useTransform(scrollYProgressVlab, [0, 1], [3, 1]);
+        <div className="relative rounded-2xl overflow-hidden h-[500px] group shadow-xl">
+          <img
+            src="assets/images/srm.jpg"
+            alt="Switched Reluctance Motor"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
-  const { scrollYProgress: scrollYProgressSearch } = useScroll({
-    target: searchRef,
-    offset: ["start end", "start start"],
-  });
-  const scaleSearch = useTransform(scrollYProgressSearch, [0, 1], [3, 1]);
+          <div className="absolute inset-0 bg-black/60 p-6 flex flex-col justify-end">
+            <h1 className="text-3xl font-extrabold mb-4">
+              Switched Reluctance Motor
+            </h1>
 
-  const { scrollYProgress: scrollYProgressEmob } = useScroll({
-    target: eMobilityRef,
-    offset: ["start end", "start start"],
-  });
-  const scaleEmob = useTransform(scrollYProgressEmob, [0, 1], [3, 1]);
+            <p className="text-lg leading-relaxed">
+              The Centre for System Design (CSD), NITK Surathkal,
+              has developed cost-effective, magnet-free Switched
+              Reluctance Motors (SRMs) for electric vehicles,
+              including E-rickshaws and E-cycles. The initiative
+              supports indigenous motor and controller solutions
+              under the Atmanirbhar Bharat mission.
+            </p>
+          </div>
+        </div>
 
-	return (
-		<section className="flex justify-center items-center flex-col gap-2" id="projects">
-			<h1 className="text-4xl font-bold sticky top-16 pt-12 pb-1">
-				Highlight Projects
-			</h1>
-			<div className="flex flex-col items-center gap-16 text-white mx-24">
-				{/* Vlabs */}
-				<motion.div
-					ref={vlabRef}
-					className="flex gap-4 w-4/5 max-w-[1200px] sticky top-40 rounded-lg overflow-hidden max-h-[600px]"
-					style={{ scale: scale2Vlab }}
-				>
-					<motion.video
-						style={{ scale: scaleVLab }}
-						autoPlay
-						loop
-						muted
-						src="/virtualLabs.mp4"
-						className="w-full rounded-lg object-cover object-center"
-					></motion.video>
-					<div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
-						<motion.h1
-							initial={{ opacity: 0, y: 100 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1 }}
-							className="text-4xl font-extrabold"
-						>
-							Virtual labs
-						</motion.h1>
-						<motion.p
-							initial={{ opacity: 0, y: 100 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1 }}
-							className="text-2xl text-justify"
-						>
-							The Virtual Lab at NITK, hosted by the Centre for
-							System Design (CSD), is redefining education and
-							research by providing remote access to experiments
-							typically conducted in physical labs. CSD's
-							initiatives go beyond virtual labs, engaging in
-							outreach activities and workshops designed to foster
-							innovation, collaboration, and practical learning
-							experiences.
-						</motion.p>
-					</div>
-				</motion.div>
+        <div className="relative rounded-2xl overflow-hidden h-[500px] group shadow-xl">
+          <img
+            src="assets/images/emobility.jpg"
+            alt="E-Mobility"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
-          {/* Search */}
-          <motion.div
-            style={{ scale: scale2Search }}
-            ref={searchRef}
-            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-48 rounded-lg overflow-hidden max-h-[600px]"
-          >
-            <motion.video
-              style={{ scale: scaleSearch }}
-              autoPlay
-              loop
-              muted
-              src="/srm_video.mp4"
-              className="w-full rounded-lg object-cover object-center"
-            ></motion.video>
-            <div className="flex flex-col gap-8 w-full absolute justify-center items-start p-8 bg-black/60 h-full">
-              <motion.h1
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-4xl font-extrabold"
-              >
-                Switched Reluctance Motor (SRM)
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-xl text-justify"
-              >
-                The Centre for System Design (CSD), NITK Surathkal, has developed cost-effective, magnet-free Switched Reluctance Motors (SRMs) for electric vehicles, including E-rickshaws and E-cycles. Backed by the Ministry of Heavy Industries, the project delivers indigenous motor and controller solutions aligned with the Atmanirbhar Bharat mission.
-              </motion.p>
-            </div>
-          </motion.div>
+          <div className="absolute inset-0 bg-black/60 p-6 flex flex-col justify-end">
+            <h1 className="text-3xl font-extrabold mb-4">
+              E-Mobility
+            </h1>
 
-          {/* E-Mobility */}
-          <motion.div
-            style={{ scale: scale2Emob }}
-            ref={mergeRefs([eMobilityRef, measureRef])}
-            className="flex gap-4 w-4/5 max-w-[1200px] sticky top-56 rounded-lg overflow-hidden max-h-[600px]"
-          >
-            <motion.video
-              style={{ scale: scaleEmob }}
-              autoPlay
-              loop
-              muted
-              src="/about.mp4"
-              className="w-full rounded-lg object-cover object-center"
-            ></motion.video>
-            <div className="flex flex-col w-full gap-8 absolute justify-center items-start p-8 bg-black/60 h-full">
-              <motion.h1
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-4xl font-extrabold"
-              >
-                E-Mobility
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="text-xl"
-              >
-                The Centre for System Design at NITK Surathkal has spearheaded
-                an E-Mobility initiative, developing a diverse fleet of electric
-                vehicles, including e-cycles, e-scooters, and e-bikes, tailored
-                for campus transportation needs. Utilizing AI algorithms, the
-                project optimizes vehicle deployment and routing based on
-                predicted demand. This initiative positions NITK as a leader in
-                sustainable campus transportation and demonstrates the Centre's
-                expertise in integrating technology for practical, eco-friendly
-                solutions.
-              </motion.p>
-            </div>
-          </motion.div>
+            <p className="text-lg leading-relaxed">
+              The Centre for System Design at NITK Surathkal has
+              spearheaded an E-Mobility initiative, developing
+              e-cycles, e-scooters, and e-bikes for campus
+              transportation. AI-driven optimization improves
+              deployment and routing efficiency, making the
+              initiative both practical and sustainable.
+            </p>
+          </div>
+        </div>
 
-          {/* Exlore */}
-          {/* <motion.div
-					style={{ scale: scale2explore, height: height + 32 }}
-					className="flex gap-4 w-4/5 max-w-[1200px] sticky top-64 rounded-lg overflow-hidden"
-				>
-					<div className="flex gap-4 w-full justify-center items-center p-8 bg-sky-800">
-						<motion.div
-							initial={{ opacity: 0, y: 100 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1 }}
-							className="bg-white text-shark-900 px-8 py-4 rounded-full flex items-center justify-center gap-4 cursor-pointer"
-						>
-							<Link
-								href={"/projects"}
-								className="text-2xl font-extrabold"
-							>
-								Explore More Projects
-							</Link>
-							<ArrowRight className="w-8 h-8" />
-						</motion.div>
-					</div>
-				</motion.div> */}
-			</div>
-		</section>
-	)
+      </div>
+    </section>
+  );
 }
 
 export default HighlightProjects;
