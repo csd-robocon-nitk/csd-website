@@ -17,7 +17,9 @@ async function TeamPage({ searchParams }) {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      cache: "no-cache",
+      next: {
+        revalidate: 0
+      }
     }
   );
 
