@@ -970,6 +970,7 @@ export interface ApiHomePageAboutUsHomePageAboutUs extends Schema.SingleType {
     singularName: 'home-page-about-us';
     pluralName: 'home-page-about-uses';
     displayName: 'Home Page: About Us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -978,6 +979,7 @@ export interface ApiHomePageAboutUsHomePageAboutUs extends Schema.SingleType {
     left: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     centre: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     right: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    about_section_text: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

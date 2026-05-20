@@ -17,11 +17,11 @@ async function Sponsors() {
     }
   );
 
-  if (!logos.ok) {
-    throw new Error(
-      `Failed to fetch data: ${logos.status} ${logos.statusText}`
-    );
-  }
+  // if (!logos.ok) {
+  //   throw new Error(
+  //     `Failed to fetch data: ${logos.status} ${logos.statusText}`
+  //   );
+  // }
 
   logos = await logos.json()
 

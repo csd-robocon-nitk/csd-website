@@ -26,7 +26,7 @@ export default function FacilityCard ({ title, description, imageSrc, open, togg
             <motion.div 
                 layout 
                 transition={{ duration: 0.5 }} 
-                className={`relative w-[calc(33.3%-5px)] h-64 p-[3px] overflow-hidden rounded-[calc(var(--radius)+3px)] hover-draw-parent ${open ? "active" : ""} scroll-mt-24`}
+                className={`relative w-full sm:w-[calc(50%-5px)] lg:w-[calc(33.3%-5px)] h-64 p-[3px] overflow-hidden rounded-[calc(var(--radius)+3px)] hover-draw-parent ${open ? "active" : ""} scroll-mt-24`}
                 
                 ref={cardRef}
             >

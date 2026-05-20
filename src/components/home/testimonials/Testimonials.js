@@ -16,9 +16,9 @@ export default async function Testimonials() {
 		}
 	)
 
-	if (!res.ok) {
-		throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
-	}
+	// if (!res.ok) {
+	// 	throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
+	// }
 
 	const data = await res.json()
 	const testimonials = await data.data
