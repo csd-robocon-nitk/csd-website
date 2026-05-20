@@ -17,7 +17,7 @@ export default function EventsCard({event}) {
         <img
           src={
             process.env.NEXT_PUBLIC_STRAPI_API_URL +
-            event.attributes.media.data.attributes.formats.thumbnail.url
+            event.attributes.media.data?.attributes.formats.thumbnail.url
           }
           alt={event.attributes.title}
           className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
@@ -97,6 +97,7 @@ export default function EventsCard({event}) {
           
           {event.attributes.learn_more && event.attributes.learn_more.trim() !== "" && (
             <Link 
+
               href={event.attributes.learn_more}
               target="_blank" 
               rel="noopener noreferrer"

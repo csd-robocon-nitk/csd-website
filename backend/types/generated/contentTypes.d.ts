@@ -906,12 +906,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    media: Attribute.Media<'images' | 'videos'>;
+    media: Attribute.Media<'images' | 'videos'> & Attribute.Required;
     start: Attribute.DateTime & Attribute.Required;
     desc: Attribute.Text;
     end: Attribute.DateTime;
     learn_more: Attribute.String;
-    registerLink: Attribute.String;
+    isHighlight: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
