@@ -10,11 +10,16 @@ export default function MobileDropdownNavElement ({ text, sublinks, opened }) {
     }, [ opened ])
     return (
         <li className="pb-2 pt-8 pl-2 border-dotted border-b border-white">
-            <div className="flex gap-px pb-1 items-center" onClick={() => setOpen(!open)}>
+            <div
+                className="flex gap-px pb-1 items-center cursor-pointer"
+                onClick={() => setOpen(!open)}
+                role="button"
+                aria-expanded={open}
+            >
                 <p>{text}</p>
                 <ChevronDown className="mt-0.5" />
             </div>
-            <ul className={`${open ? "max-h-32" : "max-h-0"} duration-300 overflow-hidden`}>
+            <ul className={`${open ? "max-h-[1000px]" : "max-h-0"} duration-300 overflow-hidden`}>
                 {
                     sublinks.map(({ text, href }) => (
                         <li key={href}>

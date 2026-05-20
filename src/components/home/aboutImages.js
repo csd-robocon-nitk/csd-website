@@ -17,9 +17,9 @@ export default async function getAboutImages(){
 	)
     console.log(res)
 
-    if (!res.ok) {
-		throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
-	}
+    // if (!res.ok) {
+	// 	throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`)
+	// }
 
     const data = await res.json()
 	const about_images = data.data?.attributes
