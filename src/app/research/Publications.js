@@ -1,4 +1,4 @@
-import PublicationCard from "./PublicationCard"
+import PublicationListClient from "./PublicationListClient"
 
 export default async function Publications () {
     let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/research-publications`, {
@@ -14,12 +14,8 @@ export default async function Publications () {
     let publications = data.data
 
     return (
-        <div className="max-w-[1100px] mx-auto">
-            {
-                publications.map(publication => (
-                    <PublicationCard key={publication.id} publication={publication} />
-                ))
-            }
+        <div className="px-5 pb-20">
+            <PublicationListClient publications={publications} />
         </div>
     )
 }
