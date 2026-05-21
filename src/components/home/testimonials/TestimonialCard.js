@@ -16,7 +16,7 @@ export default function TestimonialCard({ testimonial, setCardWidth }) {
 
 	return (
 		<div 
-			className="bg-sky-200 flex w-[calc((100vw-144px)/3)] min-w-[400px] h-[calc(0.55*(100vw-144px)/3)] min-h-[250px]" 
+			className="bg-sky-200 flex w-[calc((100vw-144px)/3)] min-w-[360px] h-[calc(0.55*(100vw-144px)/3)] min-h-[250px]" 
 			ref={cardRef}
 		>
 			<Image
