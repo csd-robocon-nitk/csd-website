@@ -29,7 +29,7 @@ export default function Team ({ team, external_team }) {
             value="team"
             className="space-y-6 mt-6"
         >
-            <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-stretch mx-auto gap-3 max-w-[1100px]">
+            <div className="grid lg:grid-cols-2 sm:grid-cols-2 grid-cols-1 items-stretch mx-auto gap-3 max-w-[1100px]">
                 {
                     team_data.map(({ designation, name, image_url }, index) => (
                         <div
