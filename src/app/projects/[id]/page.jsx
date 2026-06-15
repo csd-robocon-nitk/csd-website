@@ -2,6 +2,7 @@ import { ChevronLeft, ArrowRight } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs"
 import Image from "next/image"
 import Link from "next/link"
+import { redirect } from "next/navigation"
 import { SquareArrowOutUpRight } from "lucide-react"
 import Description from "../components/Description"
 import KeyFeatures from "../components/KeyFeatures"
@@ -11,6 +12,12 @@ import Testimonials from "../components/Testimonials"
 
 export default async function ProjectDetail ({ params }) {
 	const { id } = await params
+	
+	if (id === "128") {
+		redirect("/projects/e-mobility")
+	} else if (id === "132") {
+		redirect("/projects/SRM")
+	}
 	
 	const res = await fetch(
 		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/projects/${id}?populate[cover_image]=*&populate[objectives]=*&populate[slides][populate]=*&populate[key_features]=*&populate[impact][populate]=*&populate[team][populate]=*&populate[external_team][populate]=*&populate[testimonials]=*`,
