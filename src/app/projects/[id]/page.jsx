@@ -10,15 +10,15 @@ import Impact from "../components/Impact"
 import Team from "../components/Team"
 import Testimonials from "../components/Testimonials"
 
-export default async function ProjectDetail ({ params }) {
+export default async function ProjectDetail({ params }) {
 	const { id } = await params
-	
-	if (id === "128") {
+	const numericId = Number(id)
+	if (numericId === 17 || numericId === 128) {
 		redirect("/projects/e-mobility")
-	} else if (id === "132") {
+	} else if (numericId === 19 || numericId === 132) {
 		redirect("/projects/SRM")
 	}
-	
+
 	const res = await fetch(
 		`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/projects/${id}?populate[cover_image]=*&populate[objectives]=*&populate[slides][populate]=*&populate[key_features]=*&populate[impact][populate]=*&populate[team][populate]=*&populate[external_team][populate]=*&populate[testimonials]=*`,
 		{
@@ -35,7 +35,7 @@ export default async function ProjectDetail ({ params }) {
 	const image_url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${cover_image?.data.attributes.url}`
 
 	let tab_names = [{ name: "Description", value: "description" }]
-	let tabs = [ <Description slides={slides} full_description={full_description} key="description" /> ]
+	let tabs = [<Description slides={slides} full_description={full_description} key="description" />]
 
 	if (key_features.length) {
 		tab_names.push({ name: "Key Features", value: "key_features" })
@@ -80,7 +80,7 @@ export default async function ProjectDetail ({ params }) {
 						className="w-full aspect-square rounded-lg object-cover"
 					/>
 
-					{ !!objectives.length &&
+					{!!objectives.length &&
 						<div className="space-y-2 border border-sky-100 p-4 rounded-lg">
 							<h2 className="font-bold text-xl">Objectives:</h2>
 							<ul className="space-y-2">
@@ -97,15 +97,15 @@ export default async function ProjectDetail ({ params }) {
 										)
 									)
 								}
-								</ul>
+							</ul>
 						</div>
 					}
 
-					{ external_link &&
+					{external_link &&
 						<a
 							href={external_link}
 							target="_blank"
-  							rel="noopener noreferrer"
+							rel="noopener noreferrer"
 							className="flex items-center text-sky-800 bg-sky-200/50 rounded-full font-bold px-6 py-3 text-lg hover:bg-sky-200/40 duration-200"
 						>
 							<SquareArrowOutUpRight className="mr-2 h-5 w-5" />
@@ -134,7 +134,7 @@ export default async function ProjectDetail ({ params }) {
 						</TabsList>
 
 						{tabs}
-						
+
 					</Tabs>
 				</div>
 			</div>
