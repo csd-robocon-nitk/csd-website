@@ -11,6 +11,7 @@ import fetchContribution from './helpers/fetchContribution'
 import fetchOutreach from './helpers/fetchOutreach'
 import fetchTeam from './helpers/fetchTeam'
 import TeamSection from './sections/TeamSection'
+import LabsDevelopedNITKSection from './sections/LabsDevelopedNITKSection'
 
 export default async function VirtualLabs() {
     let labs = await fetchLabs()
@@ -34,6 +35,7 @@ export default async function VirtualLabs() {
             <AboutSection />
             <KeyFeaturesSection />
             <LabsDevelopedSection labs={labs} />
+            <LabsDevelopedNITKSection />
             <ContributionSection contribution={contribution} />
             <OutreachSection outreach={outreach} />
             <TeamSection team={team} />
