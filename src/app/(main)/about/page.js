@@ -2,7 +2,7 @@
 
 import CountUp from "@/components/CountUp";
 import { motion } from "framer-motion";
-import HoverBottomNav from "../../components/hoverBottomNav";
+import HoverBottomNav from "../../../components/hoverBottomNav";
 import WhatwedoSection from "./WhatwedoSection";
 import Splash from "@/components/splash";
 import ObjectivesSection from "./ObjectivesSection";

@@ -1,9 +1,5 @@
-import { Lexend_Deca, Poppins } from 'next/font/google'
+import { Lexend_Deca } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/header/header'
-import Footer from '@/components/footer'
-import { Providers } from './providers'
-import { Suspense } from 'react'
 
 const inter = Lexend_Deca({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 
@@ -18,13 +14,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale = 1.0,maximum-scale=1.0" /> 
 			<body className={`${inter.className} bg-sky-50`}>
-                <Providers>
-					<Suspense>
-						<Header />
-					</Suspense>
-					{children}
-					<Footer />
-				</Providers>
+				{children}
             </body>
 		</html>
 	)

@@ -35,7 +35,7 @@ export default async function VirtualLabs() {
             <AboutSection />
             <KeyFeaturesSection />
             <LabsDevelopedSection labs={labs} />
-            <LabsDevelopedNITKSection />
+            {/* <LabsDevelopedNITKSection /> */}
             <ContributionSection contribution={contribution} />
             <OutreachSection outreach={outreach} />
             <TeamSection team={team} />

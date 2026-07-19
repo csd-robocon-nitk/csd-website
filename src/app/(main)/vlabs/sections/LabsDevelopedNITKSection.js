@@ -7,19 +7,19 @@ export default function LabsDevelopedNITKSection () {
     return (
         <section id="labs" className="py-10">
             <div className="container mx-auto px-4">
-                <motion.h2 
+                {/* <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="sm:text-3xl text-2xl font-bold mb-8 text-center text-sky-800"
                 >
                     Labs in Collaboration with NITK and Nodal Centres
-                </motion.h2>
+                </motion.h2> */}
                 <div className="flex flex-col items-center mx-auto gap-10 max-w-[1100px]">
                     <div className="max-w-sm flex flex-col gap-4 items-center">
-                        <Link href="/vlabs/marine-mechatronics-system-design">
+                        <Link href="/marine-mechatronics-system-design">
                             <img
-                                src="/vlabs/ina.jpg"
+                                src="/vlabs/ina.png"
                                 className="w-56"
                             />
                         </Link>
@@ -27,7 +27,7 @@ export default function LabsDevelopedNITKSection () {
                             Indian Naval Academy - Ezhimala, Kannur
                         </h3>
                     </div>
-                    <div class="flex gap-10 flex-wrap justify-center">
+                    <div className="flex gap-10 flex-wrap justify-center">
                         <div className="max-w-sm flex flex-col gap-4 items-center">
                             <img
                                 src="/vlabs/dsu.png"
@@ -39,7 +39,7 @@ export default function LabsDevelopedNITKSection () {
                         </div>
                         <div className="max-w-sm flex flex-col gap-4 items-center">
                             <img
-                                src="/vlabs/srm.jpg"
+                                src="/vlabs/srm.png"
                                 className="w-44"
                             />
                             <h3 className="sm:text-xl text-black text-lg font-semibold text-center">

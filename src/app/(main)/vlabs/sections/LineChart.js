@@ -37,9 +37,8 @@ export default function Component () {
 		{ year: "2021", vlncs: 318, workshops: 92 },
 		{ year: "2022", vlncs: 401, workshops: 212 },
 		{ year: "2023", vlncs: 438, workshops: 225 },
-		{ year: "2024", vlncs: 214, workshops: 442 },
-		{ year: "2025", vlncs: 167, workshops: 515 },
-		{ year: "2026", vlncs: 102, workshops: 96 },
+		{ year: "2024", vlncs: 448, workshops: 442 },
+		{ year: "2025", vlncs: 456, workshops: 515 },
 	]
 
 	return (
