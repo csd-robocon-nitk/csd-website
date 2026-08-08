@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "verified_staffs",
+  "info": {
+    "singularName": "verified-staff",
+    "pluralName": "verified-staffs",
+    "displayName": "Verified Staff",
+    "description": "Verification data for CSD Employees/Staff"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "employeeId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "revoked",
+        "expired"
+      ],
+      "default": "active",
+      "required": true
+    },
+    "verifiedDate": {
+      "type": "date"
+    },
+    "people": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::people.people"
+    }
+  }
+}

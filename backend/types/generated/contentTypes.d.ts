@@ -1364,6 +1364,46 @@ export interface ApiUpdateUpdate extends Schema.CollectionType {
   };
 }
 
+export interface ApiVerifiedStaffVerifiedStaff extends Schema.CollectionType {
+  collectionName: 'verified_staffs';
+  info: {
+    singularName: 'verified-staff';
+    pluralName: 'verified-staffs';
+    displayName: 'Verified Staff';
+    description: 'Verification data for CSD Employees/Staff';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    employeeId: Attribute.String & Attribute.Required & Attribute.Unique;
+    status: Attribute.Enumeration<['active', 'revoked', 'expired']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'active'>;
+    verifiedDate: Attribute.Date;
+    people: Attribute.Relation<
+      'api::verified-staff.verified-staff',
+      'oneToOne',
+      'api::people.people'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::verified-staff.verified-staff',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::verified-staff.verified-staff',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiVisitVisit extends Schema.CollectionType {
   collectionName: 'visits';
   info: {
@@ -1576,6 +1616,7 @@ declare module '@strapi/types' {
       'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::update.update': ApiUpdateUpdate;
+      'api::verified-staff.verified-staff': ApiVerifiedStaffVerifiedStaff;
       'api::visit.visit': ApiVisitVisit;
       'api::vlabs-contribution.vlabs-contribution': ApiVlabsContributionVlabsContribution;
       'api::vlabs-lab-developed.vlabs-lab-developed': ApiVlabsLabDevelopedVlabsLabDeveloped;
