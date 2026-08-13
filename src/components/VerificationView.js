@@ -15,16 +15,16 @@ function formatDate(dateStr) {
   }
 }
 
-export default async function VerificationView({ name }) {
+export default async function VerificationView({ uid }) {
   const token = process.env.NEXT_PUBLIC_TOKEN;
   const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
   let staffData = null;
 
-  if (name) {
+  if (uid) {
     try {
       // Search verified-staffs by the linked people's name (deep relation filter)
-      const fetchUrl = `${strapiUrl}/api/verified-staffs?filters[people][name][$eq]=${encodeURIComponent(name)}&populate[people][populate][0]=pfp`;
+      const fetchUrl = `${strapiUrl}/api/verified-staffs?filters[uid][$eq]=${encodeURIComponent(uid)}&populate[person][populate]=*`;
       const res = await fetch(fetchUrl, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
         next: { revalidate: 0 }
@@ -34,7 +34,7 @@ export default async function VerificationView({ name }) {
         const json = await res.json();
         if (json.data && json.data.length > 0) {
           const attributes = json.data[0].attributes;
-          const peopleAttr = attributes.people?.data?.attributes;
+          const peopleAttr = attributes.person?.data?.attributes;
 
           let statusVal = attributes.status || "active";
           statusVal = statusVal.charAt(0).toUpperCase() + statusVal.slice(1).toLowerCase();

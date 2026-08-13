@@ -9,7 +9,7 @@ export const metadata = {
 export default async function VerifyNamePage({ params }) {
   const resolvedParams = params ? await params : {};
   // The URL segment is the staff member's name (URL-encoded by the QR code)
-  const name = resolvedParams.name ? decodeURIComponent(resolvedParams.name) : null;
+  const id = resolvedParams.id
 
-  return <VerificationView name={name} />;
+  return <VerificationView uid={id} />;
 }
