@@ -1132,6 +1132,11 @@ export interface ApiPeoplePeople extends Schema.CollectionType {
       'manyToMany',
       'api::project.project'
     >;
+    verified_staff: Attribute.Relation<
+      'api::people.people',
+      'oneToOne',
+      'api::verified-staff.verified-staff'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1370,22 +1375,21 @@ export interface ApiVerifiedStaffVerifiedStaff extends Schema.CollectionType {
     singularName: 'verified-staff';
     pluralName: 'verified-staffs';
     displayName: 'Verified Staff';
-    description: 'Verification data for CSD Employees/Staff';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    employeeId: Attribute.String & Attribute.Required & Attribute.Unique;
-    status: Attribute.Enumeration<['active', 'revoked', 'expired']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'active'>;
-    verifiedDate: Attribute.Date;
-    people: Attribute.Relation<
+    uid: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+    person: Attribute.Relation<
       'api::verified-staff.verified-staff',
       'oneToOne',
       'api::people.people'
     >;
+    employeeId: Attribute.String;
+    status: Attribute.Enumeration<['active']>;
+    verified_date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

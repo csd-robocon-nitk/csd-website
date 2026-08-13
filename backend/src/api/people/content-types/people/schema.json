@@ -80,6 +80,12 @@
       "relation": "manyToMany",
       "target": "api::project.project",
       "mappedBy": "team"
+    },
+    "verified_staff": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::verified-staff.verified-staff",
+      "mappedBy": "person"
     }
   }
 }

@@ -4,36 +4,34 @@
   "info": {
     "singularName": "verified-staff",
     "pluralName": "verified-staffs",
-    "displayName": "Verified Staff",
-    "description": "Verification data for CSD Employees/Staff"
+    "displayName": "Verified Staff"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+    "uid": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::people.people",
+      "inversedBy": "verified_staff"
+    },
     "employeeId": {
-      "type": "string",
-      "required": true,
-      "unique": true
+      "type": "string"
     },
     "status": {
       "type": "enumeration",
       "enum": [
-        "active",
-        "revoked",
-        "expired"
-      ],
-      "default": "active",
-      "required": true
+        "active"
+      ]
     },
-    "verifiedDate": {
+    "verified_date": {
       "type": "date"
-    },
-    "people": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::people.people"
     }
   }
 }
