@@ -1375,20 +1375,37 @@ export interface ApiVerifiedStaffVerifiedStaff extends Schema.CollectionType {
     singularName: 'verified-staff';
     pluralName: 'verified-staffs';
     displayName: 'Verified Staff';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    uid: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+    uid: Attribute.UID<
+      undefined,
+      undefined,
+      {
+        'disable-regenerate': true;
+        'disable-auto-fill': false;
+        'uuid-format': '';
+      }
+    > &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::strapi-advanced-uuid.uuid',
+        {
+          'disable-regenerate': true;
+          'disable-auto-fill': false;
+          'uuid-format': '';
+        }
+      >;
     person: Attribute.Relation<
       'api::verified-staff.verified-staff',
       'oneToOne',
       'api::people.people'
     >;
     employeeId: Attribute.String;
-    status: Attribute.Enumeration<['active']>;
+    status: Attribute.Enumeration<['active', 'upskilled']>;
     verified_date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

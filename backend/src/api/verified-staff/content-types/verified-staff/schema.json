@@ -4,7 +4,8 @@
   "info": {
     "singularName": "verified-staff",
     "pluralName": "verified-staffs",
-    "displayName": "Verified Staff"
+    "displayName": "Verified Staff",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,7 +14,13 @@
   "attributes": {
     "uid": {
       "type": "customField",
-      "customField": "plugin::strapi-advanced-uuid.uuid"
+      "customField": "plugin::strapi-advanced-uuid.uuid",
+      "options": {
+        "disable-regenerate": true,
+        "disable-auto-fill": false,
+        "uuid-format": ""
+      },
+      "required": true
     },
     "person": {
       "type": "relation",
@@ -27,7 +34,8 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "active"
+        "active",
+        "upskilled"
       ]
     },
     "verified_date": {
