@@ -123,7 +123,7 @@ export default async function VerificationView({ uid }) {
 
           {staffData.verifiedDate && (
             <div>
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verified</div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Valid Until</div>
               <div className="text-sm font-bold text-slate-700 mt-1">{staffData.verifiedDate}</div>
             </div>
           )}
