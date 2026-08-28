@@ -102,8 +102,8 @@ async function migrate() {
           data: {
             employeeId,
             status: 'active',
-            verifiedDate: new Date().toISOString().split('T')[0],
-            people: person.id,
+            verified_date: new Date().toISOString().split('T')[0],
+            person: person.id,
             publishedAt: new Date().toISOString()
           }
         })

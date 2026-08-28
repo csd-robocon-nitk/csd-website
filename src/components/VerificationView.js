@@ -49,7 +49,7 @@ export default async function VerificationView({ uid }) {
             imageUrl: pfpUrl ? `${strapiUrl}${pfpUrl}` : null,
             employeeId: attributes.employeeId,
             status: statusVal,
-            verifiedDate: formatDate(attributes.verifiedDate || attributes.createdAt)
+            verifiedDate: formatDate(attributes.verified_date || attributes.verifiedDate || attributes.createdAt)
           };
         }
       }
@@ -69,9 +69,8 @@ export default async function VerificationView({ uid }) {
   }
 
   const isStatusActive = staffData.status === "Active";
-  const isStatusRevoked = staffData.status === "Revoked";
-  const statusColor = isStatusActive ? "text-emerald-600" : isStatusRevoked ? "text-red-600" : "text-amber-500";
-  const statusLabel = isStatusActive ? "✔ Verified Staff" : isStatusRevoked ? "✖ Revoked Staff" : "⚠ Expired Card";
+  const statusColor = isStatusActive ? "text-emerald-600" : "text-amber-500";
+  const statusLabel = isStatusActive ? "✔ Verified Staff" : "⚠ Expired Card";
 
   return (
     <div className="min-h-screen py-32 px-4 bg-sky-50 flex items-center justify-center font-sans">
@@ -83,7 +82,7 @@ export default async function VerificationView({ uid }) {
 
         {staffData.imageUrl && (
           <div className="flex justify-center mb-4">
-            <div className={`w-24 h-24 rounded-full overflow-hidden border-2 ${isStatusActive ? "border-emerald-500" : isStatusRevoked ? "border-red-500" : "border-amber-500"}`}>
+            <div className={`w-24 h-24 rounded-full overflow-hidden border-2 ${isStatusActive ? "border-emerald-500" : "border-amber-500"}`}>
               <img src={staffData.imageUrl} alt={staffData.name} className="w-full h-full object-cover" />
             </div>
           </div>
@@ -123,7 +122,9 @@ export default async function VerificationView({ uid }) {
 
           {staffData.verifiedDate && (
             <div>
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Valid Until</div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                {isStatusActive ? "Valid Until" : "Date of Resignation"}
+              </div>
               <div className="text-sm font-bold text-slate-700 mt-1">{staffData.verifiedDate}</div>
             </div>
           )}

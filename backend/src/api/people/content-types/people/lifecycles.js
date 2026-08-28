@@ -11,8 +11,8 @@ module.exports = {
         data: {
           employeeId,
           status: 'active',
-          verifiedDate: new Date().toISOString().split('T')[0],
-          people: result.id,
+          verified_date: new Date().toISOString().split('T')[0],
+          person: result.id,
           publishedAt: new Date().toISOString()
         }
       });
