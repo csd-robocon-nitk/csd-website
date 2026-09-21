@@ -31,7 +31,7 @@ export default function LabsDevelopedNITKSection () {
                         <div className="max-w-sm flex flex-col gap-4 items-center">
                             <img
                                 src="/vlabs/dsu_new.png"
-                                className="w-44"
+                                className="w-44 h-44 object-contain"
                             />
                             <h3 className="sm:text-xl text-black text-lg font-semibold text-center">
                                 Dhanalakshmi Srinivasan Institute of Research and Technology, Perambalur, Tamil Nadu
@@ -40,7 +40,7 @@ export default function LabsDevelopedNITKSection () {
                         <div className="max-w-sm flex flex-col gap-4 items-center">
                             <img
                                 src="/vlabs/srm.png"
-                                className="w-44"
+                                className="w-44 h-44 object-contain"
                             />
                             <h3 className="sm:text-xl text-black text-lg font-semibold text-center">
                                 SRM Institute of Science and Technology, Kattankulathur, Chennai
