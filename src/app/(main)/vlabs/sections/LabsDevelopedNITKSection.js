@@ -30,7 +30,7 @@ export default function LabsDevelopedNITKSection () {
                     <div className="flex gap-10 flex-wrap justify-center">
                         <div className="max-w-sm flex flex-col gap-4 items-center">
                             <img
-                                src="/vlabs/dsu.png"
+                                src="/vlabs/dsu_new.png"
                                 className="w-44"
                             />
                             <h3 className="sm:text-xl text-black text-lg font-semibold text-center">
